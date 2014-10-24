@@ -66,5 +66,27 @@
         "country": "Estonia",
         "time_zone": "UTC+2",
         "last_updated": "2014-10-24"
+    },
+    {
+        "github_username": "lfolco",
+        "twitter_username": "lfolco",
+        "name": "Laura Folco",
+        "email": "me@laurafolco.com",
+        "company": "Freelancer",
+        "available": false,
+        "city": "Brooklyn",
+        "country": "US",
+        "time_zone": "UTC-5",
+        "certifications": [
+            {
+                "name": "Magento Certified Developer",
+                "url": "http://www.magentocommerce.com/certification/directory/dev/8094/"
+            },
+            {
+                "name": "Magento Certified Solution Specialist",
+                "url": "http://www.magentocommerce.com/certification/directory/dev/8094/"
+            }
+        ],
+        "last_updated": "2014-10-24"
     }
 ]
