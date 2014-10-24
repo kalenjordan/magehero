@@ -38,11 +38,13 @@
     {
         "github_username": "brendanfalkowski",
         "twitter_username": "falkowski",
+        "url_website": "http://gravitydept.com",
         "name": "Brendan Falkowski",
         "email": "",
         "company": "Gravity Department",
         "available": false,
         "city": "Lancaster",
+        "country": "US",
         "time_zone": "UTC-5",
         "certifications": [
             {
