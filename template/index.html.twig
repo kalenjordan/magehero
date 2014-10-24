@@ -24,7 +24,9 @@
                             <th>Name</th>
                             <th>Github</th>
                             <th>Twitter</th>
+                            <th>Website</th>
                             <th>City</th>
+                            <th>Country</th>
                             <th>Available</th>
                             <th>Last Updated</th>
                         </tr>
@@ -45,7 +47,15 @@
                                         n/a
                                     {% endif %}
                                 </td>
+                                <td>
+                                    {% if developer.url_website %}
+                                        <a href="{{ developer.url_website }}">Website</a>
+                                    {% else %}
+                                        n/a
+                                    {% endif %}
+                                </td>
                                 <td>{{ developer.city }}</td>
+                                <td>{{ developer.country }}</td>
                                 <td>{{ developer.available ? "Yes" : "No" }}</td>
                                 <td>{{ developer.last_updated|date('M j, Y') }}</td>
                             </tr>

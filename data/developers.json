@@ -2,11 +2,13 @@
     {
         "github_username": "kalenjordan",
         "twitter_username": "kalenjordan",
+        "url_website": "https://magemail.co",
         "name": "Kalen Jordan",
         "email": "hello@magemail.co",
         "company": "MageMail",
         "available": false,
         "city": "Los Angeles",
+        "country": "US",
         "time_zone": "UTC-8",
         "certifications": [
             {
@@ -46,10 +48,43 @@
             {
                 "name": "Magento Certification Advisory Board",
                 "url": "http://www.magentocommerce.com/certification/board"
-            }
+            },
             {
                 "name": "Magento Certified Frontend Developer",
                 "url": "http://www.magentocommerce.com/certification/directory/dev/38919/"
+            }
+        ]
+    },
+    {
+        "github_username": "pronto2000",
+        "twitter_username": "pronto2000",
+        "name": "Tanel Raja",
+        "email": "tanel.raja@multon.ee",
+        "company": "Multon",
+        "available": false,
+        "city": "Tallinn",
+        "country": "Estonia",
+        "time_zone": "UTC+2",
+        "last_updated": "2014-10-24"
+    },
+    {
+        "github_username": "lfolco",
+        "twitter_username": "lfolco",
+        "name": "Laura Folco",
+        "email": "me@laurafolco.com",
+        "company": "Freelancer",
+        "available": false,
+        "city": "Brooklyn",
+        "country": "US",
+        "time_zone": "UTC-5",
+        "certifications": [
+            {
+                "name": "Magento Certified Developer",
+                "url": "http://www.magentocommerce.com/certification/directory/dev/8094/"
+            },
+            {
+                "name": "Magento Certified Solution Specialist",
+                "url": "http://www.magentocommerce.com/certification/directory/dev/8094/"
             }
         ],
         "last_updated": "2014-10-24"
