@@ -15,5 +15,17 @@
             }
         ],
         "last_updated": "2014-10-24"
+    },
+    {
+        "github_username": "pronto2000",
+        "twitter_username": "pronto2000",
+        "name": "Tanel Raja",
+        "email": "tanel.raja@multon.ee",
+        "company": "Multon",
+        "available": false,
+        "city": "Tallinn",
+        "country": "Estonia",
+        "time_zone": "UTC+2",
+        "last_updated": "2014-10-24"
     }
 ]
