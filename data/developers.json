@@ -2,11 +2,13 @@
     {
         "github_username": "kalenjordan",
         "twitter_username": "kalenjordan",
+        "url_website": "https://magemail.co",
         "name": "Kalen Jordan",
         "email": "hello@magemail.co",
         "company": "MageMail",
         "available": false,
         "city": "Los Angeles",
+        "country": "US",
         "time_zone": "UTC-8",
         "certifications": [
             {
@@ -46,12 +48,12 @@
             {
                 "name": "Magento Certification Advisory Board",
                 "url": "http://www.magentocommerce.com/certification/board"
-            }
+            },
             {
                 "name": "Magento Certified Frontend Developer",
                 "url": "http://www.magentocommerce.com/certification/directory/dev/38919/"
             }
-        ],
+        ]
     },
     {
         "github_username": "pronto2000",
