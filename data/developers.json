@@ -15,5 +15,23 @@
             }
         ],
         "last_updated": "2014-10-24"
+    },
+    {
+        "github_username": "miguelbalparda",
+        "twitter_username": "mbalparda",
+        "name": "Miguel Balparda",
+        "email": "miguel.balparda@moozo.com.ar",
+        "company": "StartOn",
+        "available": false,
+        "city": "Rosario",
+        "time_zone": "UTC-3",
+        "certifications": [
+            {
+                "name": "Magento Certified Solution Specialist",
+                "url": "http://www.magentocommerce.com/certification/directory/dev/775035/"
+            }
+        ],
+        "last_updated": "2014-10-24"
     }
+
 ]
