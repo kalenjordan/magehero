@@ -32,6 +32,26 @@
             }
         ],
         "last_updated": "2014-10-24"
+    },
+    {
+        "github_username": "brendanfalkowski",
+        "twitter_username": "falkowski",
+        "name": "Brendan Falkowski",
+        "email": "",
+        "company": "Gravity Department",
+        "available": false,
+        "city": "Lancaster",
+        "time_zone": "UTC-5",
+        "certifications": [
+            {
+                "name": "Magento Certification Advisory Board",
+                "url": "http://www.magentocommerce.com/certification/board"
+            }
+            {
+                "name": "Magento Certified Frontend Developer",
+                "url": "http://www.magentocommerce.com/certification/directory/dev/38919/"
+            }
+        ],
+        "last_updated": "2014-10-24"
     }
-
 ]
