@@ -1,0 +1,6 @@
+{
+    "require": {
+        "torophp/torophp": "dev-master",
+        "twig/twig": "dev-master"
+    }
+}

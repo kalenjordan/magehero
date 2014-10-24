@@ -1,0 +1,159 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "36265675a58d9338117a5c0063e7c85a",
+    "packages": [
+        {
+            "name": "torophp/torophp",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/anandkunal/ToroPHP.git",
+                "reference": "c81ba3718de0e88e544565a5e6a74271bf3feb45"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/anandkunal/ToroPHP/zipball/c81ba3718de0e88e544565a5e6a74271bf3feb45",
+                "reference": "c81ba3718de0e88e544565a5e6a74271bf3feb45",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/Toro.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Martin Bean",
+                    "email": "martin@martinbean.co.uk",
+                    "homepage": "http://www.martinbean.co.uk",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Kunal Anand",
+                    "email": "kunal.r.anand@gmail.com",
+                    "homepage": "http://kunalanand.com/",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Danillo César de O. Melo",
+                    "email": "danillos@gmail.com",
+                    "homepage": "http://www.danillocesar.com.br/",
+                    "role": "Contributor"
+                },
+                {
+                    "name": "Robbie Coleman",
+                    "homepage": "http://robbie.robnrob.com",
+                    "role": "Contributor"
+                },
+                {
+                    "name": "Berker Peksag",
+                    "homepage": "http://berkerpeksag.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Jason Mooberry",
+                    "homepage": "http://jasonmooberry.com/",
+                    "role": "Developer"
+                },
+                {
+                    "name": "John Kurkowski",
+                    "role": "Contributor"
+                }
+            ],
+            "description": "Toro is a PHP router for developing RESTful web applications and APIs.",
+            "homepage": "http://github.com/anandkunal/ToroPHP",
+            "keywords": [
+                "framework",
+                "php",
+                "router"
+            ],
+            "time": "2014-06-02 12:00:49"
+        },
+        {
+            "name": "twig/twig",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/twigphp/Twig.git",
+                "reference": "f8b6e918a7d8e073efe14cbed7ae02df40ef19ed"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/f8b6e918a7d8e073efe14cbed7ae02df40ef19ed",
+                "reference": "f8b6e918a7d8e073efe14cbed7ae02df40ef19ed",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.4"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.16-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Twig_": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
+                },
+                {
+                    "name": "Armin Ronacher",
+                    "email": "armin.ronacher@active-4.com",
+                    "role": "Project Founder"
+                },
+                {
+                    "name": "Twig Team",
+                    "homepage": "http://twig.sensiolabs.org/contributors",
+                    "role": "Contributors"
+                }
+            ],
+            "description": "Twig, the flexible, fast, and secure template language for PHP",
+            "homepage": "http://twig.sensiolabs.org",
+            "keywords": [
+                "templating"
+            ],
+            "time": "2014-10-23 15:29:03"
+        }
+    ],
+    "packages-dev": [
+
+    ],
+    "aliases": [
+
+    ],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "torophp/torophp": 20,
+        "twig/twig": 20
+    },
+    "platform": [
+
+    ],
+    "platform-dev": [
+
+    ]
+}

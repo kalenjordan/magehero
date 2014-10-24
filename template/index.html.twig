@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% block head %}
+            <link rel="stylesheet" type="text/css" href="/magedevs/skin/app.css" media="all" />
+            <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+            <title>Magento Developers | MageDev</title>
+            <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        {% endblock %}
+    </head>
+    <body>
+        <div class="wrapper">
+            {% block masthead %}
+                <div class="masthead">
+                    <h1>Magento Developers</h1>
+                    <p>Find Magento developers that you can trust</p>
+                </div>
+            {% endblock %}
+
+            <div class="content">
+                {% block content %}
+                    <table>
+                        <tr>
+                            <th>Name</th>
+                            <th>Github</th>
+                            <th>Twitter</th>
+                            <th>City</th>
+                            <th>Available</th>
+                            <th>Last Updated</th>
+                        </tr>
+                        {% for developer in developers %}
+                            <tr>
+                                <td>{{ developer.name }}</td>
+                                <td>
+                                    {% if developer.github_username %}
+                                        <a href="https://github.com/{{ developer.github_username }}">{{ developer.github_username }}</a>
+                                    {% else %}
+                                        n/a
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    {% if developer.twitter_username %}
+                                        <a href="https://twitter.com/{{ developer.twitter_username }}">{{ developer.twitter_username }}</a>
+                                    {% else %}
+                                        n/a
+                                    {% endif %}
+                                </td>
+                                <td>{{ developer.city }}</td>
+                                <td>{{ developer.available ? "Yes" : "No" }}</td>
+                                <td>{{ developer.last_updated|date('M j, Y') }}</td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                {% endblock %}
+            </div>
+        </div>
+        <div class="footer">
+            Interested to know how to add yourself or contribute?
+            Check out the <a href="https://github.com/kalenjordan/magedevs">github repository</a>.
+        </div>
+    </body>
+</html>
+

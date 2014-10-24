@@ -1,0 +1,41 @@
+body {
+    background-color: rgb(237, 236, 236);
+    padding: 0;
+    margin: 0;
+    font-family: arial;
+}
+
+.wrapper {
+    max-width: 900px;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1em;
+    margin-top: 1em;
+}
+
+.masthead {
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+.masthead h1 {
+    margin: 0;
+    padding: 0;
+    margin-bottom: 0.25em;
+}
+
+.masthead p {
+    padding: 0;
+    margin: 0;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 1em;
+    font-size: 12PX;
+}
+
+th, td {
+    padding: 0.5em;
+}
