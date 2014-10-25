@@ -38,7 +38,13 @@
             </td>
             <td>{{ developer.city }}</td>
             <td>{{ developer.country }}</td>
-            <td>{{ developer.available ? "Yes" : "No" }}</td>
+            <td>
+                {% if developer.next_available %}
+                    {{ developer.next_available|date('M Y') }}
+                {% else %}
+                    No
+                {% endif %}
+            </td>
             <td>{{ developer.last_updated|date('M j, Y') }}</td>
         </tr>
     {% endfor %}
