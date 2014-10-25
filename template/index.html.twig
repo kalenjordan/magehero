@@ -32,6 +32,9 @@
                 {% endif %}
             </td>
             <td>
+                {% if developer.certification_board_url %}
+                    <a href="{{ developer.certification_board_url }}"><i class="fa fa-certificate tooltip" title="Magento Certification Advisory Board"></i></a>
+                {% endif %}
                 {% if developer.certified_developer_url %}
                     <a href="{{ developer.certified_developer_url }}"><i class="fa fa-certificate tooltip" title="Magento Certified Developer"></i></a>
                 {% endif %}
