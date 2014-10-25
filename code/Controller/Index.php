@@ -32,9 +32,11 @@ class Controller_Index extends Controller_Abstract
             $developerJsonFilename = $dataDirectory . "/" . $developerUsername;
             $developerJson = file_get_contents($developerJsonFilename);
             $developerArray = json_decode($developerJson, true);
-            $lastUpdated = \Carbon\Carbon::createFromTimestamp(filemtime($developerJsonFilename))->diffForHumans();
+            $lastUpdated = \Carbon\Carbon::createFromTimestamp(filemtime($developerJsonFilename))->toDateTimeString();
+            $lastUpdatedFriendly = \Carbon\Carbon::createFromTimestamp(filemtime($developerJsonFilename))->diffForHumans();
 
-            $developerArray['last_updated_friendly'] = $lastUpdated;
+            $developerArray['last_updated'] = $lastUpdated;
+            $developerArray['last_updated_friendly'] = $lastUpdatedFriendly;
             $developerArray['location'] = $this->_buildLocation($developerArray);
             $developers[] = $developerArray;
         }
