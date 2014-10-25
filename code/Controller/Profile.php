@@ -42,16 +42,13 @@ class Controller_Profile extends Controller_Abstract
     protected function _getPlaceholderProfileJson()
     {
         $session = $this->_getSession();
+        $sampleJsonFile = dirname(dirname(dirname(__FILE__))) . "/sample.json";
+        $sampleData = json_decode(file_get_contents($sampleJsonFile), true);
+
         $imageUrl = isset($session['image_url']) ? $session['image_url'] : null;
-        return json_encode(array(
-            'email'             => 'joe@example.com',
-            'name'              => 'Joe Smith',
-            'image_url'         => $imageUrl,
-            'github_username'   => $this->_getUsername(),
-            'twitter_username'  => 'joesmith',
-            'url_website'       => 'http://example.com',
-            "company"           => "Acme Widgets",
-            "next_available"    => "2015-01-01",
-        ), JSON_PRETTY_PRINT);
+        $sampleData['image_url'] = $imageUrl;
+        $sampleData['github_username'] = $this->_getUsername();
+
+        return json_encode($sampleData, JSON_PRETTY_PRINT);
     }
 }

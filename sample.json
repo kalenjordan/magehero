@@ -1,18 +1,17 @@
 {
-    "github_username": "kalenjordan",
-    "twitter_username": "kalenjordan",
-    "url_website": "https://magemail.co",
-    "name": "Kalen Jordan",
-    "email": "hello@magemail.co",
-    "company": "MageMail",
+    "github_username": "bobsmith",
+    "twitter_username": "bobsmith",
+    "url_website": "http://example.com",
+    "name": "Bob Smith",
+    "email": "bobsmith@example.com",
+    "company": "Acme Widgets",
     "next_available": "2015-01-01",
     "city": "Los Angeles",
     "country": "US",
     "time_zone": "UTC-8",
-    "certifications": [
-        {
-            "name": "Magento Certified Developer",
-            "url": "http://www.magentocommerce.com/certification/directory/dev/299852/"
-        }
-    ]
+    "certification_board_url": "",
+    "certified_developer_url": "",
+    "certified_developer_plus_url": "",
+    "certified_solution_specialist_url": "",
+    "certified_frontend_developer_url": ""
 }
