@@ -3,6 +3,7 @@
 {% block content %}
 <table class="listing">
     <tr>
+        <th></th>
         <th>Name</th>
         <th>Website</th>
         <th>City</th>
@@ -13,6 +14,13 @@
     </tr>
     {% for developer in developers %}
         <tr>
+            <td>
+                {% if developer.image_url %}
+                    <div class="image-wrapper">
+                        <img src="{{ developer.image_url }}">
+                    </div>
+                {% endif %}
+            </td>
             <td>{{ developer.name }}</td>
             <td>
                 {% if developer.url_website %}

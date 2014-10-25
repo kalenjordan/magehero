@@ -20,8 +20,11 @@ class Controller_Login extends Controller_Abstract
             if (!isset($result['login'])) {
                 throw new Exception("Couldn't get github username");
             }
+
             $username = isset($result['login']) ? $result['login'] : null;
             $_SESSION['magedevs']['github_username'] = $username;
+            $_SESSION['magedevs']['image_url'] = isset($result['avatar_url']) ? $result['avatar_url'] : null;
+
             header("location: /magedevs/");
         } else {
             $url = $github->getAuthorizationUri();

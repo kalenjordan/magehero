@@ -46,6 +46,14 @@ body {
     margin-right: 0.5em;
 }
 
+.listing .image-wrapper {
+    max-width: 40px;
+}
+
+.image-wrapper img {
+    width: 100%;
+}
+
 label.profile {
     display: block;
 }
@@ -65,5 +73,5 @@ textarea.profile {
 }
 
 th, td {
-    padding: 0.75em;
+    padding: 0.5em;
 }

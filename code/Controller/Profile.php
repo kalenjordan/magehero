@@ -22,6 +22,7 @@ class Controller_Profile extends Controller_Abstract
             throw new Exception("Missing profile data");
         }
         $profileJson = $_POST['profile'];
+
         $decodeJson = json_decode($profileJson, true);
         if (! is_array($decodeJson)) {
             die("There was a problem decoding the JSON, please check to make sure it was valid");
@@ -40,9 +41,17 @@ class Controller_Profile extends Controller_Abstract
 
     protected function _getPlaceholderProfileJson()
     {
+        $session = $this->_getSession();
+        $imageUrl = isset($session['image_url']) ? $session['image_url'] : null;
         return json_encode(array(
-            'email' => 'joe@example.com',
-            'name'  => 'Joe Smith',
+            'email'             => 'joe@example.com',
+            'name'              => 'Joe Smith',
+            'image_url'         => $imageUrl,
+            'github_username'   => $this->_getUsername(),
+            'twitter_username'  => 'joesmith',
+            'url_website'       => 'http://example.com',
+            "company"           => "Acme Widgets",
+            "next_available"    => "2015-01-01",
         ), JSON_PRETTY_PRINT);
     }
 }
