@@ -54,6 +54,9 @@ table.listing {
         &.even {
             background-color: rgb(242, 242, 242);
         }
+        &:hover {
+            background-color: #FEFFDA;
+        }
     }
 
     th, td {
