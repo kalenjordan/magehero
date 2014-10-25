@@ -1,0 +1,87 @@
+/* line 1, ../sass/app.scss */
+body {
+  background-color: #edecec;
+  padding: 0;
+  margin: 0;
+  font-family: arial;
+}
+
+/* line 8, ../sass/app.scss */
+.wrapper {
+  max-width: 900px;
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1em;
+  margin-top: 1em;
+  position: relative;
+}
+
+/* line 18, ../sass/app.scss */
+.account {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+}
+
+/* line 24, ../sass/app.scss */
+.masthead {
+  text-align: center;
+  margin-bottom: 2em;
+}
+/* line 28, ../sass/app.scss */
+.masthead h1 {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 0.25em;
+}
+/* line 34, ../sass/app.scss */
+.masthead p {
+  padding: 0;
+  margin: 0;
+}
+
+/* line 40, ../sass/app.scss */
+.image-wrapper img {
+  width: 100%;
+}
+
+/* line 44, ../sass/app.scss */
+.listing {
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 49, ../sass/app.scss */
+.listing th, .listing td {
+  padding: 0.5em;
+  text-align: left;
+}
+/* line 54, ../sass/app.scss */
+.listing .fa {
+  margin-left: 0.25em;
+}
+/* line 58, ../sass/app.scss */
+.listing .image-wrapper {
+  max-width: 40px;
+}
+
+/* line 63, ../sass/app.scss */
+label.profile {
+  display: block;
+}
+
+/* line 67, ../sass/app.scss */
+textarea.profile {
+  width: 100%;
+  height: 400px;
+  font-size: 16px;
+  line-height: 22px;
+  font-family: "courier new";
+}
+
+/* line 75, ../sass/app.scss */
+.footer {
+  text-align: center;
+  margin-top: 1em;
+  font-size: 12PX;
+}
