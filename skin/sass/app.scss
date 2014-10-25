@@ -70,8 +70,10 @@ table.listing {
 
     .image-wrapper {
         max-width: 40px;
-        border-radius: 50%;
-        overflow: hidden;
+
+        img {
+            border-radius: 50%;
+        }
     }
 
     .last-updated {

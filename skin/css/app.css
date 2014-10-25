@@ -1,16 +1,13 @@
-/* line 1, ../sass/app.scss */
 body {
   background-color: #edecec;
   font-family: arial;
 }
 
-/* line 6, ../sass/app.scss */
 body, h1 {
   margin: 0;
   padding: 0;
 }
 
-/* line 11, ../sass/app.scss */
 .wrapper {
   max-width: 900px;
   margin-left: auto;
@@ -19,78 +16,64 @@ body, h1 {
   margin-top: 1em;
 }
 
-/* line 19, ../sass/app.scss */
 .account {
   position: absolute;
   top: 1em;
   right: 1em;
 }
 
-/* line 25, ../sass/app.scss */
 .masthead {
   text-align: center;
   margin-bottom: 2em;
 }
-/* line 29, ../sass/app.scss */
 .masthead h1 {
   padding-top: 1em;
   margin-bottom: 0.25em;
 }
-/* line 34, ../sass/app.scss */
 .masthead p {
   padding: 0;
   margin: 0;
 }
 
-/* line 40, ../sass/app.scss */
 .image-wrapper img {
   width: 100%;
 }
 
-/* line 44, ../sass/app.scss */
 table.listing {
   width: 100%;
   border-spacing: 0;
   border-collapse: separate;
 }
-/* line 51, ../sass/app.scss */
 table.listing tr.odd {
   background-color: #e5e5e5;
 }
-/* line 54, ../sass/app.scss */
 table.listing tr.even {
   background-color: #f2f2f2;
 }
-/* line 57, ../sass/app.scss */
 table.listing tr:hover {
   background-color: #FEFFDA;
 }
-/* line 62, ../sass/app.scss */
 table.listing th, table.listing td {
   padding: 0.5em;
   text-align: left;
 }
-/* line 67, ../sass/app.scss */
 table.listing .fa {
   margin-left: 0.25em;
 }
-/* line 71, ../sass/app.scss */
 table.listing .image-wrapper {
   max-width: 40px;
-  border-radius: 50%;
-  overflow: hidden;
 }
-/* line 77, ../sass/app.scss */
+table.listing .image-wrapper img {
+  border-radius: 50%;
+}
 table.listing .last-updated {
   font-size: 12px;
 }
 
-/* line 82, ../sass/app.scss */
 label.profile {
   display: block;
 }
 
-/* line 86, ../sass/app.scss */
 textarea.profile {
   width: 100%;
   height: 400px;
@@ -99,7 +82,6 @@ textarea.profile {
   font-family: "courier new";
 }
 
-/* line 94, ../sass/app.scss */
 .footer {
   text-align: center;
   margin-top: 1em;
