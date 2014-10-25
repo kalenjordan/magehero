@@ -4,8 +4,12 @@
     {% block head %}
         <link rel="stylesheet" type="text/css" href="/magedevs/skin/app.css" media="all" />
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="/magedevs/skin/tooltipster.css" />
+
         <title>Magento Developers | MageDev</title>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script type="text/javascript" src="/magedevs/js/jquery.tooltipster.js"></script>
+
     {% endblock %}
 </head>
 <body>
@@ -32,6 +36,14 @@
 <div class="footer">
     <a href="https://github.com/kalenjordan/magedevs#frequently-asked-questions">Frequently asked questions</a>
 </div>
+
+<script>
+    $(document).ready(function() {
+        $('.tooltip').tooltipster({
+            delay: 0
+        });
+    });
+</script>
 </body>
 </html>
 

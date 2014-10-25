@@ -5,12 +5,11 @@
     <tr>
         <th></th>
         <th>Name</th>
-        <th>Website</th>
-        <th>City</th>
-        <th>Country</th>
+        <th>Location</th>
         <th>Available</th>
-        <th>Updated</th>
+        <th>Certifications</th>
         <th>Contact</th>
+        <th>Updated</th>
     </tr>
     {% for developer in developers %}
         <tr>
@@ -23,14 +22,8 @@
             </td>
             <td>{{ developer.name }}</td>
             <td>
-                {% if developer.url_website %}
-                    <a href="{{ developer.url_website }}">Website</a>
-                {% else %}
-                    n/a
-                {% endif %}
+                {{ developer.location }}
             </td>
-            <td>{{ developer.city }}</td>
-            <td>{{ developer.country }}</td>
             <td>
                 {% if developer.next_available %}
                     {{ developer.next_available|date('M Y') }}
@@ -38,18 +31,29 @@
                     No
                 {% endif %}
             </td>
-            <td>{{ developer.last_updated|date('m/d/y') }}</td>
             <td>
-                {% if developer.email %}
-                    <a href="mailto:{{ developer.email }}"><i class="fa fa-envelope-o"></i></a>
+                {% if developer.certified_developer_url %}
+                    <a href="{{ developer.certified_developer_url }}"><i class="fa fa-certificate tooltip" title="Magento Certified Developer"></i></a>
                 {% endif %}
-                {% if developer.twitter_username %}
-                    <a href="https://twitter.com/{{ developer.twitter_username }}"><i class="fa fa-twitter"></i></a>
-                {% endif %}
-                {% if developer.github_username %}
-                    <a href="https://github.com/{{ developer.github_username }}"><i class="fa fa-github"></i></a>
+                {% if developer.certified_developer_plus_url %}
+                    <i class="fa fa-certificate tooltip" title="Magento Certified Developer Plus"></i>
                 {% endif %}
             </td>
+            <td>
+                {% if developer.email %}
+                    <a href="mailto:{{ developer.email }}"><i class="fa fa-envelope-o tooltip" title="Email {{ developer.name }}" ></i></a>
+                {% endif %}
+                {% if developer.twitter_username %}
+                    <a href="https://twitter.com/{{ developer.twitter_username }}"><i class="fa fa-twitter tooltip" title="Twitter"></i></a>
+                {% endif %}
+                {% if developer.github_username %}
+                    <a href="https://github.com/{{ developer.github_username }}"><i class="fa fa-github tooltip" title="GitHub"></i></a>
+                {% endif %}
+                {% if developer.url_website %}
+                    <a href="{{ developer.url_website }}"><i class="fa fa-globe tooltip" title="Visit {{ developer.url_website }}"></i></a>
+                {% endif %}
+            </td>
+            <td>{{ developer.last_updated_friendly }}</td>
         </tr>
     {% endfor %}
 </table>

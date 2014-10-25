@@ -32,12 +32,33 @@ class Controller_Index extends Controller_Abstract
             $developerJsonFilename = $dataDirectory . "/" . $developerUsername;
             $developerJson = file_get_contents($developerJsonFilename);
             $developerArray = json_decode($developerJson, true);
-            $developerArray['last_updated'] = date ("Y-m-d H:i:s", filemtime($developerJsonFilename));
+            $lastUpdated = \Carbon\Carbon::createFromTimestamp(filemtime($developerJsonFilename))->diffForHumans();
+
+            $developerArray['last_updated_friendly'] = $lastUpdated;
+            $developerArray['location'] = $this->_buildLocation($developerArray);
             $developers[] = $developerArray;
         }
         usort($developers, array($this, 'sortDevelopers'));
 
         return $developers;
+    }
+
+    protected function _buildLocation($developerData)
+    {
+        $parts = array();
+        if (isset($developerData['city'])) {
+            $parts[] = $developerData['city'];
+        }
+
+        if (isset($developerData['state'])) {
+            $parts[] = $developerData['state'];
+        }
+
+        if (isset($developerData['country'])) {
+            $parts[] = $developerData['country'];
+        }
+        
+        return implode(", ", $parts);
     }
 
     public function sortDevelopers($a, $b)

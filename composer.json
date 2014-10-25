@@ -2,6 +2,7 @@
     "require": {
         "torophp/torophp": "dev-master",
         "twig/twig": "dev-master",
-        "lusitanian/oauth": "~0.3"
+        "lusitanian/oauth": "~0.3",
+        "nesbot/Carbon": "*"
     }
 }
