@@ -1,0 +1,95 @@
+body {
+    background-color: rgb(237, 236, 236);
+    font-family: arial;
+}
+
+body, h1 {
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+    margin-top: 1em;
+}
+
+.account {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+}
+
+.masthead {
+    text-align: center;
+    margin-bottom: 2em;
+
+    h1 {
+        padding-top: 1em;
+        margin-bottom: 0.25em;
+    }
+
+    p {
+        padding: 0;
+        margin: 0;
+    }
+}
+
+.image-wrapper img {
+    width: 100%;
+}
+
+table.listing {
+    width: 100%;
+
+    border-spacing: 0;
+    border-collapse: separate;
+
+    tr {
+        &.odd {
+            background-color: rgb(229, 229, 229);
+        }
+        &.even {
+            background-color: rgb(242, 242, 242);
+        }
+    }
+
+    th, td {
+        padding: 0.5em;
+        text-align: left;
+    }
+
+    .fa {
+        margin-left: 0.25em;
+    }
+
+    .image-wrapper {
+        max-width: 40px;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+
+    .last-updated {
+        font-size: 12px;
+    }
+}
+
+label.profile {
+    display: block;
+}
+
+textarea.profile {
+    width: 100%;
+    height: 400px;
+    font-size: 16px;
+    line-height: 22px;
+    font-family: "courier new";
+}
+
+.footer {
+    text-align: center;
+    margin-top: 1em;
+    font-size: 12PX;
+}

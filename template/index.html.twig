@@ -7,12 +7,11 @@
         <th>Name</th>
         <th>Location</th>
         <th>Available</th>
-        <th>Certifications</th>
         <th>Contact</th>
         <th>Updated</th>
     </tr>
     {% for developer in developers %}
-        <tr>
+        <tr class="{{ loop.index is odd ? "odd" : "even" }}">
             <td>
                 {% if developer.image_url %}
                     <div class="image-wrapper">
@@ -20,18 +19,8 @@
                     </div>
                 {% endif %}
             </td>
-            <td>{{ developer.name }}</td>
             <td>
-                {{ developer.location }}
-            </td>
-            <td>
-                {% if developer.next_available %}
-                    {{ developer.next_available|date('M Y') }}
-                {% else %}
-                    No
-                {% endif %}
-            </td>
-            <td>
+                <span>{{ developer.name }}</span>
                 {% if developer.certification_board_url %}
                     <a href="{{ developer.certification_board_url }}"><i class="fa fa-certificate tooltip" title="Magento Certification Advisory Board"></i></a>
                 {% endif %}
@@ -49,6 +38,18 @@
                 {% endif %}
             </td>
             <td>
+                {{ developer.location }}
+            </td>
+            <td>
+                <span class="tooltip" title="Next availability for hire / project work">
+                    {% if developer.next_available %}
+                        {{ developer.next_available|date('M Y') }}
+                    {% else %}
+                        No
+                    {% endif %}
+                </span>
+            </td>
+            <td>
                 {% if developer.email %}
                     <a href="mailto:{{ developer.email }}"><i class="fa fa-envelope-o tooltip" title="Email {{ developer.name }}" ></i></a>
                 {% endif %}
@@ -62,7 +63,9 @@
                     <a href="{{ developer.url_website }}"><i class="fa fa-globe tooltip" title="Visit {{ developer.url_website }}"></i></a>
                 {% endif %}
             </td>
-            <td>{{ developer.last_updated_friendly }}</td>
+            <td>
+                <span class="last-updated">{{ developer.last_updated_friendly }}</span>
+            </td>
         </tr>
     {% endfor %}
 </table>

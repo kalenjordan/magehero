@@ -1,3 +1,4 @@
 /vendor/
 /etc/config.json
 /data/*.json
+/skin/.sass-cache

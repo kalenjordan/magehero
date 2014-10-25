@@ -1,38 +1,39 @@
 /* line 1, ../sass/app.scss */
 body {
   background-color: #edecec;
-  padding: 0;
-  margin: 0;
   font-family: arial;
 }
 
-/* line 8, ../sass/app.scss */
-.wrapper {
-  max-width: 900px;
-  background-color: white;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 1em;
-  margin-top: 1em;
-  position: relative;
+/* line 6, ../sass/app.scss */
+body, h1 {
+  margin: 0;
+  padding: 0;
 }
 
-/* line 18, ../sass/app.scss */
+/* line 11, ../sass/app.scss */
+.wrapper {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+  margin-top: 1em;
+}
+
+/* line 19, ../sass/app.scss */
 .account {
   position: absolute;
   top: 1em;
   right: 1em;
 }
 
-/* line 24, ../sass/app.scss */
+/* line 25, ../sass/app.scss */
 .masthead {
   text-align: center;
   margin-bottom: 2em;
 }
-/* line 28, ../sass/app.scss */
+/* line 29, ../sass/app.scss */
 .masthead h1 {
-  margin: 0;
-  padding: 0;
+  padding-top: 1em;
   margin-bottom: 0.25em;
 }
 /* line 34, ../sass/app.scss */
@@ -47,30 +48,45 @@ body {
 }
 
 /* line 44, ../sass/app.scss */
-.listing {
-  margin-left: auto;
-  margin-right: auto;
+table.listing {
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: separate;
 }
-/* line 49, ../sass/app.scss */
-.listing th, .listing td {
+/* line 51, ../sass/app.scss */
+table.listing tr.odd {
+  background-color: #e5e5e5;
+}
+/* line 54, ../sass/app.scss */
+table.listing tr.even {
+  background-color: #f2f2f2;
+}
+/* line 59, ../sass/app.scss */
+table.listing th, table.listing td {
   padding: 0.5em;
   text-align: left;
 }
-/* line 54, ../sass/app.scss */
-.listing .fa {
+/* line 64, ../sass/app.scss */
+table.listing .fa {
   margin-left: 0.25em;
 }
-/* line 58, ../sass/app.scss */
-.listing .image-wrapper {
+/* line 68, ../sass/app.scss */
+table.listing .image-wrapper {
   max-width: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+/* line 74, ../sass/app.scss */
+table.listing .last-updated {
+  font-size: 12px;
 }
 
-/* line 63, ../sass/app.scss */
+/* line 79, ../sass/app.scss */
 label.profile {
   display: block;
 }
 
-/* line 67, ../sass/app.scss */
+/* line 83, ../sass/app.scss */
 textarea.profile {
   width: 100%;
   height: 400px;
@@ -79,7 +95,7 @@ textarea.profile {
   font-family: "courier new";
 }
 
-/* line 75, ../sass/app.scss */
+/* line 91, ../sass/app.scss */
 .footer {
   text-align: center;
   margin-top: 1em;
