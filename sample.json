@@ -1,0 +1,18 @@
+{
+    "github_username": "kalenjordan",
+    "twitter_username": "kalenjordan",
+    "url_website": "https://magemail.co",
+    "name": "Kalen Jordan",
+    "email": "hello@magemail.co",
+    "company": "MageMail",
+    "next_available": "2015-01-01",
+    "city": "Los Angeles",
+    "country": "US",
+    "time_zone": "UTC-8",
+    "certifications": [
+        {
+            "name": "Magento Certified Developer",
+            "url": "http://www.magentocommerce.com/certification/directory/dev/299852/"
+        }
+    ]
+}

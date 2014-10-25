@@ -1,34 +1,19 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
-<table>
+<table class="listing">
     <tr>
         <th>Name</th>
-        <th>Github</th>
-        <th>Twitter</th>
         <th>Website</th>
         <th>City</th>
         <th>Country</th>
         <th>Available</th>
-        <th>Last Updated</th>
+        <th>Updated</th>
+        <th>Contact</th>
     </tr>
     {% for developer in developers %}
         <tr>
             <td>{{ developer.name }}</td>
-            <td>
-                {% if developer.github_username %}
-                    <a href="https://github.com/{{ developer.github_username }}">{{ developer.github_username }}</a>
-                {% else %}
-                    n/a
-                {% endif %}
-            </td>
-            <td>
-                {% if developer.twitter_username %}
-                    <a href="https://twitter.com/{{ developer.twitter_username }}">{{ developer.twitter_username }}</a>
-                {% else %}
-                    n/a
-                {% endif %}
-            </td>
             <td>
                 {% if developer.url_website %}
                     <a href="{{ developer.url_website }}">Website</a>
@@ -45,7 +30,18 @@
                     No
                 {% endif %}
             </td>
-            <td>{{ developer.last_updated|date('M j, Y') }}</td>
+            <td>{{ developer.last_updated|date('m/d/y') }}</td>
+            <td>
+                {% if developer.email %}
+                    <a href="mailto:{{ developer.email }}"><i class="fa fa-envelope-o"></i></a>
+                {% endif %}
+                {% if developer.twitter_username %}
+                    <a href="https://twitter.com/{{ developer.twitter_username }}"><i class="fa fa-twitter"></i></a>
+                {% endif %}
+                {% if developer.github_username %}
+                    <a href="https://github.com/{{ developer.github_username }}"><i class="fa fa-github"></i></a>
+                {% endif %}
+            </td>
         </tr>
     {% endfor %}
 </table>
