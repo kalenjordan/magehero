@@ -1,9 +1,22 @@
 <?php
 
 require_once(dirname(__FILE__) . '/vendor/autoload.php');
+session_start();
 
-$developers = json_decode(file_get_contents('data/developers.json'), true);
-$loader = new Twig_Loader_Filesystem(dirname(__FILE__) . '/template');
-$twig = new Twig_Environment($loader);
+spl_autoload_register(function($class) {
+    $parts = explode("_", $class);
+    $classSlashSeparated = implode('/', $parts);
+    $pathToFile = "code/$classSlashSeparated.php";
+    $fullPathToFile = dirname(__FILE__) . '/' . $pathToFile;
 
-echo $twig->render('index.html.twig', array('developers' => $developers));
+    if (file_exists($fullPathToFile)) {
+        include $fullPathToFile;
+    }
+});
+
+Toro::serve(array(
+     "/magedevs"          => "Controller_Index",
+     "/magedevs/login"    => "Controller_Login",
+     "/magedevs/logout"   => "Controller_Logout",
+     "/magedevs/profile"   => "Controller_Profile",
+));

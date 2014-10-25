@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% block head %}
+        <link rel="stylesheet" type="text/css" href="/magedevs/skin/app.css" media="all" />
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+        <title>Magento Developers | MageDev</title>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    {% endblock %}
+</head>
+<body>
+<div class="wrapper">
+    <div class="account">
+        {% if session.github_username %}
+            <a href="/magedevs/profile">{{ session.github_username }}</a> |
+            <a href="/magedevs/logout"><i class="fa fa-sign-out"></i> Log Out</a>
+        {% else %}
+            <a href="/magedevs/login"><i class="fa fa-sign-in"></i> Login</a>
+        {% endif %}
+    </div>
+    {% block masthead %}
+        <div class="masthead">
+            <h1><a href="/magedevs/">MageDevs</a></h1>
+            <p>A curated listing of Magento developers</p>
+        </div>
+    {% endblock %}
+
+    <div class="content">
+        {% block content %} {% endblock %}
+    </div>
+</div>
+<div class="footer">
+    Interested to know how to add yourself or contribute?
+    Check out the <a href="https://github.com/kalenjordan/magedevs">github repository</a>.
+    <a href="https://github.com/kalenjordan/magedevs#frequently-asked-questions">Frequently asked questions</a>
+</div>
+</body>
+</html>
+

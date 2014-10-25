@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <form action="/magedevs/profile" method="POST">
+        <label for="profile" class="profile">Your Profile</label>
+        <textarea name="profile" class="profile">{{ profile_json }}</textarea>
+        <div>
+            <input type="submit" value="Save">
+        </div>
+    </form>
+{% endblock %}

@@ -12,6 +12,13 @@ body {
     margin-right: auto;
     padding: 1em;
     margin-top: 1em;
+    position: relative;
+}
+
+.account {
+    position: absolute;
+    top: 1em;
+    right: 1em;
 }
 
 .masthead {
@@ -28,6 +35,18 @@ body {
 .masthead p {
     padding: 0;
     margin: 0;
+}
+
+label.profile {
+    display: block;
+}
+
+textarea.profile {
+    width: 100%;
+    height: 400px;
+    font-size: 16px;
+    line-height: 22px;
+    font-family: "courier new";
 }
 
 .footer {
