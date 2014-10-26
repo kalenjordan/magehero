@@ -124,8 +124,10 @@ class Model_User
     public function update()
     {
         $data = array(
-            'details_json' => $this->_data['details_json'],
-            'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
+            'details_json'  => $this->_data['details_json'],
+            'updated_at'    => \Carbon\Carbon::now()->toDateTimeString(),
+            'username'      => $this->_data['username'],
+            'name'          => $this->_data['name'],
         );
         $this->_localConfig->database()->update('users', $data, 'user_id = ' . $this->getId());
 
@@ -137,6 +139,8 @@ class Model_User
         $data = array(
             'details_json' => $this->_data['details_json'],
             'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+            'username'      => $this->_data['username'],
+            'name'          => $this->_data['name'],
         );
         $this->_localConfig->database()->insert('users', $data);
 
