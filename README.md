@@ -1,7 +1,9 @@
-MageDevs
+MageHero
 ========
 
-MageDevs is a curated listing of Magento developers.  
+MageHero is a list of Magento developers.  The idea is for the community
+to curate a list of quality Magento developers - to  make it easier for
+people to find the good ones.
 
 ### Frequently asked questions
 #### Why build this?
@@ -41,6 +43,12 @@ meanwhile.
 
 Not exactly a UX best practice, but hey you're developers, so you
 should enjoy the occasional JSON editing.
+
+### Credits
+
+- Thanks to <a href="https://twitter.com/daniel_sloof">Daniel Sloof</a> for the domain name - magehero.com!
+- Thanks to the amazing <a href="http://portfolio.antonela.me/">Antonela</a> who is working on the design.
+
 
 ### [Sponsor] Clean is hiring
 
