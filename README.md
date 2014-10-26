@@ -10,20 +10,18 @@ Beacuse I'm always getting asked whether I know any good Magento developers that
 and I figure something like this might help to reduce some of the friction in the finding/hiring
 process.
 
+#### How does upvoting work?
+
+Upvote other good developers.   This will help to create a list 
+of developers that merchants and agencies can trust.
+
+You can only upvote other developers if you are logged in and
+if you have already received at least one upvote.
+
 #### How do I get listed as a developer?
 
 Just login and it will allow you to auth with GitHub and then click
 on your username in the top right and save your details as JSON.
-
-#### I'd like to help moderate this
-
-Awesome.  Shoot me an email or hit me on twitter (kalenjordan).
-
-#### Why is this hosted at magemail.co?
-
-Because that was the quickest way for me to throw this up initially.
-If someone would like to donate some hosting and a domain name,
-would be happy to move it there.
 
 #### Why is the design of the site so horrendous?
 
