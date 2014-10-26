@@ -123,8 +123,10 @@ class Model_User
 
     public function update()
     {
-        $data = $this->_data;
-        $data['updated_at'] = \Carbon\Carbon::now()->toDateTimeString();
+        $data = array(
+            'details_json' => $this->_data['details_json'],
+            'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
+        );
         $this->_localConfig->database()->update('users', $data, 'user_id = ' . $this->getId());
 
         return $this;
@@ -132,8 +134,10 @@ class Model_User
 
     public function create()
     {
-        $data = $this->_data;
-        $data['created_at'] = \Carbon\Carbon::now()->toDateTimeString();
+        $data = array(
+            'details_json' => $this->_data['details_json'],
+            'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+        );
         $this->_localConfig->database()->insert('users', $data);
 
         return $this;
@@ -172,7 +176,7 @@ class Model_User
         $detailJson = $this->get('details_json');
         $detailsArray = json_decode($detailJson, true);
         if (! $detailsArray) {
-            throw new Exception("Problem decoding json");
+            throw new Exception("Problem decoding jsonfor user: " . $this->getId());
         }
 
         return isset($detailsArray[$key]) ? $detailsArray[$key] : null;
