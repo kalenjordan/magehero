@@ -67,4 +67,11 @@ class Controller_Abstract
         $this->_container = $container;
         return $this->_container;
     }
+
+    protected function _jsonResponse($response)
+    {
+        header('Content-type: application/json');
+        echo json_encode($response);
+        return $this;
+    }
 }

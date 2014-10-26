@@ -18,7 +18,63 @@ class Model_User
     {
         $query = $this->_localConfig->database()->select()
             ->from("users")
+            ->joinLeft(
+                'user_vote',
+                'user_vote.elected_user_id = users.user_id',
+                array(
+                    'COUNT(user_vote.user_vote_id) as vote_count'
+                )
+            )
+            ->group('users.user_id')
             ->where("username = ?", $username);
+
+        $this->_data = $this->_localConfig->database()->fetchRow($query);
+        return $this;
+    }
+
+    public function hasVotedFor($electedUserId)
+    {
+        $query = $this->_localConfig->database()->select()
+            ->from("user_vote")
+            ->where("voting_user_id = ?", $this->getId())
+            ->where("elected_user_id = ?", $electedUserId);
+
+        return $this->_localConfig->database()->fetchOne($query);
+    }
+
+    public function addVoteFrom($votingUserId)
+    {
+        $this->_localConfig->database()->insert('user_vote', array(
+            'voting_user_id'    => $votingUserId,
+            'elected_user_id'   => $this->getId(),
+            'created_at'        => \Carbon\Carbon::now()->toDateTimeString(),
+        ));
+
+        return $this;
+    }
+
+    public function removeVoteFrom($votingUserId)
+    {
+        $this->_localConfig->database()->delete('user_vote',
+            "voting_user_id = $votingUserId AND elected_user_id = " . $this->getId()
+        );
+
+        return $this;
+    }
+
+    public function load($userId)
+    {
+        $query = $this->_localConfig->database()->select()
+            ->from("users")
+            ->joinLeft(
+                'user_vote',
+                'user_vote.elected_user_id = users.user_id',
+                array(
+                    'COUNT(user_vote.user_vote_id) as vote_count'
+                )
+            )
+            ->group('users.user_id')
+            ->where("users.user_id = ?", $userId);
 
         $this->_data = $this->_localConfig->database()->fetchRow($query);
         return $this;
@@ -27,7 +83,16 @@ class Model_User
     public function fetchAll()
     {
         $query = $this->_localConfig->database()->select()
-            ->from("users");
+            ->from("users")
+            ->joinLeft(
+                'user_vote',
+                'user_vote.elected_user_id = users.user_id',
+                array(
+                    'COUNT(user_vote.user_vote_id) as vote_count'
+                )
+            )
+            ->group('users.user_id')
+            ->order('COUNT(user_vote.user_vote_id) DESC');
 
         $results = $this->_localConfig->database()->fetchAll($query);
         return $results;
@@ -76,6 +141,8 @@ class Model_User
 
     public function getId() { return $this->get('user_id'); }
     public function getName() { return $this->get('name'); }
+    public function getVoteCount() { return $this->get('vote_count'); }
+    public function getUsername() { return $this->get('username'); }
 
     public function getImageUrl() { return $this->getDetail('image_url'); }
     public function getNextAvailable() { return $this->getDetail('next_available'); }
@@ -87,6 +154,7 @@ class Model_User
     public function getGithubUsername() { return $this->getDetail('github_username'); }
     public function getTwitterUsername() { return $this->getDetail('twitter_username'); }
     public function getWebsiteUrl() { return $this->getDetail('url_website'); }
+    public function getCompany() { return $this->getDetail('company'); }
 
     public function getLastUpdatedFriendly()
     {

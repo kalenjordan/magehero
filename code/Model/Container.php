@@ -18,6 +18,6 @@ class Model_Container extends DI\Container
      */
     public function User()
     {
-        return $this->_container->get('Model_User');
+        return $this->_container->make('Model_User');
     }
 }
