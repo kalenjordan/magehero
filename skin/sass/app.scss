@@ -85,6 +85,24 @@ label.profile {
     display: block;
 }
 
+.profile-view {
+    .header {
+        .image-wrapper {
+            max-width: 12em;
+            margin-left: auto;
+            margin-right: auto;
+
+            img {
+                border-radius: 50%;
+            }
+        }
+    }
+
+    .about {
+        text-align: center;
+    }
+}
+
 textarea.profile {
     width: 100%;
     height: 400px;

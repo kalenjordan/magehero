@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <div class="profile-view">
+        <div class="header">
+            <div class="image-wrapper">
+                <img src="{{ user.imageUrl() }}">
+            </div>
+        </div>
+        <div class="about">
+            <h1>{{ user.name() }}</h1>
+            {% if user.aboutYou() %}
+                <p>{{ user.aboutYou() }}</p>
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock %}

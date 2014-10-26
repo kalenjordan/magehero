@@ -12,7 +12,7 @@ class Controller_Profile extends Controller_Abstract
             $profileJson = $this->_getPlaceholderProfileJson();
         }
 
-        echo $this->_getTwig()->render('profile.html.twig', array(
+        echo $this->_getTwig()->render('profile/edit.html.twig', array(
             'session'       => $this->_getSession(),
             'profile_json'  => $profileJson,
         ));
