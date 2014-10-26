@@ -3,6 +3,8 @@
         "torophp/torophp": "dev-master",
         "twig/twig": "dev-master",
         "lusitanian/oauth": "~0.3",
-        "nesbot/Carbon": "*"
+        "nesbot/Carbon": "*",
+        "mnapoli/php-di": "~4.0",
+        "zendframework/zendframework1": "dev-master"
     }
 }
