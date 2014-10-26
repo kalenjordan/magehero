@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
-    <form action="/magedevs/profile" method="POST">
+    <form action="/profile" method="POST">
         <label for="profile" class="profile">Your Profile</label>
         <textarea name="profile" class="profile">{{ profile_json }}</textarea>
         <div>
@@ -10,7 +10,7 @@
         <div>
             <p>
                 Want to see what variables are available?  See a
-                <a target="_blank" href="/magedevs/sample.json">sample JSON file</a>.
+                <a target="_blank" href="/sample.json">sample JSON file</a>.
             </p>
 
         </div>

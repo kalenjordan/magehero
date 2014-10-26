@@ -15,9 +15,9 @@ spl_autoload_register(function($class) {
 });
 
 Toro::serve(array(
-     "/magedevs"                        => "Controller_Index",
-     "/magedevs/login"                  => "Controller_Login",
-     "/magedevs/logout"                 => "Controller_Logout",
-     "/magedevs/profile"                => "Controller_Profile",
-     "/magedevs/user/:number/upvote"    => "Controller_UserUpvote",
+     "/"                        => "Controller_Index",
+     "/login"                  => "Controller_Login",
+     "/logout"                 => "Controller_Logout",
+     "/profile"                => "Controller_Profile",
+     "/user/:number/upvote"    => "Controller_UserUpvote",
 ));

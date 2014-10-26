@@ -15,7 +15,7 @@ MageHero_App = {
             var upvoteCount = $(this).closest('.upvote').find('.vote-count')
 
             $.ajax({
-                url: '/magedevs/user/' + userId + '/upvote',
+                url: '/user/' + userId + '/upvote',
                 method: 'GET',
                 success: function(data) {
                     console.log(data);

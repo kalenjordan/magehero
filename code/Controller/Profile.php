@@ -41,7 +41,7 @@ class Controller_Profile extends Controller_Abstract
             ->set('name', isset($profileData['name']) ? $profileData['name'] : null)
             ->save();
 
-        header("location: /magedevs/profile");
+        header("location: /profile");
     }
 
     protected function _getPlaceholderProfileJson()

@@ -25,7 +25,7 @@ class Controller_Login extends Controller_Abstract
             $_SESSION['magedevs']['github_username'] = $username;
             $_SESSION['magedevs']['image_url'] = isset($result['avatar_url']) ? $result['avatar_url'] : null;
 
-            header("location: /magedevs/");
+            header("location: /");
         } else {
             $url = $github->getAuthorizationUri();
             header('Location: ' . $url);
