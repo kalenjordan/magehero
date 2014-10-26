@@ -2,6 +2,8 @@
 
 class Controller_Abstract
 {
+    protected $_container;
+
     protected function _getSession()
     {
         $session = isset($_SESSION['magedevs']) ? $_SESSION['magedevs'] : array();
@@ -52,5 +54,17 @@ class Controller_Abstract
 
         $value = isset($configArray[$key]) ? $configArray[$key] : null;
         return $value;
+    }
+
+    protected function _getContainer()
+    {
+        if (isset($this->_container)) {
+            return $this->_container;
+        }
+
+        $container = new Model_Container();
+
+        $this->_container = $container;
+        return $this->_container;
     }
 }

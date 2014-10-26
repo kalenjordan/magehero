@@ -14,57 +14,12 @@ class Controller_Index extends Controller_Abstract
 
     protected function _getDevelopers()
     {
-        $dataDirectory = dirname(dirname(dirname(__FILE__))) . "/data";
-
-        $developerUsernames = array();
-        $developers = array();
-
-        if ($handle = opendir($dataDirectory)) {
-            while (false !== ($entry = readdir($handle))) {
-                if ($entry != "." && $entry != ".." && $entry != '.htaccess') {
-                    $developerUsernames[] = $entry;
-                }
-            }
-            closedir($handle);
+        $userModels = array();
+        $userRows = $this->_getContainer()->User()->fetchAll();
+        foreach ($userRows as $userRow) {
+            $userModels[] = $this->_getContainer()->User()->setData($userRow);
         }
 
-        foreach ($developerUsernames as $developerUsername) {
-            $developerJsonFilename = $dataDirectory . "/" . $developerUsername;
-            $developerJson = file_get_contents($developerJsonFilename);
-            $developerArray = json_decode($developerJson, true);
-            $lastUpdated = \Carbon\Carbon::createFromTimestamp(filemtime($developerJsonFilename))->toDateTimeString();
-            $lastUpdatedFriendly = \Carbon\Carbon::createFromTimestamp(filemtime($developerJsonFilename))->diffForHumans();
-
-            $developerArray['last_updated'] = $lastUpdated;
-            $developerArray['last_updated_friendly'] = $lastUpdatedFriendly;
-            $developerArray['location'] = $this->_buildLocation($developerArray);
-            $developers[] = $developerArray;
-        }
-        usort($developers, array($this, 'sortDevelopers'));
-
-        return $developers;
-    }
-
-    protected function _buildLocation($developerData)
-    {
-        $parts = array();
-        if (isset($developerData['city'])) {
-            $parts[] = $developerData['city'];
-        }
-
-        if (isset($developerData['state'])) {
-            $parts[] = $developerData['state'];
-        }
-
-        if (isset($developerData['country'])) {
-            $parts[] = $developerData['country'];
-        }
-        
-        return implode(", ", $parts);
-    }
-
-    public function sortDevelopers($a, $b)
-    {
-        return ($a['last_updated'] < $b['last_updated']);
+        return $userModels;
     }
 }

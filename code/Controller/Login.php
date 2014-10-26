@@ -45,11 +45,7 @@ class Controller_Login extends Controller_Abstract
         $apiKey = $this->_getConfigData('github_api_key');
         $apiSecret = $this->_getConfigData('github_api_secret');
 
-        // Setup the credentials for the requests
         $credentials = new Credentials($apiKey, $apiSecret, $url);
-
-        // Instantiate the GitHub service using the credentials, http client and storage mechanism for the token
-        /** @var $gitHub GitHub */
         $github = $serviceFactory->createService('GitHub', $credentials, $storage, array('user:email'));
 
         return $github;

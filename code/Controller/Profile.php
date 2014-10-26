@@ -4,11 +4,13 @@ class Controller_Profile extends Controller_Abstract
 {
     public function get()
     {
-        $profileJson = $this->_getProfileJson();
-        if (! $profileJson) {
+        $user = $this->_getContainer()->User()->loadByUsername($this->_getUsername());
+
+        if ($user->getId()) {
+            $profileJson = $user->get('details_json');
+        } else {
             $profileJson = $this->_getPlaceholderProfileJson();
         }
-
 
         echo $this->_getTwig()->render('profile.html.twig', array(
             'session'       => $this->_getSession(),
@@ -23,8 +25,8 @@ class Controller_Profile extends Controller_Abstract
         }
         $profileJson = $_POST['profile'];
 
-        $decodeJson = json_decode($profileJson, true);
-        if (! is_array($decodeJson)) {
+        $profileData = json_decode($profileJson, true);
+        if (! is_array($profileData)) {
             die("There was a problem decoding the JSON, please check to make sure it was valid");
         }
 
@@ -33,8 +35,11 @@ class Controller_Profile extends Controller_Abstract
             throw new Exception("Couldn't find username");
         }
 
-        $pathToUserJson = dirname(dirname(dirname(__FILE__))) . '/data/' . $username . ".json";
-        file_put_contents($pathToUserJson, $_POST['profile']);
+        $user = $this->_getContainer()->User()->loadByUsername($username);
+        $user->set('details_json', $profileJson)
+            ->set('username', $this->_getUsername())
+            ->set('name', isset($profileData['name']) ? $profileData['name'] : null)
+            ->save();
 
         header("location: /magedevs/profile");
     }
