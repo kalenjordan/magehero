@@ -11,13 +11,22 @@
         <th>Location</th>
         <th>Available</th>
         <th>Contact</th>
+        <th>Updated</th>
     </tr>
     {% for developer in developers %}
         <tr class="{{ loop.index is odd ? "odd" : "even" }} {{ developer.username == user.username ? "selected" : "" }}" data-user-id={{ developer.id() }}>
             <td>
                 <div class="upvote">
                     <a href="javascript://"><i class="fa fa-caret-up"></i></a>
-                    <span class="vote-count">{{ developer.voteCount() }}</span>
+                    {% if developer.voteCount() == 0 %}
+                        <i class="fa fa-meh-o tooltip" title="This developer hasn't received any upvotes yet"></i>
+                    {% endif %}
+                    {% if developer.voteCount() == 1 %}
+                        <i class="fa fa-star tooltip" title="This developer has received {{ developer.voteCount() }} vote(s)"></i>
+                    {% endif %}
+                    {% if developer.voteCount() >= 2 %}
+                        <i class="fa fa-star tooltip" title="With {{ developer.voteCount() }} votes, this developer is a voting member."></i>
+                    {% endif %}
                 </div>
             </td>
             <td>
@@ -77,11 +86,9 @@
                     <a href="{{ developer.websiteUrl() }}"><i class="fa fa-globe tooltip" title="Visit {{ developer.websiteUrl() }}"></i></a>
                 {% endif %}
             </td>
-            <!--
             <td>
                 <span class="last-updated">{{ developer.lastUpdatedFriendly() }}</span>
             </td>
-            -->
         </tr>
     {% endfor %}
 </table>

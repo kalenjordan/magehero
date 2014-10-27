@@ -93,7 +93,7 @@ class Model_User
             )
             ->where('users.is_active = 1')
             ->group('users.user_id')
-            ->order('COUNT(user_vote.user_vote_id) DESC');
+            ->order(new Zend_Db_Expr('IF(COUNT(user_vote.user_vote_id) >= 2, 1, IF(COUNT(user_vote.user_vote_id) >= 1, 2, 3)) ASC, updated_at DESC'));
 
         $results = $this->_localConfig->database()->fetchAll($query);
         return $results;
