@@ -18,7 +18,12 @@ Upvote other good developers.   This will help to create a list
 of developers that merchants and agencies can trust.
 
 You can only upvote other developers if you are logged in and
-if you have already received at least one upvote.
+if you have already received at least two upvotes.
+
+#### Bro, this upvoting system sucks.  What gives bro?
+
+I wrote a [post](https://mageunity.com/t/magehero-ranking/134) here explaining some of my thoughts around the
+upvoting system - please feel free to comment there:
 
 #### How do I get listed as a developer?
 
