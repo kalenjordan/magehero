@@ -77,13 +77,13 @@
             </td>
             <td>
                 {% if developer.twitterUsername() %}
-                    <a href="https://twitter.com/{{ developer.twitterUsername() }}"><i class="fa fa-twitter tooltip" title="Twitter"></i></a>
+                    <a href="https://twitter.com/{{ developer.twitterUsername() }}" target="_blank"><i class="fa fa-twitter tooltip" title="Twitter"></i></a>
                 {% endif %}
                 {% if developer.githubUsername() %}
-                    <a href="https://github.com/{{ developer.githubUsername() }}"><i class="fa fa-github tooltip" title="GitHub"></i></a>
+                    <a href="https://github.com/{{ developer.githubUsername() }}" target="_blank"><i class="fa fa-github tooltip" title="GitHub"></i></a>
                 {% endif %}
                 {% if developer.websiteUrl() %}
-                    <a href="{{ developer.websiteUrl() }}"><i class="fa fa-globe tooltip" title="Visit {{ developer.websiteUrl() }}"></i></a>
+                    <a href="{{ developer.websiteUrl() }}" target="_blank"><i class="fa fa-globe tooltip" title="Visit {{ developer.websiteUrl() }}"></i></a>
                 {% endif %}
             </td>
             <td>
