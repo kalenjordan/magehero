@@ -91,6 +91,7 @@ class Model_User
                     'COUNT(user_vote.user_vote_id) as vote_count'
                 )
             )
+            ->where('users.is_active = 1')
             ->group('users.user_id')
             ->order('COUNT(user_vote.user_vote_id) DESC');
 
