@@ -28,7 +28,11 @@
                 {% endif %}
             </td>
             <td>
-                <span>{{ developer.name() }}</span>
+                {% if developer.githubUsername() %}
+                    <a href="/{{ developer.githubUsername() }}">{{ developer.name() }}</a>
+                {% else %}
+                    <span>{{ developer.name() }}</span>
+                {% endif %}
             </td>
             <td>
                 {% if developer.certificationBoardUrl() %}
