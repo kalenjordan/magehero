@@ -9,7 +9,7 @@
         <th><!-- Certifications --></th>
         <th>Company</th>
         <th>Location</th>
-        <!-- <th>Available</th> -->
+        <th>Available</th>
         <th>Contact</th>
     </tr>
     {% for developer in developers %}
@@ -57,7 +57,6 @@
             <td>
                 {{ developer.location() }}
             </td>
-            <!--
             <td>
                 <span class="tooltip" title="Next availability for hire / project work">
                     {% if developer.nextAvailable() %}
@@ -67,7 +66,6 @@
                     {% endif %}
                 </span>
             </td>
-            -->
             <td>
                 {% if developer.twitterUsername() %}
                     <a href="https://twitter.com/{{ developer.twitterUsername() }}"><i class="fa fa-twitter tooltip" title="Twitter"></i></a>
