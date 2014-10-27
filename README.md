@@ -49,6 +49,12 @@ meanwhile.
 Not exactly a UX best practice, but hey you're developers, so you
 should enjoy the occasional JSON editing.
 
+#### There's a bug, how should I report it?
+
+Since the project is open source and since you're a PHP developer,
+and since my time is super limited to resolve and fix bugs, please do
+some initial investigation of the issue to try and resolve it.
+
 ### Credits
 
 - Thanks to <a href="https://twitter.com/daniel_sloof">Daniel Sloof</a> for the domain name - magehero.com!
