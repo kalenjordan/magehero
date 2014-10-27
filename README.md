@@ -8,9 +8,20 @@ people to find the good ones.
 ### Frequently asked questions
 #### Why build this?
 
-Beacuse I'm always getting asked whether I know any good Magento developers that are available, 
-and I figure something like this might help to reduce some of the friction in the finding/hiring
-process.
+Initially the idea behind building this was because I'm always getting asked whether
+I know any good Magento developers that are available, and I wanted to have a good
+resource to point people to.
+
+After getting some initial traction, I'm realizing that the majority of the people
+signing up are great Magento developers but they're not available or looking for 
+contract work.  So at the moment I'm just thinking of it as a nice index of
+Magento developers.
+
+At some point, I'll want to figure out a way to surface up developers that are 
+actually available for work, or perhaps give developers ways to list specific types
+of consulting or projects that they're interested in.  
+
+But for now, it's just a general listing of developers in the community.
 
 #### How does upvoting work?
 
@@ -24,6 +35,18 @@ if you have already received at least two upvotes.
 
 I wrote a [post](https://mageunity.com/t/magehero-ranking/134) here explaining some of my thoughts around the
 upvoting system - please feel free to comment there:
+
+#### I want to complain about something, can I tweet at you?
+
+I'd rather you didn't.  I'm getting a lot of noise in my twitter stream
+about this and it's hard to have a good dialogue about these things
+in twitter.
+
+I'd rather that you join in on some of the discussions in MageUnity
+or post a well-reasoned question or suggestion as a GitHub issue.
+
+And also keep in mind that if you're going to suggest something, you
+should be willing to build it yourself, since this is open source.
 
 #### How do I get listed as a developer?
 
