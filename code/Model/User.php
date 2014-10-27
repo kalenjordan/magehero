@@ -140,6 +140,7 @@ class Model_User
         $data = array(
             'details_json' => $this->_data['details_json'],
             'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+            'updated_at'    => \Carbon\Carbon::now()->toDateTimeString(),
             'username'      => $this->_data['username'],
             'name'          => $this->_data['name'],
         );
