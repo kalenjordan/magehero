@@ -23,7 +23,7 @@ class Controller_UserUpvote extends Controller_Abstract
         }
 
         $votingUser = $this->_getContainer()->User()->loadByUsername($this->_getUsername());
-        if ($votingUser->getUsername() != 'kalenjordan' && $votingUser->getVoteCount() <= 2) {
+        if ($votingUser->getUsername() != 'kalenjordan' && $votingUser->getVoteCount() < 2) {
             throw new Exception("Sorry - you can't vote until you have at least 2 upvotes yourself!");
         }
 
