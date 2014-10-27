@@ -57,6 +57,9 @@ table.listing {
         &:hover {
             background-color: #FEFFDA;
         }
+        &.selected {
+            background-color: #FEFFDA;
+        }
     }
 
     th, td {

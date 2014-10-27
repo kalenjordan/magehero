@@ -13,7 +13,7 @@
         <th>Contact</th>
     </tr>
     {% for developer in developers %}
-        <tr class="{{ loop.index is odd ? "odd" : "even" }}" data-user-id={{ developer.id() }}>
+        <tr class="{{ loop.index is odd ? "odd" : "even" }} {{ developer.username == user.username ? "selected" : "" }}" data-user-id={{ developer.id() }}>
             <td>
                 <div class="upvote">
                     <a href="javascript://"><i class="fa fa-caret-up"></i></a>

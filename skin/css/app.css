@@ -53,6 +53,9 @@ table.listing tr.even {
 table.listing tr:hover {
   background-color: #FEFFDA;
 }
+table.listing tr.selected {
+  background-color: #FEFFDA;
+}
 table.listing th, table.listing td {
   padding: 0.5em;
   text-align: left;
