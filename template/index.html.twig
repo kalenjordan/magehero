@@ -18,14 +18,14 @@
             <td>
                 <div class="upvote">
                     <a href="javascript://"><i class="fa fa-caret-up"></i></a>
-                    {% if developer.voteCount() == 0 %}
-                        <i class="fa fa-meh-o tooltip" title="This developer hasn't received any upvotes yet"></i>
+                    {% if developer.voteCount() >= 4 %}
+                        <i class="fa fa-rocket tooltip" title="This developer has received {{ developer.voteCount() }} votes: {{ developer.votingUsernames() }}"></i>
                     {% endif %}
-                    {% if developer.voteCount() == 1 %}
+                    {% if developer.voteCount() >= 1 %}
                         <i class="fa fa-star tooltip" title="This developer has received {{ developer.voteCount() }} vote: {{ developer.votingUsernames() }}"></i>
                     {% endif %}
-                    {% if developer.voteCount() >= 2 %}
-                        <i class="fa fa-rocket tooltip" title="This developer has received {{ developer.voteCount() }} votes: {{ developer.votingUsernames() }}"></i>
+                    {% if developer.voteCount() == 0 %}
+                        <i class="fa fa-meh-o tooltip" title="This developer hasn't received any upvotes yet"></i>
                     {% endif %}
                     <span class="vote-count"></span>
                 </div>
