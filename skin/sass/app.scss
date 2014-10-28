@@ -67,6 +67,10 @@ table.listing {
         padding: 0.5em;
         text-align: left;
     }
+    
+    th:hover {
+      cursor: pointer;
+    }
 
     .fa {
         margin-left: 0.25em;
