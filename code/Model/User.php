@@ -58,6 +58,11 @@ class Model_User
             'created_at'        => \Carbon\Carbon::now()->toDateTimeString(),
         ));
 
+        $data = array(
+            'updated_at'    => \Carbon\Carbon::now()->toDateTimeString(),
+        );
+        $this->_localConfig->database()->update('users', $data, 'user_id = ' . $this->getId());
+
         return $this;
     }
 
