@@ -61,7 +61,21 @@ table.listing th, table.listing td {
   padding: 0.5em;
   text-align: left;
 }
-table.listing th:hover {
+table.listing .headerSortDown, table.listing .headerSortUp {
+  display: inline-block;
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
+table.listing .headerSortDown::after {
+  content: "\f0ab";
+}
+table.listing .headerSortUp::after {
+  content: "\f0aa";
+}
+table.listing th.sortable:hover {
   cursor: pointer;
 }
 table.listing .fa {
@@ -81,6 +95,9 @@ table.listing .image-wrapper img {
 }
 table.listing .last-updated {
   font-size: 12px;
+}
+table.listing .vote-count {
+  display: none;
 }
 
 label.profile {

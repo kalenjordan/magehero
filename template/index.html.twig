@@ -4,14 +4,14 @@
 <table class="listing">
     <thead>
         <tr>
-            <th></th>
+            <th class="sortable">Rating</th>
             <th>Updated</th>
             <th>Pic</th>
-            <th>Name</th>
+            <th class="sortable">Name</th>
             <th><!-- Certifications --></th>
-            <th>Company</th>
-            <th>Location</th>
-            <th>Available</th>
+            <th class="sortable">Company</th>
+            <th class="sortable">Location</th>
+            <th class="sortable">Available</th>
             <th>Contact</th>
         </tr>
     </thead>
@@ -28,7 +28,7 @@
                     {% else %}
                         <i class="fa fa-meh-o tooltip" title="This developer hasn't received any upvotes yet"></i>
                     {% endif %}
-                    <span class="vote-count"></span>
+                    <span class="vote-count">{{ developer.voteCount() }}</span>
                 </div>
             </td>
             <td>
