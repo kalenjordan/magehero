@@ -90,12 +90,20 @@ class Model_User
                 'user_vote',
                 'user_vote.elected_user_id = users.user_id',
                 array(
-                    'COUNT(user_vote.user_vote_id) as vote_count'
+                    'COUNT(user_vote.user_vote_id) as vote_count',
+                )
+            )
+            ->joinLeft(
+                array('voting_user' => 'users'),
+                'voting_user.user_id = user_vote.voting_user_id',
+                array(
+                    'GROUP_CONCAT(voting_user.username) as voting_users'
                 )
             )
             ->where('users.is_active = 1')
             ->group('users.user_id')
             ->order(new Zend_Db_Expr('IF(COUNT(user_vote.user_vote_id) >= 2, 1, IF(COUNT(user_vote.user_vote_id) >= 1, 2, 3)) ASC, updated_at DESC'));
+
 
         $results = $this->_localConfig->database()->fetchAll($query);
         return $results;
@@ -155,6 +163,7 @@ class Model_User
     public function getName() { return $this->get('name'); }
     public function getVoteCount() { return $this->get('vote_count'); }
     public function getUsername() { return $this->get('username'); }
+    public function getVotingUsernames() { return $this->get('voting_users'); }
 
     public function getImageUrl() { return $this->getDetail('image_url'); }
     public function getNextAvailable() { return $this->getDetail('next_available'); }
