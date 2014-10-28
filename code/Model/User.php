@@ -170,7 +170,7 @@ class Model_User
     public function getLastUpdatedFriendly()
     {
         try {
-            return \Carbon\Carbon::parse($this->getDetail('next_available'))->diffForHumans();
+            return \Carbon\Carbon::parse($this->getDetail('updated_at'))->diffForHumans();
         } catch (Exception $e) {
             return $this->get('updated_at');
         }
