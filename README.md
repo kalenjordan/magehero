@@ -59,9 +59,9 @@ Because I wanted to get something quick and dirty up to get the ball
 rolling.  Building the database is really the most important
 component of this.
 
-If you're a designer and you'd like to put a nice face on this,
-let us know.  Would be happy to feature you in the listing somehow
-as a thanks for your services.
+Antonela (https://twitter.com/holantonela) has volunteered to work on the design, because she is
+awesome and amazing!  Here's a sneak peek mockup:
+https://pbs.twimg.com/media/B0-GpjrIQAAsTDr.png:large
 
 #### Why are profile details being managed as JSON?
 
