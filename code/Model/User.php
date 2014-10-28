@@ -25,9 +25,16 @@ class Model_User
                     'COUNT(user_vote.user_vote_id) as vote_count'
                 )
             )
+            ->joinLeft(
+                array('voting_user' => 'users'),
+                'voting_user.user_id = user_vote.voting_user_id',
+                array(
+                    'GROUP_CONCAT(voting_user.name) as voting_users'
+                )
+            )
             ->group('users.user_id')
             ->where('users.is_active = 1')
-            ->where("username = ?", $username);
+            ->where("users.username = ?", $username);
 
         $this->_data = $this->_localConfig->database()->fetchRow($query);
         return $this;
@@ -97,7 +104,7 @@ class Model_User
                 array('voting_user' => 'users'),
                 'voting_user.user_id = user_vote.voting_user_id',
                 array(
-                    'GROUP_CONCAT(voting_user.username) as voting_users'
+                    'GROUP_CONCAT(voting_user.name) as voting_users'
                 )
             )
             ->where('users.is_active = 1')
