@@ -4,6 +4,7 @@
 <table class="listing">
     <tr>
         <th></th>
+        <th>Updated</th>
         <th></th>
         <th>Name</th>
         <th><!-- Certifications --></th>
@@ -11,7 +12,6 @@
         <th>Location</th>
         <th>Available</th>
         <th>Contact</th>
-        <th>Updated</th>
     </tr>
     {% for developer in developers %}
         <tr class="{{ loop.index is odd ? "odd" : "even" }} {{ developer.username == user.username ? "selected" : "" }}" data-user-id={{ developer.id() }}>
@@ -27,8 +27,11 @@
                     {% if developer.voteCount() >= 2 %}
                         <i class="fa fa-rocket tooltip" title="With {{ developer.voteCount() }} votes, this developer is a voting member."></i>
                     {% endif %}
-                    <span class="vote-count">{{ developer.voteCount() }}</span>
+                    <span class="vote-count"></span>
                 </div>
+            </td>
+            <td>
+                <span class="last-updated">{{ developer.lastUpdatedFriendly() }}</span>
             </td>
             <td>
                 {% if developer.imageUrl() %}
@@ -86,9 +89,6 @@
                 {% if developer.websiteUrl() %}
                     <a href="{{ developer.websiteUrl() }}" target="_blank"><i class="fa fa-globe tooltip" title="Visit {{ developer.websiteUrl() }}"></i></a>
                 {% endif %}
-            </td>
-            <td>
-                <span class="last-updated">{{ developer.lastUpdatedFriendly() }}</span>
             </td>
         </tr>
     {% endfor %}
