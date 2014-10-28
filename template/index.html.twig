@@ -73,7 +73,7 @@
             <td>
                 <span class="tooltip" title="Next availability for hire / project work">
                     {% if developer.nextAvailable() %}
-                        {{ developer.nextAvailable() }}
+                        {{ developer.nextAvailableFriendly() }}
                     {% else %}
                         No
                     {% endif %}

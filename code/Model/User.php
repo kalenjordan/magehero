@@ -169,8 +169,20 @@ class Model_User
 
     public function getLastUpdatedFriendly()
     {
-        // return $this->get('last_updated');
-        return \Carbon\Carbon::parse($this->get('updated_at'))->diffForHumans();
+        try {
+            return \Carbon\Carbon::parse($this->getDetail('next_available'))->diffForHumans();
+        } catch (Exception $e) {
+            return $this->get('updated_at');
+        }
+    }
+
+    public function getNextAvailableFriendly()
+    {
+       try {
+           return \Carbon\Carbon::parse($this->getDetail('next_available'))->diffForHumans();
+       } catch (Exception $e) {
+           return $this->getDetail('next_available');
+       }
     }
 
     public function get($key)
