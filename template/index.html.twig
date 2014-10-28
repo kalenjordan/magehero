@@ -87,6 +87,9 @@
                 {% if developer.websiteUrl() %}
                     <a href="{{ developer.websiteUrl() }}" target="_blank"><i class="fa fa-globe tooltip" title="Visit {{ developer.websiteUrl() }}"></i></a>
                 {% endif %}
+                {% if developer.stackoverflowUrl() %}
+                    <a href="{{ developer.stackoverflowUrl() }}" target="_blank"><i class="fa fa-stack-exchange tooltip" title="Stack Overflow"></i></a>
+                {% endif %}
             </td>
         </tr>
     {% endfor %}
