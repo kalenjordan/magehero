@@ -2,17 +2,20 @@
 
 {% block content %}
 <table class="listing">
-    <tr>
-        <th></th>
-        <th>Updated</th>
-        <th>Pic</th>
-        <th>Name</th>
-        <th><!-- Certifications --></th>
-        <th>Company</th>
-        <th>Location</th>
-        <th>Available</th>
-        <th>Contact</th>
-    </tr>
+    <thead>
+        <tr>
+            <th></th>
+            <th>Updated</th>
+            <th>Pic</th>
+            <th>Name</th>
+            <th><!-- Certifications --></th>
+            <th>Company</th>
+            <th>Location</th>
+            <th>Available</th>
+            <th>Contact</th>
+        </tr>
+    </thead>
+    <tbody>
     {% for developer in developers %}
         <tr class="{{ loop.index is odd ? "odd" : "even" }} {{ developer.username == user.username ? "selected" : "" }}" data-user-id={{ developer.id() }}>
             <td>
@@ -90,5 +93,6 @@
             </td>
         </tr>
     {% endfor %}
+    </tbody>
 </table>
 {% endblock %}
