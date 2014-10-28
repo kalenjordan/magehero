@@ -25,8 +25,9 @@
                         <i class="fa fa-star tooltip" title="This developer has received {{ developer.voteCount() }} vote(s)"></i>
                     {% endif %}
                     {% if developer.voteCount() >= 2 %}
-                        <i class="fa fa-star tooltip" title="With {{ developer.voteCount() }} votes, this developer is a voting member."></i>
+                        <i class="fa fa-rocket tooltip" title="With {{ developer.voteCount() }} votes, this developer is a voting member."></i>
                     {% endif %}
+                    <span class="vote-count">{{ developer.voteCount() }}</span>
                 </div>
             </td>
             <td>
