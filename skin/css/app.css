@@ -64,6 +64,12 @@ table.listing th, table.listing td {
 table.listing .fa {
   margin-left: 0.25em;
 }
+table.listing .fa.fa-rocket {
+  color: #e8690e;
+}
+table.listing .fa.fa-star {
+  color: #dfbf1e;
+}
 table.listing .image-wrapper {
   max-width: 40px;
 }
