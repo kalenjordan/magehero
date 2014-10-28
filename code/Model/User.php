@@ -26,6 +26,7 @@ class Model_User
                 )
             )
             ->group('users.user_id')
+            ->where('users.is_active = 1')
             ->where("username = ?", $username);
 
         $this->_data = $this->_localConfig->database()->fetchRow($query);
@@ -74,6 +75,7 @@ class Model_User
                 )
             )
             ->group('users.user_id')
+            ->where('users.is_active = 1')
             ->where("users.user_id = ?", $userId);
 
         $this->_data = $this->_localConfig->database()->fetchRow($query);
