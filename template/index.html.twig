@@ -38,26 +38,26 @@
             </td>
             <td>
                 {% if developer.githubUsername() %}
-                    <a href="/{{ developer.githubUsername() }}">{{ developer.name() }}</a>
+                    <a href="/{{ developer.githubUsername() }}" target="_blank">{{ developer.name() }}</a>
                 {% else %}
                     <span>{{ developer.name() }}</span>
                 {% endif %}
             </td>
             <td>
                 {% if developer.certificationBoardUrl() %}
-                    <a href="{{ developer.certificationBoardUrl() }}"><i class="fa fa-certificate tooltip" title="Magento Certification Advisory Board"></i></a>
+                    <a href="{{ developer.certificationBoardUrl() }}" target="_blank"><i class="fa fa-certificate tooltip" title="Magento Certification Advisory Board"></i></a>
                 {% endif %}
                 {% if developer.certifiedDeveloperUrl() %}
-                    <a href="{{ developer.certifiedDeveloperUrl() }}"><i class="fa fa-certificate tooltip" title="Magento Certified Developer"></i></a>
+                    <a href="{{ developer.certifiedDeveloperUrl() }}" target="_blank"><i class="fa fa-certificate tooltip" title="Magento Certified Developer"></i></a>
                 {% endif %}
                 {% if developer.certifiedDeveloperPlusUrl() %}
-                    <a href="{{ developer.certifiedDeveloperPlusUrl() }}"><i class="fa fa-certificate tooltip" title="Magento Certified Developer Plus"></i></a>
+                    <a href="{{ developer.certifiedDeveloperPlusUrl() }}" target="_blank"><i class="fa fa-certificate tooltip" title="Magento Certified Developer Plus"></i></a>
                 {% endif %}
                 {% if developer.certifiedSolutionSpecialistUrl() %}
-                    <a href="{{ developer.certifiedSolutionSpecialistUrl() }}"><i class="fa fa-certificate tooltip" title="Magento Certified Solution Specialist"></i></a>
+                    <a href="{{ developer.certifiedSolutionSpecialistUrl() }}" target="_blank"><i class="fa fa-certificate tooltip" title="Magento Certified Solution Specialist"></i></a>
                 {% endif %}
                 {% if developer.certifiedFrontendDeveloperUrl() %}
-                    <a href="{{ developer.certifiedFrontendDeveloperUrl() }}"><i class="fa fa-certificate tooltip" title="Magento Certified Frontend Developer"></i></a>
+                    <a href="{{ developer.certifiedFrontendDeveloperUrl() }}" target="_blank"><i class="fa fa-certificate tooltip" title="Magento Certified Frontend Developer"></i></a>
                 {% endif %}
             </td>
             <td>
@@ -77,13 +77,13 @@
             </td>
             <td>
                 {% if developer.twitterUsername() %}
-                    <a href="https://twitter.com/{{ developer.twitterUsername() }}"><i class="fa fa-twitter tooltip" title="Twitter"></i></a>
+                    <a href="https://twitter.com/{{ developer.twitterUsername() }}" target="_blank"><i class="fa fa-twitter tooltip" title="Twitter"></i></a>
                 {% endif %}
                 {% if developer.githubUsername() %}
-                    <a href="https://github.com/{{ developer.githubUsername() }}"><i class="fa fa-github tooltip" title="GitHub"></i></a>
+                    <a href="https://github.com/{{ developer.githubUsername() }}" target="_blank"><i class="fa fa-github tooltip" title="GitHub"></i></a>
                 {% endif %}
                 {% if developer.websiteUrl() %}
-                    <a href="{{ developer.websiteUrl() }}"><i class="fa fa-globe tooltip" title="Visit {{ developer.websiteUrl() }}"></i></a>
+                    <a href="{{ developer.websiteUrl() }}" target="_blank"><i class="fa fa-globe tooltip" title="Visit {{ developer.websiteUrl() }}"></i></a>
                 {% endif %}
             </td>
             <td>
