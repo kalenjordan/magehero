@@ -5,6 +5,7 @@
         "lusitanian/oauth": "~0.3",
         "nesbot/Carbon": "*",
         "mnapoli/php-di": "~4.0",
-        "zendframework/zendframework1": "dev-master"
+        "zendframework/zendframework1": "dev-master",
+        "j7mbo/twitter-api-php": "dev-master"
     }
 }

@@ -2,6 +2,16 @@
 
 class Controller_UserUpvote extends Controller_Abstract
 {
+    function __construct() {
+        ToroHook::add("after_handler", function($params) {
+                      // TODO : Not the best approach to get the elected User ID. Works for now.
+                      $userId = $params['regex_matches'];
+                      $votingUser = $this->_getContainer()->User()->loadByUsername($this->_getUsername());
+                      $electedUser = $this->_getContainer()->User()->load($userId); 
+                      $twit = new Services_TwitterNotify(new Model_LocalConfig);
+                      $twit->send($electedUser, $votingUser);
+        });
+    }
     public function get($userId)
     {
         try {
