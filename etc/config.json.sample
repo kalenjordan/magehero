@@ -4,5 +4,6 @@
     "github_api_secret": "",
     "db_name": "magehero",
     "db_username": "root",
-    "db_password": "root"
+    "db_password": "root",
+    "db_host": "localhost"
 }
