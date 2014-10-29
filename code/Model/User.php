@@ -11,7 +11,7 @@ class Model_User
         'certified_developer_plus_url'      => '|^https?://www\.magentocommerce\.com/certification/directory/dev/|',
         'certified_solution_specialist_url' => '|^https?://www\.magentocommerce\.com/certification/directory/dev/|',
         'certified_frontend_developer_url'  => '|^https?://www\.magentocommerce\.com/certification/directory/dev/|',
-        'stackoverflow_url'                 => '|^https?://stackoverflow\.com/users/|',
+        'stackoverflow_url'                 => ';^https?://(([^.]*\.)?stackexchange|stackoverflow)\.com/users/;',
     ];
 
     /**
