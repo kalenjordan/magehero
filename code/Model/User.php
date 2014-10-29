@@ -188,6 +188,7 @@ class Model_User
     public function certifiedSolutionSpecialistUrl() { return $this->getDetail('certified_solution_specialist_url'); }
     public function certifiedFrontendDeveloperUrl() { return $this->getDetail('certified_frontend_developer_url'); }
     public function stackoverflowUrl() { return $this->getDetail('stackoverflow_url'); }
+    public function linkedinUrl() { return $this->getDetail('linkedin_url'); }
     public function getGithubUsername() { return $this->getDetail('github_username'); }
     public function getTwitterUsername() { return $this->getDetail('twitter_username'); }
     public function getWebsiteUrl() { return $this->getDetail('url_website'); }

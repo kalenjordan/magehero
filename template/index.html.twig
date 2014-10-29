@@ -93,6 +93,9 @@
                 {% if developer.stackoverflowUrl() %}
                     <a href="{{ developer.stackoverflowUrl() }}" target="_blank"><i class="fa fa-stack-exchange tooltip" title="Stack Overflow"></i></a>
                 {% endif %}
+                {% if developer.linkedinUrl() %}
+                    <a href="{{ developer.linkedinUrl() }}" target="_blank"><i class="fa fa-linkedin tooltip" title="LinkedIn"></i></a>
+                {% endif %}
             </td>
         </tr>
     {% endfor %}
