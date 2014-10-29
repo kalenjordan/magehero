@@ -2,7 +2,7 @@ $(document).ready(function() {
     MageHero_App.bindUpvote();
     $('table.listing').tablesorter({
         headers: {
-            1: { sorter: false },
+            0: { sorter: false },
             2: { sorter: false },
             4: { sorter: false },
             8: { sorter: false }
