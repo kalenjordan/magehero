@@ -36,7 +36,7 @@ if you have already received at least four upvotes.
 I wrote a [post](https://mageunity.com/t/magehero-ranking/134) here explaining some of my thoughts around the
 upvoting system - please feel free to comment there:
 
-#### I want to complain about something, can I tweet at you?
+#### Can I tweet you to make a suggestion?
 
 I'd rather you didn't.  I'm getting a lot of noise in my twitter stream
 about this and it's hard to have a good dialogue about these things
