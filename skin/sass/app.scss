@@ -78,11 +78,13 @@ table.listing {
     }
 
     .headerSortDown::after {
-        content: "\f0ab";
+        content: "\f0d7";
+        padding-left: 5px;
     }
 
     .headerSortUp::after {
-        content: "\f0aa";
+        content: "\f0d8";
+        padding-left: 5px;
     }
     
     th.sortable:hover {

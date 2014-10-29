@@ -70,10 +70,12 @@ table.listing .headerSortDown, table.listing .headerSortUp {
   -webkit-font-smoothing: antialiased;
 }
 table.listing .headerSortDown::after {
-  content: "\f0ab";
+  content: "\f0d7";
+  padding-left: 5px;
 }
 table.listing .headerSortUp::after {
-  content: "\f0aa";
+  content: "\f0d8";
+  padding-left: 5px;
 }
 table.listing th.sortable:hover {
   cursor: pointer;
