@@ -168,7 +168,7 @@ class Model_User
 
     protected function validateDetails($json)
     {
-        $data = json_decode($json);
+        $data = json_decode($json, true);
         foreach ($this->_validationPatterns as $key => $pattern) {
             if (!isset($data[$key])) {
                 continue;
