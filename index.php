@@ -16,6 +16,7 @@ spl_autoload_register(function($class) {
 
 Toro::serve(array(
      "/"                        => "Controller_Index",
+     "/available"               => "Controller_Available",
      "/login"                   => "Controller_Login",
      "/logout"                  => "Controller_Logout",
      "/profile"                 => "Controller_Profile",
