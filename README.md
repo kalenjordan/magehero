@@ -53,6 +53,21 @@ should be willing to build it yourself, since this is open source.
 Just login and it will allow you to auth with GitHub and then click
 on your username in the top right and save your details as JSON.
 
+#### I'm not looking for work.  Why should I sign up?
+
+The majority of the developers listed on here aren't looking for work.
+It's more than just a listing for people looking for work - it's a 
+listing of Magento developers as rated/reviewed/loved/admired by
+the community.
+
+As such, having a listing of Magento "heroes" that doesn't include
+some of our obvious heroes (Vinai, Alan, Ben, etc.) feels totally
+incomplete.
+
+There's a pretty clear indicator of availability (the Available column)
+and we'll probably figure out a way to make that even more abundantly
+clear at some point in the future.
+
 #### Why is the design of the site so horrendous?
 
 Because I wanted to get something quick and dirty up to get the ball
