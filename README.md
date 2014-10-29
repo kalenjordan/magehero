@@ -93,6 +93,18 @@ Since the project is open source and since you're a PHP developer,
 and since my time is super limited to resolve and fix bugs, please do
 some initial investigation of the issue to try and resolve it.
 
+Ideally, fix the issue yourself and submit a PR.  If you can't do that,
+then at least submit a detailed bug report where you do some initial
+investigation of the code surroundind the bug and try to point
+us in the right direction.
+
+Your best bet at getting it fixed will still be to actually fix it
+yourself, but reporting it is a nice first step.
+
+It would be great if you could avoid tweeting me about it, because
+I'm getting a little bit overwhelmed by the tweets and it's just
+not a very productive way to report the bug.  
+
 ### Credits
 
 - Thanks to <a href="https://twitter.com/daniel_sloof">Daniel Sloof</a> for the domain name - magehero.com!
