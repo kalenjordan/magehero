@@ -61,7 +61,7 @@ listing of Magento developers as rated/reviewed/loved/admired by
 the community.
 
 As such, having a listing of Magento "heroes" that doesn't include
-some of our obvious heroes (Vinai, Alan, Ben, etc.) feels totally
+some of our obvious heroes (Alan, Ben, Collin, Karen, Vinai, etc.) feels totally
 incomplete.
 
 There's a pretty clear indicator of availability (the Available column)
