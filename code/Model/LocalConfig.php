@@ -14,9 +14,9 @@ class Model_LocalConfig
         $this->_data = $configArray;
     }
 
-    public function get($key)
+    public function get($key, $default = null)
     {
-        return (isset($this->_data[$key]) ? $this->_data[$key] : null);
+        return (isset($this->_data[$key]) ? $this->_data[$key] : $default);
     }
 
     protected function _getDatabaseConfig()
@@ -25,6 +25,7 @@ class Model_LocalConfig
             'dbname'    => $this->get('db_name'),
             'password'  => $this->get('db_password'),
             'username'  => $this->get('db_username'),
+            'host'      => $this->get('db_host', 'localhost'),
         );
     }
 
