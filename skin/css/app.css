@@ -70,11 +70,11 @@ table.listing .headerSortDown, table.listing .headerSortUp {
   -webkit-font-smoothing: antialiased;
 }
 table.listing .headerSortDown::after {
-  content: "\f0d7";
+  content: "\f0d8";
   padding-left: 5px;
 }
 table.listing .headerSortUp::after {
-  content: "\f0d8";
+  content: "\f0d7";
   padding-left: 5px;
 }
 table.listing th.sortable:hover {
