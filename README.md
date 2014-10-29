@@ -29,7 +29,7 @@ Upvote other good developers.   This will help to create a list
 of developers that merchants and agencies can trust.
 
 You can only upvote other developers if you are logged in and
-if you have already received at least two upvotes.
+if you have already received at least four upvotes.
 
 #### Bro, this upvoting system sucks.  What gives bro?
 
