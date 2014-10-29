@@ -4,7 +4,7 @@ class Controller_UserUpvote extends Controller_Abstract
 {
     protected $notify;
     function __construct() {
-        $this->notify = new Services_TwitterNotify(new Model_LocalConfig);
+        $this->notify = $this->_getContainer()->Notify();
     }
     public function get($userId)
     {
