@@ -14,12 +14,35 @@ class Controller_Index extends Controller_Abstract
 
     protected function _getDevelopers()
     {
+        $query = $this->_getContainer()->User()->selectAll();
+        $userRows = $this->_getContainer()->LocalConfig()->database()->fetchAll($query);
+
         $userModels = array();
-        $userRows = $this->_getContainer()->User()->fetchAll();
         foreach ($userRows as $userRow) {
-            $userModels[] = $this->_getContainer()->User()->setData($userRow);
+            $userModel = $this->_getContainer()->User()->setData($userRow);
+            if ($this->_shouldIncludeUser($userModel)) {
+                $userModels[] = $userModel;
+            }
         }
 
         return $userModels;
+    }
+
+    /**
+     * @param $user Model_User
+     * @return bool
+     */
+    protected function _shouldIncludeUser($user)
+    {
+        if (isset($_GET['country'])) {
+            $country = preg_replace('~[^A-Za-z]~','', $_GET['country']);
+            if ($user->getDetail('country') == $country) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
