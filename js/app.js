@@ -39,7 +39,7 @@ MageHero_App = {
                         return;
                     }
 
-                    upvoteCount.text(data.vote_count);
+                    upvoteCount.text(data.vote_count).show();
                 }
             });
         });
