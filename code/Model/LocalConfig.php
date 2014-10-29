@@ -25,6 +25,7 @@ class Model_LocalConfig
             'dbname'    => $this->get('db_name'),
             'password'  => $this->get('db_password'),
             'username'  => $this->get('db_username'),
+            'host'  => $this->get('db_hostname')
         );
     }
 
