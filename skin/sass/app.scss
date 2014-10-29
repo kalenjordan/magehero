@@ -87,8 +87,11 @@ table.listing {
         padding-left: 5px;
     }
     
-    th.sortable:hover {
-      cursor: pointer;
+    th.sortable {
+        color: blue;
+        &:hover {
+            cursor: pointer;
+        }
     }
 
     .fa {
