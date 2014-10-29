@@ -68,6 +68,27 @@ table.listing {
         text-align: left;
     }
 
+    .headerSortDown, .headerSortUp {
+        display: inline-block;
+        font-family: FontAwesome;
+        font-style: normal;
+        font-weight: normal;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    .headerSortDown::after {
+        content: "\f0ab";
+    }
+
+    .headerSortUp::after {
+        content: "\f0aa";
+    }
+    
+    th.sortable:hover {
+      cursor: pointer;
+    }
+
     .fa {
         margin-left: 0.25em;
     }
@@ -89,6 +110,10 @@ table.listing {
 
     .last-updated {
         font-size: 12px;
+    }
+
+    .vote-count {
+        display: none;
     }
 }
 
