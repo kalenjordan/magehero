@@ -29,6 +29,7 @@ class Controller_UserProfile extends Controller_Abstract
             'user'          => $user,
             'developers'    => $developers,
             'session'       => $this->_getSession(),
+            'local_config'  => $this->_getContainer()->LocalConfig(),
         ));
     }
 

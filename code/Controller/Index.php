@@ -7,8 +7,9 @@ class Controller_Index extends Controller_Abstract
         $developers = $this->_getDevelopers();
 
         echo $this->_getTwig()->render('index.html.twig', array(
-           'developers'    => $developers,
-           'session'       => $this->_getSession(),
+            'developers'    => $developers,
+            'session'       => $this->_getSession(),
+            'local_config'  => $this->_getContainer()->LocalConfig(),
         ));
     }
 

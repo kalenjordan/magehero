@@ -37,4 +37,7 @@ class Model_LocalConfig
         $this->_databaseAdapter = new Zend_Db_Adapter_Pdo_Mysql($this->_getDatabaseConfig());
         return $this->_databaseAdapter;
     }
+
+    public function getGoogleAnalyticsUa() { return $this->get('google_analytics_ua'); }
+    public function getHellobarId() { return $this->get('hellobar_id'); }
 }

@@ -15,6 +15,7 @@ class Controller_Profile extends Controller_Abstract
         echo $this->_getTwig()->render('profile/edit.html.twig', array(
             'session'       => $this->_getSession(),
             'profile_json'  => $profileJson,
+            'local_config'  => $this->_getContainer()->LocalConfig(),
         ));
     }
 
