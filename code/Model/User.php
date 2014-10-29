@@ -94,7 +94,7 @@ class Model_User
         return $this;
     }
 
-    public function fetchAll()
+    public function selectAll()
     {
         $query = $this->_localConfig->database()->select()
             ->from("users")
@@ -116,7 +116,11 @@ class Model_User
             ->group('users.user_id')
             ->order(new Zend_Db_Expr('IF(COUNT(user_vote.user_vote_id) >= 4, 1, IF(COUNT(user_vote.user_vote_id) >= 1, 2, 3)) ASC, updated_at DESC'));
 
-        $results = $this->_localConfig->database()->fetchAll($query);
+        return $query;
+    }
+    public function fetchAll()
+    {
+        $results = $this->_localConfig->database()->fetchAll($this->selectAll());
         return $results;
     }
 

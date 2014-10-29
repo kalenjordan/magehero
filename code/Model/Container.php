@@ -20,4 +20,9 @@ class Model_Container extends DI\Container
     {
         return $this->_container->make('Model_User');
     }
+
+    public function LocalConfig()
+    {
+        return new Model_LocalConfig();
+    }
 }

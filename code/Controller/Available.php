@@ -4,18 +4,19 @@ class Controller_Available extends Controller_Index
 {
     protected function _getDevelopers()
     {
-        $developers = parent::_getDevelopers();
+        $query = $this->_getContainer()->User()->selectAll();
+        $query->having('vote_count > 0');
+        $userRows = $this->_getContainer()->LocalConfig()->database()->fetchAll($query);
 
-        /** @var $user Model_User */
-        for ($i = 0; $i <= count($developers); $i++) {
-            $user = $developers[$i];
-
-            if ($this->_shouldExcludeUser($user)) {
-                unset($developers[$i]);
+        $userModels = array();
+        foreach ($userRows as $userRow) {
+            $userModel = $this->_getContainer()->User()->setData($userRow);
+            if (! $this->_shouldExcludeUser($userModel)) {
+                $userModels[] = $userModel;
             }
         }
 
-        return $developers;
+        return $userModels;
     }
 
     /**
@@ -32,10 +33,6 @@ class Controller_Available extends Controller_Index
         // because obviously this logic would be a simple WHERE if the next_available
         // field were a nice tidy database column.  Alas, technical debt.
         if ($user->getNextAvailableFriendly() == $user->getNextAvailable()) {
-            return true;
-        }
-
-        if ($user->getVoteCount() == 0) {
             return true;
         }
 
