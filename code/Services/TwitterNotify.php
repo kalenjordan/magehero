@@ -13,7 +13,7 @@ class Services_TwitterNotify implements Services_NotifyInterface {
 
         if ($message == "") {
             // Construct Tweet
-            $message = "@".$to->getTwitterUsername()." just got an upvote from @".$from->getTwitterUsername(). " - magehero.com";
+            $message = "@".$to->getTwitterUsername()." just got an upvote from @".$from->getTwitterUsername(). " on magehero.com #magehero";
         }
         $settings = array(
             'oauth_access_token' => $this->_localConfig->get('twitter_oauth_access_token'),
