@@ -4,8 +4,8 @@
 <table class="listing">
     <thead>
         <tr>
-            <th class="sortable">Rating</th>
             <th>Updated</th>
+            <th class="sortable">Rating</th>
             <th>Pic</th>
             <th class="sortable">Name</th>
             <th><!-- Certifications --></th>
@@ -19,6 +19,9 @@
     {% for developer in developers %}
         <tr class="{{ loop.index is odd ? "odd" : "even" }} {{ developer.username == user.username ? "selected" : "" }}" data-user-id={{ developer.id() }}>
             <td>
+                <span class="last-updated">{{ developer.lastUpdatedFriendly() }}</span>
+            </td>
+            <td>
                 <div class="upvote">
                     <a href="javascript://"><i class="fa fa-caret-up"></i></a>
                     {% if developer.voteCount() >= 4 %}
@@ -30,9 +33,6 @@
                     {% endif %}
                     <span class="vote-count">{{ developer.voteCount() }}</span>
                 </div>
-            </td>
-            <td>
-                <span class="last-updated">{{ developer.lastUpdatedFriendly() }}</span>
             </td>
             <td>
                 {% if developer.imageUrl() %}
