@@ -2,15 +2,9 @@
 
 class Controller_UserUpvote extends Controller_Abstract
 {
+    protected $notify;
     function __construct() {
-        ToroHook::add("after_handler", function($params) {
-                      // TODO : Not the best approach to get the elected User ID. Works for now.
-                      $userId = $params['regex_matches'];
-                      $votingUser = $this->_getContainer()->User()->loadByUsername($this->_getUsername());
-                      $electedUser = $this->_getContainer()->User()->load($userId); 
-                      $twit = new Services_TwitterNotify(new Model_LocalConfig);
-                      $twit->send($electedUser, $votingUser);
-        });
+        $this->notify = new Services_TwitterNotify(new Model_LocalConfig);
     }
     public function get($userId)
     {
@@ -47,11 +41,12 @@ class Controller_UserUpvote extends Controller_Abstract
             $electedUser->removeVoteFrom($votingUser->getId());
         } else {
             $electedUser->addVoteFrom($votingUser->getId());
+            //Succesfully voted. Notify the user
+            $this->notify->send($electedUser, $votingUser);
         }
 
         // Reload to get fresh vote count
         $electedUser = $this->_getContainer()->User()->load($userId);
-
         $this->_jsonResponse(array(
             'success' => true,
             'vote_count' => $electedUser->getVoteCount(),
