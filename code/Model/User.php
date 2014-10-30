@@ -4,6 +4,16 @@ class Model_User
 {
     protected $_data;
 
+    protected $_validationPatterns = [
+        'image_url'                         => '|^https?://|',
+        'certification_board_url'           => '|^https?://|',
+        'certified_developer_url'           => '|^https?://www\.magentocommerce\.com/certification/directory/dev/|',
+        'certified_developer_plus_url'      => '|^https?://www\.magentocommerce\.com/certification/directory/dev/|',
+        'certified_solution_specialist_url' => '|^https?://www\.magentocommerce\.com/certification/directory/dev/|',
+        'certified_frontend_developer_url'  => '|^https?://www\.magentocommerce\.com/certification/directory/dev/|',
+        'stackoverflow_url'                 => ';^https?://(([^.]*\.)?stackexchange|stackoverflow)\.com/users/;',
+    ];
+
     /**
      * @var Model_LocalConfig
      */
@@ -150,7 +160,7 @@ class Model_User
     public function update()
     {
         $data = array(
-            'details_json'  => $this->_data['details_json'],
+            'details_json'  => $this->validateDetails($this->_data['details_json']),
             'updated_at'    => \Carbon\Carbon::now()->toDateTimeString(),
             'username'      => $this->_data['username'],
             'name'          => $this->_data['name'],
@@ -158,6 +168,21 @@ class Model_User
         $this->_localConfig->database()->update('users', $data, 'user_id = ' . $this->getId());
 
         return $this;
+    }
+
+    protected function validateDetails($json)
+    {
+        $data = json_decode($json, true);
+        foreach ($this->_validationPatterns as $key => $pattern) {
+            if (!isset($data[$key])) {
+                continue;
+            }
+            $preg_result = preg_match($pattern, $data[$key]);
+            if ($preg_result !== 1) {
+                throw new Exception("JSON failed validation at $key.");
+            }
+        }
+        return $json;
     }
 
     public function create()
@@ -228,7 +253,7 @@ class Model_User
         $detailJson = $this->get('details_json');
         $detailsArray = json_decode($detailJson, true);
         if (! $detailsArray) {
-            throw new Exception("Problem decoding jsonfor user: " . $this->getId());
+            throw new Exception("Problem decoding json for user: " . $this->getId());
         }
 
         return isset($detailsArray[$key]) ? $detailsArray[$key] : null;
