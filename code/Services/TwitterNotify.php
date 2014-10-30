@@ -9,12 +9,20 @@ class Services_TwitterNotify implements Services_NotifyInterface {
     {
         $this->_localConfig = $config;
     }
+
+    /**
+     * @param Model_User $to
+     * @param Model_User $from
+     * @param string $message
+     * @return bool|string
+     */
     public function send($to, $from = "", $message = "") {
 
         if ($message == "") {
             // Construct Tweet
-            $message = "@".$to->getTwitterUsername()." just got an upvote from @".$from->getTwitterUsername(). " on magehero.com #magehero";
+            $message = "@".$to->getTwitterUsername()." you were upvoted by @".$from->getTwitterUsername(). " on magehero.com/" . $to->getGithubUsername();
         }
+
         $settings = array(
             'oauth_access_token' => $this->_localConfig->get('twitter_oauth_access_token'),
             'oauth_access_token_secret' => $this->_localConfig->get('twitter_oauth_access_token_secret'),
