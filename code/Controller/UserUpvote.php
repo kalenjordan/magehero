@@ -41,8 +41,9 @@ class Controller_UserUpvote extends Controller_Abstract
             $electedUser->removeVoteFrom($votingUser->getId());
         } else {
             $electedUser->addVoteFrom($votingUser->getId());
-            //Succesfully voted. Notify the user
-            $this->notify->send($electedUser, $votingUser);
+            if ($this->_getContainer()->LocalConfig()->get('twitter_enabled')) {
+                $this->notify->send($electedUser, $votingUser);
+            }
         }
 
         // Reload to get fresh vote count
