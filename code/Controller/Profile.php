@@ -26,6 +26,10 @@ class Controller_Profile extends Controller_Abstract
         }
         $profileJson = $_POST['profile'];
 
+        if (strpos($profileJson, "javascript:") !== false || strpos($profileJson, "data:") !== false) {
+            die("Looks like an injection attempt");
+        }
+
         $profileData = json_decode($profileJson, true);
         if (! is_array($profileData)) {
             die("There was a problem decoding the JSON, please check to make sure it was valid");
