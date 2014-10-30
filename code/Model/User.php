@@ -207,7 +207,12 @@ class Model_User
     public function getNextAvailableFriendly()
     {
        try {
-           return \Carbon\Carbon::parse($this->getDetail('next_available'))->diffForHumans();
+            $dt = \Carbon\Carbon::parse($this->getDetail('next_available'));
+            if ($dt->lt(\Carbon\Carbon::now())){
+                return "Available";
+            }else{
+                return $dt->diffForHumans();
+            }
        } catch (Exception $e) {
            return $this->getDetail('next_available');
        }

@@ -1,8 +1,13 @@
 {
-    "base_url": "http://local.magehero.com",
-    "github_api_key": "1c9dfd8fad0bad9aefb1",
+    "base_url": "",
+    "github_api_key": "",
     "github_api_secret": "",
     "db_name": "magehero",
     "db_username": "root",
-    "db_password": "root"
+    "db_password": "root",
+    "db_hostname": "localhost",
+    "twitter_consumer_api_key" : "",
+    "twitter_consumer_api_secret" : "",
+    "twitter_oauth_access_token" : "",
+    "twitter_oauth_access_token_secret" : ""
 }

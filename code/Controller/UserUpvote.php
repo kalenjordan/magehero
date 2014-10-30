@@ -2,6 +2,10 @@
 
 class Controller_UserUpvote extends Controller_Abstract
 {
+    protected $notify;
+    function __construct() {
+        $this->notify = $this->_getContainer()->Notify();
+    }
     public function get($userId)
     {
         try {
@@ -37,11 +41,12 @@ class Controller_UserUpvote extends Controller_Abstract
             $electedUser->removeVoteFrom($votingUser->getId());
         } else {
             $electedUser->addVoteFrom($votingUser->getId());
+            //Succesfully voted. Notify the user
+            $this->notify->send($electedUser, $votingUser);
         }
 
         // Reload to get fresh vote count
         $electedUser = $this->_getContainer()->User()->load($userId);
-
         $this->_jsonResponse(array(
             'success' => true,
             'vote_count' => $electedUser->getVoteCount(),
