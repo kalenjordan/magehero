@@ -82,7 +82,27 @@ happy to vote you up if they like what you're up to.
 #### Bro, this upvoting system sucks.  What gives bro?
 
 I wrote a [post](https://mageunity.com/t/magehero-ranking/134) here explaining some of my thoughts around the
-upvoting system - please feel free to comment there:
+upvoting system - please feel free to comment there.
+
+One thing I'd like to say here though is that I know that it's frustrating
+for people just joining the site who aren't able to vote yet and are
+having a hard time getting upvotes.
+
+I think the thing to keep in mind though is that we want this to be a useful
+resources 6 months from now, 2 years from now.  So while the initial experience days/weeks
+after this site was launched is probably annoying and rankings are probably
+skewed towards my personal network, I believe that over time they'll get
+better and better.
+
+Already if you look at the voting members, they are a lot more diverse
+than just people who think I have a sweet twitter avatar.  I expect them
+to get more diverse over time and for results to become more meaningful,
+but I want to be on the conservative side to avoid things from getting
+overrun with spam (as they naturally tend to do with online ratings systems).
+
+If you have any ideas for how non-voting members could somehow still add
+some kind of ranking value to the system, feel free to post a github issue
+and we'll see if it makes sense.  
 
 #### Can I tweet you to make a suggestion?
 
