@@ -16,6 +16,15 @@
     {% endblock %}
 </head>
 <body>
+{% if local_config.getHellobarEnabled() %}
+    <div class="hellobar">
+        <div class="hellobar-inner">
+            <a href="{{ local_config.getHellobarUrl() }}">{{ local_config.getHellobarMessage() }}</a>
+        </div>
+    </div>
+{% endif %}
+
+
 <div class="wrapper">
     <div class="account">
         {% if session.github_username %}
@@ -47,10 +56,6 @@
         });
     });
 </script>
-
-{% if local_config.getHellobarId() %}
-    <script type="text/javascript" src="//s3.amazonaws.com/scripts.hellobar.com/{{ local_config.getHellobarId() }}.js"></script>
-{% endif %}
 
 {% if local_config.getGoogleAnalyticsUa() %}
     <script>

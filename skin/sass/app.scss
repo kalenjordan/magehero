@@ -8,6 +8,21 @@ body, h1 {
     padding: 0;
 }
 
+.hellobar {
+    background-color: #e3472f;
+    text-align: center;
+    top: 0;
+    width: 100%;
+    margin: 0;
+
+    .hellobar-inner {
+        padding: 1em;
+        a {
+            color: white;
+        }
+    }
+}
+
 .wrapper {
     position: relative;
     max-width: 1000px;
