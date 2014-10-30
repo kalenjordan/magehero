@@ -29,7 +29,55 @@ Upvote other good developers.   This will help to create a list
 of developers that merchants and agencies can trust.
 
 You can only upvote other developers if you are logged in and
-if you have already received at least four upvotes.
+have received the minimum number of upvotes required to be able
+to upvote someone else (see the site for what that number is).
+
+#### What do the rankings mean?
+
+The ranking of a given developer isn't necessarily a ranking of
+how good they are as a developer.  Hopefully over time, if this
+voting system works out the way I hope it will, they will be
+a rough approximation of that.
+
+But that may take months or years - who knows.  Really they're
+just an indication of how trusted they are by other Magento
+developers.
+
+#### I can vote now!  Who should I vote for?  What does a vote mean?
+
+Well, the goal with this project is to surface up quality developers.
+Imagine a merchant or agency that was looking to hire a developer - we
+want them to be able to look at this list and for developers that
+will work out well for them to rank highly and developers that wouldn't
+work out well to not rank so highly.
+
+Obviously, there's no way a single vote can capture the likelihood
+of a given developer to succeed on a given project for a given merchant/client.
+It will vary widely based on the type of project, the developer's skillset,
+personality, the personality of the merchant, etc.
+
+But that's the goal that we're shooting for.
+
+So you shouldn't *only* vote for people who you know.  Take a look at
+the list from time to time and if there's a developer you don't know
+but they have a cert or two, some magento-specific github activity, a 
+blog with some good Magento information, you probably should consider
+giving them an upvote.
+
+#### I need more upvotes!  How do I get teh upvotez?
+
+Well I think largely it will be based on how well acquainted you are
+with the voting members - that may be due to open source involvement,
+meeting them at an event or hackathon, working with them, etc.
+
+I think that if I hadn't cheated and started this site, and I was 
+looking to get upvotes, I would probably write a blog post on what
+made me a MageHero and I'd tweeted at some voting members.
+
+Obviously don't overdo it - but remember that the voting members
+are people who *care* about the Magento community - they know there's
+a lack of good developers in the ecosystem, so they'll probably be
+happy to vote you up if they like what you're up to.
 
 #### Bro, this upvoting system sucks.  What gives bro?
 
