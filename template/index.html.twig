@@ -1,6 +1,15 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
+    <div class="about">
+        <a target="_blank" href="https://github.com/kalenjordan/magehero/blob/master/README.md#what-do-the-rankings-mean">What do these rankings mean?</a> |
+        <a target="_blank" href="https://github.com/kalenjordan/magehero/blob/master/README.md#i-can-vote-now--who-should-i-vote-for--what-does-a-vote-mean">Who should I vote for?</a>
+        <a target="_blank" href="https://github.com/kalenjordan/magehero/blob/master/README.md#i-need-more-upvotes--how-do-i-get-teh-upvotez">How do I get more upvotes?</a>
+        <br><br>
+        <i class="fa fa-rocket"></i> {{ local_config.getRankRocketMinimumVotecount() }} Votes.
+        <i class="fa fa-star"></i> {{ local_config.getRankStarMinimumVotecount() }} Vote(s).
+        <i class="fa fa-meh"></i> {{ local_config.getRankMehMinimumVotecount() }} Votes.
+    </div>
 <table class="listing">
     <thead>
         <tr>
@@ -24,9 +33,9 @@
             <td>
                 <div class="upvote">
                     <a href="javascript://"><i class="fa fa-caret-up"></i></a>
-                    {% if developer.voteCount() >= 4 %}
+                    {% if developer.voteCount() >= local_config.getRankRocketMinimumVotecount() %}
                         <i class="fa fa-rocket tooltip" title="This developer has received {{ developer.voteCount() }} votes: {{ developer.votingUsernames() }}"></i>
-                    {% elseif developer.voteCount() >= 1 %}
+                    {% elseif developer.voteCount() >= local_config.getRankStarMinimumVotecount() %}
                         <i class="fa fa-star tooltip" title="This developer has received {{ developer.voteCount() }} vote: {{ developer.votingUsernames() }}"></i>
                     {% else %}
                         <i class="fa fa-meh-o tooltip" title="This developer hasn't received any upvotes yet"></i>

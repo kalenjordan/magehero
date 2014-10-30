@@ -40,6 +40,12 @@ body, h1 {
   width: 100%;
 }
 
+.about {
+  margin-bottom: 3em;
+  font-size: 12px;
+  text-align: center;
+}
+
 table.listing {
   width: 100%;
   border-spacing: 0;
@@ -86,12 +92,6 @@ table.listing th.sortable:hover {
 table.listing .fa {
   margin-left: 0.25em;
 }
-table.listing .fa.fa-rocket {
-  color: #e8690e;
-}
-table.listing .fa.fa-star {
-  color: #dfbf1e;
-}
 table.listing .image-wrapper {
   max-width: 40px;
 }
@@ -103,6 +103,14 @@ table.listing .last-updated {
 }
 table.listing .vote-count {
   display: none;
+}
+
+.fa.fa-rocket {
+  color: #e8690e;
+}
+
+.fa.fa-star {
+  color: #dfbf1e;
 }
 
 label.profile {

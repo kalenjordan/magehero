@@ -26,9 +26,10 @@ class Controller_UserUpvote extends Controller_Abstract
             throw new Exception("You have to be logged in to vote.");
         }
 
+        $rocketMinimumVoteCount = $this->_getContainer()->LocalConfig()->get('rank_rocket_minimum');
         $votingUser = $this->_getContainer()->User()->loadByUsername($this->_getUsername());
-        if ($votingUser->getUsername() != 'kalenjordan' && $votingUser->getVoteCount() < 4) {
-            throw new Exception("Sorry - you can't vote until you have at least 4 upvotes yourself!");
+        if ($votingUser->getVoteCount() < $rocketMinimumVoteCount) {
+            throw new Exception("Sorry - you can't vote until you have at least $rocketMinimumVoteCount upvotes yourself!");
         }
 
         $electedUser = $this->_getContainer()->User()->load($userId);

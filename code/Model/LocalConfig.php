@@ -41,4 +41,7 @@ class Model_LocalConfig
 
     public function getGoogleAnalyticsUa() { return $this->get('google_analytics_ua'); }
     public function getHellobarId() { return $this->get('hellobar_id'); }
+    public function getRankMehMinimumVotecount() { return $this->get('rank_meh_minimum_votecount'); }
+    public function getRankStarMinimumVotecount() { return $this->get('rank_star_minimum_votecount'); }
+    public function getRankRocketMinimumVotecount() { return $this->get('rank_rocket_minimum_votecount'); }
 }
