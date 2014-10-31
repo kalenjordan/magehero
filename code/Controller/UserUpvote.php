@@ -2,10 +2,13 @@
 
 class Controller_UserUpvote extends Controller_Abstract
 {
-    protected $notify;
-    function __construct() {
-        $this->notify = $this->_getContainer()->Notify();
+    protected $_notify;
+
+    function __construct()
+    {
+        $this->_notify = $this->_getContainer()->Notify();
     }
+
     public function get($userId)
     {
         try {
@@ -43,7 +46,7 @@ class Controller_UserUpvote extends Controller_Abstract
         } else {
             $electedUser->addVoteFrom($votingUser->getId());
             if ($this->_getContainer()->LocalConfig()->get('twitter_enabled') && $electedUser->getTwitterUsername() && $electedUser->getTwitterUsername() != 'bobsmith') {
-                $this->notify->send($electedUser, $votingUser);
+                $this->_notify->send($electedUser, $votingUser);
             }
         }
 
