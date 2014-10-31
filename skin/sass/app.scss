@@ -70,10 +70,10 @@ table.listing {
     border-collapse: separate;
 
     tr {
-        &.odd {
+        &:nth-child(odd) {
             background-color: rgb(229, 229, 229);
         }
-        &.even {
+        &:nth-child(even) {
             background-color: rgb(242, 242, 242);
         }
         &:hover {
@@ -179,3 +179,4 @@ textarea.profile {
     padding: 15px 0;
     font-size: 12px;
 }
+
