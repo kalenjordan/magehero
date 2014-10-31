@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a3acc72d970a325e8b45b07b75410d27",
+    "hash": "59b050e135837b0ae9a84a56aa48285e",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -830,12 +830,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zf1.git",
-                "reference": "706687f30136695321227ed3a86ebf7ab465f7ba"
+                "reference": "9b9fda8329782926742d125bac2868748a299d0a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zf1/zipball/706687f30136695321227ed3a86ebf7ab465f7ba",
-                "reference": "706687f30136695321227ed3a86ebf7ab465f7ba",
+                "url": "https://api.github.com/repos/zendframework/zf1/zipball/9b9fda8329782926742d125bac2868748a299d0a",
+                "reference": "9b9fda8329782926742d125bac2868748a299d0a",
                 "shasum": ""
             },
             "require": {
@@ -869,11 +869,15 @@
                 "ZF1",
                 "framework"
             ],
-            "time": "2014-10-25 17:25:33"
+            "time": "2014-10-30 22:01:31"
         }
     ],
-    "packages-dev": [],
-    "aliases": [],
+    "packages-dev": [
+
+    ],
+    "aliases": [
+
+    ],
     "minimum-stability": "stable",
     "stability-flags": {
         "torophp/torophp": 20,
@@ -882,6 +886,10 @@
         "j7mbo/twitter-api-php": 20
     },
     "prefer-stable": false,
-    "platform": [],
-    "platform-dev": []
+    "platform": [
+
+    ],
+    "platform-dev": [
+
+    ]
 }

@@ -7,5 +7,6 @@
         "mnapoli/php-di": "~4.0",
         "zendframework/zendframework1": "dev-master",
         "j7mbo/twitter-api-php": "dev-master"
-    }
+    },
+    "autoload": {"psr-0": {"": "code"}}
 }

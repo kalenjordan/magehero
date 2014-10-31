@@ -3,17 +3,6 @@
 require_once(dirname(__FILE__) . '/vendor/autoload.php');
 session_start();
 
-spl_autoload_register(function($class) {
-    $parts = explode("_", $class);
-    $classSlashSeparated = implode('/', $parts);
-    $pathToFile = "code/$classSlashSeparated.php";
-    $fullPathToFile = dirname(__FILE__) . '/' . $pathToFile;
-
-    if (file_exists($fullPathToFile)) {
-        include $fullPathToFile;
-    }
-});
-
 Toro::serve(array(
      "/"                        => "Controller_Index",
      "/available"               => "Controller_Available",
