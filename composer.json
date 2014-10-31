@@ -9,5 +9,6 @@
         "j7mbo/twitter-api-php": "dev-master",
         "erusev/parsedown": "dev-master",
         "ezyang/htmlpurifier": "dev-master"
-    }
+    },
+    "autoload": {"psr-0": {"": "code"}}
 }

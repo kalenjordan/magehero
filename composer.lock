@@ -955,8 +955,12 @@
             "time": "2014-10-30 22:01:31"
         }
     ],
-    "packages-dev": [],
-    "aliases": [],
+    "packages-dev": [
+
+    ],
+    "aliases": [
+
+    ],
     "minimum-stability": "stable",
     "stability-flags": {
         "torophp/torophp": 20,
@@ -967,6 +971,10 @@
         "ezyang/htmlpurifier": 20
     },
     "prefer-stable": false,
-    "platform": [],
-    "platform-dev": []
+    "platform": [
+
+    ],
+    "platform-dev": [
+
+    ]
 }
