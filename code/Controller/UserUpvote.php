@@ -45,7 +45,7 @@ class Controller_UserUpvote extends Controller_Abstract
             $electedUser->removeVoteFrom($votingUser->getId());
         } else {
             $electedUser->addVoteFrom($votingUser->getId());
-            if ($this->_getContainer()->LocalConfig()->get('twitter_enabled') && $electedUser->getTwitterUsername() && $electedUser->getTwitterUsername() != 'bobsmith') {
+            if ($this->_getContainer()->LocalConfig()->get('twitter_enabled') && $electedUser->getTwitterNotifications() && $electedUser->getTwitterUsername() && $electedUser->getTwitterUsername() != 'bobsmith') {
                 $this->_notify->send($electedUser, $votingUser);
             }
         }
