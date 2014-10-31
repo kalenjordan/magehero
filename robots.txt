@@ -3,8 +3,6 @@ Crawl-delay: 1
 Disallow: /code/
 Disallow: /data/
 Disallow: /etc/
-Disallow: /js/
-Disallow: /skin/
 Disallow: /sql/
 Disallow: /template/
 Sitemap: http://magehero.com/sitemap.xml
