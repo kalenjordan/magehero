@@ -26,7 +26,7 @@
     </thead>
     <tbody>
     {% for developer in developers %}
-        <tr class="{{ loop.index is odd ? "odd" : "even" }} {{ developer.username == user.username ? "selected" : "" }}" data-user-id={{ developer.id() }}>
+        <tr class="{{ developer.username == user.username ? "selected" : "" }}" data-user-id={{ developer.id() }}>
             <td>
                 <span class="last-updated">{{ developer.lastUpdatedFriendly() }}</span>
             </td>
