@@ -1,74 +1,74 @@
 html, body {
-  margin   : 0;
-  padding  : 0;
-  height   : 100%;
-  width    : 100%;
-  position : absolute;
-  overflow : hidden;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    overflow: hidden;
 }
 
 .map-nav {
-  margin-bottom : 0;
+    margin-bottom: 0;
 }
 
 #map {
-  margin-top : 0;
-  width      : 100%;
-  height     : 100%;
+    margin-top: 0;
+    width: 100%;
+    height: 100%;
 }
 
 #loading {
-  position : absolute;
-  width    : 220px;
-  height   : 19px;
-  top      : 50%;
-  left     : 50%;
-  margin   : -10px 0 0 -110px;
-  z-index  : 20001;
+    position: absolute;
+    width: 220px;
+    height: 19px;
+    top: 50%;
+    left: 50%;
+    margin: -10px 0 0 -110px;
+    z-index: 20001;
 }
 
 #loading .loading-indicator {
-  height : auto;
-  margin : 0;
+    height: auto;
+    margin: 0;
 }
 
 .navbar .brand {
-  font-size   : 25px;
-  font-family : 'Norican', serif;
-  font-weight : bold;
-  color       : white;
+    font-size: 25px;
+    font-family: 'Norican', serif;
+    font-weight: bold;
+    color: white;
 }
 
 .navbar .nav > li > a {
-  padding : 13px 10px 11px;
+    padding: 13px 10px 11px;
 }
 
 .navbar .btn, .navbar .btn-group {
-  margin-top : 8px;
+    margin-top: 8px;
 }
 
 .leaflet-popup-content-wrapper, .leaflet-popup-tip {
-  background : #f7f7f7;
+    background: #f7f7f7;
 }
 
 .leaflet-control-geoloc {
-  background-image      : url(/skin/img/location.png);
-  -webkit-border-radius : 5px 5px 5px 5px;
-  border-radius         : 5px 5px 5px 5px;
+    background-image: url(/skin/img/location.png);
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
 }
 
 .leaflet-popup-content {
-  .hero {
-    text-align   : center;
-    margin-left  : auto;
-    margin-right : auto;
-    font-size    : 14px;
-    .header {
-      font-size : 18px;
-      color     : #0078A8;
+    .hero {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 14px;
+        .header {
+            font-size: 18px;
+            color: #0078A8;
+        }
+        .social a {
+            margin: 0 0.3em;
+        }
     }
-    .social a {
-      margin : 0 0.3em;
-    }
-  }
 }
