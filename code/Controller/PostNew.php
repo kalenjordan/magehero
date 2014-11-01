@@ -6,7 +6,7 @@ class Controller_PostNew extends Controller_Abstract
     {
         $data = array(
             "subject"   => "New Post",
-            "is_active" => true,
+            "is_active" => false,
             "user_id"   => $this->_getCurrentUser()->getId(),
         );
 

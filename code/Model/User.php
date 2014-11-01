@@ -217,6 +217,7 @@ class Model_User extends Model_Record
             ->from('posts', array(
                 'post_count' => 'COUNT(*)'
             ))
+            ->where('posts.is_active = 1')
             ->where('user_id = ?', $this->getId());
 
         $postCount = $this->_localConfig->database()->fetchOne($query);
@@ -232,6 +233,7 @@ class Model_User extends Model_Record
         $query = $this->_localConfig->database()->select()
             ->from('posts')
             ->where('user_id = ?', $this->getId())
+            ->where('posts.is_active = 1')
             ->order('posts.post_id DESC');
 
         $row = $this->_localConfig->database()->fetchRow($query);
