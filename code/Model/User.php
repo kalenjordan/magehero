@@ -196,6 +196,20 @@ class Model_User extends Model_Record
         return implode(", ", $parts);
     }
 
+    // TODO: Make this more dry by using a beforecreate hook or something
+    public function create()
+    {
+        foreach ($this->_getColumns() as $column) {
+            $data[$column] = $this->get($column);
+        }
+
+        $data['updated_at'] = \Carbon\Carbon::now()->toDateTimeString();
+        $data['is_active'] = true;
+        $this->_localConfig->database()->insert($this->_getTable(), $data);
+
+        return $this;
+    }
+
     public function fetchPostCount()
     {
         $query = $this->_localConfig->database()->select()
