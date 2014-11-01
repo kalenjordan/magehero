@@ -111,9 +111,6 @@ $(document).ready(function() {
                             popupData[ 1 ] = "<div class='header'><a href='/" + row.username + "' target='_blank'>" + name + "</a></div>";
                         }
 
-                        if (row.company && row.company.length > 1) {
-                            popupData.push('<div>' + row.company + '</div>');
-                        }
                         if (row.city && row.city.length > 1) {
                             popupData.push('<div>' + row.city + '</div>');
                         }

@@ -14,7 +14,6 @@ class Controller_MapUsers extends Controller_Abstract
                 'latitude'  => $userModel->getLatitude(),
                 'longitude' => $userModel->getLongitude(),
                 'name'      => $userModel->getName(),
-                'company'   => $userModel->getCompany(),
                 'city'      => $userModel->getLocation(),
                 'username'  => $userModel->getUsername(),
                 'image'     => $userModel->getImageUrl(),
