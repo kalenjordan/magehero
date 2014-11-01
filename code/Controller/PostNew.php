@@ -4,7 +4,7 @@ class Controller_PostNew extends Controller_Abstract
 {
     public function get()
     {
-        $minimumVoteCount = $this->_getContainer()->LocalConfig()->getRankStarMinimumVotecount();
+        $minimumVoteCount = $this->_getContainer()->LocalConfig()->getPostingMinimumVotecount();
         if ($this->_getCurrentUser()->getVoteCount() < $minimumVoteCount) {
             die("You have to have $minimumVoteCount vote(s) in order to post");
         }
