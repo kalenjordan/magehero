@@ -3,6 +3,7 @@
 class Model_User extends Model_Record
 {
     protected $_data;
+    protected $_lastPost;
 
     protected function _getTable() { return 'users'; }
     protected function _getTableIdFieldname() { return 'user_id'; }
@@ -216,9 +217,32 @@ class Model_User extends Model_Record
             ->from('posts', array(
                 'post_count' => 'COUNT(*)'
             ))
+            ->where('posts.is_active = 1')
             ->where('user_id = ?', $this->getId());
 
         $postCount = $this->_localConfig->database()->fetchOne($query);
         return $postCount;
+    }
+
+    public function getLastPost()
+    {
+        if (isset($this->_lastPost)) {
+            return $this->_lastPost;
+        }
+
+        $query = $this->_localConfig->database()->select()
+            ->from('posts')
+            ->where('user_id = ?', $this->getId())
+            ->where('posts.is_active = 1')
+            ->order('posts.post_id DESC');
+
+        $row = $this->_localConfig->database()->fetchRow($query);
+        if (! $row) {
+            return null;
+        }
+
+        $postModel = $this->_getContainer()->Post()->setData($row);
+
+        return $postModel;
     }
 }

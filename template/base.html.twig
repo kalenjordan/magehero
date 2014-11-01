@@ -28,10 +28,9 @@
 
 <div class="wrapper">
     <div class="account">
-        <a href="/">Developers</a> |
-        <a href="/posts">Posts</a> |
         {% if session.github_username %}
-            <a href="/profile">{{ session.github_username }}</a> |
+            <a href="/profile"><i class="fa fa-user"></i> {{ session.github_username }}</a>
+            <a href="/posts/new"><i class="fa fa-pencil-square-o"></i> Post</a>
             <a href="/logout"><i class="fa fa-sign-out"></i> Log Out</a>
         {% else %}
             <a href="/login"><i class="fa fa-sign-in"></i> Login</a>
@@ -39,8 +38,7 @@
     </div>
     {% block masthead %}
         <div class="masthead">
-            <h1>MageHero</h1>
-            <p>Awesome Magento Developers</p>
+            <h1><a href="/" class="tooltip" title="Awesome Magento Developers">MageHero</a></h1>
         </div>
     {% endblock %}
 

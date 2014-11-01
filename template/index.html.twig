@@ -1,27 +1,16 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
-    <div class="about">
-        <a target="_blank" href="https://github.com/kalenjordan/magehero/blob/master/README.md#what-do-the-rankings-mean">What do these rankings mean?</a> |
-        <a target="_blank" href="https://github.com/kalenjordan/magehero/blob/master/README.md#i-can-vote-now--who-should-i-vote-for--what-does-a-vote-mean">Who should I vote for?</a>
-        <a target="_blank" href="https://github.com/kalenjordan/magehero/blob/master/README.md#i-need-more-upvotes--how-do-i-get-teh-upvotez">How do I get more upvotes?</a>
-        <br><br>
-        <i class="fa fa-rocket"></i> {{ local_config.getRankRocketMinimumVotecount() }} Votes.
-        <i class="fa fa-star"></i> {{ local_config.getRankStarMinimumVotecount() }} Vote(s).
-        <i class="fa fa-meh-o"></i> {{ local_config.getRankMehMinimumVotecount() }} Votes.
-    </div>
-<table class="listing">
+    <table class="listing">
     <thead>
         <tr>
             <th>Updated</th>
             <th class="sortable">Rating</th>
             <th>Pic</th>
             <th class="sortable">Name</th>
-            <th><!-- Certifications --></th>
-            <th class="sortable">Company</th>
             <th class="sortable">Location</th>
-            <th>Available</th>
-            <th>Contact</th>
+            <th>Latest Post</th>
+            <th><!-- Links --></th>
         </tr>
     </thead>
     <tbody>
@@ -58,6 +47,16 @@
                 {% endif %}
             </td>
             <td>
+                {{ developer.location() }}
+            </td>
+            <td>
+                {% if developer.fetchPostCount() %}
+                    <a href="/posts/{{ developer.getLastPost().getId() }}">{{ developer.getLastPost().getSubject() }}</a>
+                {% else %}
+                    No posts yet
+                {% endif %}
+            </td>
+            <td>
                 {% if developer.certificationBoardUrl() %}
                     <a href="{{ developer.certificationBoardUrl() }}" target="_blank"><i class="fa fa-certificate tooltip" title="Magento Certification Advisory Board"></i></a>
                 {% endif %}
@@ -65,7 +64,7 @@
                     <a href="{{ developer.certifiedDeveloperUrl() }}" target="_blank"><i class="fa fa-certificate tooltip" title="Magento Certified Developer"></i></a>
                 {% endif %}
                 {% if developer.certifiedDeveloperPlusUrl() %}
-                    <a href="{{ developer.certifiedDeveloperPlusUrl() }}" target="_blank"><i class="fa fa-certificate tooltip" title="Magento Certified Developer Plus"></i></a>
+                    <a href="{{ developer.certifiedDeveloperPlusUrl() }}" target="_blank"><i class="fa fa-plus tooltip" title="Magento Certified Developer Plus"></i></a>
                 {% endif %}
                 {% if developer.certifiedSolutionSpecialistUrl() %}
                     <a href="{{ developer.certifiedSolutionSpecialistUrl() }}" target="_blank"><i class="fa fa-certificate tooltip" title="Magento Certified Solution Specialist"></i></a>
@@ -73,23 +72,6 @@
                 {% if developer.certifiedFrontendDeveloperUrl() %}
                     <a href="{{ developer.certifiedFrontendDeveloperUrl() }}" target="_blank"><i class="fa fa-certificate tooltip" title="Magento Certified Frontend Developer"></i></a>
                 {% endif %}
-            </td>
-            <td>
-                <span>{{ developer.company() }}</span>
-            </td>
-            <td>
-                {{ developer.location() }}
-            </td>
-            <td>
-                <span class="tooltip" title="Next availability for hire / project work">
-                    {% if developer.nextAvailable() %}
-                        {{ developer.nextAvailableFriendly() }}
-                    {% else %}
-                        No
-                    {% endif %}
-                </span>
-            </td>
-            <td>
                 {% if developer.twitterUsername() %}
                     <a href="https://twitter.com/{{ developer.twitterUsername() }}" target="_blank"><i class="fa fa-twitter tooltip" title="Twitter"></i></a>
                 {% endif %}
@@ -110,4 +92,11 @@
     {% endfor %}
     </tbody>
 </table>
+
+<div class="about">
+    <i class="fa fa-rocket"></i> {{ local_config.getRankRocketMinimumVotecount() }} Votes.
+    <i class="fa fa-star"></i> {{ local_config.getRankStarMinimumVotecount() }} Vote(s).
+    <i class="fa fa-meh-o"></i> {{ local_config.getRankMehMinimumVotecount() }} Votes.
+</div>
+
 {% endblock %}
