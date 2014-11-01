@@ -46,4 +46,17 @@ class Model_Tag extends Model_Record
 
         return $models;
     }
+
+    public function fetchAll($postId)
+    {
+        $rows = parent::fetchAll();
+
+        $models = array();
+        foreach ($rows as $row) {
+            $model = $this->_getContainer()->Tag()->setData($row);
+            $models[] = $model;
+        }
+
+        return $models;
+    }
 }

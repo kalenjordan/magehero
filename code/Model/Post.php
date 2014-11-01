@@ -9,7 +9,7 @@ class Model_Post extends Model_Record
     protected function _getTableIdFieldname() { return 'post_id'; }
     protected function _getColumns()
     {
-        return array('user_id', 'subject', 'body');
+        return array('user_id', 'is_active', 'image_url', 'subject', 'body');
     }
 
     /**
@@ -25,6 +25,8 @@ class Model_Post extends Model_Record
     public function getSubject()    { return $this->get('subject'); }
     public function getBody()       { return $this->get('body'); }
     public function getUserId()     { return $this->get('user_id'); }
+    public function getImageUrl()   { return $this->get('image_url'); }
+    public function getIsActive()   { return $this->get('is_active'); }
 
     public function getUser()
     {
@@ -64,5 +66,48 @@ class Model_Post extends Model_Record
 
         $tweetIntentUrl = "https://twitter.com/intent/tweet?text=" . urlencode($text);
         return $tweetIntentUrl;
+    }
+
+    // todo: Should use a beforeUpdate hook or something for this.
+    public function update()
+    {
+        $table = $this->_getTable();
+        $tableIdFieldname = $this->_getTableIdFieldname();
+
+        foreach ($this->_getColumns() as $column) {
+            $data[$column] = $this->get($column);
+        }
+        $data['updated_at'] = \Carbon\Carbon::now()->toDateTimeString();
+
+        $this->_localConfig->database()->update($table, $data, "$tableIdFieldname = " . $this->getId());
+
+        if ($this->get('tag_ids') && is_array($this->get('tag_ids'))) {
+            $this->_localConfig->database()->delete("post_tag", "post_id = " . $this->getId());
+            foreach ($this->get('tag_ids') as $tagId) {
+                $tagPostRelationship = $this->_getContainer()->PostTag()->setData(array(
+                    'post_id' => $this->getId(),
+                    'user_id' => $this->getUserId(),
+                    'tag_id' => $tagId
+                ));
+                $tagPostRelationship->save();
+            }
+
+        }
+
+        return $this;
+    }
+
+    public function hasTagId($tagId)
+    {
+        $tags = $this->fetchTags();
+
+        /** @var $tag Model_Tag */
+        foreach ($tags as $tag) {
+            if ($tag->getId() == $tagId) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

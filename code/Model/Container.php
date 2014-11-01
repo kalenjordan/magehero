@@ -32,6 +32,15 @@ class Model_Container extends DI\Container
     }
 
     /**
+     * @return Model_PostTag
+     */
+    public function PostTag()
+    {
+        return $this->_container->make('Model_PostTag');
+    }
+
+
+    /**
      * @return Model_Post
      */
     public function Post()

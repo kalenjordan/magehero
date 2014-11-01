@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <form action="/posts/{{ post.getId() }}/edit" method="POST" class="post-edit">
+        <label for="is_active" >Published?</label>
+        <div class="input-wrapper">
+            <select id="is_active" name="is_active">
+                <option {{ post.getIsActive() ? "" : "selected" }} value=0>Draft</option>
+                <option {{ post.getIsActive() ? "selected " : "" }}value=1>Published</option>
+            </select>
+        </div>
+
+        <div class="input-wrapper">
+            <label for="subject" >Subject</label>
+            <input id="subject" name="subject" class="input-field subject" value="{{ post.getSubject() }}" />
+        </div>
+
+        <div class="input-wrapper">
+            <label for="tag_ids" >Tags</label>
+            <select id="tag_ids" multiple name="tag_ids[]">
+                {% for tag in tags %}
+                    <option {{ post.hasTagId(tag.getId()) ? "selected" : "" }} value="{{ tag.getId() }}">{{ tag.getTagText() }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="input-wrapper">
+            <label for="image_url" >Image URL (Optional)</label>
+            <input id="image_url" name="image_url" class="input-field" value="{{ post.getImageUrl() }}" />
+        </div>
+
+        <div class="input-wrapper">
+            <label for="body" >Details (Optional)</label>
+            <textarea id="body" name="body" class="textarea body">{{ post.getBody() }}</textarea>
+        </div>
+
+        <div>
+            <input type="submit" value="Save">
+        </div>
+    </form>
+{% endblock %}

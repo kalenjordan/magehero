@@ -1,16 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
-    <div class="about">
-        <a target="_blank" href="https://github.com/kalenjordan/magehero/blob/master/README.md#what-do-the-rankings-mean">What do these rankings mean?</a> |
-        <a target="_blank" href="https://github.com/kalenjordan/magehero/blob/master/README.md#i-can-vote-now--who-should-i-vote-for--what-does-a-vote-mean">Who should I vote for?</a>
-        <a target="_blank" href="https://github.com/kalenjordan/magehero/blob/master/README.md#i-need-more-upvotes--how-do-i-get-teh-upvotez">How do I get more upvotes?</a>
-        <br><br>
-        <i class="fa fa-rocket"></i> {{ local_config.getRankRocketMinimumVotecount() }} Votes.
-        <i class="fa fa-star"></i> {{ local_config.getRankStarMinimumVotecount() }} Vote(s).
-        <i class="fa fa-meh-o"></i> {{ local_config.getRankMehMinimumVotecount() }} Votes.
-    </div>
-<table class="listing">
+    <table class="listing">
     <thead>
         <tr>
             <th>Updated</th>
@@ -18,9 +9,8 @@
             <th>Pic</th>
             <th class="sortable">Name</th>
             <th><!-- Certifications --></th>
-            <th class="sortable">Company</th>
             <th class="sortable">Location</th>
-            <th>Available</th>
+            <th>Last Update</th>
             <th>Contact</th>
         </tr>
     </thead>
@@ -75,19 +65,14 @@
                 {% endif %}
             </td>
             <td>
-                <span>{{ developer.company() }}</span>
-            </td>
-            <td>
                 {{ developer.location() }}
             </td>
             <td>
-                <span class="tooltip" title="Next availability for hire / project work">
-                    {% if developer.nextAvailable() %}
-                        {{ developer.nextAvailableFriendly() }}
-                    {% else %}
-                        No
-                    {% endif %}
-                </span>
+                {% if developer.fetchPostCount() %}
+                    <a href="/posts/{{ developer.getLastPost().getId() }}">{{ developer.getLastPost().getSubject() }}</a>
+                {% else %}
+                    No posts yet
+                {% endif %}
             </td>
             <td>
                 {% if developer.twitterUsername() %}
@@ -110,4 +95,11 @@
     {% endfor %}
     </tbody>
 </table>
+
+<div class="about">
+    <i class="fa fa-rocket"></i> {{ local_config.getRankRocketMinimumVotecount() }} Votes.
+    <i class="fa fa-star"></i> {{ local_config.getRankStarMinimumVotecount() }} Vote(s).
+    <i class="fa fa-meh-o"></i> {{ local_config.getRankMehMinimumVotecount() }} Votes.
+</div>
+
 {% endblock %}
