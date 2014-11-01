@@ -65,10 +65,10 @@ table.listing {
   border-spacing: 0;
   border-collapse: separate;
 }
-table.listing tr.odd {
+table.listing tr:nth-child(odd) {
   background-color: #e5e5e5;
 }
-table.listing tr.even {
+table.listing tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 table.listing tr:hover {
@@ -109,9 +109,6 @@ table.listing .fa {
 table.listing .image-wrapper {
   max-width: 40px;
 }
-table.listing .image-wrapper img {
-  border-radius: 50%;
-}
 table.listing .last-updated {
   font-size: 12px;
 }
@@ -141,6 +138,54 @@ label.profile {
 }
 .profile-view .about {
   text-align: center;
+}
+
+.image-wrapper.user-thumbnail img {
+  border-radius: 50%;
+}
+
+.posts-wrapper .comments {
+  margin-top: 2em;
+}
+
+.post {
+  width: 28em;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  padding: 1em;
+  position: relative;
+}
+.post .ranking {
+  position: absolute;
+  top: 7px;
+  left: 7px;
+}
+.post:nth-child(odd) {
+  background-color: #e5e5e5;
+}
+.post:nth-child(even) {
+  background-color: #f2f2f2;
+}
+.post .image-wrapper.user-thumbnail {
+  width: 16%;
+  float: left;
+  margin-right: 4%;
+}
+.post .subject {
+  float: left;
+  width: 79%;
+  margin-bottom: 0.5em;
+  padding-top: 0.5em;
+}
+.post .tags .tag {
+  padding: 0.5em;
+  font-size: 12px;
+  color: #999999;
+}
+.post .post-body {
+  clear: both;
+  margin-top: 2em;
 }
 
 textarea.profile {

@@ -1,8 +1,15 @@
 <?php
 
-class Model_User
+class Model_User extends Model_Record
 {
     protected $_data;
+
+    protected function _getTable() { return 'users'; }
+    protected function _getTableIdFieldname() { return 'user_id'; }
+    protected function _getColumns()
+    {
+        return array('is_active', 'username', 'name', 'details_json');
+    }
 
     /**
      * @var Model_LocalConfig
@@ -86,6 +93,13 @@ class Model_User
                     'COUNT(user_vote.user_vote_id) as vote_count'
                 )
             )
+            ->joinLeft(
+                array('voting_user' => 'users'),
+                'voting_user.user_id = user_vote.voting_user_id',
+                array(
+                    'GROUP_CONCAT(voting_user.name) as voting_users'
+                )
+            )
             ->group('users.user_id')
             ->where('users.is_active = 1')
             ->where("users.user_id = ?", $userId);
@@ -118,63 +132,7 @@ class Model_User
 
         return $query;
     }
-    public function fetchAll()
-    {
-        $results = $this->_localConfig->database()->fetchAll($this->selectAll());
-        return $results;
-    }
 
-    public function setData($data)
-    {
-        $this->_data = $data;
-        return $this;
-    }
-
-    public function set($key, $val)
-    {
-        $this->_data[$key] = $val;
-        return $this;
-    }
-
-    public function save()
-    {
-        if ($this->get('user_id')) {
-            $this->update();
-        } else {
-            $this->create();
-        }
-
-        return $this;
-    }
-
-    public function update()
-    {
-        $data = array(
-            'details_json'  => $this->_data['details_json'],
-            'updated_at'    => \Carbon\Carbon::now()->toDateTimeString(),
-            'username'      => $this->_data['username'],
-            'name'          => $this->_data['name'],
-        );
-        $this->_localConfig->database()->update('users', $data, 'user_id = ' . $this->getId());
-
-        return $this;
-    }
-
-    public function create()
-    {
-        $data = array(
-            'details_json' => $this->_data['details_json'],
-            'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at'    => \Carbon\Carbon::now()->toDateTimeString(),
-            'username'      => $this->_data['username'],
-            'name'          => $this->_data['name'],
-        );
-        $this->_localConfig->database()->insert('users', $data);
-
-        return $this;
-    }
-
-    public function getId() { return $this->get('user_id'); }
     public function getName() { return $this->get('name'); }
     public function getVoteCount() { return $this->get('vote_count'); }
     public function getUsername() { return $this->get('username'); }
@@ -195,15 +153,6 @@ class Model_User
     public function getCompany() { return $this->getDetail('company'); }
     public function getAboutYou() { return $this->getDetail('about_you'); }
 
-    public function getLastUpdatedFriendly()
-    {
-        try {
-            return \Carbon\Carbon::parse($this->get('updated_at'))->diffForHumans();
-        } catch (Exception $e) {
-            return $this->get('updated_at');
-        }
-    }
-
     public function getNextAvailableFriendly()
     {
        try {
@@ -216,11 +165,6 @@ class Model_User
        } catch (Exception $e) {
            return $this->getDetail('next_available');
        }
-    }
-
-    public function get($key)
-    {
-        return isset($this->_data[$key]) ? $this->_data[$key] : null;
     }
 
     public function getDetail($key)
@@ -250,5 +194,17 @@ class Model_User
         }
 
         return implode(", ", $parts);
+    }
+
+    public function fetchPostCount()
+    {
+        $query = $this->_localConfig->database()->select()
+            ->from('posts', array(
+                'post_count' => 'COUNT(*)'
+            ))
+            ->where('user_id = ?', $this->getId());
+
+        $postCount = $this->_localConfig->database()->fetchOne($query);
+        return $postCount;
     }
 }

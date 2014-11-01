@@ -121,10 +121,6 @@ table.listing {
 
     .image-wrapper {
         max-width: 40px;
-
-        img {
-            border-radius: 50%;
-        }
     }
 
     .last-updated {
@@ -165,6 +161,68 @@ label.profile {
         text-align: center;
     }
 }
+
+.image-wrapper.user-thumbnail {
+    img {
+        border-radius: 50%;
+    }
+}
+
+.posts-wrapper {
+    .comments {
+        margin-top: 2em;
+    }
+}
+
+.post {
+    width: 28em;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+    padding: 1em;
+    position: relative;
+
+    .ranking {
+        position: absolute;
+        top: 7px;
+        left: 7px;
+    }
+
+    &:nth-child(odd) {
+        background-color: rgb(229, 229, 229);
+    }
+    &:nth-child(even) {
+        background-color: rgb(242, 242, 242);
+    }
+
+    .image-wrapper.user-thumbnail {
+        width: 16%;
+        float: left;
+        margin-right: 4%;
+    }
+
+    .subject {
+        float: left;
+        width: 79%;
+        margin-bottom: 0.5em;
+        padding-top: 0.5em;
+    }
+
+    .tags {
+        .tag {
+            padding: 0.5em;
+            font-size: 12px;
+            color: rgb(153, 153, 153);
+        }
+    }
+
+    .post-body {
+        clear: both;
+        margin-top: 2em;
+    }
+}
+
+
 
 textarea.profile {
     width: 100%;

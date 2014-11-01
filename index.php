@@ -15,11 +15,14 @@ spl_autoload_register(function($class) {
 });
 
 Toro::serve(array(
-     "/"                        => "Controller_Index",
-     "/available"               => "Controller_Available",
-     "/login"                   => "Controller_Login",
-     "/logout"                  => "Controller_Logout",
-     "/profile"                 => "Controller_Profile",
-     "/user/:number/upvote"     => "Controller_UserUpvote",
-     "/(.*)"                    => "Controller_UserProfile",
+    "/"                        => "Controller_Index",
+    "/available"               => "Controller_Available",
+    "/login"                   => "Controller_Login",
+    "/logout"                  => "Controller_Logout",
+    "/posts"                   => "Controller_PostList",
+    "/posts/:number"           => "Controller_Post",
+    "/profile"                 => "Controller_Profile",
+    "/user/:number/upvote"     => "Controller_UserUpvote",
+    "/:string/posts"           => "Controller_UserPosts",
+    "/(.*)"                    => "Controller_UserProfile",
 ));

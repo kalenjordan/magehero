@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ user.getName() }} | MageHero{% endblock %}
+
+{% block content %}
+    <div class="posts-wrapper">
+        {% for post in posts %}
+            {% include 'fragment/post.html.twig' %}
+        {% endfor %}
+    </div>
+{% endblock %}
