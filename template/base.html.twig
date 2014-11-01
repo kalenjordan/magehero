@@ -13,7 +13,10 @@
         <script type="text/javascript" src="/js/jquery.tooltipster.js"></script>
         <script type="text/javascript" src="/js/jquery.tablesorter.min.js"></script>
         <script type="text/javascript" src="/js/app.js"></script>
-
+	{% if profile_json %}
+	    <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+	    <script type="text/javascript" src="/js/jquery.latLngPicker/js/jquery-gmaps-latlon-picker.js"></script>
+	{% endif %}
     {% endblock %}
 </head>
 <body>
@@ -30,6 +33,7 @@
     <div class="account">
         <a href="/">Developers</a> |
         <a href="/posts">Posts</a> |
+        <a href="/map"><i class="fa fa-map-marker"></i> World Map</a> |
         {% if session.github_username %}
             <a href="/profile">{{ session.github_username }}</a> |
             <a href="/logout"><i class="fa fa-sign-out"></i> Log Out</a>
@@ -53,7 +57,7 @@
 </div>
 
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
         $('.tooltip').tooltipster({
             delay: 0
         });
