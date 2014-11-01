@@ -40,7 +40,7 @@ class Model_User extends Model_Record
                 )
             )
             ->group('users.user_id')
-            ->where('users.is_active = 1')
+            //->where('users.is_active = 1')
             ->where("users.username = ?", $username);
 
         $this->_data = $this->_localConfig->database()->fetchRow($query);
@@ -101,14 +101,14 @@ class Model_User extends Model_Record
                 )
             )
             ->group('users.user_id')
-            ->where('users.is_active = 1')
+            //->where('users.is_active = 1')
             ->where("users.user_id = ?", $userId);
 
         $this->_data = $this->_localConfig->database()->fetchRow($query);
         return $this;
     }
 
-    public function selectAll()
+    public function selectAll($activeOnly = true)
     {
         $query = $this->_localConfig->database()->select()
             ->from("users")
@@ -126,9 +126,13 @@ class Model_User extends Model_Record
                     'GROUP_CONCAT(voting_user.name) as voting_users'
                 )
             )
-            ->where('users.is_active = 1')
             ->group('users.user_id')
-            ->order('updated_at DESC');
+            ->order('updated_at DESC')
+        ;
+
+        if ($activeOnly) {
+            $query->where('users.is_active = 1');
+        }
 
         return $query;
     }
