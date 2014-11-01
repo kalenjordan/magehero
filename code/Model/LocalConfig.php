@@ -43,6 +43,7 @@ class Model_LocalConfig
     public function getRankMehMinimumVotecount() { return $this->get('rank_meh_minimum_votecount'); }
     public function getRankStarMinimumVotecount() { return $this->get('rank_star_minimum_votecount'); }
     public function getRankRocketMinimumVotecount() { return $this->get('rank_rocket_minimum_votecount'); }
+    public function getPostingMinimumVotecount() { return $this->get('posting_minimum_votecount'); }
 
     public function getHellobarEnabled() { return $this->get('hellobar_enabled'); }
     public function getHellobarMessage() { return $this->get('hellobar_message'); }

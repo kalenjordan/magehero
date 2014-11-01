@@ -29,22 +29,28 @@ body, h1 {
   position: absolute;
   top: 1em;
   right: 1em; }
+  .account a {
+    padding-left: 0.75em; }
 
 .masthead {
-  text-align: center;
-  margin-bottom: 2em; }
+  float: left;
+  margin-bottom: 2em;
+  overflow: hidden; }
   .masthead h1 {
-    padding-top: 1em;
-    margin-bottom: 0.25em; }
+    font-size: 23px;
+    padding-top: 5px; }
   .masthead p {
     padding: 0;
     margin: 0; }
+
+.content {
+  clear: both; }
 
 .image-wrapper img {
   width: 100%; }
 
 .about {
-  margin-bottom: 3em;
+  margin-top: 3em;
   font-size: 12px;
   text-align: center; }
 
@@ -151,6 +157,16 @@ label.profile {
     .post .post-body img {
       width: 90%;
       padding: 5%; }
+
+.post-edit .input-wrapper {
+  margin-bottom: 1em; }
+  .post-edit .input-wrapper label {
+    display: block; }
+  .post-edit .input-wrapper .input-field {
+    width: 500px; }
+  .post-edit .input-wrapper .textarea {
+    width: 500px;
+    height: 400px; }
 
 textarea.profile {
   width: 100%;

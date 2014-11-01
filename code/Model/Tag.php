@@ -46,4 +46,26 @@ class Model_Tag extends Model_Record
 
         return $models;
     }
+
+    public function selectAll()
+    {
+        $query = parent::selectAll();
+        $query->reset('order');
+        $query->order('tags.tag_text ASC');
+
+        return $query;
+    }
+
+    public function fetchAll()
+    {
+        $rows = parent::fetchAll();
+
+        $models = array();
+        foreach ($rows as $row) {
+            $model = $this->_getContainer()->Tag()->setData($row);
+            $models[] = $model;
+        }
+
+        return $models;
+    }
 }
