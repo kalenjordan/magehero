@@ -28,7 +28,8 @@
                     </span>
                 {% endfor %}
             </div>
-            <div class="post-body">{{ post.getBody() }}</div>
+            <!-- TODO: Once we implement markdown we need to remove this - can't allow public posting until this is done -->
+            <div class="post-body">{{ post.getBody()|raw }}</div>
         </div>
         {% if local_config.getDisqusShortname() %}
             <div class="comments">

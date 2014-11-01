@@ -176,7 +176,8 @@ label.profile {
   float: left;
   width: 79%;
   margin-bottom: 0.5em;
-  padding-top: 0.5em;
+  padding-top: 1em;
+  font-size: 18px;
 }
 .post .tags .tag {
   padding: 0.5em;
