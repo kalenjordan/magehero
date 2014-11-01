@@ -93,6 +93,13 @@ class Model_User extends Model_Record
                     'COUNT(user_vote.user_vote_id) as vote_count'
                 )
             )
+            ->joinLeft(
+                array('voting_user' => 'users'),
+                'voting_user.user_id = user_vote.voting_user_id',
+                array(
+                    'GROUP_CONCAT(voting_user.name) as voting_users'
+                )
+            )
             ->group('users.user_id')
             ->where('users.is_active = 1')
             ->where("users.user_id = ?", $userId);
