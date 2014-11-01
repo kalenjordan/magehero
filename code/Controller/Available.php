@@ -4,7 +4,7 @@ class Controller_Available extends Controller_Index
 {
     protected function _getDevelopers()
     {
-        $query = $this->_getContainer()->User()->selectAll();
+        $query = $this->_getContainer()->User()->selectAll(true);
         $query->having('vote_count > 0');
         $userRows = $this->_getContainer()->LocalConfig()->database()->fetchAll($query);
 

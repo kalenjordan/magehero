@@ -46,7 +46,7 @@ class Model_Post extends Model_Record
 
     public function fetchByUserId($userId)
     {
-        $query = $this->selectAll();
+        $query = $this->selectAll(true);
         $query->where('posts.user_id = ?', $userId);
         $query->where('posts.is_active = 1', $userId);
         $rows = $this->_localConfig->database()->fetchAll($query);

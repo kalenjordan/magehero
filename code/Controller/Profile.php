@@ -8,23 +8,27 @@ class Controller_Profile extends Controller_Abstract
 
         if ($user->getId()) {
             $profileJson = $user->get('details_json');
+            $isActive    = (int) $user->get('is_active');
         } else {
             $profileJson = $this->_getPlaceholderProfileJson();
+            $isActive    = 0;
         }
 
         echo $this->_getTwig()->render('profile/edit.html.twig', array(
             'session'       => $this->_getSession(),
             'profile_json'  => $profileJson,
+            'is_active'  => $isActive,
             'local_config'  => $this->_getContainer()->LocalConfig(),
         ));
     }
 
     public function post()
     {
-        if (! isset($_POST['profile'])) {
+        if (! isset($_POST['profile'], $_POST['is_active'])) {
             throw new Exception("Missing profile data");
         }
         $profileJson = $_POST['profile'];
+        $profileIsActive = (int) (bool) $_POST['is_active'];
 
         if (strpos($profileJson, "javascript:") !== false || strpos($profileJson, "data:") !== false) {
             die("Looks like an injection attempt");
@@ -44,6 +48,7 @@ class Controller_Profile extends Controller_Abstract
         $user->set('details_json', $profileJson)
             ->set('username', $this->_getUsername())
             ->set('name', isset($profileData['name']) ? $profileData['name'] : null)
+            ->set('is_active', $profileIsActive)
             ->save();
 
         header("location: /profile");
