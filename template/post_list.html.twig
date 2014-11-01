@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Posts | MageHero{% endblock %}
+
+{% block content %}
+    <div class="posts-wrapper">
+        {% for post in posts %}
+            <div class="post post-{{ post.getId() }}">
+                {% if post.getUser() and post.getUser().imageUrl() %}
+                    <div class="image-wrapper user-thumbnail">
+                        <img src="{{ post.getUser().imageUrl() }}">
+                    </div>
+                {% endif %}
+                <div class="subject"><a href="/posts/{{ post.getId() }}">{{ post.getSubject() }}</a></div>
+                <div class="tags">
+                    {% for tag in post.fetchTags() %}
+                        <span class="tag">
+                            <i class="fa fa-tag"></i>
+                            {{ tag.getTagText() }}
+                        </span>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

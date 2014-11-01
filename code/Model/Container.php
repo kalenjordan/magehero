@@ -23,6 +23,22 @@ class Model_Container extends DI\Container
         return $this->_container->make('Model_User');
     }
 
+    /**
+     * @return Model_Tag
+     */
+    public function Tag()
+    {
+        return $this->_container->make('Model_Tag');
+    }
+
+    /**
+     * @return Model_Post
+     */
+    public function Post()
+    {
+        return $this->_container->make('Model_Post');
+    }
+
     public function LocalConfig()
     {
         return new Model_LocalConfig();
