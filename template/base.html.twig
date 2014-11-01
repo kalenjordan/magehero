@@ -29,9 +29,9 @@
 <div class="wrapper">
     <div class="account">
         {% if session.github_username %}
-            <a href="/profile"><i class="fa fa-user"></i> {{ session.github_username }}</a>
-            <a href="/posts/new"><i class="fa fa-pencil-square-o"></i> Post</a>
-            <a href="/logout"><i class="fa fa-sign-out"></i> Log Out</a>
+            <a href="/profile" class="tooltip" title="Edit your profile"><i class="fa fa-user"></i> {{ session.github_username }}</a>
+            <a href="/posts/new" class="tooltip" title="Write a post"><i class="fa fa-pencil-square-o"></i> Post</a>
+            <a href="/logout" class="tooltip" title="Peace out"><i class="fa fa-sign-out"></i> Log Out</a>
         {% else %}
             <a href="/login"><i class="fa fa-sign-in"></i> Login</a>
         {% endif %}
