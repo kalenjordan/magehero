@@ -56,3 +56,19 @@ html, body {
   -webkit-border-radius : 5px 5px 5px 5px;
   border-radius         : 5px 5px 5px 5px;
 }
+
+.leaflet-popup-content {
+  .hero {
+    text-align   : center;
+    margin-left  : auto;
+    margin-right : auto;
+    font-size    : 14px;
+    .header {
+      font-size : 18px;
+      color     : #0078A8;
+    }
+    .social a {
+      margin : 0 0.3em;
+    }
+  }
+}
