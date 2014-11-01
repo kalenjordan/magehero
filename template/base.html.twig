@@ -13,7 +13,11 @@
         <script type="text/javascript" src="/js/jquery.tooltipster.js"></script>
         <script type="text/javascript" src="/js/jquery.tablesorter.min.js"></script>
         <script type="text/javascript" src="/js/app.js"></script>
-
+	{% if profile_json %}
+	    <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+	    <link rel="stylesheet" type="text/css" href="/js/jquery.latLngPicker/css/jquery-gmaps-latlon-picker.css" media="all"/>
+	    <script type="text/javascript" src="/js/jquery.latLngPicker/js/jquery-gmaps-latlon-picker.js"></script>
+	{% endif %}
     {% endblock %}
 </head>
 <body>
@@ -55,7 +59,7 @@
 </div>
 
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
         $('.tooltip').tooltipster({
             delay: 0
         });

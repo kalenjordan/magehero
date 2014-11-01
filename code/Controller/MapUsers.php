@@ -2,30 +2,32 @@
 
 class Controller_MapUsers extends Controller_Abstract
 {
+
+    protected function _getDevelopers()
+    {
+	$query      = $this->_getContainer()->User()->selectAll();
+	$userRows   = $this->_getContainer()->LocalConfig()->database()->fetchAll($query);
+	$userModels = array();
+	foreach ($userRows as $userRow) {
+	    $userModel    = $this->_getContainer()->User()->setData($userRow);
+	    $userModels[] = array(
+		'lat'      => $userModel->getLatitude(),
+		'lng'      => $userModel->getLongitude(),
+		'name'     => $userModel->getName(),
+		'company'  => $userModel->getCompany(),
+		'username' => $userModel->getUsername(),
+		'website'  => $userModel->getWebsiteUrl(),
+		'tw'       => $userModel->getTwitterUsername(),
+		'gh'       => $userModel->getGithubUsername(),
+		'img'      => $userModel->getImageUrl(),
+	    );
+	}
+
+	return $userModels;
+    }
+
     public function get()
     {
-
-//        example
-//$db = new PDO('sqlite:leaflet.sqlite');
-//$sql = "SELECT id, name, website, city, lat, lng FROM users;";
-//
-//$rs = $db->query($sql);
-//if (!$rs) {
-//    echo "An SQL error occured.\n";
-//    exit;
-//}
-//
-//$rows = array();
-//while($r = $rs->fetch(PDO::FETCH_ASSOC)) {
-//    $rows[] = $r;
-//}
-//print json_encode($rows);
-
-
-	$data = [
-	    'u1' => 'u2'
-	];
-
-	echo json_encode($data);
+	$this->_jsonResponse($this->_getDevelopers());
     }
 }

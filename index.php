@@ -34,4 +34,5 @@ Toro::serve(array(
     "/(.*)"                => "Controller_UserProfile",
     "/map"                 => "Controller_Map",
     "/map/users"           => "Controller_MapUsers",
+    "/map/lnglat"          => "Controller_MapUsersLngLat", // temporary route for adding lng lat
 ));

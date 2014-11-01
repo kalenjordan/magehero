@@ -4,15 +4,29 @@
     <form action="/profile" method="POST">
         <label for="profile" class="profile">Your Profile</label>
         <textarea name="profile" class="profile">{{ profile_json }}</textarea>
+
         <div>
             <input type="submit" value="Save">
         </div>
         <div>
             <p>
-                Want to see what variables are available?  See a
+		Want to see what variables are available? See a
                 <a target="_blank" href="/sample.json">sample JSON file</a>.
             </p>
+	</div>
+	<div class="gllpLatlonPicker" id="custom_id">
+	    <input type="text" class="gllpSearchField">
+	    <input type="button" class="gllpSearchButton" value="Search your location">
+	    <div class="gllpMap">Google Maps</div>
+	    <input type="hidden" class="gllpLatitude" value="-33.8674869"/>
+	    <input type="hidden" class="gllpLongitude" value="151.20699020000006"/>
+	    <input type="hidden" class="gllpZoom" value="12"/>
+	</div>
 
+	<div>
+	    <p>
+		Your longitude and latitude will be added automatically to your JSON file when you click <i>Save</i>.
+	    </p>
         </div>
     </form>
 {% endblock %}
