@@ -11,12 +11,28 @@ Vagrant.require_version ">= 1.5.0"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
-  # Box configuration
-  config.vm.box = "Ubuntu-12.04"
-  config.vm.box_url = 'https://cloud-images.ubuntu.com/vagrant/precise/current/precise-server-cloudimg-i386-vagrant-disk1.box'
+  # Virtualbox customization
+  config.vm.provider :virtualbox do |virtualbox, override|
+      # Box configuration
+      config.vm.box = "Ubuntu-12.04"
+      config.vm.box_url = 'https://cloud-images.ubuntu.com/vagrant/precise/current/precise-server-cloudimg-i386-vagrant-disk1.box'
 
-  # Network configuration
-  config.vm.network :private_network, ip: "10.199.45.152"
+      # Network configuration
+      config.vm.network :private_network, ip: "10.199.45.152"
+  end
+
+  # VMWare Fusion customization
+  config.vm.provider :vmware_fusion do |vmware, override|
+    # Box configuration
+    override.vm.box = "debian-wheezy-fusion"
+    override.vm.box_url = "http://boxes.monsieurbiz.com/debian-wheezy-fusion.box"
+
+    # Customize VM
+    vmware.vmx["memsize"] = "1024"
+    vmware.vmx["numvcpus"] = "1"
+  end
+
+  # Network
   config.vm.hostname = "magehero.local"
   config.ssh.forward_agent = true
 
