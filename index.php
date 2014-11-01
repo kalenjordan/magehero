@@ -23,5 +23,6 @@ Toro::serve(array(
     "/posts/:number"           => "Controller_Post",
     "/profile"                 => "Controller_Profile",
     "/user/:number/upvote"     => "Controller_UserUpvote",
+    "/:string/posts"           => "Controller_UserPosts",
     "/(.*)"                    => "Controller_UserProfile",
 ));

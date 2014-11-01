@@ -188,4 +188,16 @@ class Model_User extends Model_Record
 
         return implode(", ", $parts);
     }
+
+    public function fetchPostCount()
+    {
+        $query = $this->_localConfig->database()->select()
+            ->from('posts', array(
+                'post_count' => 'COUNT(*)'
+            ))
+            ->where('user_id = ?', $this->getId());
+
+        $postCount = $this->_localConfig->database()->fetchOne($query);
+        return $postCount;
+    }
 }

@@ -41,4 +41,19 @@ class Model_Post extends Model_Record
         $tags = $this->_getContainer()->Tag()->fetchByPostId($this->getId());
         return $tags;
     }
+
+    public function fetchByUserId($userId)
+    {
+        $query = $this->selectAll();
+        $query->where('posts.user_id = ?', $userId);
+        $rows = $this->_localConfig->database()->fetchAll($query);
+
+        $models = array();
+        foreach ($rows as $row) {
+            $model = $this->_getContainer()->Post()->setData($row);
+            $models[] = $model;
+        }
+
+        return $models;
+    }
 }

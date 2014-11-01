@@ -1,0 +1,25 @@
+<div class="post post-{{ post.getId() }}">
+    {% if post.getUser() and post.getUser().imageUrl() %}
+        <div class="image-wrapper user-thumbnail">
+            <img src="{{ post.getUser().imageUrl() }}">
+        </div>
+    {% endif %}
+    <div class="ranking">
+        {% if post.getUser().voteCount() >= local_config.getRankRocketMinimumVotecount() %}
+            <i class="fa fa-rocket tooltip" title="This developer has received {{ post.getUser().voteCount() }} votes: {{ post.getUser().votingUsernames() }}"></i>
+        {% elseif post.getUser().voteCount() >= local_config.getRankStarMinimumVotecount() %}
+            <i class="fa fa-star tooltip" title="This developer has received {{ post.getUser().voteCount() }} vote: {{ post.getUser().votingUsernames() }}"></i>
+        {% else %}
+            <i class="fa fa-meh-o tooltip" title="This developer hasn't received any upvotes yet"></i>
+        {% endif %}
+    </div>
+    <div class="subject"><a href="/posts/{{ post.getId() }}">{{ post.getSubject() }}</a></div>
+    <div class="tags">
+        {% for tag in post.fetchTags() %}
+            <span class="tag">
+                <i class="fa fa-tag"></i>
+                {{ tag.getTagText() }}
+            </span>
+        {% endfor %}
+    </div>
+</div>

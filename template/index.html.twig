@@ -51,8 +51,8 @@
                 {% endif %}
             </td>
             <td>
-                {% if developer.githubUsername() %}
-                    <a href="/{{ developer.githubUsername() }}" target="_blank">{{ developer.name() }}</a>
+                {% if developer.githubUsername() and developer.fetchPostCount() %}
+                    <a href="/{{ developer.githubUsername() }}/posts">{{ developer.name() }}</a>
                 {% else %}
                     <span>{{ developer.name() }}</span>
                 {% endif %}

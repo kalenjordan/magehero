@@ -41,6 +41,7 @@ abstract class Model_Record
 
         return $query;
     }
+
     public function fetchAll()
     {
         $results = $this->_localConfig->database()->fetchAll($this->selectAll());
