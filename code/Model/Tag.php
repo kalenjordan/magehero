@@ -50,6 +50,7 @@ class Model_Tag extends Model_Record
     public function selectAll()
     {
         $query = parent::selectAll();
+        $query->reset('order');
         $query->order('tags.tag_text ASC');
 
         return $query;
