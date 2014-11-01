@@ -112,12 +112,12 @@ $(document).ready(function () {
 
     $(document).ready(function () {
       $.ajaxSetup({cache: false});
-      $('#map').css('height', ($(window).height() - 40));
+      $('#map').css('height', ($(window).height() - 51));
       getUsers();
     });
 
     $(window).resize(function () {
-      $('#map').css('height', ($(window).height() - 40));
+      $('#map').css('height', ($(window).height() - 51));
     }).resize();
   }
 );
