@@ -1,1 +1,0 @@
-{"nfs":{"/vagrant":{"nfs":["dmode=777","fmode=777"],"guestpath":"/vagrant","hostpath":"/Users/jamescowie/Projects/Magento/magehero","disabled":false,"type":"nfs","map_uid":501,"map_gid":20,"nfs_udp":true,"nfs_version":3,"uuid":"1204805534"}}}
