@@ -6,6 +6,8 @@
         "nesbot/Carbon": "*",
         "mnapoli/php-di": "~4.0",
         "zendframework/zendframework1": "dev-master",
-        "j7mbo/twitter-api-php": "dev-master"
+        "j7mbo/twitter-api-php": "dev-master",
+        "michelf/php-markdown": "1.4.1",
+        "aptoma/twig-markdown": "0.2.*"
     }
 }
