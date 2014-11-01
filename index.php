@@ -20,6 +20,7 @@ Toro::serve(array(
     "/login"                   => "Controller_Login",
     "/logout"                  => "Controller_Logout",
     "/posts"                   => "Controller_PostList",
+    "/posts/:number"           => "Controller_Post",
     "/profile"                 => "Controller_Profile",
     "/user/:number/upvote"     => "Controller_UserUpvote",
     "/(.*)"                    => "Controller_UserProfile",

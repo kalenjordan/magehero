@@ -47,4 +47,5 @@ class Model_LocalConfig
     public function getHellobarEnabled() { return $this->get('hellobar_enabled'); }
     public function getHellobarMessage() { return $this->get('hellobar_message'); }
     public function getHellobarUrl() { return $this->get('hellobar_url'); }
+    public function getDisqusShortname() { return $this->get('disqus_shortname'); }
 }

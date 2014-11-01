@@ -169,7 +169,9 @@ label.profile {
 }
 
 .posts-wrapper {
-    // Nothing yet
+    .comments {
+        margin-top: 2em;
+    }
 }
 
 .post {
@@ -178,6 +180,13 @@ label.profile {
     margin-right: auto;
     overflow: hidden;
     padding: 1em;
+    position: relative;
+
+    .ranking {
+        position: absolute;
+        top: 7px;
+        left: 7px;
+    }
 
     &:nth-child(odd) {
         background-color: rgb(229, 229, 229);
@@ -206,7 +215,14 @@ label.profile {
             color: rgb(153, 153, 153);
         }
     }
+
+    .post-body {
+        clear: both;
+        margin-top: 2em;
+    }
 }
+
+
 
 textarea.profile {
     width: 100%;

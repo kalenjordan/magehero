@@ -6,7 +6,7 @@
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="/skin/css/tooltipster.css" />
         <title>
-            {% block title %}MageHero | Magento Heroes{% endblock %}
+            {% block title %}MageHero | Awesome Magento Developers{% endblock %}
         </title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
@@ -28,6 +28,8 @@
 
 <div class="wrapper">
     <div class="account">
+        <a href="/">Developers</a> |
+        <a href="/posts">Posts</a> |
         {% if session.github_username %}
             <a href="/profile">{{ session.github_username }}</a> |
             <a href="/logout"><i class="fa fa-sign-out"></i> Log Out</a>
@@ -37,8 +39,8 @@
     </div>
     {% block masthead %}
         <div class="masthead">
-            <h1><a href="/">MageHero</a></h1>
-            <p>Magento Heroes</p>
+            <h1>MageHero</h1>
+            <p>Awesome Magento Developers</p>
         </div>
     {% endblock %}
 
