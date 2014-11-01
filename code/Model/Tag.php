@@ -47,7 +47,7 @@ class Model_Tag extends Model_Record
         return $models;
     }
 
-    public function fetchAll($postId)
+    public function fetchAll()
     {
         $rows = parent::fetchAll();
 
