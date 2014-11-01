@@ -110,4 +110,10 @@ class Model_Post extends Model_Record
 
         return false;
     }
+
+    protected function _afterSave()
+    {
+        // Update the updated_at timestamp
+        $this->getUser()->save();
+    }
 }

@@ -8,10 +8,9 @@
             <th class="sortable">Rating</th>
             <th>Pic</th>
             <th class="sortable">Name</th>
-            <th><!-- Certifications --></th>
             <th class="sortable">Location</th>
-            <th>Last Update</th>
-            <th>Contact</th>
+            <th>Latest Post</th>
+            <th><!-- Links --></th>
         </tr>
     </thead>
     <tbody>
@@ -48,6 +47,16 @@
                 {% endif %}
             </td>
             <td>
+                {{ developer.location() }}
+            </td>
+            <td>
+                {% if developer.fetchPostCount() %}
+                    <a href="/posts/{{ developer.getLastPost().getId() }}">{{ developer.getLastPost().getSubject() }}</a>
+                {% else %}
+                    No posts yet
+                {% endif %}
+            </td>
+            <td>
                 {% if developer.certificationBoardUrl() %}
                     <a href="{{ developer.certificationBoardUrl() }}" target="_blank"><i class="fa fa-certificate tooltip" title="Magento Certification Advisory Board"></i></a>
                 {% endif %}
@@ -63,18 +72,6 @@
                 {% if developer.certifiedFrontendDeveloperUrl() %}
                     <a href="{{ developer.certifiedFrontendDeveloperUrl() }}" target="_blank"><i class="fa fa-certificate tooltip" title="Magento Certified Frontend Developer"></i></a>
                 {% endif %}
-            </td>
-            <td>
-                {{ developer.location() }}
-            </td>
-            <td>
-                {% if developer.fetchPostCount() %}
-                    <a href="/posts/{{ developer.getLastPost().getId() }}">{{ developer.getLastPost().getSubject() }}</a>
-                {% else %}
-                    No posts yet
-                {% endif %}
-            </td>
-            <td>
                 {% if developer.twitterUsername() %}
                     <a href="https://twitter.com/{{ developer.twitterUsername() }}" target="_blank"><i class="fa fa-twitter tooltip" title="Twitter"></i></a>
                 {% endif %}

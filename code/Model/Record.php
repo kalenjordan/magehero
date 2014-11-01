@@ -70,8 +70,13 @@ abstract class Model_Record
             $this->create();
         }
 
+        $this->_afterSave();
+
         return $this;
     }
+
+    // Can be overridden by children
+    protected function _afterSave() { }
 
     public function update()
     {
