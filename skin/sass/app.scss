@@ -107,7 +107,7 @@ table.listing {
         content: "\f0d7";
         padding-left: 5px;
     }
-    
+
     th.sortable {
         color: blue;
         &:hover {
@@ -243,3 +243,8 @@ textarea.profile {
     font-size: 12px;
 }
 
+// lat lng picker
+.gllpMap {
+  width  : 500px;
+  height : 250px;
+}
