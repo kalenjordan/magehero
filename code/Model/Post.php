@@ -48,6 +48,7 @@ class Model_Post extends Model_Record
     {
         $query = $this->selectAll();
         $query->where('posts.user_id = ?', $userId);
+        $query->where('posts.is_active = 1', $userId);
         $rows = $this->_localConfig->database()->fetchAll($query);
 
         $models = array();
