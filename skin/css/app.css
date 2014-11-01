@@ -188,6 +188,10 @@ label.profile {
   clear: both;
   margin-top: 2em;
 }
+.post .post-body img {
+  width: 90%;
+  padding: 5%;
+}
 
 textarea.profile {
   width: 100%;
