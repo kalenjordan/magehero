@@ -56,4 +56,13 @@ class Model_Post extends Model_Record
 
         return $models;
     }
+
+    public function getTweetUrl()
+    {
+        $url = $this->_localConfig->get('base_url') . "/posts/" . $this->getId();
+        $text = $this->getSubject() . " " . $url;
+
+        $tweetIntentUrl = "https://twitter.com/intent/tweet?text=" . urlencode($text);
+        return $tweetIntentUrl;
+    }
 }
