@@ -7,7 +7,7 @@
         <div class="post post-{{ post.getId() }}">
             {% if post.getUser() and post.getUser().imageUrl() %}
                 <div class="image-wrapper user-thumbnail">
-                    <img src="{{ post.getUser().imageUrl() }}">
+                    <a href="/{{ post.getUser().getUsername() }}/posts"><img src="{{ post.getUser().imageUrl() }}"></a>
                 </div>
             {% endif %}
             <div class="ranking">
