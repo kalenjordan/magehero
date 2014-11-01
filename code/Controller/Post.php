@@ -5,9 +5,6 @@ class Controller_Post extends Controller_Abstract
     public function get($postId)
     {
         $post = $this->_getContainer()->Post()->load($postId);
-        if (! $post->getIsActive()) {
-            die("Not visible");
-        }
 
         echo $this->_getTwig()->render('post.html.twig', array(
             'session'       => $this->_getSession(),

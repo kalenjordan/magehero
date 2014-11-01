@@ -39,7 +39,6 @@ class Model_Container extends DI\Container
         return $this->_container->make('Model_PostTag');
     }
 
-
     /**
      * @return Model_Post
      */
