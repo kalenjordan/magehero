@@ -105,15 +105,14 @@ table.listing .headerSortUp::after {
   content: "\f0d7";
   padding-left: 5px;
 }
-table.listing th.right,
-table.listing td.right {
-    text-align: right;
-}
 table.listing th.sortable {
   color: blue;
 }
 table.listing th.sortable:hover {
   cursor: pointer;
+}
+table.listing th.right, table.listing td.right {
+  text-align: right;
 }
 table.listing .fa {
   margin-left: 0.25em;
