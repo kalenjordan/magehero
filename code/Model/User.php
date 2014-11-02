@@ -111,6 +111,11 @@ class Model_User extends Model_Record
 
     public function selectAll()
     {
+        $postsQuery = $this->_localConfig->database()->select()
+            ->from('posts')
+            ->order('posts.post_id DESC')
+            ->limit(1);
+
         $query = $this->_localConfig->database()->select()
             ->from("users")
             ->joinLeft(
@@ -128,7 +133,7 @@ class Model_User extends Model_Record
                 )
             )
             ->joinLeft(
-                array('posts' => 'posts'),
+                array('posts' => $postsQuery),
                 'posts.user_id = users.user_id AND posts.is_active = 1',
                 array()
             )
