@@ -127,9 +127,14 @@ class Model_User extends Model_Record
                     'GROUP_CONCAT(voting_user.name) as voting_users'
                 )
             )
+            ->joinLeft(
+                array('posts' => 'posts'),
+                'posts.user_id = users.user_id AND posts.is_active = 1',
+                array()
+            )
             ->where('users.is_active = 1')
             ->group('users.user_id')
-            ->order('updated_at DESC');
+            ->order('posts.post_id DESC', 'users.updated_at DESC');
 
         return $query;
     }
