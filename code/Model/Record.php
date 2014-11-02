@@ -70,8 +70,13 @@ abstract class Model_Record
             $this->create();
         }
 
+        $this->_afterSave();
+
         return $this;
     }
+
+    // Can be overridden by children
+    protected function _afterSave() { }
 
     public function update()
     {
@@ -94,8 +99,13 @@ abstract class Model_Record
             $data[$column] = $this->get($column);
         }
 
+        $data['created_at'] = \Carbon\Carbon::now()->toDateTimeString();
         $data['updated_at'] = \Carbon\Carbon::now()->toDateTimeString();
         $this->_localConfig->database()->insert($this->_getTable(), $data);
+
+        // This is probably going to cause horrible bugs.  #rollingyourownormproblems
+        $recordId = $this->_localConfig->database()->lastInsertId();
+        $this->set($this->_getTableIdFieldname(), $recordId);
 
         return $this;
     }

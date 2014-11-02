@@ -4,32 +4,51 @@
 
 {% block content %}
     <div class="posts-wrapper">
-        <div class="post post-{{ post.getId() }}">
-            {% if post.getUser() and post.getUser().imageUrl() %}
-                <div class="image-wrapper user-thumbnail">
-                    <a href="/{{ post.getUser().getUsername() }}/posts"><img src="{{ post.getUser().imageUrl() }}"></a>
-                </div>
-            {% endif %}
-            <div class="ranking">
-                {% if post.getUser().voteCount() >= local_config.getRankRocketMinimumVotecount() %}
-                    <i class="fa fa-rocket tooltip" title="This developer has received {{ post.getUser().voteCount() }} votes: {{ post.getUser().votingUsernames() }}"></i>
-                {% elseif post.getUser().voteCount() >= local_config.getRankStarMinimumVotecount() %}
-                    <i class="fa fa-star tooltip" title="This developer has received {{ post.getUser().voteCount() }} vote: {{ post.getUser().votingUsernames() }}"></i>
-                {% else %}
-                    <i class="fa fa-meh-o tooltip" title="This developer hasn't received any upvotes yet"></i>
+        {% if post.getIsActive() %}
+            <div class="post post-{{ post.getId() }}">
+                {% if post.getUser() and post.getUser().imageUrl() %}
+                    <div class="image-wrapper user-thumbnail">
+                        <a href="/{{ post.getUser().getUsername() }}/posts"><img src="{{ post.getUser().imageUrl() }}"></a>
+                    </div>
                 {% endif %}
+                <div class="ranking">
+                    {% if post.getUser().voteCount() >= local_config.getRankRocketMinimumVotecount() %}
+                        <i class="fa fa-rocket tooltip" title="This developer has received {{ post.getUser().voteCount() }} votes: {{ post.getUser().votingUsernames() }}"></i>
+                    {% elseif post.getUser().voteCount() >= local_config.getRankStarMinimumVotecount() %}
+                        <i class="fa fa-star tooltip" title="This developer has received {{ post.getUser().voteCount() }} vote: {{ post.getUser().votingUsernames() }}"></i>
+                    {% else %}
+                        <i class="fa fa-meh-o tooltip" title="This developer hasn't received any upvotes yet"></i>
+                    {% endif %}
+                </div>
+                <div class="subject">{{ post.getSubject() }}</div>
+                <div class="tags">
+                    {% for tag in post.fetchTags() %}
+                        <span class="tag">
+                            <i class="fa fa-tag"></i>
+                            {{ tag.getTagText() }}
+                        </span>
+                    {% endfor %}
+                </div>
+                <!-- TODO: Once we implement markdown we need to remove this - can't allow public posting until this is done -->
+                <div class="post-body">
+                    {{ post.getBody()|striptags|markdown }}
+                    {% if post.getImageUrl() %}
+                        <div class="image-wrapper">
+                            <a target="_blank" href="{{ post.getImageUrl() }}"><img src="{{ post.getImageUrl() }}"></a>
+                        </div>
+                    {% endif %}
+                </div>
             </div>
-            <div class="subject">{{ post.getSubject() }}</div>
-            <div class="tags">
-                {% for tag in post.fetchTags() %}
-                    <span class="tag">
-                        <i class="fa fa-tag"></i>
-                        {{ tag.getTagText() }}
-                    </span>
-                {% endfor %}
-            </div>
-            <!-- TODO: Once we implement markdown we need to remove this - can't allow public posting until this is done -->
-            <div class="post-body">{{ post.getBody()|markdown }}</div>
+        {% else %}
+            <i>This post is a draft.  If you're the author and would like to publish this, set Status to Published
+                when editing it.</i>
+            <br><br>
+        {% endif %}
+        <div class="share">
+            <a target="_blank" href="{{ post.getTweetUrl() }}"><i class="fa fa-twitter"></i> Tweet</a>
+            {% if session.github_username == post.getUser().getUsername() %}
+                <a href="/posts/{{ post.getId() }}/edit"><i class="fa fa-pencil-square-o"></i> Edit</a>
+            {% endif %}
         </div>
         {% if local_config.getDisqusShortname() %}
             <div class="comments">

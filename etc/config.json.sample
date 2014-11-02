@@ -9,6 +9,7 @@
     "rank_meh_minimum_votecount": 0,
     "rank_star_minimum_votecount": 1,
     "rank_rocket_minimum_votecount": 5,
+    "posting_minimum_votecount": 1,
     "disqus_shortname": "magehero",
     "twitter_consumer_api_key" : "",
     "twitter_consumer_api_secret" : "",

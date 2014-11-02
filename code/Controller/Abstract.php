@@ -6,6 +6,7 @@ use Aptoma\Twig\Extension\MarkdownEngine;
 class Controller_Abstract
 {
     protected $_container;
+    protected $_currentUser;
 
     protected function _getSession()
     {
@@ -19,6 +20,19 @@ class Controller_Abstract
         $username = isset($session['github_username']) ? $session['github_username'] : null;
 
         return $username;
+    }
+
+    /**
+     * @return Model_User
+     */
+    protected function _getCurrentUser()
+    {
+        if (isset($this->_currentUser)) {
+            return $this->_currentUser;
+        }
+
+        $this->_currentUser = $this->_getContainer()->User()->loadByUsername($this->_getUsername());
+        return $this->_currentUser;
     }
 
     protected function _getTwig()
