@@ -32,6 +32,15 @@ You can only upvote other developers if you are logged in and
 have received the minimum number of upvotes required to be able
 to upvote someone else (see the site for what that number is).
 
+#### Why is my profile no longer visible?
+
+If you do something cute like using your name field as a message
+instead of a name or also if you include dummy data in your
+profile (such as example.com for the website), I may remove
+your profile from the site.
+
+If you'd like to be re-added, just file a github issue.
+
 #### What do the rankings mean?
 
 The ranking of a given developer isn't necessarily a ranking of
