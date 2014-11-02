@@ -1,5 +1,6 @@
 $(document).ready(function() {
     MageHero_App.bindUpvote();
+    MageHero_App.bindChosen();
     $('table.listing').tablesorter({
         headers: {
             0: { sorter: false },
@@ -45,6 +46,10 @@ MageHero_App = {
         });
 
         return this;
+    },
+
+    bindChosen: function() {
+        $('.fancy-select').chosen();
     }
 };
 
