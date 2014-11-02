@@ -14,13 +14,13 @@
                 <a target="_blank" href="/sample.json">sample JSON file</a>.
             </p>
 	</div>
-	<div class="gllpLatlonPicker" id="custom_id">
-	    <input type="text" class="gllpSearchField" value="{{ user.getLocation }}">
-	    <input type="button" class="gllpSearchButton" value="Search your location">
-	    <div class="gllpMap">Google Maps</div>
-	    <input type="hidden" name="latitude" class="gllpLatitude" value="{{ user.getLatitude }}"/>
-	    <input type="hidden" name="longitude" class="gllpLongitude" value="{{ user.getLongitude }}"/>
-	    <input type="hidden" class="gllpZoom" value="4"/>
+	<div class="profile-longitude-latitude-picker" id="custom_id">
+	    <input type="text" class="profile-map-search-field" value="{{ user.getLocation }}">
+	    <input type="button" class="profile-map-search-button" value="Search your location">
+	    <div class="profile-map">Google Maps</div>
+	    <input type="hidden" name="latitude" class="profile-map-latitude" value="{{ user.getLatitude }}"/>
+	    <input type="hidden" name="longitude" class="profile-map-longitude" value="{{ user.getLongitude }}"/>
+	    <input type="hidden" class="profile-map-zoom" value="4"/>
 	</div>
 
 	<div>
