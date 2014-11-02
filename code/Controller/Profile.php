@@ -35,11 +35,13 @@ class Controller_Profile extends Controller_Abstract
         if (! is_array($profileData)) {
             die("There was a problem decoding the JSON, please check to make sure it was valid");
         }
-        $lat = (float)$_POST['latitude'];
-        $lng = (float)$_POST['longitude'];
-        if ($lat !== 0 && $lng !== 0) {
-            $profileData['latitude'] = $lat;
-            $profileData['longitude'] = $lng;
+
+        $latitude = (float)(isset($_POST['latitude']) ? $_POST['latitude'] : 0);
+        $longitude = (float)(isset($_POST['longitude']) ? $_POST['longitude'] : 0);
+
+        if ((int)$latitude !== 0 && (int)$longitude !== 0) {
+            $profileData['latitude'] = $latitude;
+            $profileData['longitude'] = $longitude;
         }
 
         $username = $this->_getUsername();
