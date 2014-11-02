@@ -1,8 +1,5 @@
 <?php
 
-use Aptoma\Twig\Extension\MarkdownExtension;
-use Aptoma\Twig\Extension\MarkdownEngine;
-
 class Controller_Abstract
 {
     protected $_container;
@@ -38,9 +35,7 @@ class Controller_Abstract
     protected function _getTwig()
     {
         $loader = new Twig_Loader_Filesystem(dirname(dirname(dirname(__FILE__))) . '/template');
-        $engine = new MarkdownEngine\MichelfMarkdownEngine();
         $twig = new Twig_Environment($loader);
-        $twig->addExtension(new MarkdownExtension($engine));
         return $twig;
     }
 

@@ -31,7 +31,7 @@
                 </div>
                 <!-- TODO: Once we implement markdown we need to remove this - can't allow public posting until this is done -->
                 <div class="post-body">
-                    {{ post.getBody()|striptags|markdown }}
+                    {{ post.getBody() | raw }}
                     {% if post.getImageUrl() %}
                         <div class="image-wrapper">
                             <a target="_blank" href="{{ post.getImageUrl() }}"><img src="{{ post.getImageUrl() }}"></a>
