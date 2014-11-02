@@ -23,6 +23,15 @@ of consulting or projects that they're interested in.
 
 But for now, it's just a general listing of developers in the community.
 
+#### Guidelines for submitting a PR
+
+Please do the following when submitting a PR:
+
+ - Don't break existing code conventions (spacing, indentation, code style, etc.)
+ - Use consistent indentation (little bit of a pet peeve but seriously how much fun would you have reading a book if it randomly had crazy indentation all over the place)
+ - Always proof-read your diff before submitting (sorry if this is obvious but I've known people before that haven't done it and judging by some of the PRs I've received I'm guessing you guys might not be doing it)
+ - Include screenshots (or screencasts for bonus points) of the feature to make it easier on me to review
+
 #### How does upvoting work?
 
 Upvote other good developers.   This will help to create a list 
