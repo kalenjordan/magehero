@@ -7,10 +7,10 @@ class Controller_MapUsers extends Controller_Abstract
     {
         $query = $this->_getContainer()->User()->selectAll();
         $userRows = $this->_getContainer()->LocalConfig()->database()->fetchAll($query);
-        $userModels = array();
+        $users = array();
         foreach ($userRows as $userRow) {
             $userModel = $this->_getContainer()->User()->setData($userRow);
-            $userModels[] = array(
+            $users[] = array(
                 'latitude'  => $userModel->getLatitude(),
                 'longitude' => $userModel->getLongitude(),
                 'name'      => $userModel->getName(),
@@ -31,7 +31,7 @@ class Controller_MapUsers extends Controller_Abstract
                 ),
             );
         }
-        return $userModels;
+        return $users;
     }
 
     public function get()
