@@ -118,8 +118,7 @@ class Model_User extends Model_Record
                 'MAX(posts.post_id) AS post_id'
             ))
             ->order('posts.post_id DESC')
-            ->group('posts.user_id')
-            ->limit(1);
+            ->group('posts.user_id');
 
         $query = $this->_localConfig->database()->select()
             ->from("users")
