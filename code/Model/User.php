@@ -117,6 +117,7 @@ class Model_User extends Model_Record
                 'is_active',
                 'MAX(posts.post_id) AS post_id'
             ))
+            ->where('posts.is_active = 1')
             ->order('posts.post_id DESC')
             ->group('posts.user_id');
 
