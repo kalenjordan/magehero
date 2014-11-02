@@ -112,8 +112,13 @@ class Model_User extends Model_Record
     public function selectAll()
     {
         $postsQuery = $this->_localConfig->database()->select()
-            ->from('posts')
+            ->from('posts', array(
+                'user_id',
+                'is_active',
+                'MAX(posts.post_id) AS post_id'
+            ))
             ->order('posts.post_id DESC')
+            ->group('posts.user_id')
             ->limit(1);
 
         $query = $this->_localConfig->database()->select()
