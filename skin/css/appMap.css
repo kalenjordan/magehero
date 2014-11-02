@@ -43,6 +43,9 @@ html, body {
   background: #f7f7f7; }
 
 .leaflet-control-geoloc {
+  display: block;
+  width: 15px;
+  height: 15px;
   background-image: url(/skin/img/location.png);
   -webkit-border-radius: 5px 5px 5px 5px;
   border-radius: 5px 5px 5px 5px; }

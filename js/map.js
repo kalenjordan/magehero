@@ -69,18 +69,18 @@ $(document).ready(function() {
             layers: [ mapquest, users ]
         });
 
-        // hmm bug does not work when clicking in the top right corner
-        $('a.leaflet-control-geoloc').on('click', function(e) {
-            e.preventDefault();
-            map.locate({ setView: true, maxZoom: 17 });
-        });
-
         var geolocControl = new L.control({
             position: 'topright'
         });
         geolocControl.onAdd = function(map) {
+            window.getMyMapLocation = function() {
+                // http://leafletjs.com/reference.html#map-locate
+                // maybe show info for user that getLocation is processing it may take some time for the browser
+                // to find your location. watch then the events locationfound or locationerror.
+                map.locate({ setView: true, maxZoom: 14 });
+            };
             var div = L.DomUtil.create('div', 'leaflet-control-zoom leaflet-control');
-            div.innerHTML = '<a class="leaflet-control-geoloc" href="#" title="My location">My Location</a>';
+            div.innerHTML = '<a class="leaflet-control-geoloc" href="#" onclick="getMyMapLocation()" title="My location">&nbsp;</a>';
             return div;
         };
 
