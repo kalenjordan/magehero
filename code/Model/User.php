@@ -144,7 +144,7 @@ class Model_User extends Model_Record
             )
             ->where('users.is_active = 1')
             ->group('users.user_id')
-            ->order('posts.post_id DESC', 'users.updated_at DESC');
+            ->order(array('posts.post_id DESC', 'users.updated_at DESC'));
 
         return $query;
     }
