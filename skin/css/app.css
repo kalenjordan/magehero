@@ -180,9 +180,7 @@ textarea.profile {
   padding: 15px 0;
   font-size: 12px; }
 
-.gllpMap {
-  margin-top: 0.5em;
+.profile-map {
+  margin-top: 0.6em;
   width: 500px;
   height: 250px; }
-
-/*# sourceMappingURL=app.css.map */
