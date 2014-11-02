@@ -13,10 +13,7 @@
         <script type="text/javascript" src="/js/jquery.tooltipster.js"></script>
         <script type="text/javascript" src="/js/jquery.tablesorter.min.js"></script>
         <script type="text/javascript" src="/js/app.js"></script>
-	{% if profile_json %}
-	    <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
-	    <script type="text/javascript" src="/js/jquery.latLngPicker/js/jquery-gmaps-latlon-picker.js"></script>
-	{% endif %}
+        {% block mapdata %} {% endblock %}
     {% endblock %}
 </head>
 <body>

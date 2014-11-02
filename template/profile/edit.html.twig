@@ -1,5 +1,10 @@
 {% extends 'base.html.twig' %}
 
+{% block mapdata %}
+    <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script src="/js/jquery.latLngPicker/js/jquery-gmaps-latlon-picker.js"></script>
+{% endblock %}
+
 {% block content %}
     <form action="/profile" method="POST">
         <label for="profile" class="profile">Your Profile</label>
