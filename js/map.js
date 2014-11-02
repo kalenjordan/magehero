@@ -2,46 +2,46 @@
 $(document).ready(function() {
         var map, users, mapquest, firstLoad,
             linkMapper = {
-                website: {
+                url_website: {
                     title: 'Website',
                     fa: 'fa-external-link'
                 },
-                twitter: {
+                twitter_username: {
                     title: 'Twitter',
                     fa: 'fa-twitter',
                     urlPrefix: 'https://twitter.com/'
                 },
-                github: {
+                github_username: {
                     title: 'Github',
                     fa: 'fa-github',
                     urlPrefix: 'https://github.com/'
                 },
-                stackOverflow: {
+                stackoverflow_url: {
                     title: 'Stack Exchange',
                     fa: 'fa-stack-exchange'
                 },
-                linkedIn: {
+                linkedin_url: {
                     title: 'Linkedin',
                     fa: 'fa-linkedin'
                 },
-                developer: {
+                certification_board_url: {
+                    title: 'Magento Certification Advisory Board',
+                    fa: 'fa-certificate'
+                },
+                certified_developer_url: {
                     title: 'Magento Certified Developer',
                     fa: 'fa-certificate'
                 },
-                developerPlus: {
+                certified_developer_plus_url: {
                     title: 'Magento Certified Developer Plus',
                     fa: 'fa-plus'
                 },
-                developerFrontend: {
-                    title: 'Magento Certified Frontend Developer',
-                    fa: 'fa-certificate'
-                },
-                solutionSpecialist: {
+                certified_solution_specialist_url: {
                     title: 'Magento Certified Solution Specialist',
                     fa: 'fa-certificate'
                 },
-                certificationBoard: {
-                    title: 'Magento Certification Advisory Board',
+                certified_frontend_developer_url: {
+                    title: 'Magento Certified Frontend Developer',
                     fa: 'fa-certificate'
                 }
             };
