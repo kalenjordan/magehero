@@ -23,7 +23,16 @@ class Model_Post extends Model_Record
     }
 
     public function getSubject()    { return $this->get('subject'); }
-    public function getBody()       { return $this->get('body'); }
+
+    public function getBody()       {
+        $parseDown = new Parsedown();
+        $purifier = new HTMLPurifier(HTMLPurifier_Config::createDefault());
+        $body = $parseDown->text($this->get('body'));
+        $body = $purifier->purify($body);
+
+        return $body;
+    }
+
     public function getUserId()     { return $this->get('user_id'); }
     public function getImageUrl()   { return $this->get('image_url'); }
     public function getIsActive()   { return $this->get('is_active'); }
