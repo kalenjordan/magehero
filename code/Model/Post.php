@@ -23,8 +23,10 @@ class Model_Post extends Model_Record
     }
 
     public function getSubject()    { return $this->get('subject'); }
+    public function getBody()    { return $this->get('body'); }
 
-    public function getBody()       {
+    public function getBodyAsHtml()
+    {
         $parseDown = new Parsedown();
         $purifier = new HTMLPurifier(HTMLPurifier_Config::createDefault());
         $body = $parseDown->text($this->get('body'));
