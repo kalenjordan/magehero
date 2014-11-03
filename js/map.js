@@ -140,12 +140,12 @@ $(document).ready(function() {
 
         $(document).ready(function() {
             $.ajaxSetup({ cache: false });
-            $('#map').css('height', ($(window).height() - 51));
+            $('#map').css('height', ($(window).height() - 130));
             getUsers();
         });
 
         $(window).resize(function() {
-            $('#map').css('height', ($(window).height() - 51));
+            $('#map').css('height', ($(window).height() - 130));
         }).resize();
     }
 );
