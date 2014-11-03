@@ -23,6 +23,22 @@ of consulting or projects that they're interested in.
 
 But for now, it's just a general listing of developers in the community.
 
+#### What types of posts should I write?
+
+The posts should be specific to something you're working on within the world of
+Magento.  Let's keep general socializing and updates to Twitter, so that this
+can become a meaningful archive of work that you've done or at least things
+you've researched in the Magento space.
+
+So for example, moving from one city to another, or moving jobs, or visiting
+people.  I think probably even things like visiting Magento events should
+be excluded.  Instead put something that's subject-matter-specific, like
+"I learned about Topic X at this Magento event or I built X at this hackathon".
+
+Open to feedback on this but I think there's something powerful about having
+the historical archive of MageHero being really focused.  Kind of like how
+Stack Exchange is (in the context of question and answer).
+
 #### Guidelines for submitting a PR
 
 Please do the following when submitting a PR:
