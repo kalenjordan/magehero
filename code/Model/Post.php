@@ -26,8 +26,10 @@ class Model_Post extends Model_Record
 
     public function getBody()       {
         $parseDown = new Parsedown();
-        $body = htmlspecialchars(strip_tags($this->get('body')));
-        $body = $parseDown->text($body);
+        $purifier = new HTMLPurifier(HTMLPurifier_Config::createDefault());
+        $body = $parseDown->text($this->get('body'));
+        $body = $purifier->purify($body);
+
         return $body;
     }
 
