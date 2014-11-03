@@ -6,6 +6,8 @@
         "nesbot/Carbon": "*",
         "mnapoli/php-di": "~4.0",
         "zendframework/zendframework1": "dev-master",
-        "j7mbo/twitter-api-php": "dev-master"
+        "j7mbo/twitter-api-php": "dev-master",
+        "erusev/parsedown": "dev-master",
+        "ezyang/htmlpurifier": "dev-master"
     }
 }

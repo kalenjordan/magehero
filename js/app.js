@@ -1,23 +1,21 @@
 $(document).ready(function() {
     MageHero_App.bindUpvote();
-    var tableListing = $('table.listing');
-    if (tableListing.length > 0) {
-        tableListing.tablesorter({
-            headers: {
-                0: { sorter: false },
-                2: { sorter: false },
-                4: { sorter: false },
-                8: { sorter: false }
-            },
-            textExtraction: function(cell) {
-                var votes = $(cell).find('.vote-count');
-                if (votes.length) {
-                    return votes.text();
-                }
-                return $(cell).text();
+    MageHero_App.bindChosen();
+    $('table.listing').tablesorter({
+        headers: {
+            0: { sorter: false },
+            2: { sorter: false },
+            4: { sorter: false },
+            8: { sorter: false }
+        },
+        textExtraction: function(cell) {
+            var votes = $(cell).find('.vote-count');
+            if (votes.length) {
+                return votes.text();
             }
-        });
-    }
+            return $(cell).text();
+        }
+    });
 });
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -48,6 +46,10 @@ MageHero_App = {
         });
 
         return this;
+    },
+
+    bindChosen: function() {
+        $('.fancy-select').chosen();
     }
 };
 

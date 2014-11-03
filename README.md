@@ -23,6 +23,31 @@ of consulting or projects that they're interested in.
 
 But for now, it's just a general listing of developers in the community.
 
+#### What types of posts should I write?
+
+The posts should be specific to something you're working on within the world of
+Magento.  Let's keep general socializing and updates to Twitter, so that this
+can become a meaningful archive of work that you've done or at least things
+you've researched in the Magento space.
+
+So for example, moving from one city to another, or moving jobs, or visiting
+people.  I think probably even things like visiting Magento events should
+be excluded.  Instead put something that's subject-matter-specific, like
+"I learned about Topic X at this Magento event or I built X at this hackathon".
+
+Open to feedback on this but I think there's something powerful about having
+the historical archive of MageHero being really focused.  Kind of like how
+Stack Exchange is (in the context of question and answer).
+
+#### Guidelines for submitting a PR
+
+Please do the following when submitting a PR:
+
+ - Don't break existing code conventions (spacing, indentation, code style, etc.)
+ - Use consistent indentation (little bit of a pet peeve but seriously how much fun would you have reading a book if it randomly had crazy indentation all over the place)
+ - Always proof-read your diff before submitting (sorry if this is obvious but I've known people before that haven't done it and judging by some of the PRs I've received I'm guessing you guys might not be doing it)
+ - Include screenshots (or screencasts for bonus points) of the feature to make it easier on me to review
+
 #### How does upvoting work?
 
 Upvote other good developers.   This will help to create a list 
@@ -31,6 +56,15 @@ of developers that merchants and agencies can trust.
 You can only upvote other developers if you are logged in and
 have received the minimum number of upvotes required to be able
 to upvote someone else (see the site for what that number is).
+
+#### Why is my profile no longer visible?
+
+If you do something cute like using your name field as a message
+instead of a name or also if you include dummy data in your
+profile (such as example.com for the website), I may remove
+your profile from the site.
+
+If you'd like to be re-added, just file a github issue.
 
 #### What do the rankings mean?
 

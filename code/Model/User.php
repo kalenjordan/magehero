@@ -111,6 +111,16 @@ class Model_User extends Model_Record
 
     public function selectAll()
     {
+        $postsQuery = $this->_localConfig->database()->select()
+            ->from('posts', array(
+                'user_id',
+                'is_active',
+                'MAX(posts.post_id) AS post_id'
+            ))
+            ->where('posts.is_active = 1')
+            ->order('posts.post_id DESC')
+            ->group('posts.user_id');
+
         $query = $this->_localConfig->database()->select()
             ->from("users")
             ->joinLeft(
@@ -127,9 +137,14 @@ class Model_User extends Model_Record
                     'GROUP_CONCAT(voting_user.name) as voting_users'
                 )
             )
+            ->joinLeft(
+                array('posts' => $postsQuery),
+                'posts.user_id = users.user_id AND posts.is_active = 1',
+                array()
+            )
             ->where('users.is_active = 1')
             ->group('users.user_id')
-            ->order('updated_at DESC');
+            ->order(array('posts.post_id DESC', 'users.updated_at DESC'));
 
         return $query;
     }
@@ -175,7 +190,7 @@ class Model_User extends Model_Record
         $detailJson = $this->get('details_json');
         $detailsArray = json_decode($detailJson, true);
         if (! $detailsArray) {
-            throw new Exception("Problem decoding jsonfor user: " . $this->getId());
+            return array();
         }
 
         return isset($detailsArray[$key]) ? $detailsArray[$key] : null;

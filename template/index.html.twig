@@ -1,10 +1,13 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
+    <div class="write-post">
+        <a href="/posts/new"><i class="fa fa-pencil-square-o"></i> What are you working on?</a>
+    </div>
     <table class="listing">
     <thead>
         <tr>
-            <th>Updated</th>
+            <th class="tooltip" title="Sorted by last post date then by last user update (upvote or profile update)">Updated</th>
             <th class="sortable">Rating</th>
             <th>Pic</th>
             <th class="sortable">Name</th>
