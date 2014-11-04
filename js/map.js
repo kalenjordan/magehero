@@ -64,8 +64,8 @@ $(document).ready(function() {
         });
 
         map = new L.Map('map', {
-            center: new L.LatLng(39.90973623453719, - 93.69140625),
-            zoom: 3,
+            center: new L.LatLng(34.008060, - 118.392271), // What's here? ;-)
+            zoom: 6,
             layers: [ mapquest, users ]
         });
 
@@ -140,13 +140,8 @@ $(document).ready(function() {
 
         $(document).ready(function() {
             $.ajaxSetup({ cache: false });
-            $('#map').css('height', ($(window).height() - 130));
             getUsers();
         });
-
-        $(window).resize(function() {
-            $('#map').css('height', ($(window).height() - 130));
-        }).resize();
     }
 );
 

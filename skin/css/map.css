@@ -1,7 +1,6 @@
 #map {
   width: 100%;
-  height: 100%;
-  position: relative; }
+  height: 500px; }
 
 .leaflet-popup-content-wrapper, .leaflet-popup-tip {
   background: #f7f7f7; }
@@ -24,5 +23,3 @@
     color: #0078A8; }
   .leaflet-popup-content .hero .social a {
     margin: 0 0.3em; }
-
-/*# sourceMappingURL=map.css.map */
