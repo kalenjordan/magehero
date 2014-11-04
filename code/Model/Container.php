@@ -52,8 +52,8 @@ class Model_Container extends DI\Container
         return new Model_LocalConfig();
     }
 
-    public function notify()
+    public function Notify()
     {
-        return $this->_container->get('Services_NotifyInterface');
+        return $this->_container->make('Services_NotifyInterface');
     }
 }

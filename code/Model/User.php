@@ -168,6 +168,13 @@ class Model_User extends Model_Record
     public function getWebsiteUrl() { return $this->getDetail('url_website'); }
     public function getCompany() { return $this->getDetail('company'); }
     public function getAboutYou() { return $this->getDetail('about_you'); }
+    public function getTwitterNotifications()
+    {
+        if ($this->getDetail('twitter_notifications') == NULL) {
+            return false;
+        }
+        return $this->getDetail('twitter_notifications');
+    }
 
     public function getNextAvailableFriendly()
     {
