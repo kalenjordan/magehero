@@ -29,4 +29,5 @@ Toro::serve(array(
     "/(.*)"                    => "Controller_UserProfile",
     "/map"                     => "Controller_Map",
     "/map/users"               => "Controller_MapUsers",
+    "/feed"                    => "Controller_Feed",
 ));

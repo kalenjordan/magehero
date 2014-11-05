@@ -1,0 +1,27 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+
+        <title>{{ feed_config.title }}</title>
+        <description>{{ feed_config.description }}</description>
+
+        {% if local_config.get('base_url') %}
+        <link>{{ local_config.get('base_url') }}</link>
+        {% endif %}
+
+        <atom:link href="{{ local_config.get('base_url') }}/feed" rel="self" type="application/rss+xml" />
+
+        {% if feed_config.updated %}
+        <lastBuildDate>{{ feed_config.updated|date("D, d M Y H:i:s O") }}</lastBuildDate>
+        {% endif %}
+
+        {% for post in posts %}
+        <item>
+          <title>{{ post.getSubject() }}</title>
+          <link>{{ post.getUrl() }}</link>
+          <pubDate>{{ post.getCreatedAt()|date("D, d M Y H:i:s O") }}</pubDate>
+          <guid>{{ post.getUrl() }}</guid>
+          <description>{{ post.getBodyAsHtml() }}</description>
+        </item>
+        {% endfor %}
+    </channel>
+</rss>
