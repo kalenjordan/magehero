@@ -223,6 +223,20 @@ class Model_User extends Model_Record
 
         $data['updated_at'] = \Carbon\Carbon::now()->toDateTimeString();
         $data['is_active'] = true;
+
+        // Test details JSON, just in case…
+        try {
+            if (!isset($data['details_json'])) {
+                throw new Exception('missing details_json');
+            }
+            if (!$decodedJson = json_decode($data['details_json'])) {
+                throw new Exception('bad details_json JSON');
+            }
+        } catch (Exception $e) {
+            // Basic JSON, to avoid empty cell
+            $data['details_json'] = '{}';
+        }
+        
         $this->_localConfig->database()->insert($this->_getTable(), $data);
 
         return $this;
