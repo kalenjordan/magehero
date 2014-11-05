@@ -34,6 +34,10 @@ class Controller_PostEdit extends Controller_Abstract
         }
 
         $post = $this->_getContainer()->Post()->load($postId);
+        if ($this->_getCurrentUser()->getId() != $post->getUserId()) {
+            die("Permission denied");
+        }
+
         $post->set('subject', $subject)
             ->set('body', $body)
             ->set('tag_ids', $tagIds)
