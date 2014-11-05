@@ -5,10 +5,6 @@
  * It skips heros which already have set the lat long value.
  */
 
-if ('cli' !== php_sapi_name()) {
-    die('This script can only run on command line!');
-}
-
 require_once(dirname(__FILE__) . '/vendor/autoload.php');
 spl_autoload_register(function ($class) {
     $parts = explode("_", $class);
@@ -80,10 +76,10 @@ class Controller_MapUsersLngLat extends Controller_Abstract
                 $data,
                 'user_id=' . $userModel->getId()
             );
-            printf("ID: %d\t%s\t\tGPS: %f,%f\n", $userModel->getId(), $location, $lnglat['lat'], $lnglat['lng']);
+            printf("ID: %d\t%s\t\tGPS: %f,%f<br>\n", $userModel->getId(), $location, $lnglat['lat'], $lnglat['lng']);
             flush();
         }
-        echo "\nDone\n";
+        echo "\n<hr>Done<hr>\n";
     }
 }
 
