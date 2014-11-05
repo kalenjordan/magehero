@@ -27,4 +27,6 @@ Toro::serve(array(
     "/user/:number/upvote"     => "Controller_UserUpvote",
     "/:string/posts"           => "Controller_UserPosts",
     "/(.*)"                    => "Controller_UserProfile",
+    "/map"                     => "Controller_Map",
+    "/map/users"               => "Controller_MapUsers",
 ));

@@ -168,6 +168,8 @@ class Model_User extends Model_Record
     public function getWebsiteUrl() { return $this->getDetail('url_website'); }
     public function getCompany() { return $this->getDetail('company'); }
     public function getAboutYou() { return $this->getDetail('about_you'); }
+    public function getLatitude() { return (float)$this->getDetail('latitude'); }
+    public function getLongitude() { return (float)$this->getDetail('longitude'); }
 
     public function getNextAvailableFriendly()
     {

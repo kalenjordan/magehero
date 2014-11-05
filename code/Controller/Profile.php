@@ -16,6 +16,7 @@ class Controller_Profile extends Controller_Abstract
             'session'       => $this->_getSession(),
             'profile_json'  => $profileJson,
             'local_config'  => $this->_getContainer()->LocalConfig(),
+            'user'          => $user,
         ));
     }
 
@@ -35,13 +36,21 @@ class Controller_Profile extends Controller_Abstract
             die("There was a problem decoding the JSON, please check to make sure it was valid");
         }
 
+        $latitude = (float)(isset($_POST['latitude']) ? $_POST['latitude'] : 0);
+        $longitude = (float)(isset($_POST['longitude']) ? $_POST['longitude'] : 0);
+
+        if ((int)$latitude !== 0 && (int)$longitude !== 0) {
+            $profileData['latitude'] = $latitude;
+            $profileData['longitude'] = $longitude;
+        }
+
         $username = $this->_getUsername();
         if (! $username) {
             throw new Exception("Couldn't find username");
         }
 
         $user = $this->_getContainer()->User()->loadByUsername($username);
-        $user->set('details_json', $profileJson)
+        $user->set('details_json', json_encode($profileData, JSON_PRETTY_PRINT))
             ->set('username', $this->_getUsername())
             ->set('name', isset($profileData['name']) ? $profileData['name'] : null)
             ->save();

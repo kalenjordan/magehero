@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block additional_head %}
+
+    <link type="text/css" rel="stylesheet" href="/js/leaflet/leaflet.css"/>
+    <link type="text/css" rel="stylesheet" href="/js/leaflet/plugins/leaflet.markercluster/MarkerCluster.css"/>
+    <link type="text/css" rel="stylesheet"
+          href="/js/leaflet/plugins/leaflet.markercluster/MarkerCluster.Default.css"/>
+    <link type="text/css" rel="stylesheet" href="/skin/css/map.css"/>
+
+{% endblock %}
+
+{% block content %}
+
+    <div id="map"></div>
+    <script type="text/javascript" src="/js/leaflet/leaflet.js"></script>
+    <script type="text/javascript" src="/js/leaflet/plugins/leaflet.markercluster/leaflet.markercluster.js"></script>
+    <script type="text/javascript" src="/js/map.js"></script>
+
+{% endblock %}
