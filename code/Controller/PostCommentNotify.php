@@ -9,9 +9,9 @@ class Controller_PostCommentNotify extends Controller_Abstract
         if (! $user->getEmail()) {
             echo $this->_jsonResponse(array(
                 'success'   => false,
-                'message'   => "Can't notify because they don't have an email",
+                'message'   => "Can't notify because they don't have an email (user ID: " . $user->getId() . ")",
             ));
-            return $this;
+            exit;
         }
 
         mail($user->getEmail(), "MageHero Comment: " . $post->getSubject(), "See comment here:\r\n" . $post->getUrl(), "From: comments@magehero.com");
@@ -20,7 +20,5 @@ class Controller_PostCommentNotify extends Controller_Abstract
             'success' => true,
             'message'   => "Notified " . $user->getName(),
         ));
-
-        return $this;
     }
 }
