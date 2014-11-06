@@ -1,12 +1,13 @@
 $(document).ready(function() {
     MageHero_App.bindUpvote();
+    MageHero_App.bindChosen();
     MageHero_App.addNumbers();
     $('table.listing').tablesorter({
         headers: {
             0: { sorter: false },
             2: { sorter: false },
-            5: { sorter: false },
-            6: { sorter: false }
+            4: { sorter: false },
+            8: { sorter: false }
         },
         textExtraction: function(cell) {
             var votes = $(cell).find('.vote-count');
@@ -14,8 +15,7 @@ $(document).ready(function() {
                 return votes.text();
             }
             return $(cell).text();
-        },
-        widgets: ['numbers']
+        }
     });
 });
 
@@ -48,6 +48,11 @@ MageHero_App = {
 
         return this;
     },
+
+    bindChosen: function() {
+        $('.fancy-select').chosen();
+    },
+
     addNumbers: function() {
         $.tablesorter.addWidget({
             id: 'numbers',

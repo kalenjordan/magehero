@@ -31,7 +31,7 @@
                 </div>
                 <!-- TODO: Once we implement markdown we need to remove this - can't allow public posting until this is done -->
                 <div class="post-body">
-                    {{ post.getBody()|escape|nl2br }}
+                    {{ post.getBodyAsHtml() | raw }}
                     {% if post.getImageUrl() %}
                         <div class="image-wrapper">
                             <a target="_blank" href="{{ post.getImageUrl() }}"><img src="{{ post.getImageUrl() }}"></a>
@@ -41,7 +41,7 @@
             </div>
         {% else %}
             <i>This post is a draft.  If you're the author and would like to publish this, set Status to Published
-            when editing it.</i>
+                when editing it.</i>
             <br><br>
         {% endif %}
         <div class="share">
@@ -63,6 +63,14 @@
                         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
                         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
                     })();
+
+                    var disqus_config = function() {
+                        this.callbacks.onNewComment = [function(comment) {
+                            $.get("/posts/{{ post.getId() }}/notify-comment", { comment: comment.id, post: "123456" }, function(result) {
+                                console.log(result);
+                            });
+                        }];
+                    };
                 </script>
                 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
             </div>

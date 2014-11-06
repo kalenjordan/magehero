@@ -71,6 +71,12 @@ body, h1 {
     text-align: center;
 }
 
+.write-post {
+    padding-bottom: 1em;
+    text-left: center;
+    font-weight: bold;
+}
+
 table.listing {
     width: 100%;
 
@@ -115,7 +121,7 @@ table.listing {
         content: "\f0d7";
         padding-left: 5px;
     }
-    
+
     th.sortable {
         color: blue;
         &:hover {
@@ -262,7 +268,6 @@ label.profile {
     }
 }
 
-
 textarea.profile {
     width: 100%;
     height: 400px;
@@ -277,3 +282,8 @@ textarea.profile {
     font-size: 12px;
 }
 
+.profile-map {
+    margin-top: 0.6em;
+    width: 500px;
+    height: 250px;
+}

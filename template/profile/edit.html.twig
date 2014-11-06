@@ -1,9 +1,15 @@
 {% extends 'base.html.twig' %}
 
+{% block additional_head %}
+    <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script src="/js/jquery.latLngPicker/js/jquery-gmaps-latlon-picker.js"></script>
+{% endblock %}
+
 {% block content %}
     <form action="/profile" method="POST">
         <label for="profile" class="profile">Your Profile</label>
         <textarea name="profile" class="profile">{{ profile_json }}</textarea>
+
         <div>
             <input type="submit" value="Save">
         </div>
@@ -12,7 +18,23 @@
                 Want to see what variables are available?  See a
                 <a target="_blank" href="/sample.json">sample JSON file</a>.
             </p>
+	</div>
+	<div class="profile-longitude-latitude-picker" id="custom_id">
+	    <input type="text" class="profile-map-search-field" value="{{ user.getLocation }}">
+	    <input type="button" class="profile-map-search-button" value="Search your location">
+	    <div class="profile-map">Google Maps</div>
+	    <input type="hidden" name="latitude" class="profile-map-latitude" value="{{ user.getLatitude }}"/>
+	    <input type="hidden" name="longitude" class="profile-map-longitude" value="{{ user.getLongitude }}"/>
+	    <input type="hidden" class="profile-map-zoom" value="4"/>
+	</div>
 
+	<div>
+	    <p>
+		    Your longitude and latitude will be added automatically to your JSON file when you click <i>Save</i>.
+            To search for location enter your full address and then click on the
+            button <i>Search your location</i>. Do not hit Enter.
+            After Google Maps has found your location you can adjust it by dragging the red marker around.
+	    </p>
         </div>
     </form>
 {% endblock %}

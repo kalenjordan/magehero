@@ -111,6 +111,16 @@ class Model_User extends Model_Record
 
     public function selectAll()
     {
+        $postsQuery = $this->_localConfig->database()->select()
+            ->from('posts', array(
+                'user_id',
+                'is_active',
+                'MAX(posts.post_id) AS post_id'
+            ))
+            ->where('posts.is_active = 1')
+            ->order('posts.post_id DESC')
+            ->group('posts.user_id');
+
         $query = $this->_localConfig->database()->select()
             ->from("users")
             ->joinLeft(
@@ -127,14 +137,20 @@ class Model_User extends Model_Record
                     'GROUP_CONCAT(voting_user.name) as voting_users'
                 )
             )
+            ->joinLeft(
+                array('posts' => $postsQuery),
+                'posts.user_id = users.user_id AND posts.is_active = 1',
+                array()
+            )
             ->where('users.is_active = 1')
             ->group('users.user_id')
-            ->order('updated_at DESC');
+            ->order(array('posts.post_id DESC', 'users.updated_at DESC'));
 
         return $query;
     }
 
     public function getName() { return $this->get('name'); }
+    public function getEmail() { return $this->getDetail('email'); }
     public function getVoteCount() { return $this->get('vote_count'); }
     public function getUsername() { return $this->get('username'); }
     public function getVotingUsernames() { return $this->get('voting_users'); }
@@ -153,6 +169,8 @@ class Model_User extends Model_Record
     public function getWebsiteUrl() { return $this->getDetail('url_website'); }
     public function getCompany() { return $this->getDetail('company'); }
     public function getAboutYou() { return $this->getDetail('about_you'); }
+    public function getLatitude() { return (float)$this->getDetail('latitude'); }
+    public function getLongitude() { return (float)$this->getDetail('longitude'); }
 
     public function getNextAvailableFriendly()
     {
@@ -173,7 +191,7 @@ class Model_User extends Model_Record
         $detailJson = $this->get('details_json');
         $detailsArray = json_decode($detailJson, true);
         if (! $detailsArray) {
-            throw new Exception("Problem decoding jsonfor user: " . $this->getId());
+            return array();
         }
 
         return isset($detailsArray[$key]) ? $detailsArray[$key] : null;

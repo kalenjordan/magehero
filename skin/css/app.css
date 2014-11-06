@@ -68,6 +68,12 @@ body, h1 {
   text-align: center;
 }
 
+.write-post {
+  padding-bottom: 1em;
+  text-left: center;
+  font-weight: bold;
+}
+
 table.listing {
   width: 100%;
   border-spacing: 0;
@@ -233,4 +239,10 @@ textarea.profile {
   text-align: center;
   padding: 15px 0;
   font-size: 12px;
+}
+
+.profile-map {
+  margin-top: 0.6em;
+  width: 500px;
+  height: 250px;
 }

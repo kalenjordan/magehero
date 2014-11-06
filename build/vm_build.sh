@@ -37,6 +37,8 @@ sudo echo "<VirtualHost *:80>
     Action php5-fcgi /php5-fcgi
     Alias /php5-fcgi /usr/lib/cgi-bin/php5-fcgi
     FastCgiExternalServer /usr/lib/cgi-bin/php5-fcgi -host 127.0.0.1:9000 -pass-header Authorization
+    # If you get an internal error, maybe try the line below instead of the one above
+    #FastCgiExternalServer /usr/lib/cgi-bin/php5-fcgi -socket /var/run/php5-fpm.sock -pass-header Authorization -idle-timeout 3600
   </IfModule>
 
 </VirtualHost>" | sudo tee /etc/apache2/sites-available/default > /dev/null
