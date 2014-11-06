@@ -150,6 +150,7 @@ class Model_User extends Model_Record
     }
 
     public function getName() { return $this->get('name'); }
+    public function getEmail() { return $this->get('email'); }
     public function getVoteCount() { return $this->get('vote_count'); }
     public function getUsername() { return $this->get('username'); }
     public function getVotingUsernames() { return $this->get('voting_users'); }

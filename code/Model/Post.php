@@ -39,6 +39,9 @@ class Model_Post extends Model_Record
     public function getImageUrl()   { return $this->get('image_url'); }
     public function getIsActive()   { return $this->get('is_active'); }
 
+    /**
+     * @return Model_User
+     */
     public function getUser()
     {
         if (isset($this->_user)) {
@@ -71,12 +74,17 @@ class Model_Post extends Model_Record
         return $models;
     }
 
-    public function getTweetUrl()
+    public function getUrl()
     {
         $url = $this->_localConfig->get('base_url') . "/posts/" . $this->getId();
-        $text = $this->getSubject() . " " . $url;
+        return $url;
+    }
 
+    public function getTweetUrl()
+    {
+        $text = $this->getSubject() . " " . $this->getUrl();
         $tweetIntentUrl = "https://twitter.com/intent/tweet?text=" . urlencode($text);
+
         return $tweetIntentUrl;
     }
 
