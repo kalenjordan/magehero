@@ -40,6 +40,9 @@ class Model_Post extends Model_Record
     public function getIsActive()   { return $this->get('is_active'); }
     public function getCreatedAt()   { return $this->get('created_at'); }
 
+    /**
+     * @return Model_User
+     */
     public function getUser()
     {
         if (isset($this->_user)) {
@@ -74,14 +77,15 @@ class Model_Post extends Model_Record
 
     public function getUrl()
     {
-        return $this->_localConfig->get('base_url') . "/posts/" . $this->getId();
+        $url = $this->_localConfig->get('base_url') . "/posts/" . $this->getId();
+        return $url;
     }
 
     public function getTweetUrl()
     {
         $text = $this->getSubject() . " " . $this->getUrl();
-
         $tweetIntentUrl = "https://twitter.com/intent/tweet?text=" . urlencode($text);
+
         return $tweetIntentUrl;
     }
 
