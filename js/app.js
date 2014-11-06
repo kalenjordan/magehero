@@ -15,7 +15,8 @@ $(document).ready(function() {
                 return votes.text();
             }
             return $(cell).text();
-        }
+        },
+        widgets: ['numbers']
     });
 });
 
