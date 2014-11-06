@@ -47,9 +47,7 @@ sudo service apache2 restart
 sudo service php5-fpm restart
 
 mysql -uroot -proot -e "CREATE DATABASE IF NOT EXISTS magehero;"
-mysql -uroot -proot magehero < /vagrant/sql/mysql-1.0.0.sql
-mysql -uroot -proot magehero < /vagrant/sql/mysql-1.0.1.sql
-mysql -uroot -proot magehero < /vagrant/sql/mysql-1.0.2.sql
+cat $(find /vagrant/sql/ -type f | sort --version-sort) | mysql -uroot -proot magehero
 
 sudo bash -c "cat >> /etc/hosts <<EOF
 127.0.0.1 magehero.local
