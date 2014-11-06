@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d87132a53a07b93478d3d3e8873e5616",
+    "hash": "fc3d2a720311b6f3a5f2cf4946b6db8d",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -408,16 +408,16 @@
         },
         {
             "name": "mnapoli/php-di",
-            "version": "4.4.0",
+            "version": "4.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mnapoli/PHP-DI.git",
-                "reference": "556e3be63a821bbad0585a34f634080305392252"
+                "reference": "de13eb81314d9a51673e74d73d57f5768788ec0f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mnapoli/PHP-DI/zipball/556e3be63a821bbad0585a34f634080305392252",
-                "reference": "556e3be63a821bbad0585a34f634080305392252",
+                "url": "https://api.github.com/repos/mnapoli/PHP-DI/zipball/de13eb81314d9a51673e74d73d57f5768788ec0f",
+                "reference": "de13eb81314d9a51673e74d73d57f5768788ec0f",
                 "shasum": ""
             },
             "require": {
@@ -454,7 +454,7 @@
                 "dependency injection",
                 "di"
             ],
-            "time": "2014-10-14 06:13:26"
+            "time": "2014-11-04 10:15:17"
         },
         {
             "name": "mnapoli/phpdocreader",
