@@ -20,7 +20,7 @@ class Controller_PostCommentNotify extends Controller_Abstract
             'success' => true,
             'message'   => "Notified " . $user->getName(),
         ));
-        
+
         return $this;
     }
 }
