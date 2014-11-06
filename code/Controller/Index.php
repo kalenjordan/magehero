@@ -1,6 +1,10 @@
 <?php
 
-class Controller_Index extends Controller_Abstract
+namespace Controller;
+
+use \Controller\Controller;
+
+class Index extends Controller
 {
     public function get()
     {

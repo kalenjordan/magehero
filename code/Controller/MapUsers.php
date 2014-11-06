@@ -1,6 +1,10 @@
 <?php
 
-class Controller_MapUsers extends Controller_Abstract
+namespace Controller;
+
+use \Controller\Controller;
+
+class MapUsers extends Controller
 {
 
     protected function _getDevelopers()

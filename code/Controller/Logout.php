@@ -1,6 +1,8 @@
 <?php
 
-class Controller_Logout
+namespace Controller;
+
+class Logout
 {
     public function get()
     {

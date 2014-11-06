@@ -1,6 +1,10 @@
 <?php
 
-class Controller_Available extends Controller_Index
+namespace Controller;
+
+use \Controller\Index;
+
+class Available extends Index
 {
     protected function _getDevelopers()
     {

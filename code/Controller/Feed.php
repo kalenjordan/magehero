@@ -1,6 +1,10 @@
 <?php
 
-class Controller_Feed extends Controller_Abstract
+namespace Controller;
+
+use \Controller\Controller;
+
+class Feed extends Controller
 {
 
     public function get()
