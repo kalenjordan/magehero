@@ -1,6 +1,10 @@
 <?php
 
-class Controller_UserPosts extends Controller_Abstract
+namespace Controller;
+
+use \Controller\Controller;
+
+class UserPosts extends Controller
 {
     public function get($username)
     {

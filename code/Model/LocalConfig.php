@@ -1,6 +1,8 @@
 <?php
 
-class Model_LocalConfig
+namespace Model;
+
+class LocalConfig
 {
     protected $_data = array();
     protected $_databaseAdapter;
@@ -35,7 +37,7 @@ class Model_LocalConfig
             return $this->_databaseAdapter;
         }
 
-        $this->_databaseAdapter = new Zend_Db_Adapter_Pdo_Mysql($this->_getDatabaseConfig());
+        $this->_databaseAdapter = new \Zend_Db_Adapter_Pdo_Mysql($this->_getDatabaseConfig());
         return $this->_databaseAdapter;
     }
 

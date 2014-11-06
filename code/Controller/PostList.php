@@ -1,6 +1,10 @@
 <?php
 
-class Controller_PostList extends Controller_Abstract
+namespace Controller;
+
+use \Controller\Controller;
+
+class PostList extends Controller
 {
     public function get()
     {

@@ -1,11 +1,14 @@
 <?php
+
+use \Model\LocalConfig;
+
 class Services_TwitterNotify implements Services_NotifyInterface {
     /**
      * @var Model_LocalConfig
      */
     protected $_localConfig;
 
-    public function __construct(Model_LocalConfig $config)
+    public function __construct(LocalConfig $config)
     {
         $this->_localConfig = $config;
     }

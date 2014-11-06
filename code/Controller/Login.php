@@ -1,12 +1,16 @@
 <?php
 
+namespace Controller;
+
+use \Controller\Controller;
+
 require_once dirname(dirname(dirname(__FILE__))) . '/vendor/lusitanian/oauth/src/OAuth/bootstrap.php';
 
 use OAuth\OAuth2\Service\GitHub;
 use OAuth\Common\Storage\Session;
 use OAuth\Common\Consumer\Credentials;
 
-class Controller_Login extends Controller_Abstract
+class Login extends Controller
 {
     public function get()
     {

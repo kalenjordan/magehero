@@ -1,6 +1,8 @@
 <?php
 
-class Controller_Abstract
+namespace Controller;
+
+abstract class Controller
 {
     protected $_container;
     protected $_currentUser;
@@ -34,8 +36,8 @@ class Controller_Abstract
 
     protected function _getTwig()
     {
-        $loader = new Twig_Loader_Filesystem(dirname(dirname(dirname(__FILE__))) . '/template');
-        $twig = new Twig_Environment($loader);
+        $loader = new \Twig_Loader_Filesystem(dirname(dirname(dirname(__FILE__))) . '/template');
+        $twig = new \Twig_Environment($loader);
         return $twig;
     }
 
@@ -76,7 +78,7 @@ class Controller_Abstract
             return $this->_container;
         }
 
-        $container = new Model_Container();
+        $container = new \Model\Container();
 
         $this->_container = $container;
         return $this->_container;

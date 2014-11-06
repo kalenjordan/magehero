@@ -1,6 +1,11 @@
 <?php
 
-class Model_Post extends Model_Record
+namespace Model;
+
+use \Model\Record;
+use \Model\LocalConfig;
+
+class Post extends Record
 {
     protected $_data;
     protected $_user;
@@ -17,7 +22,7 @@ class Model_Post extends Model_Record
      */
     protected $_localConfig;
 
-    public function __construct(Model_LocalConfig $config)
+    public function __construct(LocalConfig $config)
     {
         $this->_localConfig = $config;
     }

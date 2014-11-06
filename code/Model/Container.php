@@ -1,12 +1,17 @@
 <?php
 
-class Model_Container extends DI\Container
+namespace Model;
+
+use \Model\LocalConfig;
+use \DI\ContainerBuilder;
+
+class Container extends \DI\Container
 {
     protected $_container;
 
     public function __construct()
     {
-        $builder = new \DI\ContainerBuilder();
+        $builder = new ContainerBuilder();
         $container = $builder->build();
         //Register Notification Implementation
         $container->set('Services_NotifyInterface', \DI\object('Services_TwitterNotify'));
@@ -16,40 +21,40 @@ class Model_Container extends DI\Container
     }
 
     /**
-     * @return Model_User
+     * @return \Model\User
      */
     public function User()
     {
-        return $this->_container->make('Model_User');
+        return $this->_container->make('\Model\User');
     }
 
     /**
-     * @return Model_Tag
+     * @return \Model\Tag
      */
     public function Tag()
     {
-        return $this->_container->make('Model_Tag');
+        return $this->_container->make('\Model\Tag');
     }
 
     /**
-     * @return Model_PostTag
+     * @return \Model\PostTag
      */
     public function PostTag()
     {
-        return $this->_container->make('Model_PostTag');
+        return $this->_container->make('\Model\PostTag');
     }
 
     /**
-     * @return Model_Post
+     * @return \Model\Post
      */
     public function Post()
     {
-        return $this->_container->make('Model_Post');
+        return $this->_container->make('\Model\Post');
     }
 
     public function LocalConfig()
     {
-        return new Model_LocalConfig();
+        return new LocalConfig();
     }
 
     public function notify()
