@@ -39,6 +39,19 @@ Open to feedback on this but I think there's something powerful about having
 the historical archive of MageHero being really focused.  Kind of like how
 Stack Exchange is (in the context of question and answer).
 
+Some examples of posts that we should probably avoid:
+
+*We're hiring - want to work for us?*
+
+Instead of a post that's purely a recruiting ad, you could talk about your recruiting strategy specifically.  That's definitely something that's of interest to other developers in the community who are also hiring.
+
+But posts should be specifically describe *work* that you've done or are doing.
+
+Another thing you could do would be to write about some specific features you're working
+on or something totally unrelated to hiring and then put a p.s. we're hiring in the footer
+with a link to your site.  (I may block "signature" type content in the future as it gets
+noisy but just a thought).
+
 #### Guidelines for submitting a PR
 
 Please do the following when submitting a PR:
