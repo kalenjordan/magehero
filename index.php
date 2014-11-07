@@ -31,6 +31,7 @@ try {
         "/(.*)"                             => "Controller_UserProfile",
         "/map"                              => "Controller_Map",
         "/map/users"                        => "Controller_MapUsers",
+        "/feed"                             => "Controller_Feed",
     ));
 } catch (Exception $e) {
     mail("kalen@magemail.co", "MageHero Error", $e->getTraceAsString());

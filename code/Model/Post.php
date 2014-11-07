@@ -38,6 +38,7 @@ class Model_Post extends Model_Record
     public function getUserId()     { return $this->get('user_id'); }
     public function getImageUrl()   { return $this->get('image_url'); }
     public function getIsActive()   { return $this->get('is_active'); }
+    public function getCreatedAt()   { return $this->get('created_at'); }
 
     /**
      * @return Model_User
