@@ -1,6 +1,10 @@
 <?php
 
-class Controller_UserUpvote extends Controller_Abstract
+namespace Controller;
+
+use \Controller\Controller;
+
+class UserUpvote extends Controller
 {
     protected $notify;
     function __construct() {

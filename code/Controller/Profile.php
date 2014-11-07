@@ -1,6 +1,10 @@
 <?php
 
-class Controller_Profile extends Controller_Abstract
+namespace Controller;
+
+use \Controller\Controller;
+
+class Profile extends Controller
 {
     public function get()
     {

@@ -1,37 +1,32 @@
 <?php
 
+// ini_set('display_errors',1);
+// ini_set('display_startup_errors',1);
+// error_reporting(-1);
+
+date_default_timezone_set('UTC');
+
 require_once(dirname(__FILE__) . '/vendor/autoload.php');
 session_start();
 
-spl_autoload_register(function($class) {
-    $parts = explode("_", $class);
-    $classSlashSeparated = implode('/', $parts);
-    $pathToFile = "code/$classSlashSeparated.php";
-    $fullPathToFile = dirname(__FILE__) . '/' . $pathToFile;
-
-    if (file_exists($fullPathToFile)) {
-        include $fullPathToFile;
-    }
-});
-
 try {
     Toro::serve(array(
-        "/"                                 => "Controller_Index",
-        "/available"                        => "Controller_Available",
-        "/login"                            => "Controller_Login",
-        "/logout"                           => "Controller_Logout",
-        "/posts"                            => "Controller_PostList",
-        "/posts/new"                        => "Controller_PostNew",
-        "/posts/:number"                    => "Controller_Post",
-        "/posts/:number/edit"               => "Controller_PostEdit",
-        "/posts/:number/notify-comment"     => "Controller_PostCommentNotify",
-        "/profile"                          => "Controller_Profile",
-        "/user/:number/upvote"              => "Controller_UserUpvote",
-        "/:string/posts"                    => "Controller_UserPosts",
-        "/(.*)"                             => "Controller_UserProfile",
-        "/map"                              => "Controller_Map",
-        "/map/users"                        => "Controller_MapUsers",
-        "/feed"                             => "Controller_Feed",
+        "/"                                 => "\Controller\Index",
+        "/available"                        => "\Controller\Available",
+        "/login"                            => "\Controller\Login",
+        "/logout"                           => "\Controller\Logout",
+        "/posts"                            => "\Controller\PostList",
+        "/posts/new"                        => "\Controller\PostNew",
+        "/posts/:number"                    => "\Controller\Post",
+        "/posts/:number/edit"               => "\Controller\PostEdit",
+        "/posts/:number/notify-comment"     => "\Controller\PostCommentNotify",
+        "/profile"                          => "\Controller\Profile",
+        "/user/:number/upvote"              => "\Controller\UserUpvote",
+        "/:string/posts"                    => "\Controller\UserPosts",
+        "/(.*)"                             => "\Controller\UserProfile",
+        "/map"                              => "\Controller\Map",
+        "/map/users"                        => "\Controller\MapUsers",
+        "/feed"                             => "\Controller\Feed"
     ));
 } catch (Exception $e) {
     mail("kalen@magemail.co", "MageHero Error", $e->getTraceAsString());

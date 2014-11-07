@@ -1,6 +1,10 @@
 <?php
 
-class Controller_Map extends Controller_Abstract
+namespace Controller;
+
+use \Controller\Controller;
+
+class Map extends Controller
 {
     public function get()
     {

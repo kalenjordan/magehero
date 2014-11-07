@@ -1,6 +1,10 @@
 <?php
 
-class Controller_PostCommentNotify extends Controller_Abstract
+namespace Controller;
+
+use \Controller\Controller;
+
+class PostCommentNotify extends Controller
 {
     public function get($postId)
     {

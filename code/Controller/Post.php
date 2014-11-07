@@ -1,6 +1,10 @@
 <?php
 
-class Controller_Post extends Controller_Abstract
+namespace Controller;
+
+use \Controller\Controller;
+
+class Post extends Controller
 {
     public function get($postId)
     {
