@@ -54,7 +54,7 @@
             </td>
             <td>
                 {% if developer.fetchPostCount() %}
-                    <a href="/posts/{{ developer.getLastPost().getId() }}">{{ developer.getLastPost().getSubject() }}</a>
+                    <a href="{{ developer.getLastPost().getUrl() }}">{{ developer.getLastPost().getSubject() }}</a>
                 {% else %}
                     No posts yet
                 {% endif %}
