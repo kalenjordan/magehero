@@ -8,7 +8,7 @@ class Controller_Post extends Controller_Abstract
 
         // While we only need post ID, ensure that we use post slug for SEO
         if ($slug != $post->getSlug()) {
-            header("Location: " . $post->getUrl());
+            header("Location: " . $post->getUrl(), true, 301);
         }
 
         echo $this->_getTwig()->render('post.html.twig', array(
