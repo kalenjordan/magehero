@@ -77,7 +77,7 @@ class Model_Post extends Model_Record
 
     public function getUrl()
     {
-        $url = $this->_localConfig->get('base_url') . "/posts/" . $this->getId();
+        $url = implode("/", array($this->_localConfig->get('base_url'), "posts", $this->getId(), $this->getSlug()));
         return $url;
     }
 
@@ -130,6 +130,28 @@ class Model_Post extends Model_Record
         }
 
         return false;
+    }
+
+    public function getSlug()
+    {
+        $text = $this->getSubject();
+
+        // replace non letter or digits by -
+        $text = preg_replace('~[^\\pL\d]+~u', '-', $text);
+
+        // trim
+        $text = trim($text, '-');
+
+        // transliterate
+        $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
+
+        // lowercase
+        $text = strtolower($text);
+
+        // remove unwanted characters
+        $text = preg_replace('~[^-\w]+~', '', $text);
+
+        return $text;
     }
 
     protected function _afterSave()

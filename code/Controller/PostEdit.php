@@ -46,7 +46,7 @@ class Controller_PostEdit extends Controller_Abstract
             ->set('image_url', $imageUrl)
             ->save();
 
-        header("location: /posts/" . $postId);
+        header("Location: " . $post->getUrl());
     }
 
 }
