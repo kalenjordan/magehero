@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
-    <form action="{{ post.getEditUrl() }}" method="POST" class="post-edit">
+    <form action="/posts/new" method="POST" class="post-edit">
         {% include 'fragment/post_form.html.twig' %}
     </form>
 {% endblock %}
