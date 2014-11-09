@@ -144,6 +144,11 @@ table.listing {
     .vote-count {
         display: none;
     }
+
+    .disqus-comment-count {
+        display: block;
+        font-size: 0.8em;
+    }
 }
 
 .fa.fa-rocket {
