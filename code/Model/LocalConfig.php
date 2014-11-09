@@ -49,4 +49,7 @@ class Model_LocalConfig
     public function getHellobarMessage() { return $this->get('hellobar_message'); }
     public function getHellobarUrl() { return $this->get('hellobar_url'); }
     public function getDisqusShortname() { return $this->get('disqus_shortname'); }
+
+    public function getBaseUrl() { return $this->get('base_url'); }
+
 }

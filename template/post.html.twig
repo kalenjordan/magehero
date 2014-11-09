@@ -57,6 +57,9 @@
                     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
                     var disqus_shortname = '{{ local_config.getDisqusShortname() }}';
 
+                    // Need this for backwards-compatibility with pre-seo-friendly URLs
+                    var disqus_url = '{{ local_config.getBaseUrl() }}/posts/{{ post.getId() }}';
+
                     /* * * DON'T EDIT BELOW THIS LINE * * */
                     (function() {
                         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
