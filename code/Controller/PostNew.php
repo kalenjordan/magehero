@@ -1,17 +1,21 @@
 <?php
 
-class Controller_PostNew extends Controller_Abstract
+class Controller_PostNew extends Controller_Account
 {
-    public function get()
+    protected function _preDispatch()
     {
-        if (! $this->_getUsername()) {
-            die("You have to login first");
-        }
+        parent::_preDispatch();
 
         $minimumVoteCount = $this->_getContainer()->LocalConfig()->getPostingMinimumVotecount();
         if ($this->_getCurrentUser()->getVoteCount() < $minimumVoteCount) {
             die("You have to have $minimumVoteCount vote(s) in order to post");
         }
+    }
+
+
+    public function get()
+    {
+        $this->_preDispatch();
 
         $data = array(
             "subject"   => "New Post",
@@ -22,7 +26,6 @@ class Controller_PostNew extends Controller_Abstract
         $post = $this->_getContainer()->Post()->setData($data)->save();
         $postId = $post->getId();
 
-        header("location: /posts/$postId/edit");
-        exit;
+        $this->_redirect("posts/$postId/edit");
     }
 }
