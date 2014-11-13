@@ -1,4 +1,8 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" 
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
     <channel>
 
         <title>{{ feed_config.title }}</title>
@@ -19,6 +23,7 @@
           <title>{{ post.getSubject() }}</title>
           <link>{{ post.getUrl() }}</link>
           <pubDate>{{ post.getCreatedAt()|date("D, d M Y H:i:s O") }}</pubDate>
+          <dc:creator>{{ post.get('name') }}</dc:creator>
           <guid>{{ post.getUrl() }}</guid>
           <description>{{ post.getBodyAsHtml() }}</description>
         </item>
