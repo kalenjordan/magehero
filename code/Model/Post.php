@@ -59,6 +59,26 @@ class Model_Post extends Model_Record
         return $tags;
     }
 
+    public function fetchAllWithAuthor()
+    {
+        $query = $this->selectAll()
+            ->where('posts.is_active = 1')
+            ->joinLeft(
+                'users',
+                "users.user_id = posts.user_id",
+                array('name')
+            );
+        $rows = $this->_localConfig->database()->fetchAll($query);
+
+        $models = array();
+        foreach ($rows as $row) {
+            $model = $this->_getContainer()->Post()->setData($row);
+            $models[] = $model;
+        }
+
+        return $models;
+    }
+
     public function fetchByUserId($userId)
     {
         $query = $this->selectAll();

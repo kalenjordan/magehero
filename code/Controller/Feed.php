@@ -24,15 +24,7 @@ class Controller_Feed extends Controller_Abstract
 
     protected function _getPosts()
     {
-        $postRows = $this->_getContainer()->Post()->fetchAll();
-        $postModels = array();
-
-        foreach ($postRows as $postRow) {
-            $postModel = $this->_getContainer()->Post()->setData($postRow);
-            $postModels[] = $postModel;
-        }
-
-        return $postModels;
+        return $this->_getContainer()->Post()->fetchAllWithAuthor();
     }
 
 }
