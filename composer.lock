@@ -4,8 +4,52 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c2b5a25ff4c5a9ce38f8fe655c0fe309",
+    "hash": "2b3fb4d6092eab27fcf0c23d9078f1fb",
     "packages": [
+        {
+            "name": "adyg/php-imgur-api-client",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Adyg/php-imgur-api-client.git",
+                "reference": "aa292b47b10aa555e4678e3637054a2dbb9ec53a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Adyg/php-imgur-api-client/zipball/aa292b47b10aa555e4678e3637054a2dbb9ec53a",
+                "reference": "aa292b47b10aa555e4678e3637054a2dbb9ec53a",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "guzzle/guzzle": ">=3.7",
+                "php": ">=5.3.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Imgur\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Adrian Ghiuta",
+                    "email": "adrian.ghiuta@gmail.com",
+                    "homepage": "http://adyg.github.com"
+                }
+            ],
+            "description": "Imgur API v3 client",
+            "homepage": "https://github.com/Adyg/php-imgur-api-client",
+            "keywords": [
+                "api",
+                "imgur"
+            ],
+            "time": "2014-07-11 18:00:11"
+        },
         {
             "name": "container-interop/container-interop",
             "version": "1.0.0",
@@ -307,16 +351,16 @@
         },
         {
             "name": "guzzle/guzzle",
-            "version": "dev-master",
+            "version": "v3.9.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle3.git",
-                "reference": "5e6fb7097efac7180bd75006079144025255eb63"
+                "reference": "54991459675c1a2924122afbb0e5609ade581155"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle3/zipball/5e6fb7097efac7180bd75006079144025255eb63",
-                "reference": "5e6fb7097efac7180bd75006079144025255eb63",
+                "url": "https://api.github.com/repos/guzzle/guzzle3/zipball/54991459675c1a2924122afbb0e5609ade581155",
+                "reference": "54991459675c1a2924122afbb0e5609ade581155",
                 "shasum": ""
             },
             "require": {
@@ -395,7 +439,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2014-10-29 23:08:23"
+            "time": "2014-08-11 04:32:36"
         },
         {
             "name": "j7mbo/twitter-api-php",
@@ -1114,7 +1158,7 @@
         "j7mbo/twitter-api-php": 20,
         "erusev/parsedown": 20,
         "ezyang/htmlpurifier": 20,
-        "guzzle/guzzle": 20
+        "adyg/php-imgur-api-client": 20
     },
     "prefer-stable": false,
     "platform": [],

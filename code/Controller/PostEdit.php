@@ -1,7 +1,7 @@
 <?php
 
 
-use Guzzle\Http\Client;
+use Imgur\Client;
 
 class Controller_PostEdit extends Controller_Abstract
 {
@@ -20,8 +20,7 @@ class Controller_PostEdit extends Controller_Abstract
 
     public function post($postId)
     {
-        //$imageUrl = isset($_POST['image_url']) ? $_POST['image_url'] : null;
-        $imageUrl = $_FILES['image_url'];
+        $imageUrl = ($_FILES['image_url']['size'] > 0) ? $_FILES['image_url'] : null;
         $subject = isset($_POST['subject']) ? $_POST['subject'] : null;
         $body = isset($_POST['body']) ? $_POST['body'] : null;
         $tagIds = isset($_POST['tag_ids']) ? $_POST['tag_ids'] : null;
@@ -37,24 +36,12 @@ class Controller_PostEdit extends Controller_Abstract
             die("Permission denied");
         }
 
-        $fileName = $_FILES['image_url']['tmp_name'];
-        $handle = fopen($fileName, 'r');
-        $image = fread($handle, filesize($fileName));
-        $imagePost   = array('image' => base64_encode($image));
-
-        $curl = curl_init();
-        curl_setopt($curl, CURLOPT_URL, 'https://api.imgur.com/3/image.json');
-        curl_setopt($curl, CURLOPT_TIMEOUT, 30);
-        curl_setopt($curl, CURLOPT_HTTPHEADER, array('Authorization: Client-ID ' . 'becc794036ea803'));
-        curl_setopt($curl, CURLOPT_POST, 1);
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($curl, CURLOPT_POSTFIELDS, $imagePost);
-        $out = curl_exec($curl);
-        curl_close ($curl);
-
-        $returnData = json_decode($out,true);
-        $imageUrl = $returnData['data']['link'];
-
+        if ($imageUrl) {
+            $fileName = $_FILES['image_url']['tmp_name'];
+            $response = $this->uploadImage($fileName);
+            $imageUrl = $response['link'];
+        }
+        
         $post->set('subject', $subject)
             ->set('body', $body)
             ->set('tag_ids', $tagIds)
@@ -65,4 +52,27 @@ class Controller_PostEdit extends Controller_Abstract
 
         header("Location: " . $post->getUrl());
     }
+
+    /**
+     * @param $fileName
+     * @return mixed
+     * @throws \Imgur\InvalidArgumentException
+     */
+    private function uploadImage($fileName)
+    {
+        $client = new Client();
+        $client->setOption('client_id', $this->_getConfigData('imgur_client_id'));
+        $client->setOption('client_secret', $this->_getConfigData('imgur_client_secret'));
+
+        $imageData = array(
+            'image' => $fileName,
+            'type' => 'file'
+        );
+
+        $basic = $client->api('image')->upload($imageData);
+        $response = $basic->getData();
+
+        return $response;
+    }
+
 }

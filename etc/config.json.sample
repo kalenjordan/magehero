@@ -14,5 +14,7 @@
     "twitter_consumer_api_key" : "",
     "twitter_consumer_api_secret" : "",
     "twitter_oauth_access_token" : "",
-    "twitter_oauth_access_token_secret" : ""
+    "twitter_oauth_access_token_secret" : "",
+    "imgur_client_id" : "",
+    "imgur_client_secret" : ""
 }

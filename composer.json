@@ -9,7 +9,7 @@
         "j7mbo/twitter-api-php": "dev-master",
         "erusev/parsedown": "dev-master",
         "ezyang/htmlpurifier": "dev-master",
-        "guzzle/guzzle": "3.9.*@dev"
+        "adyg/php-imgur-api-client": "dev-master"
     },
     "autoload": {"psr-0": {"": "code"}}
 }
