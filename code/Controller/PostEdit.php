@@ -1,5 +1,8 @@
 <?php
 
+
+use Guzzle\Http\Client;
+
 class Controller_PostEdit extends Controller_Abstract
 {
     public function get($postId)
@@ -17,17 +20,13 @@ class Controller_PostEdit extends Controller_Abstract
 
     public function post($postId)
     {
-        $imageUrl = isset($_POST['image_url']) ? $_POST['image_url'] : null;
+        //$imageUrl = isset($_POST['image_url']) ? $_POST['image_url'] : null;
+        $imageUrl = $_FILES['image_url'];
         $subject = isset($_POST['subject']) ? $_POST['subject'] : null;
         $body = isset($_POST['body']) ? $_POST['body'] : null;
         $tagIds = isset($_POST['tag_ids']) ? $_POST['tag_ids'] : null;
         $isActive = isset($_POST['is_active']) ? $_POST['is_active'] : null;
 
-        if ($imageUrl) {
-            if (strpos($imageUrl, "javascript:") !== false || strpos($imageUrl, "data:") !== false) {
-                die("Looks like an injection attempt");
-            }
-        }
 
         if (! $tagIds || empty($tagIds)) {
             die("You have to pick at least one tag");
@@ -37,6 +36,24 @@ class Controller_PostEdit extends Controller_Abstract
         if ($this->_getCurrentUser()->getId() != $post->getUserId()) {
             die("Permission denied");
         }
+
+        $fileName = $_FILES['image_url']['tmp_name'];
+        $handle = fopen($fileName, 'r');
+        $image = fread($handle, filesize($fileName));
+        $imagePost   = array('image' => base64_encode($image));
+
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_URL, 'https://api.imgur.com/3/image.json');
+        curl_setopt($curl, CURLOPT_TIMEOUT, 30);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, array('Authorization: Client-ID ' . 'becc794036ea803'));
+        curl_setopt($curl, CURLOPT_POST, 1);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($curl, CURLOPT_POSTFIELDS, $imagePost);
+        $out = curl_exec($curl);
+        curl_close ($curl);
+
+        $returnData = json_decode($out,true);
+        $imageUrl = $returnData['data']['link'];
 
         $post->set('subject', $subject)
             ->set('body', $body)
@@ -48,5 +65,4 @@ class Controller_PostEdit extends Controller_Abstract
 
         header("Location: " . $post->getUrl());
     }
-
 }

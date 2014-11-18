@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
-    <form action="/posts/{{ post.getId() }}/edit" method="POST" class="post-edit">
+    <form action="/posts/{{ post.getId() }}/edit" method="POST" class="post-edit" enctype="multipart/form-data">
         <label for="is_active" >Published?</label>
         <div class="input-wrapper">
             <select id="is_active" name="is_active">
@@ -27,7 +27,7 @@
 
         <div class="input-wrapper">
             <label for="image_url" >Image URL (Optional)</label>
-            <input id="image_url" name="image_url" class="input-field" value="{{ post.getImageUrl() }}" />
+            <input id="image_url" name="image_url" class="input-field" value="{{ post.getImageUrl() }}" type="file" />
         </div>
 
         <div class="input-wrapper">

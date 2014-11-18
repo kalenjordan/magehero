@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d87132a53a07b93478d3d3e8873e5616",
+    "hash": "c2b5a25ff4c5a9ce38f8fe655c0fe309",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -228,12 +228,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/erusev/parsedown.git",
-                "reference": "da5d75e97e1ed19e57bd54fa6cb595a6a0879a67"
+                "reference": "7000cbc2d29ba0ab303496300600d66fc2bc98ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/erusev/parsedown/zipball/da5d75e97e1ed19e57bd54fa6cb595a6a0879a67",
-                "reference": "da5d75e97e1ed19e57bd54fa6cb595a6a0879a67",
+                "url": "https://api.github.com/repos/erusev/parsedown/zipball/7000cbc2d29ba0ab303496300600d66fc2bc98ac",
+                "reference": "7000cbc2d29ba0ab303496300600d66fc2bc98ac",
                 "shasum": ""
             },
             "type": "library",
@@ -259,7 +259,7 @@
                 "markdown",
                 "parser"
             ],
-            "time": "2014-10-29 20:29:46"
+            "time": "2014-11-12 20:27:29"
         },
         {
             "name": "ezyang/htmlpurifier",
@@ -304,6 +304,98 @@
                 "html"
             ],
             "time": "2014-10-23 22:36:02"
+        },
+        {
+            "name": "guzzle/guzzle",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/guzzle3.git",
+                "reference": "5e6fb7097efac7180bd75006079144025255eb63"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/guzzle3/zipball/5e6fb7097efac7180bd75006079144025255eb63",
+                "reference": "5e6fb7097efac7180bd75006079144025255eb63",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": ">=5.3.3",
+                "symfony/event-dispatcher": "~2.1"
+            },
+            "replace": {
+                "guzzle/batch": "self.version",
+                "guzzle/cache": "self.version",
+                "guzzle/common": "self.version",
+                "guzzle/http": "self.version",
+                "guzzle/inflection": "self.version",
+                "guzzle/iterator": "self.version",
+                "guzzle/log": "self.version",
+                "guzzle/parser": "self.version",
+                "guzzle/plugin": "self.version",
+                "guzzle/plugin-async": "self.version",
+                "guzzle/plugin-backoff": "self.version",
+                "guzzle/plugin-cache": "self.version",
+                "guzzle/plugin-cookie": "self.version",
+                "guzzle/plugin-curlauth": "self.version",
+                "guzzle/plugin-error-response": "self.version",
+                "guzzle/plugin-history": "self.version",
+                "guzzle/plugin-log": "self.version",
+                "guzzle/plugin-md5": "self.version",
+                "guzzle/plugin-mock": "self.version",
+                "guzzle/plugin-oauth": "self.version",
+                "guzzle/service": "self.version",
+                "guzzle/stream": "self.version"
+            },
+            "require-dev": {
+                "doctrine/cache": "~1.3",
+                "monolog/monolog": "~1.0",
+                "phpunit/phpunit": "3.7.*",
+                "psr/log": "~1.0",
+                "symfony/class-loader": "~2.1",
+                "zendframework/zend-cache": "2.*,<2.3",
+                "zendframework/zend-log": "2.*,<2.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.9-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Guzzle": "src/",
+                    "Guzzle\\Tests": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                },
+                {
+                    "name": "Guzzle Community",
+                    "homepage": "https://github.com/guzzle/guzzle/contributors"
+                }
+            ],
+            "description": "Guzzle is a PHP HTTP client library and framework for building RESTful web service clients",
+            "homepage": "http://guzzlephp.org/",
+            "keywords": [
+                "client",
+                "curl",
+                "framework",
+                "http",
+                "http client",
+                "rest",
+                "web service"
+            ],
+            "time": "2014-10-29 23:08:23"
         },
         {
             "name": "j7mbo/twitter-api-php",
@@ -408,16 +500,16 @@
         },
         {
             "name": "mnapoli/php-di",
-            "version": "4.4.0",
+            "version": "4.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mnapoli/PHP-DI.git",
-                "reference": "556e3be63a821bbad0585a34f634080305392252"
+                "reference": "0e267e20226589105ac3c6ae9d893cfbc350a193"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mnapoli/PHP-DI/zipball/556e3be63a821bbad0585a34f634080305392252",
-                "reference": "556e3be63a821bbad0585a34f634080305392252",
+                "url": "https://api.github.com/repos/mnapoli/PHP-DI/zipball/0e267e20226589105ac3c6ae9d893cfbc350a193",
+                "reference": "0e267e20226589105ac3c6ae9d893cfbc350a193",
                 "shasum": ""
             },
             "require": {
@@ -454,7 +546,7 @@
                 "dependency injection",
                 "di"
             ],
-            "time": "2014-10-14 06:13:26"
+            "time": "2014-11-10 01:37:46"
         },
         {
             "name": "mnapoli/phpdocreader",
@@ -632,6 +724,63 @@
             "time": "2014-09-28 14:18:11"
         },
         {
+            "name": "symfony/event-dispatcher",
+            "version": "v2.5.6",
+            "target-dir": "Symfony/Component/EventDispatcher",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/EventDispatcher.git",
+                "reference": "804eb28dbbfba9ffdab21fe2066744906cea2212"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/EventDispatcher/zipball/804eb28dbbfba9ffdab21fe2066744906cea2212",
+                "reference": "804eb28dbbfba9ffdab21fe2066744906cea2212",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "psr/log": "~1.0",
+                "symfony/config": "~2.0",
+                "symfony/dependency-injection": "~2.0,<2.6.0",
+                "symfony/stopwatch": "~2.2"
+            },
+            "suggest": {
+                "symfony/dependency-injection": "",
+                "symfony/http-kernel": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.5-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Symfony\\Component\\EventDispatcher\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                },
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                }
+            ],
+            "description": "Symfony EventDispatcher Component",
+            "homepage": "http://symfony.com",
+            "time": "2014-10-01 15:43:05"
+        },
+        {
             "name": "torophp/torophp",
             "version": "dev-master",
             "source": {
@@ -712,12 +861,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "f8b6e918a7d8e073efe14cbed7ae02df40ef19ed"
+                "reference": "b87cf88f88feee256c1e1ca85ec6677f38fcc238"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/f8b6e918a7d8e073efe14cbed7ae02df40ef19ed",
-                "reference": "f8b6e918a7d8e073efe14cbed7ae02df40ef19ed",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/b87cf88f88feee256c1e1ca85ec6677f38fcc238",
+                "reference": "b87cf88f88feee256c1e1ca85ec6677f38fcc238",
                 "shasum": ""
             },
             "require": {
@@ -761,7 +910,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2014-10-23 15:29:03"
+            "time": "2014-11-10 14:48:15"
         },
         {
             "name": "zendframework/zend-code",
@@ -913,12 +1062,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zf1.git",
-                "reference": "9b9fda8329782926742d125bac2868748a299d0a"
+                "reference": "81f12348822ded3811b26ed38afef8cb6995fd1f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zf1/zipball/9b9fda8329782926742d125bac2868748a299d0a",
-                "reference": "9b9fda8329782926742d125bac2868748a299d0a",
+                "url": "https://api.github.com/repos/zendframework/zf1/zipball/81f12348822ded3811b26ed38afef8cb6995fd1f",
+                "reference": "81f12348822ded3811b26ed38afef8cb6995fd1f",
                 "shasum": ""
             },
             "require": {
@@ -952,7 +1101,7 @@
                 "ZF1",
                 "framework"
             ],
-            "time": "2014-10-30 22:01:31"
+            "time": "2014-11-14 10:32:25"
         }
     ],
     "packages-dev": [],
@@ -964,7 +1113,8 @@
         "zendframework/zendframework1": 20,
         "j7mbo/twitter-api-php": 20,
         "erusev/parsedown": 20,
-        "ezyang/htmlpurifier": 20
+        "ezyang/htmlpurifier": 20,
+        "guzzle/guzzle": 20
     },
     "prefer-stable": false,
     "platform": [],
