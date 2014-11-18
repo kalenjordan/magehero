@@ -16,6 +16,16 @@ $(document).ready(function() {
             return $(cell).text();
         }
     });
+
+    var opts = {
+        textarea: 'body',
+        theme: {
+        base: '/../../../bower_components/epiceditor/epiceditor/themes/base/epiceditor.css',
+        preview: '/../../../bower_components/epiceditor/epiceditor/themes/preview/preview-dark.css',
+        editor: '/../../../bower_components/epiceditor/epiceditor/themes/editor/epic-dark.css'
+      }
+    }
+    var editor = new EpicEditor(opts).load();
 });
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -52,4 +62,3 @@ MageHero_App = {
         $('.fancy-select').chosen();
     }
 };
-

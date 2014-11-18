@@ -3,4 +3,5 @@
 /data/*.json
 /skin/.sass-cache
 /.vagrant
-bower_components/
+node_modules
+bower_components

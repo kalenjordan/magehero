@@ -1,0 +1,28 @@
+{
+    "name": "magehero",
+    "version": "0.1.0",
+    "homepage": "https://github.com/kalenjordan/magehero",
+    "authors": [
+        "jamescowie <james@jcowie.co.uk>"
+    ],
+    "description": "MageHeros is an online list of Magento developers",
+    "main": "index.php",
+    "moduleType": [
+        "amd"
+    ],
+    "keywords": [
+        "Magento"
+    ],
+    "license": "MIT",
+    "private": true,
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ],
+    "dependencies": {
+        "epiceditor": "0.2.2"
+    }
+}
