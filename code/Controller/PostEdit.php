@@ -7,6 +7,10 @@ class Controller_PostEdit extends Controller_Abstract
         $post = $this->_getContainer()->Post()->load($postId);
         $tags = $this->_getContainer()->Tag()->fetchAll();
 
+        if ($this->_getCurrentUser()->getId() != $post->getUserId()) {
+            die("Permission denied");
+        }
+
         echo $this->_getTwig()->render('post_edit.html.twig', array(
             'session'       => $this->_getSession(),
             'post'          => $post,
