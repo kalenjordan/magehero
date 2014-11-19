@@ -29,7 +29,6 @@
                         </span>
                     {% endfor %}
                 </div>
-                <!-- TODO: Once we implement markdown we need to remove this - can't allow public posting until this is done -->
                 <div class="post-body">
                     {{ post.getBodyAsHtml() | raw }}
                     {% if post.getImageUrl() %}
