@@ -4,6 +4,13 @@ class Controller_PostCommentNotify extends Controller_Abstract
 {
     public function get($postId)
     {
+        // Disabled b/c bad notifications are going out
+        $this->_jsonResponse(array(
+            'success'   => false,
+            'message'   => "Disabled",
+        ));
+        return $this;
+
         $post = $this->_getContainer()->Post()->load($postId);
         $user = $post->getUser();
         if (! $user->getEmail()) {
