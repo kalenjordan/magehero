@@ -60,7 +60,9 @@ class Model_Post extends Model_Record
             return $this->_user;
         }
 
-        $this->_user = $this->_getContainer()->User()->load($this->getUserId());
+        if ($this->getUserId()) {
+            $this->_user = $this->_getContainer()->User()->load($this->getUserId());
+        }
         return $this->_user;
     }
 
@@ -121,7 +123,8 @@ class Model_Post extends Model_Record
         }
 
         $query = $this->selectAll()
-            ->where("posts.created_at > DATE_SUB(NOW(), INTERVAL $recentTimePeriod)");
+            ->where("posts.created_at > DATE_SUB(NOW(), INTERVAL $recentTimePeriod)")
+            ->where('posts.is_active = 1');
         $results = $this->_localConfig->database()->fetchAll($query);
 
         return $results;

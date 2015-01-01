@@ -32,7 +32,7 @@ try {
     ));
 } catch (Exception $e) {
     if ($local->getHideExceptions()) {
-        mail("kalen@magemail.co", "MageHero Error", $e->getTraceAsString());
+        mail("kalen@magemail.co", "MageHero Exception: " . $e->getMessage(), $e->getTraceAsString());
         die("Uh-oh.  Something's not right.  Heroes have been deployed to fix it.");
     } else {
         throw $e;

@@ -4,6 +4,7 @@
             <img src="{{ post.getUser().imageUrl() }}">
         </div>
     {% endif %}
+    <!--
     <div class="ranking">
         {% if post.getUser().voteCount() >= local_config.getRankRocketMinimumVotecount() %}
             <i class="fa fa-rocket tooltip" title="This developer has received {{ post.getUser().voteCount() }} votes: {{ post.getUser().votingUsernames() }}"></i>
@@ -13,6 +14,7 @@
             <i class="fa fa-meh-o tooltip" title="This developer hasn't received any upvotes yet"></i>
         {% endif %}
     </div>
+    -->
     <div class="subject"><a href="/posts/{{ post.getId() }}">{{ post.getSubject() }}</a></div>
     <div class="tags">
         {% for tag in post.fetchTags() %}

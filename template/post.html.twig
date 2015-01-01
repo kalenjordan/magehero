@@ -11,6 +11,8 @@
                         <a href="/{{ post.getUser().getUsername() }}/posts"><img src="{{ post.getUser().imageUrl() }}"></a>
                     </div>
                 {% endif %}
+                <!-- todo: replace with post upvoting not user upvoting
+                 
                 <div class="ranking">
                     {% if post.getUser().voteCount() >= local_config.getRankRocketMinimumVotecount() %}
                         <i class="fa fa-rocket tooltip" title="This developer has received {{ post.getUser().voteCount() }} votes: {{ post.getUser().votingUsernames() }}"></i>
@@ -20,6 +22,7 @@
                         <i class="fa fa-meh-o tooltip" title="This developer hasn't received any upvotes yet"></i>
                     {% endif %}
                 </div>
+                -->
                 <div class="subject">{{ post.getSubject() }}</div>
                 <div class="tags">
                     {% for tag in post.fetchTags() %}
