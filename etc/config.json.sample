@@ -16,7 +16,7 @@
     "rank_meh_minimum_votecount": 0,
     "rank_rocket_minimum_votecount": 5,
     "rank_star_minimum_votecount": 1,
-    "recent_time_period": 30,
+    "recent_time_period": "30 DAY",
     "twitter_consumer_api_key" : "",
     "twitter_consumer_api_secret" : "",
     "twitter_oauth_access_token" : "",
