@@ -14,7 +14,7 @@ class Controller_PostList extends Controller_Abstract
 
     protected function _getPosts()
     {
-        $postRows = $this->_getContainer()->Post()->fetchAll();
+        $postRows = $this->_getContainer()->Post()->fetchAllRecent();
         $postModels = array();
 
         foreach ($postRows as $postRow) {

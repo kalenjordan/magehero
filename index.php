@@ -19,6 +19,7 @@ try {
         "/posts/:number/edit"               => "Controller_PostEdit",
         "/posts/:number/notify-comment"     => "Controller_PostCommentNotify",
         "/posts/:number"                    => "Controller_Post",
+        "/posts/:number/upvote"             => "Controller_PostUpvote",
         "/posts/:number/:alpha"             => "Controller_Post",
         "/profile"                          => "Controller_Profile",
         "/users"                            => "Controller_UserList",

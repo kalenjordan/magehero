@@ -40,6 +40,7 @@ class Model_Post extends Model_Record
     public function getIsActive()   { return $this->get('is_active'); }
     public function getCreatedAt()   { return $this->get('created_at'); }
     public function voteCount() { return $this->get('vote_count'); }
+    public function getUpvotersCsv() { return $this->get('upvoters_csv'); }
 
     public function getCreatedAtFriendly()
     {
@@ -72,6 +73,29 @@ class Model_Post extends Model_Record
     public function selectAll()
     {
         $table = $this->_getTable();
+
+        $query = $this->_localConfig->database()->select()
+            ->from($table)
+            ->joinLeft(array('post_vote' => 'post_vote'),
+                'post_vote.post_id = posts.post_id',
+                array(
+                    'vote_count' => 'COUNT(DISTINCT post_vote_id)',
+                    'upvoters_csv' => 'GROUP_CONCAT(DISTINCT voting_user.username)'
+                )
+            )
+            ->joinLeft(array('voting_user' => 'users'),
+                'voting_user.user_id = post_vote.voting_user_id',
+                array()
+            )
+            ->order(array("COUNT(DISTINCT post_vote_id) DESC", "posts.created_at DESC"))
+            ->group('posts.post_id');
+
+        return $query;
+    }
+
+    public function load($entityId)
+    {
+        $table = $this->_getTable();
         $tableIdFieldname = $this->_getTableIdFieldname();
 
         $query = $this->_localConfig->database()->select()
@@ -82,10 +106,25 @@ class Model_Post extends Model_Record
                     'vote_count' => 'COUNT(DISTINCT post_vote_id)',
                 )
             )
-            ->order("$tableIdFieldname DESC")
-            ->group('posts.post_id');
+            ->group('posts.post_id')
+            ->where("$table.$tableIdFieldname = ?", $entityId);
 
-        return $query;
+        $this->_data = $this->_localConfig->database()->fetchRow($query);
+        return $this;
+    }
+
+    public function fetchAllRecent()
+    {
+        $recentTimePeriod = $this->_localConfig->getRecentTimePeriod();
+        if (! $recentTimePeriod) {
+            throw new Exception("Missing recent_time_period in config");
+        }
+
+        $query = $this->selectAll()
+            ->where("posts.created_at > DATE_SUB(NOW(), INTERVAL $recentTimePeriod)");
+        $results = $this->_localConfig->database()->fetchAll($query);
+
+        return $results;
     }
 
     public function fetchAllWithAuthor()

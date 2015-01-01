@@ -228,16 +228,16 @@ label.profile {
   height: 400px;
 }
 
-.upvote-wrapper {
+.post-upvote-wrapper {
   display: block;
   float: left;
   margin-right: 1em;
 }
-.upvote-wrapper .upvote .fa {
+.post-upvote-wrapper .post-upvote-link .fa {
   font-size: 22px;
   color: black;
 }
-.upvote-wrapper .upvote .fa:hover {
+.post-upvote-wrapper .post-upvote-link .fa:hover {
   color: #ef672f;
 }
 

@@ -58,6 +58,16 @@ class Model_User extends Model_Record
         return $this->_localConfig->database()->fetchOne($query);
     }
 
+    public function hasVotedForPost($postId)
+    {
+        $query = $this->_localConfig->database()->select()
+            ->from("post_vote")
+            ->where("voting_user_id = ?", $this->getId())
+            ->where("post_id = ?", $postId);
+
+        return $this->_localConfig->database()->fetchOne($query);
+    }
+
     public function addVoteFrom($votingUserId)
     {
         $this->_localConfig->database()->insert('user_vote', array(
@@ -79,6 +89,26 @@ class Model_User extends Model_Record
         $this->_localConfig->database()->delete('user_vote',
             "voting_user_id = $votingUserId AND elected_user_id = " . $this->getId()
         );
+
+        return $this;
+    }
+
+    public function removeVoteFromPost($postId)
+    {
+        $this->_localConfig->database()->delete('post_vote',
+            "voting_user_id = " . $this->getId() . " AND post_id = " . $postId
+        );
+
+        return $this;
+    }
+
+    public function addVoteToPost($postId)
+    {
+        $this->_localConfig->database()->insert('post_vote', array(
+            'voting_user_id'    => $this->getId(),
+            'post_id'           => $postId,
+            'created_at'        => \Carbon\Carbon::now()->toDateTimeString(),
+        ));
 
         return $this;
     }

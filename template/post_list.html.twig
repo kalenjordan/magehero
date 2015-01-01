@@ -9,12 +9,12 @@
         {% for post in posts %}
             <tr data-post-id={{ post.id() }}>
                 <td>
-                    <div class="upvote">
-                        <span class="upvote-wrapper">
-                            <a class="upvote" href="javascript://"><i class="fa fa-caret-up"></i></a>
+                    <div class="post-upvote">
+                        <span class="post-upvote-wrapper">
+                            <a class="post-upvote-link" href="javascript://"><i class="fa fa-caret-up"></i></a>
                         </span>
                         <span class="post-vote-count-wrapper">
-                            <span class="post-vote-count">{{ post.voteCount() }}</span>
+                            <span class="post-vote-count tooltip" title="Upvoted by {{ post.getUpvotersCsv() }}">{{ post.voteCount() }}</span>
                         </span>
                     </div>
                 </td>

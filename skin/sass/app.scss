@@ -269,12 +269,12 @@ label.profile {
     }
 }
 
-.upvote-wrapper {
+.post-upvote-wrapper {
     display: block;
     float: left;
     margin-right: 1em;
 
-    .upvote .fa {
+    .post-upvote-link .fa {
         font-size: 22px;
         color: black;
         &:hover {
