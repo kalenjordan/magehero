@@ -47,6 +47,7 @@
             <br><br>
         {% endif %}
         <div class="share">
+            <a target="_blank" class="tooltip" title="Tweet @{{ post.getUser().getTwitterUsername() }} some props" href="{{ post.getTweetPropsUrl }}"><i class="fa fa-bullhorn"></i> Props</a>
             <a target="_blank" href="{{ post.getTweetUrl() }}"><i class="fa fa-twitter"></i> Tweet</a>
             {% if session.github_username == post.getUser().getUsername() %}
                 <a href="/posts/{{ post.getId() }}/edit"><i class="fa fa-pencil-square-o"></i> Edit</a>

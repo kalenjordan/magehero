@@ -180,6 +180,14 @@ class Model_Post extends Model_Record
         return $tweetIntentUrl;
     }
 
+    public function getTweetPropsUrl()
+    {
+        $text = "Props to @" . $this->getUser()->getTwitterUsername() . " for " . $this->getUrl();
+        $tweetIntentUrl = "https://twitter.com/intent/tweet?text=" . urlencode($text);
+
+        return $tweetIntentUrl;
+    }
+
     // todo: Should use a beforeUpdate hook or something for this.
     public function update()
     {
