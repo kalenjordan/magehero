@@ -232,6 +232,7 @@ label.profile {
   display: block;
   float: left;
   margin-right: 1em;
+  cursor: default;
 }
 .post-upvote-wrapper .post-upvote-link .fa {
   font-size: 22px;
@@ -251,6 +252,7 @@ label.profile {
   position: relative;
 }
 .post-vote-count-wrapper .post-vote-count {
+  cursor: default;
   position: absolute;
   left: 8px;
   top: 5px;
