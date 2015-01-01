@@ -20,11 +20,11 @@ $(document).ready(function() {
     var opts = {
         textarea: 'body',
         theme: {
-        base: '/../../../bower_components/epiceditor/epiceditor/themes/base/epiceditor.css',
-        preview: '/../../../bower_components/epiceditor/epiceditor/themes/preview/preview-dark.css',
-        editor: '/../../../bower_components/epiceditor/epiceditor/themes/editor/epic-dark.css'
-      }
-    }
+            base:       '../../../../epiceditor/themes/base/epiceditor.css',
+            preview:    '../../../../epiceditor/themes/preview/preview-dark.css',
+            editor:     '../../../../epiceditor/themes/editor/epic-dark.css'
+          }
+    };
     var editor = new EpicEditor(opts).load();
 });
 
