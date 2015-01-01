@@ -1,12 +1,12 @@
 <?php
 
-class Controller_Index extends Controller_Abstract
+class Controller_UserList extends Controller_Abstract
 {
     public function get()
     {
         $developers = $this->_getDevelopers();
 
-        echo $this->_getTwig()->render('index.html.twig', array(
+        echo $this->_getTwig()->render('user_list.html.twig', array(
             'developers'    => $developers,
             'session'       => $this->_getSession(),
             'local_config'  => $this->_getContainer()->LocalConfig(),

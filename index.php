@@ -5,7 +5,7 @@ session_start();
 
 try {
     Toro::serve(array(
-        "/"                                 => "Controller_Index",
+        "/"                                 => "Controller_PostList",
         "/available"                        => "Controller_Available",
         "/login"                            => "Controller_Login",
         "/logout"                           => "Controller_Logout",
@@ -16,6 +16,7 @@ try {
         "/posts/:number"                    => "Controller_Post",
         "/posts/:number/:alpha"             => "Controller_Post",
         "/profile"                          => "Controller_Profile",
+        "/users"                            => "Controller_UserList",
         "/user/:number/upvote"              => "Controller_UserUpvote",
         "/:string/posts"                    => "Controller_UserPosts",
         "/(.*)"                             => "Controller_UserProfile",

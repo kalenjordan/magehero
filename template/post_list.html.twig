@@ -1,11 +1,53 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Posts | MageHero{% endblock %}
-
 {% block content %}
-    <div class="posts-wrapper">
-        {% for post in posts %}
-            {% include 'fragment/post.html.twig' %}
-        {% endfor %}
+    <div class="write-post">
+        <a href="/posts/new"><i class="fa fa-pencil-square-o"></i> What are you working on?</a>
     </div>
+    <table class="listing">
+        <thead>
+        <tr>
+            <th>Rating</th>
+            <th>Added</th>
+            <th>Pic</th>
+            <th>Name</th>
+            <th>Post</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for post in posts %}
+            <tr data-post-id={{ post.id() }}>
+                <td>
+                    <div class="upvote">
+                        <a href="javascript://"><i class="fa fa-caret-up"></i></a>
+                        <span class="vote-count">{{ post.voteCount() }}</span>
+                    </div>
+                </td>
+                <td>
+                    <span class="last-updated">{{ developer.lastUpdatedFriendly() }}</span>
+                </td>
+                <td>
+                    {% if post.getDeveloper().imageUrl() %}
+                        <div class="image-wrapper user-thumbnail">
+                            <img src="{{ post.getDeveloper().imageUrl() }}">
+                        </div>
+                    {% endif %}
+                </td>
+                <td>
+                    <a href="/{{ developer.githubUsername() }}/posts">{{ developer.name() }}</a>
+                </td>
+                <td>
+                    {{ post.getSubject() }}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="about">
+        <i class="fa fa-rocket"></i> {{ local_config.getRankRocketMinimumVotecount() }} Votes.
+        <i class="fa fa-star"></i> {{ local_config.getRankStarMinimumVotecount() }} Vote(s).
+        <i class="fa fa-meh-o"></i> {{ local_config.getRankMehMinimumVotecount() }} Votes.
+    </div>
+
 {% endblock %}
