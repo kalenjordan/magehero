@@ -40,6 +40,15 @@ class Model_Post extends Model_Record
     public function getIsActive()   { return $this->get('is_active'); }
     public function getCreatedAt()   { return $this->get('created_at'); }
 
+    public function getCreatedAtFriendly()
+    {
+        try {
+            return \Carbon\Carbon::parse($this->getCreatedAt())->diffForHumans();
+        } catch (Exception $e) {
+            return $this->getCreatedAt();
+        }
+    }
+
     /**
      * @return Model_User
      */
@@ -178,5 +187,10 @@ class Model_Post extends Model_Record
     {
         // Update the updated_at timestamp
         $this->getUser()->save();
+    }
+
+    public function voteCount()
+    {
+        return 1;
     }
 }

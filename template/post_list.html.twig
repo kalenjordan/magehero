@@ -5,39 +5,34 @@
         <a href="/posts/new"><i class="fa fa-pencil-square-o"></i> What are you working on?</a>
     </div>
     <table class="listing">
-        <thead>
-        <tr>
-            <th>Rating</th>
-            <th>Added</th>
-            <th>Pic</th>
-            <th>Name</th>
-            <th>Post</th>
-        </tr>
-        </thead>
         <tbody>
         {% for post in posts %}
             <tr data-post-id={{ post.id() }}>
                 <td>
                     <div class="upvote">
-                        <a href="javascript://"><i class="fa fa-caret-up"></i></a>
-                        <span class="vote-count">{{ post.voteCount() }}</span>
+                        <span class="upvote-wrapper">
+                            <a class="upvote" href="javascript://"><i class="fa fa-caret-up"></i></a>
+                        </span>
+                        <span class="post-vote-count-wrapper">
+                            <span class="post-vote-count">{{ post.voteCount() }}</span>
+                        </span>
                     </div>
                 </td>
                 <td>
-                    <span class="last-updated">{{ developer.lastUpdatedFriendly() }}</span>
-                </td>
-                <td>
-                    {% if post.getDeveloper().imageUrl() %}
+                    {% if post.getUser().imageUrl() %}
                         <div class="image-wrapper user-thumbnail">
-                            <img src="{{ post.getDeveloper().imageUrl() }}">
+                            <img src="{{ post.getUser().imageUrl() }}">
                         </div>
                     {% endif %}
                 </td>
                 <td>
-                    <a href="/{{ developer.githubUsername() }}/posts">{{ developer.name() }}</a>
+                    <a href="/{{ post.getUser().githubUsername() }}/posts">{{ post.getUser().name() }}</a>
                 </td>
                 <td>
                     {{ post.getSubject() }}
+                </td>
+                <td>
+                    <span class="last-updated">{{ post.createdAtFriendly() }}</span>
                 </td>
             </tr>
         {% endfor %}
