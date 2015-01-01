@@ -3,6 +3,11 @@
 require_once(dirname(__FILE__) . '/vendor/autoload.php');
 session_start();
 
+error_reporting(-1);
+ini_set('display_errors', 'On');
+
+$local = new Model_LocalConfig();
+
 try {
     Toro::serve(array(
         "/"                                 => "Controller_PostList",
@@ -25,6 +30,10 @@ try {
         "/feed"                             => "Controller_Feed",
     ));
 } catch (Exception $e) {
-    mail("kalen@magemail.co", "MageHero Error", $e->getTraceAsString());
-    die("Uh-oh.  Something's not right.  Heroes have been deployed to fix it.");
+    if ($local->getHideExceptions()) {
+        mail("kalen@magemail.co", "MageHero Error", $e->getTraceAsString());
+        die("Uh-oh.  Something's not right.  Heroes have been deployed to fix it.");
+    } else {
+        throw $e;
+    }
 }

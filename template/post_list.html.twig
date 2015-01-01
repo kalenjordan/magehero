@@ -21,15 +21,12 @@
                 <td>
                     {% if post.getUser().imageUrl() %}
                         <div class="image-wrapper user-thumbnail">
-                            <img src="{{ post.getUser().imageUrl() }}">
+                            <a href="/{{ post.getUser().getGithubUsername() }}/posts"><img src="{{ post.getUser().imageUrl() }}"></a>
                         </div>
                     {% endif %}
                 </td>
                 <td>
-                    <a href="/{{ post.getUser().githubUsername() }}/posts">{{ post.getUser().name() }}</a>
-                </td>
-                <td>
-                    {{ post.getSubject() }}
+                    <a href="/posts/{{ post.getId() }}/">{{ post.getSubject() }}</a>
                 </td>
                 <td>
                     <span class="last-updated">{{ post.createdAtFriendly() }}</span>

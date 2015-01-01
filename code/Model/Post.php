@@ -39,6 +39,7 @@ class Model_Post extends Model_Record
     public function getImageUrl()   { return $this->get('image_url'); }
     public function getIsActive()   { return $this->get('is_active'); }
     public function getCreatedAt()   { return $this->get('created_at'); }
+    public function voteCount() { return $this->get('vote_count'); }
 
     public function getCreatedAtFriendly()
     {
@@ -66,6 +67,25 @@ class Model_Post extends Model_Record
     {
         $tags = $this->_getContainer()->Tag()->fetchByPostId($this->getId());
         return $tags;
+    }
+
+    public function selectAll()
+    {
+        $table = $this->_getTable();
+        $tableIdFieldname = $this->_getTableIdFieldname();
+
+        $query = $this->_localConfig->database()->select()
+            ->from($table)
+            ->joinLeft(array('post_vote' => 'post_vote'),
+                'post_vote.post_id = posts.post_id',
+                array(
+                    'vote_count' => 'COUNT(DISTINCT post_vote_id)',
+                )
+            )
+            ->order("$tableIdFieldname DESC")
+            ->group('posts.post_id');
+
+        return $query;
     }
 
     public function fetchAllWithAuthor()
@@ -187,10 +207,5 @@ class Model_Post extends Model_Record
     {
         // Update the updated_at timestamp
         $this->getUser()->save();
-    }
-
-    public function voteCount()
-    {
-        return 1;
     }
 }

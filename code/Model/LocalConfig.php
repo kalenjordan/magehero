@@ -52,4 +52,5 @@ class Model_LocalConfig
 
     public function getBaseUrl() { return $this->get('base_url'); }
 
+    public function getHideExceptions() { return $this->get('hide_exceptions'); }
 }
