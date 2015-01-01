@@ -22,7 +22,7 @@ class Model_Post extends Model_Record
         $this->_localConfig = $config;
     }
 
-    public function getSubject()    { return $this->get('subject'); }
+    public function getSubject() { return $this->get('subject'); }
     public function getBody()    { return $this->get('body'); }
 
     public function getBodyAsHtml()
@@ -35,11 +35,11 @@ class Model_Post extends Model_Record
         return $body;
     }
 
-    public function getUserId()     { return $this->get('user_id'); }
-    public function getImageUrl()   { return $this->get('image_url'); }
-    public function getIsActive()   { return $this->get('is_active'); }
+    public function getUserId()      { return $this->get('user_id'); }
+    public function getImageUrl()    { return $this->get('image_url'); }
+    public function getIsActive()    { return $this->get('is_active'); }
     public function getCreatedAt()   { return $this->get('created_at'); }
-    public function voteCount() { return $this->get('vote_count'); }
+    public function voteCount()      { return $this->get('vote_count'); }
     public function getUpvotersCsv() { return $this->get('upvoters_csv'); }
 
     public function getCreatedAtFriendly()
@@ -79,7 +79,7 @@ class Model_Post extends Model_Record
         $query = $this->_localConfig->database()->select()
             ->from($table)
             ->joinLeft(array('post_vote' => 'post_vote'),
-                'post_vote.post_id = posts.post_id',
+                "post_vote.post_id = $table.post_id",
                 array(
                     'vote_count' => 'COUNT(DISTINCT post_vote_id)',
                     'upvoters_csv' => 'GROUP_CONCAT(DISTINCT voting_user.username)'
@@ -89,8 +89,8 @@ class Model_Post extends Model_Record
                 'voting_user.user_id = post_vote.voting_user_id',
                 array()
             )
-            ->order(array("COUNT(DISTINCT post_vote_id) DESC", "posts.created_at DESC"))
-            ->group('posts.post_id');
+            ->order(array("COUNT(DISTINCT post_vote_id) DESC", $table . ".created_at DESC"))
+            ->group($table . '.post_id');
 
         return $query;
     }
@@ -103,12 +103,12 @@ class Model_Post extends Model_Record
         $query = $this->_localConfig->database()->select()
             ->from($table)
             ->joinLeft(array('post_vote' => 'post_vote'),
-                'post_vote.post_id = posts.post_id',
+                "post_vote.post_id = $table.post_id",
                 array(
                     'vote_count' => 'COUNT(DISTINCT post_vote_id)',
                 )
             )
-            ->group('posts.post_id')
+            ->group("$table.post_id")
             ->where("$table.$tableIdFieldname = ?", $entityId);
 
         $this->_data = $this->_localConfig->database()->fetchRow($query);
@@ -117,14 +117,16 @@ class Model_Post extends Model_Record
 
     public function fetchAllRecent()
     {
+        $table = $this->_getTable();
+
         $recentTimePeriod = $this->_localConfig->getRecentTimePeriod();
         if (! $recentTimePeriod) {
             throw new Exception("Missing recent_time_period in config");
         }
 
         $query = $this->selectAll()
-            ->where("posts.created_at > DATE_SUB(NOW(), INTERVAL $recentTimePeriod)")
-            ->where('posts.is_active = 1');
+            ->where("$table.created_at > DATE_SUB(NOW(), INTERVAL $recentTimePeriod)")
+            ->where("$table.is_active = 1");
         $results = $this->_localConfig->database()->fetchAll($query);
 
         return $results;
@@ -132,11 +134,13 @@ class Model_Post extends Model_Record
 
     public function fetchAllWithAuthor()
     {
+        $table = $this->_getTable();
+
         $query = $this->selectAll()
-            ->where('posts.is_active = 1')
+            ->where("$table.is_active = 1")
             ->joinLeft(
                 'users',
-                "users.user_id = posts.user_id",
+                "users.user_id = $table.user_id",
                 array('name')
             );
         $rows = $this->_localConfig->database()->fetchAll($query);
@@ -152,9 +156,11 @@ class Model_Post extends Model_Record
 
     public function fetchByUserId($userId)
     {
+        $table = $this->_getTable();
+
         $query = $this->selectAll();
-        $query->where('posts.user_id = ?', $userId);
-        $query->where('posts.is_active = 1', $userId);
+        $query->where("$table.user_id = ?", $userId);
+        $query->where("$table.is_active = 1", $userId);
         $rows = $this->_localConfig->database()->fetchAll($query);
 
         $models = array();
