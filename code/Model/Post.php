@@ -108,6 +108,12 @@ class Model_Post extends Model_Record
                     'vote_count' => 'COUNT(DISTINCT post_vote_id)',
                 )
             )
+            ->joinLeft(array('voting_user' => 'users'),
+                'voting_user.user_id = post_vote.voting_user_id',
+                array(
+                    'upvoters_csv' => 'GROUP_CONCAT(DISTINCT voting_user.username)'
+                )
+            )
             ->group('posts.post_id')
             ->where("$table.$tableIdFieldname = ?", $entityId);
 

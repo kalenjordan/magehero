@@ -8,9 +8,9 @@
     <table class="listing">
         <tbody>
         {% for post in posts %}
-            <tr data-post-id={{ post.id() }}>
+            <tr>
                 <td>
-                    <div class="post-upvote">
+                    <div class="post-upvote" data-post-id={{ post.id() }}>
                         <span class="post-upvote-wrapper">
                             <a class="post-upvote-link" href="javascript://"><i class="fa fa-caret-up"></i></a>
                         </span>

@@ -11,18 +11,14 @@
                         <a href="/{{ post.getUser().getUsername() }}/posts"><img src="{{ post.getUser().imageUrl() }}"></a>
                     </div>
                 {% endif %}
-                <!-- todo: replace with post upvoting not user upvoting
-                 
-                <div class="ranking">
-                    {% if post.getUser().voteCount() >= local_config.getRankRocketMinimumVotecount() %}
-                        <i class="fa fa-rocket tooltip" title="This developer has received {{ post.getUser().voteCount() }} votes: {{ post.getUser().votingUsernames() }}"></i>
-                    {% elseif post.getUser().voteCount() >= local_config.getRankStarMinimumVotecount() %}
-                        <i class="fa fa-star tooltip" title="This developer has received {{ post.getUser().voteCount() }} vote: {{ post.getUser().votingUsernames() }}"></i>
-                    {% else %}
-                        <i class="fa fa-meh-o tooltip" title="This developer hasn't received any upvotes yet"></i>
-                    {% endif %}
+                <div class="post-upvote" data-post-id={{ post.id() }}>
+                    <span class="post-upvote-wrapper">
+                        <a class="post-upvote-link" href="javascript://"><i class="fa fa-caret-up"></i></a>
+                    </span>
+                    <span class="post-vote-count-wrapper {{ post.voteCount() ? "tooltip" : "" }}" title="Upvoted by {{ post.getUpvotersCsv() }}">
+                        <span class="post-vote-count">{{ post.voteCount() }}</span>
+                    </span>
                 </div>
-                -->
                 <div class="subject">{{ post.getSubject() }}</div>
                 <div class="tags">
                     {% for tag in post.fetchTags() %}
