@@ -9,6 +9,7 @@ class Controller_PostList extends Controller_Abstract
         echo $this->_getTwig()->render('post_list.html.twig', array(
             'session'       => $this->_getSession(),
             'posts'         => $posts,
+            'local_config'  => $this->_getContainer()->LocalConfig(),
         ));
     }
 
