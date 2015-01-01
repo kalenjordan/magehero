@@ -15,7 +15,19 @@ class Controller_PostList extends Controller_Abstract
 
     protected function _getPosts()
     {
-        $postRows = $this->_getContainer()->Post()->fetchAllRecent();
+        $recentTimePeriod = $this->_getContainer()->LocalConfig()->getRecentTimePeriod();
+        if (! $recentTimePeriod) {
+            throw new Exception("Missing recent_time_period in config");
+        }
+
+        $select = $this->_getContainer()->Post()->selectAll()
+            ->where('posts.is_active = 1');
+
+        if (! isset($_GET['period']) || $_GET['period'] != 'all-time') {
+            $select->where("posts.created_at > DATE_SUB(NOW(), INTERVAL $recentTimePeriod)");
+        }
+
+        $postRows = $this->_getContainer()->LocalConfig()->database()->fetchAll($select);
         $postModels = array();
 
         foreach ($postRows as $postRow) {

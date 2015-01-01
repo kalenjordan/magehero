@@ -8,6 +8,10 @@ body, h1 {
   padding: 0;
 }
 
+h2 .all-time {
+  font-size: 12px;
+}
+
 .hellobar {
   background-color: #e3472f;
   text-align: center;
