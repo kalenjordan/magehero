@@ -18,7 +18,7 @@ $(document).ready(function() {
         }
     });
 
-    if ($('textarea').size()) {
+    if ($('textarea.body').size()) {
         var opts = {
             textarea: 'body',
             theme: {
