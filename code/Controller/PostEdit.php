@@ -1,5 +1,8 @@
 <?php
 
+
+use Imgur\Client;
+
 class Controller_PostEdit extends Controller_Abstract
 {
     public function get($postId)
@@ -21,17 +24,12 @@ class Controller_PostEdit extends Controller_Abstract
 
     public function post($postId)
     {
-        $imageUrl = isset($_POST['image_url']) ? $_POST['image_url'] : null;
+        $imageUrl = ($_FILES['image_url']['size'] > 0) ? $_FILES['image_url'] : null;
         $subject = isset($_POST['subject']) ? $_POST['subject'] : null;
         $body = isset($_POST['body']) ? $_POST['body'] : null;
         $tagIds = isset($_POST['tag_ids']) ? $_POST['tag_ids'] : null;
         $isActive = isset($_POST['is_active']) ? $_POST['is_active'] : null;
 
-        if ($imageUrl) {
-            if (strpos($imageUrl, "javascript:") !== false || strpos($imageUrl, "data:") !== false) {
-                die("Looks like an injection attempt");
-            }
-        }
 
         if (! $tagIds || empty($tagIds)) {
             die("You have to pick at least one tag");
@@ -42,6 +40,12 @@ class Controller_PostEdit extends Controller_Abstract
             die("Permission denied");
         }
 
+        if ($imageUrl) {
+            $fileName = $_FILES['image_url']['tmp_name'];
+            $response = $this->uploadImage($fileName);
+            $imageUrl = $response['link'];
+        }
+        
         $post->set('subject', $subject)
             ->set('body', $body)
             ->set('tag_ids', $tagIds)
@@ -51,6 +55,28 @@ class Controller_PostEdit extends Controller_Abstract
             ->save();
 
         header("Location: " . $post->getUrl());
+    }
+
+    /**
+     * @param $fileName
+     * @return mixed
+     * @throws \Imgur\InvalidArgumentException
+     */
+    private function uploadImage($fileName)
+    {
+        $client = new Client();
+        $client->setOption('client_id', $this->_getConfigData('imgur_client_id'));
+        $client->setOption('client_secret', $this->_getConfigData('imgur_client_secret'));
+
+        $imageData = array(
+            'image' => $fileName,
+            'type' => 'file'
+        );
+
+        $basic = $client->api('image')->upload($imageData);
+        $response = $basic->getData();
+
+        return $response;
     }
 
 }
