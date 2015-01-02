@@ -127,6 +127,11 @@ table.listing .fa {
 table.listing .image-wrapper {
   max-width: 40px;
 }
+table.listing .fa.new {
+  color: green;
+  margin-left: 12px;
+  margin-top: 4px;
+}
 table.listing .last-updated {
   font-size: 12px;
 }

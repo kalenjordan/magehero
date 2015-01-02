@@ -43,13 +43,26 @@ class Model_Post extends Model_Record
     public function voteCount()      { return $this->get('vote_count'); }
     public function getUpvotersCsv() { return $this->get('upvoters_csv'); }
 
-    public function getCreatedAtFriendly()
+    /**
+     * @return \Carbon\Carbon
+     */
+    public function getCreatedAtDate()
     {
         try {
-            return \Carbon\Carbon::parse($this->getCreatedAt())->diffForHumans();
+            return \Carbon\Carbon::parse($this->getCreatedAt());
         } catch (Exception $e) {
+            return null;
+        }
+    }
+
+    public function getCreatedAtFriendly()
+    {
+        $createdAtDate = $this->getCreatedAtDate();
+        if (! $createdAtDate) {
             return $this->getCreatedAt();
         }
+
+        return $createdAtDate->diffForHumans();
     }
 
     /**
@@ -270,5 +283,15 @@ class Model_Post extends Model_Record
     {
         // Update the updated_at timestamp
         $this->getUser()->save();
+    }
+
+    public function isNew()
+    {
+        $createdAtDate = $this->getCreatedAtDate();
+        if (! $createdAtDate) {
+            return false;
+        }
+
+        return $createdAtDate->diffInHours() < 24;
     }
 }
