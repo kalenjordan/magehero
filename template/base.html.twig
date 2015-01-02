@@ -27,6 +27,13 @@
 <div class="wrapper">
     <div class="account">
         {% if session.github_username %}
+            {%  if session.image_url %}
+                <div class="image-wrapper user-thumbnail">
+                    <a href="/profile">
+                        <img src="{{ session.image_url }}" >
+                    </a>
+                </div>
+            {% endif %}
             <a href="/profile" class="tooltip" title="Edit your profile">{{ session.github_username }}</a>
             <a href="/posts/new" class="tooltip" title="Write a post">Post</a>
             <a href="/logout" class="tooltip" title="Peace out">Log Out</a>

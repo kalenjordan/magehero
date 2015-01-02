@@ -161,6 +161,7 @@ iframe{border:0}
 .masthead a{color:#ef672f}
 .masthead a:hover{text-decoration:none}
 .masthead i{color:#aaa;font-size:1.3em;padding:0 .2em;position:relative;top:.1em}
+.account .user-thumbnail{max-width:30px}
 .hellobar{background-color:#666;color:#fff;text-align:center}
 .hellobar .hellobar-inner{font-size:.8em;padding:.5em}
 .hellobar .hellobar-inner a{color:#fff}
