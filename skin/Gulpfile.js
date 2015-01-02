@@ -5,7 +5,7 @@ var plugins = gulpLoadPlugins();
 
 // Task Styles
 gulp.task('styles', function () {
-    gulp.src('sass/app.scss')
+    gulp.src('sass/styles.scss')
         .pipe(plugins.plumber())
         .pipe(plugins.sass())
         .pipe(plugins.minifyCss({keepBreaks:true}))

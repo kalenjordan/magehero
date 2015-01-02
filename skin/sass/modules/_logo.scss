@@ -1,0 +1,19 @@
+.masthead {
+    position: relative;
+
+    a {
+        color: $orange;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    i {
+        color: $grey;
+        font-size: 1.3em;
+        padding: 0 0.2em;
+        position: relative;
+        top: 0.1em;
+    }
+}

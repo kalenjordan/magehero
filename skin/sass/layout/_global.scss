@@ -1,0 +1,47 @@
+.wrapper {
+    position: relative;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+    margin-top: 1em;
+}
+
+.account {
+    margin: 1em;
+    text-align: right;
+
+    a {
+        padding-left: 0.75em;
+    }
+}
+
+.masthead {
+    text-align: center;
+}
+
+.content {
+    clear: both;
+}
+
+.image-wrapper img {
+    width: 100%;
+}
+
+.about {
+    margin-top: 3em;
+    font-size: 12px;
+    text-align: center;
+}
+
+.write-post {
+    padding-bottom: 1em;
+    text-left: center;
+    font-weight: bold;
+}
+
+.footer {
+    text-align: center;
+    padding: 15px 0;
+    font-size: 12px;
+}

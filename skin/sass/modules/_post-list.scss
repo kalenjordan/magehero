@@ -1,0 +1,37 @@
+.all-time {
+        font-size: 12px;
+}
+
+.post-upvote-wrapper {
+    display: block;
+    float: left;
+    margin-right: 1em;
+    cursor: default;
+
+    .post-upvote-link .fa {
+        font-size: 22px;
+        color: black;
+        &:hover {
+            color: #ef672f;
+        }
+    }
+}
+
+.post-vote-count-wrapper {
+    background-color: #ef672f;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: block;
+    float: left;
+    position: relative;
+
+    .post-vote-count {
+        cursor: default;
+        position: absolute;
+        left: 8px;
+        top: 5px;
+        font-size: 13px;
+        color: white;
+    }
+}
