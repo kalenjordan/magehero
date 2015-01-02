@@ -18,7 +18,7 @@
                             <span class="post-vote-count">{{ post.voteCount() }}</span>
                         </span>
                         {% if post.isNew() %}
-                            <i class="fa fa-bolt new tooltip" title="This was posted in the last 24 hours"></i>
+                            <i class="fa fa-bolt new tooltip" title="This was posted in the last {{ local_config.getNumberOfHoursForNew() }} hours"></i>
                         {% endif %}
                     </div>
                 </td>
