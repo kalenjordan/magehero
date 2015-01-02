@@ -25,7 +25,7 @@ class Controller_UserProfile extends Controller_Abstract
 
         $developers = $this->_getDevelopers($user);
 
-        echo $this->_getTwig()->render('index.html.twig', array(
+        echo $this->_getTwig()->render('user_list.html.twig', array(
             'user'          => $user,
             'developers'    => $developers,
             'session'       => $this->_getSession(),
