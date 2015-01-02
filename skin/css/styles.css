@@ -190,6 +190,7 @@ iframe{border:0}
 @media only screen and (min-width:400px){.post .post-info{width:calc(100% - 9em)}}
 .all-time{font-size:12px}
 .listing-post{box-shadow:0 1px 2px rgba(0,0,0,.3)}
+.fa.new{color:green;margin-left:12px;margin-top:4px}
 .post-upvote-wrapper{cursor:default}
 .post-upvote-wrapper .post-upvote-link .fa{font-size:22px;color:#000}
 .post-upvote-wrapper .post-upvote-link .fa:hover{color:#ef672f}
