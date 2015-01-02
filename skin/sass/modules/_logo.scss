@@ -1,6 +1,10 @@
 .masthead {
     position: relative;
 
+    h1 {
+        @include rem(font-size, 48px);
+    }
+
     a {
         color: $orange;
 

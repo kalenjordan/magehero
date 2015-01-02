@@ -1,7 +1,7 @@
 html,
 body {
     background: #FFF;
-    font: 300 16px/20px $opensans;
+    font: 300 16px/25px $opensans;
     color: #444;
     -webkit-font-smoothing: antialiased;
     font-smooth: always;
@@ -42,24 +42,24 @@ h6 {
 }
 
 h1 {
-    @include rem(font-size, 48px);
+    @include rem(font-size, 30px);
     font-weight: 700;
     line-height: 1.17;
 }
 
 h2 {
-    @include rem(font-size, 30px);
+    @include rem(font-size, 24px);
     font-weight: 300;
     line-height: 1.3;
 }
 
 h3 {
-    @include rem(font-size, 24px);
+    @include rem(font-size, 20px);
     line-height: 1.4;
 }
 
 h4 {
-    @include rem(font-size, 18px);
+    @include rem(font-size, 16px);
     line-height: 1.4;
 }
 

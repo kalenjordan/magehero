@@ -6,11 +6,7 @@
     <div class="posts-wrapper">
         {% if post.getIsActive() %}
             <div class="post post-{{ post.getId() }}">
-                {% if post.getUser() and post.getUser().imageUrl() %}
-                    <div class="image-wrapper user-thumbnail">
-                        <a href="/{{ post.getUser().getUsername() }}/posts"><img src="{{ post.getUser().imageUrl() }}&amp;s=72"></a>
-                    </div>
-                {% endif %}
+
                 <div class="post-upvote" data-post-id={{ post.id() }}>
                     <span class="post-upvote-wrapper">
                         <a class="post-upvote-link" href="javascript://"><i class="fa fa-caret-up"></i></a>
@@ -19,15 +15,26 @@
                         <span class="post-vote-count">{{ post.voteCount() }}</span>
                     </span>
                 </div>
-                <div class="subject">{{ post.getSubject() }}</div>
-                <div class="tags">
-                    {% for tag in post.fetchTags() %}
-                        <span class="tag">
+
+                <div class="post-info">
+                    <h2>{{ post.getSubject() }}</h2>
+                    <div class="tags">
+                        <span class="last-updated">Posted {{ post.createdAtFriendly() }} in</span>
+                        {% for tag in post.fetchTags() %}
+                            <span class="tag">
                             <i class="fa fa-tag"></i>
-                            {{ tag.getTagText() }}
+                                {{ tag.getTagText() }}
                         </span>
-                    {% endfor %}
+                        {% endfor %}
+                    </div>
                 </div>
+
+                {%  if post.getUser() and post.getUser().imageUrl() %}
+                    <div class="image-wrapper user-thumbnail">
+                        <a href="{{ post.getUser().getUrl() }}"><img class="lazyload" data-src="{{ post.getUser().imageUrl() }}" ></a>
+                    </div>
+                {% endif %}
+
                 <div class="post-body">
                     {{ post.getBodyAsHtml() | raw }}
                     {% if post.getImageUrl() %}

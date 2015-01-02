@@ -30,10 +30,6 @@ $(document).ready(function() {
         var editor = new EpicEditor(opts).load();
     }
 
-    $('.tooltip').tooltipster({
-        delay: 0
-    });
-
     new LazyLoader('.lazyload', 'data-src');
 });
 
