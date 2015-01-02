@@ -28,6 +28,7 @@ try {
         "/(.*)"                             => "Controller_UserProfile",
         "/map"                              => "Controller_Map",
         "/map/users"                        => "Controller_MapUsers",
+        "/search"                           => "Controller_Search",
         "/feed"                             => "Controller_Feed",
     ));
 } catch (Exception $e) {

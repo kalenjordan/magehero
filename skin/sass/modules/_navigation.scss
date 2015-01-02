@@ -1,3 +1,11 @@
+.search {
+    font-size: 0.8em;
+
+    .search-form {
+        display: none;
+    }
+}
+
 .account {
     font-size: 0.9em;
 
@@ -5,4 +13,17 @@
         max-width: 30px;
     }
 
+}
+
+@include modular-bp(450px) {
+
+    .search {
+        .search-form {
+            display: inline-block;
+        }
+
+        .fa-search {
+            display: none;
+        }
+    }
 }

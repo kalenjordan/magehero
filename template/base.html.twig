@@ -25,6 +25,12 @@
 
 
 <div class="wrapper">
+    <div class="search">
+        <a href="/search"><i class="fa fa-search"></i></a>
+        <form class="search-form" action="/search" method="GET">
+            <input type="text" name="query" value="" placeholder="Search Posts...">
+        </form>
+    </div>
     <div class="account">
         {% if session.github_username %}
             {%  if session.image_url %}

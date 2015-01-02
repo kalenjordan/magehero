@@ -7,9 +7,15 @@
     margin-top: 1em;
 }
 
-.account {
+.search {
+    display: inline-block;
     margin: 1em;
-    text-align: right;
+}
+
+.account {
+    float: right;
+    height: 30px;
+    margin: 1em;
 
     a {
         padding-left: 0.75em;
