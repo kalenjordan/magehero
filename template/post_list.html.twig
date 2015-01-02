@@ -22,7 +22,7 @@
                 <td>
                     {% if post.getUser().imageUrl() %}
                         <div class="image-wrapper user-thumbnail">
-                            <a href="{{ post.getUser().getUrl() }}"><img src="{{ post.getUser().imageUrl() }}&amp;s=40"></a>
+                            <a href="{{ post.getUser().getUrl() }}"><img class="lazyload" data-src="{{ post.getUser().imageUrl() }}"></a>
                         </div>
                     {% endif %}
                 </td>
