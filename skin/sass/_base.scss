@@ -135,7 +135,10 @@ textarea {
 
 }
 
-%button {
+.button,
+button,
+input[type="button"],
+input[type="submit"] {
     background: $orange;
     border: 0;
     border-radius: 0;
@@ -148,13 +151,6 @@ textarea {
         background: $grey;
         text-decoration: none;
     }
-}
-
-.button,
-button,
-input[type="button"],
-input[type="submit"] {
-    @extend %button;
 }
 
 select {
