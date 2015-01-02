@@ -1,0 +1,18 @@
+{
+  "name": "magehero-assets",
+  "description": "Assets for magehero.com",
+  "version": "0.0.1",
+  "devDependencies": {
+    "gulp": "^3.8.7",
+    "gulp-concat": "^2.4.1",
+    "gulp-load-plugins": "^0.8.0",
+    "gulp-plumber": "^0.6.5"
+  },
+  "dependencies": {
+    "gulp-imagemin": "^1.0.0",
+    "gulp-minify-css": "^0.3.7",
+    "gulp-sass": "^0.7.3",
+    "gulp-uglify": "^0.3.1",
+    "normalize.css": "^3.0.1"
+  }
+}

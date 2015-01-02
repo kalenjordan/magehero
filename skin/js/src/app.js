@@ -29,6 +29,8 @@ $(document).ready(function() {
         };
         var editor = new EpicEditor(opts).load();
     }
+
+    new LazyLoader('.lazyload', 'data-src');
 });
 
 document.addEventListener('DOMContentLoaded', function() {

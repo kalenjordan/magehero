@@ -1,0 +1,54 @@
+.wrapper {
+    position: relative;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+    margin-top: 1em;
+}
+
+.search {
+    display: inline-block;
+    margin: 1em;
+}
+
+.account {
+    float: right;
+    height: 30px;
+    margin: 1em;
+
+    a {
+        padding-left: 0.75em;
+    }
+}
+
+.masthead {
+    margin: 2em 0;
+    text-align: center;
+}
+
+.content {
+    padding: 0 1em;
+}
+
+.image-wrapper img {
+    width: 100%;
+}
+
+.about {
+    margin-top: 3em;
+    font-size: 12px;
+    text-align: center;
+}
+
+.write-post {
+    padding-bottom: 1em;
+    text-left: center;
+    font-weight: bold;
+}
+
+.footer {
+    text-align: center;
+    padding: 15px 0;
+    font-size: 12px;
+}

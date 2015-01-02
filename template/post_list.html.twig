@@ -1,43 +1,33 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
-    <div class="write-post">
-        <a href="/posts/new"><i class="fa fa-pencil-square-o"></i> What are you working on?</a>
-    </div>
-    <h2 class="tooltip" style="display: inline-block; text-align: center;" title="All MageHero posts from the last 7 day rolling period">This Week <span class="all-time"><a href="/?period=all-time">all time</a></span></h2>
-    <table class="listing">
-        <tbody>
+    <h2 title="All MageHero posts from the last 7 day rolling period">This Month <span class="all-time"><a href="/?period=all-time">all time</a></span></h2>
+    <ul class="listing">
         {% for post in posts %}
-            <tr>
-                <td>
-                    <div class="post-upvote" data-post-id={{ post.id() }}>
-                        <span class="post-upvote-wrapper">
-                            <a class="post-upvote-link" href="javascript://"><i class="fa fa-caret-up"></i></a>
-                        </span>
-                        <span class="post-vote-count-wrapper {{ post.voteCount() ? "tooltip" : "" }}" title="Upvoted by {{ post.getUpvotersCsv() }}">
-                            <span class="post-vote-count">{{ post.voteCount() }}</span>
-                        </span>
-                        {% if post.isNew() %}
-                            <i class="fa fa-bolt new tooltip" title="This was posted in the last {{ local_config.getNumberOfHoursForNew() }} hours"></i>
-                        {% endif %}
-                    </div>
-                </td>
-                <td>
-                    {% if post.getUser().imageUrl() %}
-                        <div class="image-wrapper user-thumbnail">
-                            <a href="{{ post.getUser().getUrl() }}"><img src="{{ post.getUser().imageUrl() }}&amp;s=40"></a>
-                        </div>
+            <li class="listing-post">
+                <div class="post-upvote" data-post-id={{ post.id() }}>
+                    <span class="post-upvote-wrapper">
+                        <a class="post-upvote-link" href="javascript://"><i class="fa fa-caret-up"></i></a>
+                    </span>
+                    <span class="post-vote-count-wrapper {{ post.voteCount() ? "tooltip" : "" }}" title="Upvoted by {{ post.getUpvotersCsv() }}">
+                        <span class="post-vote-count">{{ post.voteCount() }}</span>
+                    </span>
+                    {% if post.isNew() %}
+                        <i class="fa fa-bolt new tooltip" title="This was posted in the last {{ local_config.getNumberOfHoursForNew() }} hours"></i>
                     {% endif %}
-                </td>
-                <td>
-                    <a href="{{ post.getUrl() }}">{{ post.getSubject() }}</a>
-                </td>
-                <td>
-                    <span class="last-updated">{{ post.createdAtFriendly() }}</span>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+                </div>
 
+                <div class="post-info">
+                    <a href="{{ post.getUrl() }}">{{ post.getSubject() }}</a>
+                    <span class="last-updated">{{ post.createdAtFriendly() }}</span>
+                </div>
+
+                {% if post.getUser().imageUrl() %}
+                    <div class="image-wrapper user-thumbnail">
+                        <a href="{{ post.getUser().getUrl() }}"><img class="lazyload" data-src="{{ post.getUser().imageUrl() }}" ></a>
+                    </div>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
 {% endblock %}

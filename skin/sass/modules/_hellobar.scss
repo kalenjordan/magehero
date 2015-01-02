@@ -1,0 +1,15 @@
+.hellobar {
+    background-color: $darkGrey;
+    color: #ffffff;
+    text-align: center;
+
+    .hellobar-inner {
+        font-size: 0.8em;
+        padding: 0.5em;
+
+
+        a {
+            color: white;
+        }
+    }
+}
