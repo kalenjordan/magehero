@@ -1,27 +1,24 @@
 <div class="post post-{{ post.getId() }}">
-    {% if post.getUser() and post.getUser().imageUrl() %}
-        <div class="image-wrapper user-thumbnail">
-            <img src="{{ post.getUser().imageUrl() }}">
-        </div>
-    {% endif %}
-    <!--
-    <div class="ranking">
-        {% if post.getUser().voteCount() >= local_config.getRankRocketMinimumVotecount() %}
-            <i class="fa fa-rocket tooltip" title="This developer has received {{ post.getUser().voteCount() }} votes: {{ post.getUser().votingUsernames() }}"></i>
-        {% elseif post.getUser().voteCount() >= local_config.getRankStarMinimumVotecount() %}
-            <i class="fa fa-star tooltip" title="This developer has received {{ post.getUser().voteCount() }} vote: {{ post.getUser().votingUsernames() }}"></i>
-        {% else %}
-            <i class="fa fa-meh-o tooltip" title="This developer hasn't received any upvotes yet"></i>
-        {% endif %}
+    <div class="post-upvote" data-post-id={{ post.id() }}>
+        <span class="post-upvote-wrapper">
+            <a class="post-upvote-link" href="javascript://"><i class="fa fa-caret-up"></i></a>
+        </span>
+        <span class="post-vote-count-wrapper {{ post.voteCount() ? "tooltip" : "" }}" title="Upvoted by {{ post.getUpvotersCsv() }}">
+            <span class="post-vote-count">{{ post.voteCount() }}</span>
+        </span>
     </div>
-    -->
-    <div class="subject"><a href="/posts/{{ post.getId() }}">{{ post.getSubject() }}</a></div>
-    <div class="tags">
-        {% for tag in post.fetchTags() %}
-            <span class="tag">
+
+    <div class="post-info">
+        <a href="{{ post.getUrl() }}">{{ post.getSubject() }}</a>
+        <span class="last-updated">{{ post.createdAtFriendly() }}</span>
+        <div class="tags">
+            {% for tag in post.fetchTags() %}
+                <span class="tag">
                 <i class="fa fa-tag"></i>
-                {{ tag.getTagText() }}
+                    {{ tag.getTagText() }}
             </span>
-        {% endfor %}
+            {% endfor %}
+        </div>
     </div>
 </div>
+

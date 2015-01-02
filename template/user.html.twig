@@ -3,9 +3,22 @@
 {% block title %}{{ user.getName() }} | MageHero{% endblock %}
 
 {% block content %}
-    <div class="posts-wrapper">
+
+    <h2>{{ user.getName() }}</h2>
+
+    {%  if user.imageUrl() %}
+        <div class="image-wrapper user-thumbnail">
+            <a href="{{ user.getUrl() }}">
+                <img class="lazyload" data-src="{{ user.imageUrl() }}" >
+            </a>
+        </div>
+    {% endif %}
+
+    <ul class="listing">
         {% for post in posts %}
-            {% include 'fragment/post.html.twig' %}
+            <li class="listing-post">
+                {% include 'fragment/post.html.twig' %}
+            </li>
         {% endfor %}
-    </div>
+    </ul>
 {% endblock %}
