@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
-    <h2 title="All MageHero posts from the last 30 day rolling period">This Month <span class="all-time"><a href="/?period=all-time">all time</a></span></h2>
+    <h2 title="All MageHero posts from the last 7 day rolling period">This Month <span class="all-time"><a href="/?period=all-time">all time</a></span></h2>
     <ul class="listing">
         {% for post in posts %}
             <li class="listing-post">
@@ -12,6 +12,9 @@
                     <span class="post-vote-count-wrapper {{ post.voteCount() ? "tooltip" : "" }}" title="Upvoted by {{ post.getUpvotersCsv() }}">
                         <span class="post-vote-count">{{ post.voteCount() }}</span>
                     </span>
+                    {% if post.isNew() %}
+                        <i class="fa fa-bolt new tooltip" title="This was posted in the last {{ local_config.getNumberOfHoursForNew() }} hours"></i>
+                    {% endif %}
                 </div>
 
                 <div class="post-info">
