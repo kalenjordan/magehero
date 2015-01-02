@@ -54,4 +54,5 @@ class Model_LocalConfig
 
     public function getHideExceptions() { return $this->get('hide_exceptions'); }
     public function getRecentTimePeriod() { return $this->get('recent_time_period'); }
+    public function getNumberOfHoursForNew() { return $this->get('number_of_hours_for_new'); }
 }

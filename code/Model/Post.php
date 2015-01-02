@@ -292,6 +292,6 @@ class Model_Post extends Model_Record
             return false;
         }
 
-        return $createdAtDate->diffInHours() < 24;
+        return $createdAtDate->diffInHours() < $this->_localConfig->getNumberOfHoursForNew();
     }
 }
