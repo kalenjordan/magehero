@@ -3,8 +3,12 @@
 require_once(dirname(__FILE__) . '/vendor/autoload.php');
 session_start();
 
-error_reporting(-1);
-ini_set('display_errors', 'On');
+if ($local->getHideExceptions()) {
+    ini_set('display_errors', 'Off');
+} else {
+    error_reporting(-1);
+    ini_set('display_errors', 'On');
+}
 
 $local = new Model_LocalConfig();
 
