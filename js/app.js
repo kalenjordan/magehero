@@ -18,7 +18,7 @@ $(document).ready(function() {
         }
     });
 
-    if ($('textarea').size()) {
+    if ($('textarea.body').size()) {
         var opts = {
             textarea: 'body',
             theme: {
@@ -65,7 +65,7 @@ MageHero_App = {
         var self = this;
 
         $('.post-upvote-link').click(function() {
-            var postId = $(this).closest('tr').attr('data-post-id');
+            var postId = $(this).closest('.post-upvote').attr('data-post-id');
             var upvoteCount = $(this).closest('.post-upvote').find('.post-vote-count');
 
             $.ajax({
