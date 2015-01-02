@@ -135,6 +135,28 @@ textarea {
 
 }
 
+%button {
+    background: $orange;
+    border: 0;
+    border-radius: 0;
+    color: #FFF;
+    display: inline-block;
+    margin: 1em 0;
+    padding: 0.5em 1em;
+
+    &:hover {
+        background: $grey;
+        text-decoration: none;
+    }
+}
+
+.button,
+button,
+input[type="button"],
+input[type="submit"] {
+    @extend %button;
+}
+
 select {
     width: 100%;
 }
