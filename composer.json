@@ -1,4 +1,6 @@
 {
+    "name" : "magehero/magehero",
+    "description" : "Magehero website",
     "require": {
         "torophp/torophp": "dev-master",
         "twig/twig": "dev-master",
@@ -8,7 +10,9 @@
         "zendframework/zendframework1": "dev-master",
         "j7mbo/twitter-api-php": "dev-master",
         "erusev/parsedown": "dev-master",
-        "ezyang/htmlpurifier": "dev-master"
+        "ezyang/htmlpurifier": "dev-master",
+        "thepixeldeveloper/sitemap": "dev-master",
+        "symfony/console": "~2.6"
     },
     "autoload": {"psr-0": {"": "code"}}
 }

@@ -4,20 +4,20 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d87132a53a07b93478d3d3e8873e5616",
+    "hash": "f469ed4c0a06cb7ff741bb782be832f9",
     "packages": [
         {
             "name": "container-interop/container-interop",
-            "version": "1.0.0",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/container-interop/container-interop.git",
-                "reference": "b4274c871bfd1ae8d8e527ba11734f4df1573e48"
+                "reference": "fc08354828f8fd3245f77a66b9e23a6bca48297e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/container-interop/container-interop/zipball/b4274c871bfd1ae8d8e527ba11734f4df1573e48",
-                "reference": "b4274c871bfd1ae8d8e527ba11734f4df1573e48",
+                "url": "https://api.github.com/repos/container-interop/container-interop/zipball/fc08354828f8fd3245f77a66b9e23a6bca48297e",
+                "reference": "fc08354828f8fd3245f77a66b9e23a6bca48297e",
                 "shasum": ""
             },
             "type": "library",
@@ -31,20 +31,20 @@
                 "MIT"
             ],
             "description": "Promoting the interoperability of container objects (DIC, SL, etc.)",
-            "time": "2014-03-16 14:50:05"
+            "time": "2014-12-30 15:22:37"
         },
         {
             "name": "doctrine/annotations",
-            "version": "v1.2.1",
+            "version": "v1.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/annotations.git",
-                "reference": "6a6bec0670bb6e71a263b08bc1b98ea242928633"
+                "reference": "eeda578cbe24a170331a1cfdf78be723412df7a4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/annotations/zipball/6a6bec0670bb6e71a263b08bc1b98ea242928633",
-                "reference": "6a6bec0670bb6e71a263b08bc1b98ea242928633",
+                "url": "https://api.github.com/repos/doctrine/annotations/zipball/eeda578cbe24a170331a1cfdf78be723412df7a4",
+                "reference": "eeda578cbe24a170331a1cfdf78be723412df7a4",
                 "shasum": ""
             },
             "require": {
@@ -99,7 +99,7 @@
                 "docblock",
                 "parser"
             ],
-            "time": "2014-09-25 16:45:30"
+            "time": "2014-12-20 20:49:38"
         },
         {
             "name": "doctrine/cache",
@@ -228,12 +228,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/erusev/parsedown.git",
-                "reference": "da5d75e97e1ed19e57bd54fa6cb595a6a0879a67"
+                "reference": "c9b4de3c9daf9c4dc40e500696c250b192d2f66a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/erusev/parsedown/zipball/da5d75e97e1ed19e57bd54fa6cb595a6a0879a67",
-                "reference": "da5d75e97e1ed19e57bd54fa6cb595a6a0879a67",
+                "url": "https://api.github.com/repos/erusev/parsedown/zipball/c9b4de3c9daf9c4dc40e500696c250b192d2f66a",
+                "reference": "c9b4de3c9daf9c4dc40e500696c250b192d2f66a",
                 "shasum": ""
             },
             "type": "library",
@@ -259,7 +259,7 @@
                 "markdown",
                 "parser"
             ],
-            "time": "2014-10-29 20:29:46"
+            "time": "2014-12-21 11:51:16"
         },
         {
             "name": "ezyang/htmlpurifier",
@@ -267,12 +267,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ezyang/htmlpurifier.git",
-                "reference": "b307f3d9ef0960b74ea8bd8d5bbdef2049368947"
+                "reference": "0c3e68dd0357321b5a5818c3aa832b1cc24a4b1f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ezyang/htmlpurifier/zipball/b307f3d9ef0960b74ea8bd8d5bbdef2049368947",
-                "reference": "b307f3d9ef0960b74ea8bd8d5bbdef2049368947",
+                "url": "https://api.github.com/repos/ezyang/htmlpurifier/zipball/0c3e68dd0357321b5a5818c3aa832b1cc24a4b1f",
+                "reference": "0c3e68dd0357321b5a5818c3aa832b1cc24a4b1f",
                 "shasum": ""
             },
             "require": {
@@ -303,7 +303,7 @@
             "keywords": [
                 "html"
             ],
-            "time": "2014-10-23 22:36:02"
+            "time": "2014-12-09 02:30:54"
         },
         {
             "name": "j7mbo/twitter-api-php",
@@ -408,16 +408,16 @@
         },
         {
             "name": "mnapoli/php-di",
-            "version": "4.4.0",
+            "version": "4.4.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mnapoli/PHP-DI.git",
-                "reference": "556e3be63a821bbad0585a34f634080305392252"
+                "reference": "2c324795faed02dbb22224717dd2f87dae11e9f1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mnapoli/PHP-DI/zipball/556e3be63a821bbad0585a34f634080305392252",
-                "reference": "556e3be63a821bbad0585a34f634080305392252",
+                "url": "https://api.github.com/repos/mnapoli/PHP-DI/zipball/2c324795faed02dbb22224717dd2f87dae11e9f1",
+                "reference": "2c324795faed02dbb22224717dd2f87dae11e9f1",
                 "shasum": ""
             },
             "require": {
@@ -434,10 +434,8 @@
             },
             "type": "library",
             "autoload": {
-                "psr-0": {
-                    "DI\\": "src/",
-                    "IntegrationTests\\": "tests/",
-                    "UnitTests\\": "tests/"
+                "psr-4": {
+                    "DI\\": "src/DI/"
                 },
                 "files": [
                     "src/DI/functions.php"
@@ -454,7 +452,7 @@
                 "dependency injection",
                 "di"
             ],
-            "time": "2014-10-14 06:13:26"
+            "time": "2014-12-11 22:20:25"
         },
         {
             "name": "mnapoli/phpdocreader",
@@ -632,6 +630,108 @@
             "time": "2014-09-28 14:18:11"
         },
         {
+            "name": "symfony/console",
+            "version": "v2.6.1",
+            "target-dir": "Symfony/Component/Console",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/Console.git",
+                "reference": "ef825fd9f809d275926547c9e57cbf14968793e8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/Console/zipball/ef825fd9f809d275926547c9e57cbf14968793e8",
+                "reference": "ef825fd9f809d275926547c9e57cbf14968793e8",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "psr/log": "~1.0",
+                "symfony/event-dispatcher": "~2.1",
+                "symfony/process": "~2.1"
+            },
+            "suggest": {
+                "psr/log": "For using the console logger",
+                "symfony/event-dispatcher": "",
+                "symfony/process": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.6-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Symfony\\Component\\Console\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                },
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                }
+            ],
+            "description": "Symfony Console Component",
+            "homepage": "http://symfony.com",
+            "time": "2014-12-02 20:19:20"
+        },
+        {
+            "name": "thepixeldeveloper/sitemap",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ThePixelDeveloper/Sitemap-v2.git",
+                "reference": "0fb93d554734ff2f9ef3086d6d74d369b3ff7db6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ThePixelDeveloper/Sitemap-v2/zipball/0fb93d554734ff2f9ef3086d6d74d369b3ff7db6",
+                "reference": "0fb93d554734ff2f9ef3086d6d74d369b3ff7db6",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.13"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Sitemap": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mathew Davies",
+                    "email": "thepixeldeveloper@googlemail.com",
+                    "homepage": "http://mathew-davies.co.uk",
+                    "role": "Developer"
+                }
+            ],
+            "description": "XML sitemap generation",
+            "keywords": [
+                "Sitemap",
+                "xml"
+            ],
+            "time": "2014-11-29 16:18:49"
+        },
+        {
             "name": "torophp/torophp",
             "version": "dev-master",
             "source": {
@@ -712,12 +812,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "f8b6e918a7d8e073efe14cbed7ae02df40ef19ed"
+                "reference": "d375c805fb830f75aa3b8d4868cc2d9f99a4c2fa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/f8b6e918a7d8e073efe14cbed7ae02df40ef19ed",
-                "reference": "f8b6e918a7d8e073efe14cbed7ae02df40ef19ed",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/d375c805fb830f75aa3b8d4868cc2d9f99a4c2fa",
+                "reference": "d375c805fb830f75aa3b8d4868cc2d9f99a4c2fa",
                 "shasum": ""
             },
             "require": {
@@ -761,7 +861,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2014-10-23 15:29:03"
+            "time": "2014-12-25 20:52:25"
         },
         {
             "name": "zendframework/zend-code",
@@ -913,12 +1013,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zf1.git",
-                "reference": "9b9fda8329782926742d125bac2868748a299d0a"
+                "reference": "a18cff7576d67c051a2c7b0cff4dd6a46131ce71"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zf1/zipball/9b9fda8329782926742d125bac2868748a299d0a",
-                "reference": "9b9fda8329782926742d125bac2868748a299d0a",
+                "url": "https://api.github.com/repos/zendframework/zf1/zipball/a18cff7576d67c051a2c7b0cff4dd6a46131ce71",
+                "reference": "a18cff7576d67c051a2c7b0cff4dd6a46131ce71",
                 "shasum": ""
             },
             "require": {
@@ -952,7 +1052,7 @@
                 "ZF1",
                 "framework"
             ],
-            "time": "2014-10-30 22:01:31"
+            "time": "2015-01-01 12:25:30"
         }
     ],
     "packages-dev": [],
@@ -964,9 +1064,11 @@
         "zendframework/zendframework1": 20,
         "j7mbo/twitter-api-php": 20,
         "erusev/parsedown": 20,
-        "ezyang/htmlpurifier": 20
+        "ezyang/htmlpurifier": 20,
+        "thepixeldeveloper/sitemap": 20
     },
     "prefer-stable": false,
+    "prefer-lowest": false,
     "platform": [],
     "platform-dev": []
 }
