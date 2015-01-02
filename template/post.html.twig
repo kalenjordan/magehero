@@ -31,7 +31,7 @@
 
                 {%  if post.getUser() and post.getUser().imageUrl() %}
                     <div class="image-wrapper user-thumbnail">
-                        <a href="{{ post.getUser().getUrl() }}"><img class="lazyload" data-src="{{ post.getUser().imageUrl() }}" ></a>
+                        <a href="{{ post.getUser().getUrl() }}"><img src="{{ post.getUser().imageUrl() }}" ></a>
                     </div>
                 {% endif %}
 
