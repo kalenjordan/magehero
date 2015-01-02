@@ -1,7 +1,18 @@
 <?php
 
-class Controller_Available extends Controller_Index
+class Controller_Available extends Controller_Abstract
 {
+    public function get()
+    {
+        $developers = $this->_getDevelopers();
+
+        echo $this->_getTwig()->render('user_list.html.twig', array(
+            'developers'    => $developers,
+            'session'       => $this->_getSession(),
+            'local_config'  => $this->_getContainer()->LocalConfig(),
+        ));
+    }
+
     protected function _getDevelopers()
     {
         $query = $this->_getContainer()->User()->selectAll();
