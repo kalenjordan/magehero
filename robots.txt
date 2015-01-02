@@ -1,0 +1,8 @@
+User-agent: *
+Crawl-delay: 1
+Disallow: /code/
+Disallow: /data/
+Disallow: /etc/
+Disallow: /sql/
+Disallow: /template/
+Sitemap: http://magehero.com/sitemap.xml

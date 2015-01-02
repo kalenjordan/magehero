@@ -8,7 +8,7 @@
             <div class="post post-{{ post.getId() }}">
                 {% if post.getUser() and post.getUser().imageUrl() %}
                     <div class="image-wrapper user-thumbnail">
-                        <a href="/{{ post.getUser().getUsername() }}/posts"><img src="{{ post.getUser().imageUrl() }}"></a>
+                        <a href="/{{ post.getUser().getUsername() }}/posts"><img src="{{ post.getUser().imageUrl() }}&amp;s=72"></a>
                     </div>
                 {% endif %}
                 <div class="post-upvote" data-post-id={{ post.id() }}>

@@ -38,13 +38,13 @@
             <td>
                 {% if developer.imageUrl() %}
                     <div class="image-wrapper user-thumbnail">
-                        <img src="{{ developer.imageUrl() }}">
+                        <img src="{{ developer.imageUrl() }}&amp;s=25" alt="MageHero, Magento Developer - {{ developer.name() }}">
                     </div>
                 {% endif %}
             </td>
             <td>
                 {% if developer.githubUsername() and developer.fetchPostCount() %}
-                    <a href="/{{ developer.githubUsername() }}/posts">{{ developer.name() }}</a>
+                    <a href="{{ developer.getUrl() }}">{{ developer.name() }}</a>
                 {% else %}
                     <span>{{ developer.name() }}</span>
                 {% endif %}

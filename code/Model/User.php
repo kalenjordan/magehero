@@ -180,6 +180,8 @@ class Model_User extends Model_Record
     }
 
     public function getName() { return $this->get('name'); }
+    public function getCreatedAt() { return $this->get('created_at'); }
+    public function getUpdatedAt() { return $this->get('updated_at'); }
     public function getEmail() { return $this->getDetail('email'); }
     public function getVoteCount() { return $this->get('vote_count'); }
     public function getUsername() { return $this->get('username'); }
@@ -194,7 +196,7 @@ class Model_User extends Model_Record
     public function certifiedFrontendDeveloperUrl() { return $this->getDetail('certified_frontend_developer_url'); }
     public function stackoverflowUrl() { return $this->getDetail('stackoverflow_url'); }
     public function linkedinUrl() { return $this->getDetail('linkedin_url'); }
-    public function getGithubUsername() { return $this->getDetail('github_username'); }
+    public function getGithubUsername() { return (string) $this->getDetail('github_username'); }
     public function getTwitterUsername() { return $this->getDetail('twitter_username'); }
     public function getWebsiteUrl() { return $this->getDetail('url_website'); }
     public function getCompany() { return $this->getDetail('company'); }
@@ -292,5 +294,10 @@ class Model_User extends Model_Record
         $postModel = $this->_getContainer()->Post()->setData($row);
 
         return $postModel;
+    }
+
+    public function getUrl() {
+        $url = implode("/", array($this->_localConfig->get('base_url'), $this->getGithubUsername(), 'posts'));
+        return $url;
     }
 }

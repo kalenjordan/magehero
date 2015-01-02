@@ -39,6 +39,7 @@ class Model_Post extends Model_Record
     public function getImageUrl()   { return $this->get('image_url'); }
     public function getIsActive()   { return $this->get('is_active'); }
     public function getCreatedAt()   { return $this->get('created_at'); }
+    public function getUpdatedAt()   { return $this->get('updated_at'); }
     public function voteCount() { return $this->get('vote_count'); }
     public function getUpvotersCsv() { return $this->get('upvoters_csv'); }
 
