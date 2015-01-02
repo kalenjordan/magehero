@@ -1,7 +1,7 @@
 .post {
 
     .post-info {
-        width: calc(100% - 9em);
+        width: 100%;
 
         h2,
         .last-updated {
@@ -67,6 +67,14 @@
         .textarea {
             width: 100%;
             height: 400px;
+        }
+    }
+}
+
+@include modular-bp(400px) {
+    .post {
+        .post-info {
+            width: calc(100% - 9em);
         }
     }
 }
