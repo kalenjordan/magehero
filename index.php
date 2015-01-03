@@ -1,7 +1,11 @@
 <?php
 
 require_once(dirname(__FILE__) . '/vendor/autoload.php');
-session_start();
+$ok = @session_start();
+if(!$ok){
+    session_regenerate_id(true);
+    session_start(); 
+}
 
 $local = new Model_LocalConfig();
 
