@@ -172,8 +172,8 @@ iframe{border:0}
 .account .user-thumbnail{max-width:30px}
 @media only screen and (min-width:450px){.search .search-form{display:inline-block}
 .search .fa-search{display:none}}
-.hellobar{background-color:#666;color:#fff;text-align:center}
-.hellobar .hellobar-inner{font-size:.8em;padding:.5em}
+.hellobar{background-color:#ef672f;color:#fff;text-align:center}
+.hellobar .hellobar-inner{font-weight:400;padding:.5em}
 .hellobar .hellobar-inner a{color:#fff}
 .post .post-info{width:100%}
 .post .post-info .last-updated,.post .post-info h2{display:inline-block;margin-bottom:0}
