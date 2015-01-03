@@ -223,7 +223,7 @@ class Model_User extends Model_Record
         $detailJson = $this->get('details_json');
         $detailsArray = json_decode($detailJson, true);
         if (! $detailsArray) {
-            return array();
+            return null;
         }
 
         return isset($detailsArray[$key]) ? $detailsArray[$key] : null;
