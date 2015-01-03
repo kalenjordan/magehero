@@ -2,7 +2,7 @@
     position: relative;
 
     h1 {
-        @include rem(font-size, 48px);
+        @include rem(font-size, 35px);
     }
 
     a {
@@ -19,5 +19,14 @@
         padding: 0 0.2em;
         position: relative;
         top: 0.1em;
+    }
+}
+
+@include modular-bp(450px) {
+    .masthead {
+
+        h1 {
+            @include rem(font-size, 48px);
+        }
     }
 }

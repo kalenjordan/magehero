@@ -137,11 +137,11 @@ abbr{cursor:help}
 strong{font-weight:700}
 em{font-style:italic}
 iframe{border:0}
-.wrapper{position:relative;max-width:1000px;margin-left:auto;margin-right:auto;padding:0;margin-top:1em}
+.wrapper{position:relative;max-width:1000px;margin-left:auto;margin-right:auto;padding:0}
 .search{display:inline-block;margin:1em}
 .account{float:right;height:30px;margin:1em}
 .account a{padding-left:.75em}
-.masthead{margin:2em 0;text-align:center}
+.masthead{margin:2em 0 3em;text-align:center}
 .content{padding:0 1em}
 .image-wrapper img{width:100%}
 .about{margin-top:3em;font-size:12px;text-align:center}
@@ -160,10 +160,11 @@ iframe{border:0}
 .posts-wrapper .share{text-align:center;margin-bottom:1em}
 .post .ranking{position:absolute;top:7px;left:7px}
 .masthead{position:relative}
-.masthead h1{font-size:48px;font-size:3rem}
+.masthead h1{font-size:35px;font-size:2.1875rem}
 .masthead a{color:#ef672f}
 .masthead a:hover{text-decoration:none}
 .masthead i{color:#aaa;font-size:1.3em;padding:0 .2em;position:relative;top:.1em}
+@media only screen and (min-width:450px){.masthead h1{font-size:48px;font-size:3rem}}
 .search{font-size:.8em}
 .search .search-form{display:none}
 .account{font-size:.9em}
