@@ -139,7 +139,7 @@ em{font-style:italic}
 iframe{border:0}
 .wrapper{position:relative;max-width:1000px;margin-left:auto;margin-right:auto;padding:0}
 .search{display:inline-block;margin:1em}
-.account{float:right;height:30px;margin:1em}
+.account{display:inline-block;float:right;height:30px;margin:1em}
 .account a{padding-left:.75em}
 .masthead{margin:2em 0 3em;text-align:center}
 .content{padding:0 1em}
@@ -163,8 +163,9 @@ iframe{border:0}
 .masthead h1{font-size:35px;font-size:2.1875rem}
 .masthead a{color:#ef672f}
 .masthead a:hover{text-decoration:none}
-.masthead i{color:#aaa;font-size:1.3em;padding:0 .2em;position:relative;top:.1em}
-@media only screen and (min-width:450px){.masthead h1{font-size:48px;font-size:3rem}}
+.masthead i{color:#aaa;font-size:1.3em;position:relative;top:.1em;width:50px}
+@media only screen and (min-width:450px){.masthead h1{font-size:48px;font-size:3rem}
+.masthead i{width:75px}}
 .search{font-size:.8em}
 .search .search-form{display:none}
 .account{font-size:.9em}

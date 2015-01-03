@@ -16,9 +16,9 @@
     i {
         color: $grey;
         font-size: 1.3em;
-        padding: 0 0.2em;
         position: relative;
         top: 0.1em;
+        width: 50px;
     }
 }
 
@@ -28,5 +28,10 @@
         h1 {
             @include rem(font-size, 48px);
         }
+
+        i {
+            width: 75px;
+        }
     }
+
 }
