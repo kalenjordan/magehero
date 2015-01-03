@@ -23,6 +23,18 @@
     text-align: center;
 }
 
+.post-upvote-wrapper {
+    display: block;
+}
+
+.post-vote-count-wrapper {
+    display: block;
+    float: left;
+    height: 24px;
+    position: relative;
+    width: 24px;
+}
+
 
 .posts-wrapper {
     .share {

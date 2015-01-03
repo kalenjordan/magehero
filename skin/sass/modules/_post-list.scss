@@ -26,13 +26,8 @@
 .post-vote-count-wrapper {
     background-color: $orange;
     border-radius: 50%;
-    width: 24px;
-    height: 24px;
 
     .post-vote-count {
-        cursor: default;
-        position: absolute;
-        left: 8px;
         font-size: 13px;
         color: white;
     }

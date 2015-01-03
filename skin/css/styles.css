@@ -150,13 +150,13 @@ iframe{border:0}
 .listing{width:100%}
 .listing .disqus-comment-count{display:block;font-size:.8em}
 .listing .listing-post{margin:1.2em 0;padding:.5em 1em}
-.post-upvote-wrapper{display:block}
-.post-vote-count-wrapper{display:block;float:left;position:relative}
 .post-info,.post-upvote,.user-thumbnail{display:inline-block;vertical-align:middle}
 .user-thumbnail{max-width:40px}
 .post-upvote{margin:0 1em 0 0;text-align:center}
 .post-info{width:calc(100% - 5.6em)}
 .fa{display:block;text-align:center}
+.post-upvote-wrapper{display:block}
+.post-vote-count-wrapper{display:block;float:left;height:24px;position:relative;width:24px}
 .posts-wrapper .share{text-align:center;margin-bottom:1em}
 .post .ranking{position:absolute;top:7px;left:7px}
 .masthead{position:relative}
@@ -195,8 +195,8 @@ iframe{border:0}
 .post-upvote-wrapper{cursor:default}
 .post-upvote-wrapper .post-upvote-link .fa{font-size:22px;color:#000}
 .post-upvote-wrapper .post-upvote-link .fa:hover{color:#ef672f}
-.post-vote-count-wrapper{background-color:#ef672f;border-radius:50%;width:24px;height:24px}
-.post-vote-count-wrapper .post-vote-count{cursor:default;position:absolute;left:8px;font-size:13px;color:#fff}
+.post-vote-count-wrapper{background-color:#ef672f;border-radius:50%}
+.post-vote-count-wrapper .post-vote-count{font-size:13px;color:#fff}
 .post-info .last-updated{color:#666;font-size:.8em;white-space:nowrap}
 .post-info a{color:#333;font-weight:400}
 label.profile{display:block}
