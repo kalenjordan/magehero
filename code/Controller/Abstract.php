@@ -2,13 +2,57 @@
 
 class Controller_Abstract
 {
+    CONST SESSION_NAMESPACE = "magedev";
+
     protected $_container;
     protected $_currentUser;
 
+    protected function _preDispatch()
+    {
+
+    }
+
+    /**
+     * @param null $path
+     * @param null $params
+     */
+    protected function _redirect($path = null, $params = null)
+    {
+        // If internal URL, ensure to include base URL
+        if (strpos($path, 'http') === false) {
+            $path = self::_getConfigData('base_url') . '/' . $path;
+        }
+
+        // Redirect with GET parameters
+        if (isset($params)) {
+            $path .= '?' . http_build_query($params);
+        }
+
+        header('Location: ' . $path);
+        exit;
+    }
+
+    /**
+     * @param $key
+     * @param $value
+     */
+    protected function _setSession($key, $value)
+    {
+        $_SESSION[self::SESSION_NAMESPACE][$key] = $value;
+    }
+
     protected function _getSession()
     {
-        $session = isset($_SESSION['magedevs']) ? $_SESSION['magedevs'] : array();
+        $session = isset($_SESSION[self::SESSION_NAMESPACE]) ? $_SESSION[self::SESSION_NAMESPACE] : array();
         return $session;
+    }
+
+    /**
+     * @param $username
+     */
+    protected function _setUsername($username)
+    {
+        $this->_setSession('github_username', $username);
     }
 
     protected function _getUsername()

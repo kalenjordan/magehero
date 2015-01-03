@@ -1,10 +1,22 @@
 <?php
 
-class Controller_PostEdit extends Controller_Abstract
+class Controller_PostEdit extends Controller_Account
 {
+    public function _preDispatch()
+    {
+        parent::_preDispatch();
+    }
+
+
     public function get($postId)
     {
+        $this->_preDispatch();
+
         $post = $this->_getContainer()->Post()->load($postId);
+        if ($this->_getCurrentUser()->getId() != $post->getUserId()) {
+            die("Permission denied");
+        }
+
         $tags = $this->_getContainer()->Tag()->fetchAll();
 
         if ($this->_getCurrentUser()->getId() != $post->getUserId()) {
@@ -50,7 +62,7 @@ class Controller_PostEdit extends Controller_Abstract
             ->set('image_url', $imageUrl)
             ->save();
 
-        header("Location: " . $post->getUrl());
+        $this->_redirect($post->getUrl());
     }
 
 }
