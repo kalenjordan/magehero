@@ -214,35 +214,6 @@ class Model_Post extends Model_Record
         return $tweetIntentUrl;
     }
 
-    // todo: Should use a beforeUpdate hook or something for this.
-    public function update()
-    {
-        $table = $this->_getTable();
-        $tableIdFieldname = $this->_getTableIdFieldname();
-
-        foreach ($this->_getColumns() as $column) {
-            $data[$column] = $this->get($column);
-        }
-        $data['updated_at'] = \Carbon\Carbon::now()->toDateTimeString();
-
-        $this->_localConfig->database()->update($table, $data, "$tableIdFieldname = " . $this->getId());
-
-        if ($this->get('tag_ids') && is_array($this->get('tag_ids'))) {
-            $this->_localConfig->database()->delete("post_tag", "post_id = " . $this->getId());
-            foreach ($this->get('tag_ids') as $tagId) {
-                $tagPostRelationship = $this->_getContainer()->PostTag()->setData(array(
-                    'post_id' => $this->getId(),
-                    'user_id' => $this->getUserId(),
-                    'tag_id' => $tagId
-                ));
-                $tagPostRelationship->save();
-            }
-
-        }
-
-        return $this;
-    }
-
     public function hasTagId($tagId)
     {
         $tags = $this->fetchTags();
@@ -283,6 +254,20 @@ class Model_Post extends Model_Record
     {
         // Update the updated_at timestamp
         $this->getUser()->save();
+
+        // Add tags
+        if ($this->get('tag_ids') && is_array($this->get('tag_ids'))) {
+            $this->_localConfig->database()->delete("post_tag", "post_id = " . $this->getId());
+            foreach ($this->get('tag_ids') as $tagId) {
+                $tagPostRelationship = $this->_getContainer()->PostTag()->setData(array(
+                    'post_id' => $this->getId(),
+                    'user_id' => $this->getUserId(),
+                    'tag_id' => $tagId
+                ));
+                $tagPostRelationship->save();
+            }
+
+        }
     }
 
     public function isNew()
