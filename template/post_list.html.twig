@@ -5,28 +5,7 @@
     <ul class="listing">
         {% for post in posts %}
             <li class="listing-post">
-                <div class="post-upvote" data-post-id={{ post.id() }}>
-                    <span class="post-upvote-wrapper">
-                        <a class="post-upvote-link" href="javascript://"><i class="fa fa-caret-up"></i></a>
-                    </span>
-                    <span class="post-vote-count-wrapper {{ post.voteCount() ? "tooltip" : "" }}" title="Upvoted by {{ post.getUpvotersCsv() }}">
-                        <span class="post-vote-count">{{ post.voteCount() }}</span>
-                    </span>
-                    {% if post.isNew() %}
-                        <i class="fa fa-bolt new tooltip" title="This was posted in the last {{ local_config.getNumberOfHoursForNew() }} hours"></i>
-                    {% endif %}
-                </div>
-
-                <div class="post-info">
-                    <a href="{{ post.getUrl() }}">{{ post.getSubject() }}</a>
-                    <span class="last-updated">{{ post.createdAtFriendly() }}</span>
-                </div>
-
-                {% if post.getUser().imageUrl() %}
-                    <div class="image-wrapper user-thumbnail">
-                        <a href="{{ post.getUser().getUrl() }}"><img class="lazyload" data-src="{{ post.getUser().imageUrl() }}" ></a>
-                    </div>
-                {% endif %}
+                {% include 'fragment/post.html.twig' %}
             </li>
         {% endfor %}
     </ul>

@@ -15,7 +15,7 @@
     <span class="last-updated">{{ post.createdAtFriendly() }}</span>
 </div>
 
-{% if post.getUser().imageUrl() %}
+{% if not hideImage and post.getUser().imageUrl() %}
     <div class="image-wrapper user-thumbnail">
         <a href="{{ post.getUser().getUrl() }}"><img class="lazyload" data-src="{{ post.getUser().imageUrl() }}" ></a>
     </div>
