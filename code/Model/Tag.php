@@ -68,4 +68,32 @@ class Model_Tag extends Model_Record
 
         return $models;
     }
+
+    public function getUrl()
+    {
+        $url = implode("/", array($this->_localConfig->get('base_url'), "tag", $this->getId(), $this->getSlug()));
+        return $url;
+    }
+
+    public function getSlug()
+    {
+        $text = $this->getTagText();
+
+        // replace non letter or digits by -
+        $text = preg_replace('~[^\\pL\d]+~u', '-', $text);
+
+        // trim
+        $text = trim($text, '-');
+
+        // transliterate
+        $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
+
+        // lowercase
+        $text = strtolower($text);
+
+        // remove unwanted characters
+        $text = preg_replace('~[^-\w]+~', '', $text);
+
+        return $text;
+    }
 }

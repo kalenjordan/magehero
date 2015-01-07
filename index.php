@@ -20,6 +20,7 @@ try {
     Toro::serve(array(
         "/"                                 => "Controller_PostList",
         "/available"                        => "Controller_Available",
+        "/tag/:number/:alpha"               => "Controller_Tag",
         "/login"                            => "Controller_Login",
         "/logout"                           => "Controller_Logout",
         "/posts"                            => "Controller_PostList",
