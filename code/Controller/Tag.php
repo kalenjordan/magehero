@@ -7,7 +7,7 @@ class Controller_Tag extends Controller_Abstract
 
         $tag = $this->_getContainer()->Tag()->load($tagId);
 
-        // While we only need post ID, ensure that we use post slug for SEO
+        // While we only need tag ID, ensure that we use tag slug for SEO
         if ($slug != $tag->getSlug()) {
             header("Location: " . $tag->getUrl(), true, 301);
         }
