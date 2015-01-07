@@ -14,8 +14,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Virtualbox customization
   config.vm.provider :virtualbox do |virtualbox, override|
       # Box configuration
-      config.vm.box = "Ubuntu-12.04"
-      config.vm.box_url = 'https://cloud-images.ubuntu.com/vagrant/precise/current/precise-server-cloudimg-i386-vagrant-disk1.box'
+      config.vm.box = "lucid64"
+      config.vm.box_url = 'http://puppet-vagrant-boxes.puppetlabs.com/ubuntu-server-10044-x64-vbox4210.box'
 
       # Network configuration
       config.vm.network :private_network, ip: "10.199.45.152"
