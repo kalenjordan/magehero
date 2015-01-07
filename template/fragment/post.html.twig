@@ -15,7 +15,7 @@
             {% for tag in post.fetchTags() %}
                 <span class="tag">
                 <i class="fa fa-tag"></i>
-                    {{ tag.getTagText() }}
+                <a href="{{ tag.getUrl() }}">{{ tag.getTagText() }}</a>
             </span>
             {% endfor %}
         </div>
