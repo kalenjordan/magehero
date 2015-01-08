@@ -194,27 +194,24 @@ class Model_Post extends Model_Record
 
     /**
      * Search string within post title and body and author name.
+     *
+     * Algorithm here is to count mentions of search terms in body and subject colums. Weighting subject by 5.
+     * This method isn't known for being particularly performant on large databases but MVP and all that.
+     *
+     * select posts.subject, (
+     *      (subject regexp '[[:<:]]Magento[[:>:]]' and body regexp '[[:<:]]Magento[[:>:]]') * 5
+     *          +
+     *      (subject regexp '[[:<:]]2[[:>:]]' and body regexp '[[:<:]]2[[:>:]]'))
+     *          as hits
+     * from posts
+     * having hits > 0
+     * order by hits desc;
      * @param $term
      *
      * @return array
      */
     public function fetchByTerm($term)
     {
-
-        /**
-         * Algorithm here is to count mentions of search terms in body and subject colums. Weighting subject by 5.
-         * This method isn't known for being particularly performant on large databases but MVP and all that.
-         *
-         * select posts.subject, (
-         *      (subject regexp '[[:<:]]Magento[[:>:]]' and body regexp '[[:<:]]Magento[[:>:]]') * 5
-         *          +
-         *      (subject regexp '[[:<:]]2[[:>:]]' and body regexp '[[:<:]]2[[:>:]]'))
-         *          as hits
-         * from posts
-         * having hits > 0
-         * order by hits desc;
-         */
-
         $terms = explode(" ", $term);
 
         $searchQuery = array();
