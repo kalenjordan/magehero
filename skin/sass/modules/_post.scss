@@ -14,19 +14,6 @@
         max-width: 80px;
     }
 
-
-    .tags {
-        .tag {
-            padding: 0.5em;
-            font-size: 12px;
-            color: rgb(153, 153, 153);
-
-            a {
-                color: rgb(153, 153, 153);
-            }
-        }
-    }
-
     .post-body {
         clear: both;
         margin-top: 2em;
@@ -71,6 +58,18 @@
         .textarea {
             width: 100%;
             height: 400px;
+        }
+    }
+}
+
+.tags {
+    .tag {
+        padding: 0.5em;
+        font-size: 12px;
+        color: rgb(153, 153, 153);
+
+        a {
+            color: rgb(153, 153, 153);
         }
     }
 }

@@ -192,6 +192,55 @@ class Model_Post extends Model_Record
         return $models;
     }
 
+    /**
+     * Search string within post title and body and author name.
+     *
+     * Algorithm here is to count mentions of search terms in body and subject colums. Weighting subject by 5.
+     * This method isn't known for being particularly performant on large databases but MVP and all that.
+     *
+     * select posts.subject, (
+     *      (subject regexp '[[:<:]]Magento[[:>:]]' and body regexp '[[:<:]]Magento[[:>:]]') * 5
+     *          +
+     *      (subject regexp '[[:<:]]2[[:>:]]' and body regexp '[[:<:]]2[[:>:]]'))
+     *          as hits
+     * from posts
+     * having hits > 0
+     * order by hits desc;
+     * @param $term
+     *
+     * @return array
+     */
+    public function fetchByTerm($term)
+    {
+        $terms = explode(" ", $term);
+
+        $searchQuery = array();
+        foreach ($terms as $term) {
+            $term = $this->_localConfig->database()->quote("[[:<:]]" . $term . "[[:>:]]");
+            $searchQuery[] = "(subject regexp $term) * 5 + (body regexp $term)";
+        }
+
+        $searchQuery = implode(" + ", $searchQuery);
+
+        $query = $this->selectAll();
+        $query->columns(new Zend_Db_Expr("($searchQuery) as hits"));
+        $query->having('hits > 0');
+
+        // We need to reset the ordering that was put on in selectAll()
+        $query->reset( Zend_Db_Select::ORDER );
+        $query->order("hits DESC");
+
+        $rows = $this->_localConfig->database()->fetchAll($query);
+
+        $models = array();
+        foreach ($rows as $row) {
+            $model = $this->_getContainer()->Post()->setData($row);
+            $models[] = $model;
+        }
+
+        return $models;
+    }
+
     public function fetchByTagId($tagId)
     {
         $table = $this->_getTable();

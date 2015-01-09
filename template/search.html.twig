@@ -2,15 +2,14 @@
 
 {% block content %}
 
-    <h2>Search</h2>
+    <h2>Search results for {{ term }}</h2>
 
-    <div class="search">
-        <a href="/search"><i class="fa fa-search"></i></a>
-        <form class="search-form">
-            <input type="text" name="query" value="" placeholder="Search Posts...">
-        </form>
-    </div>
-
-    <p>Please <a href="https://github.com/kalenjordan/magehero">fork on github</a> and help to add this functionality.</p>
+    <ul class="listing">
+        {% for post in posts %}
+            <li class="listing-post">
+                {% include 'fragment/post.html.twig' %}
+            </li>
+        {% endfor %}
+    </ul>
 
 {% endblock %}
