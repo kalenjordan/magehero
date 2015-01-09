@@ -1,7 +1,11 @@
 <?php
 
 require_once(dirname(__FILE__) . '/vendor/autoload.php');
-session_start();
+$ok = @session_start();
+if(!$ok){
+    session_regenerate_id(true);
+    session_start(); 
+}
 
 $local = new Model_LocalConfig();
 
@@ -16,6 +20,7 @@ try {
     Toro::serve(array(
         "/"                                 => "Controller_PostList",
         "/available"                        => "Controller_Available",
+        "/tag/:number/:alpha"               => "Controller_Tag",
         "/login"                            => "Controller_Login",
         "/logout"                           => "Controller_Logout",
         "/posts"                            => "Controller_PostList",

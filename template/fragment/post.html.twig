@@ -13,6 +13,17 @@
 <div class="post-info">
     <a href="{{ post.getUrl() }}">{{ post.getSubject() }}</a>
     <span class="last-updated">{{ post.createdAtFriendly() }}</span>
+
+    {% if not hideTags %}
+    <div class="tags">
+        {% for tag in post.fetchTags() %}
+            <span class="tag">
+            <i class="fa fa-tag"></i>
+            <a href="{{ tag.getUrl() }}">{{ tag.getTagText() }}</a>
+        </span>
+        {% endfor %}
+    </div>
+    {% endif %}
 </div>
 
 {% if not hideImage and post.getUser().imageUrl() %}

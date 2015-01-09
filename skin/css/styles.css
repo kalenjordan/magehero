@@ -159,6 +159,7 @@ iframe{border:0}
 .post-vote-count-wrapper{display:block;float:left;height:24px;position:relative;width:24px}
 .posts-wrapper .share{text-align:center;margin-bottom:1em}
 .post .ranking{position:absolute;top:7px;left:7px}
+.post .tags .tag{padding:.5em}
 .masthead{position:relative}
 .masthead h1{font-size:35px;font-size:2.1875rem}
 .masthead a{color:#ef672f}
@@ -178,7 +179,6 @@ iframe{border:0}
 .post .post-info{width:100%}
 .post .post-info .last-updated,.post .post-info h2{display:inline-block;margin-bottom:0}
 .post .user-thumbnail{max-width:80px}
-.post .tags .tag{padding:.5em;font-size:12px;color:#999}
 .post .post-body{clear:both;margin-top:2em;margin-bottom:1em}
 .post .post-body a{font-weight:400}
 .post .post-body img{width:90%;padding:5%}
@@ -188,6 +188,8 @@ iframe{border:0}
 .post-edit .input-wrapper label{display:block}
 .post-edit .input-wrapper .input-field{width:100%}
 .post-edit .input-wrapper .textarea{width:100%;height:400px}
+.tags .tag{padding:.5em;font-size:12px;color:#999}
+.tags .tag a{color:#999}
 @media only screen and (min-width:400px){.post .post-info{width:calc(100% - 9em)}}
 .all-time{font-size:12px}
 .listing-post{box-shadow:0 1px 2px rgba(0,0,0,.3)}

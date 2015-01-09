@@ -5,7 +5,7 @@
     <ul class="listing">
         {% for post in posts %}
             <li class="listing-post">
-                {% include 'fragment/post.html.twig' %}
+                {% include 'fragment/post.html.twig' with { 'hideTags': true } %}
             </li>
         {% endfor %}
     </ul>

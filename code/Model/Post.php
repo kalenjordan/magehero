@@ -241,6 +241,34 @@ class Model_Post extends Model_Record
         return $models;
     }
 
+    public function fetchByTagId($tagId)
+    {
+        $table = $this->_getTable();
+
+        $query = $this->selectAll()
+            ->joinLeft(
+                'post_tag',
+                "post_tag.post_id = $table.post_id",
+                array()
+            )
+            ->joinLeft(
+                'tags',
+                'post_tag.tag_id = tags.tag_id',
+                array()
+            )
+            ->where("post_tag.tag_id = $tagId");
+
+        $rows = $this->_localConfig->database()->fetchAll($query);
+
+        $models = array();
+        foreach ($rows as $row) {
+            $model = $this->_getContainer()->Post()->setData($row);
+            $models[] = $model;
+        }
+
+        return $models;
+    }
+
     public function getUrl()
     {
         $url = implode("/", array($this->_localConfig->get('base_url'), "posts", $this->getId(), $this->getSlug()));
