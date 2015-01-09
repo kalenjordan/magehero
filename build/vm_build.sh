@@ -10,6 +10,8 @@ sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password_again p
 sudo apt-get install -y python-software-properties
 sudo add-apt-repository ppa:l-mierzwa/lucid-php5
 
+sudo apt-get update
+
 sudo apt-get install -y --force-yes curl apache2 libapache2-mod-fastcgi php5 php5-fpm php5-cli php5-curl php5-gd php5-mcrypt php5-mysql mysql-server
 
 sudo sed -i "s/error_reporting = .*/error_reporting = E_ALL/" /etc/php5/fpm/php.ini
