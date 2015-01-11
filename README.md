@@ -224,9 +224,3 @@ not a very productive way to report the bug.
 
 - Thanks to <a href="https://twitter.com/daniel_sloof">Daniel Sloof</a> for the domain name - magehero.com!
 - Thanks to the amazing <a href="http://portfolio.antonela.me/">Antonela</a> who is working on the design.
-
-
-### [Sponsor] Clean is hiring
-
-If you're looking for a full time position as Magento developer, 
-<a href="http://www.cleanprogram.com/">Clean</a> is hiring.  Email jobs-magento-developer@cleanprogram.com
