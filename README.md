@@ -1,6 +1,8 @@
 MageHero
 ========
 
+[![Code Climate](https://codeclimate.com/repos/54b28a85e30ba0754e0069c1/badges/d0c899b4358898c23554/gpa.svg)](https://codeclimate.com/repos/54b28a85e30ba0754e0069c1/feed)
+
 MageHero is a list of Magento developers.  The idea is for the community
 to curate a list of quality Magento developers - to  make it easier for
 people to find the good ones.
