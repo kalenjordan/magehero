@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
-    <h2 title="All MageHero posts from the last 7 day rolling period">This Week <span class="all-time"><a href="/?period=all-time">all time</a></span></h2>
+    <h2 title="All MageHero posts from the last 7 day rolling period">This Week <span class="filter"><a href="/?period=all-time">all time</a></span></h2>
     <ul class="listing">
         {% for post in posts %}
             <li class="listing-post">

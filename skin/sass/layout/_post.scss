@@ -1,4 +1,5 @@
 .post-upvote,
+.user-info,
 .user-thumbnail,
 .post-info {
     display: inline-block;
@@ -14,8 +15,35 @@
     text-align: center;
 }
 
+.availability {
+    display: inline-block;
+    text-align: center;
+
+    &.available {
+        .fa {
+            color: green;
+        }
+    }
+
+    &.not-available {
+        .fa {
+            color: rgb(197, 197, 197);
+        }
+    }
+}
+
 .post-info {
-    width: calc(100% - 5.6em);
+    width: calc(100% - 16.5em);
+}
+
+.user-info {
+    width: 13em;
+    text-align: right;
+    .fa {
+        padding-right: 0.25em;
+        color: rgb(192, 190, 190);
+        font-size: 1.1em;
+    }
 }
 
 .fa {
@@ -33,6 +61,7 @@
     height: 24px;
     position: relative;
     width: 24px;
+    font-weight: bold;
 }
 
 

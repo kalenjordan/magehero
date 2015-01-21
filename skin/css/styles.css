@@ -150,13 +150,18 @@ iframe{border:0}
 .listing{width:100%}
 .listing .disqus-comment-count{display:block;font-size:.8em}
 .listing .listing-post{margin:1.2em 0;padding:.5em 1em}
-.post-info,.post-upvote,.user-thumbnail{display:inline-block;vertical-align:middle}
+.post-info,.post-upvote,.user-info,.user-thumbnail{display:inline-block;vertical-align:middle}
 .user-thumbnail{max-width:40px}
 .post-upvote{margin:0 1em 0 0;text-align:center}
-.post-info{width:calc(100% - 5.6em)}
+.availability{display:inline-block;text-align:center}
+.availability.available .fa{color:green}
+.availability.not-available .fa{color:#c5c5c5}
+.post-info{width:calc(100% - 16.5em)}
+.user-info{width:13em;text-align:right}
+.user-info .fa{padding-right:.25em;color:#c0bebe;font-size:1.1em}
 .fa{display:block;text-align:center}
 .post-upvote-wrapper{display:block}
-.post-vote-count-wrapper{display:block;float:left;height:24px;position:relative;width:24px}
+.post-vote-count-wrapper{display:block;float:left;height:24px;position:relative;width:24px;font-weight:700}
 .posts-wrapper .share{text-align:center;margin-bottom:1em}
 .post .ranking{position:absolute;top:7px;left:7px}
 .post .tags .tag{padding:.5em}
@@ -191,14 +196,14 @@ iframe{border:0}
 .tags .tag{padding:.5em;font-size:12px;color:#999}
 .tags .tag a{color:#999}
 @media only screen and (min-width:400px){.post .post-info{width:calc(100% - 9em)}}
-.all-time{font-size:12px}
+.filter{font-size:12px}
 .listing-post{box-shadow:0 1px 2px rgba(0,0,0,.3)}
 .fa.new{color:green;text-align:center}
 .post-upvote-wrapper{cursor:default}
 .post-upvote-wrapper .post-upvote-link .fa{font-size:22px;color:#000}
 .post-upvote-wrapper .post-upvote-link .fa:hover{color:#ef672f}
 .post-vote-count-wrapper{background-color:#ef672f;border-radius:50%}
-.post-vote-count-wrapper .post-vote-count{font-size:13px;color:#fff}
+.post-vote-count-wrapper .post-vote-count{font-size:13px;color:#fff;font-weight:700}
 .post-info .last-updated{color:#666;font-size:.8em;white-space:nowrap}
 .post-info a{color:#333;font-weight:400}
 label.profile{display:block}

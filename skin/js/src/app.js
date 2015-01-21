@@ -90,5 +90,6 @@ MageHero_App = {
 
     bindChosen: function() {
         $('.fancy-select').chosen();
+        $('.tooltip').tooltipster();
     }
 };

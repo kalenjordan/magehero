@@ -27,17 +27,22 @@ class Model_User extends Model_Record
         $query = $this->_localConfig->database()->select()
             ->from("users")
             ->joinLeft(
-                'user_vote',
-                'user_vote.elected_user_id = users.user_id',
+                'posts',
+                'posts.user_id = users.user_id AND posts.is_active = 1',
+                array()
+            )
+            ->joinLeft(
+                'post_vote',
+                'post_vote.post_id = posts.post_id',
                 array(
-                    'COUNT(user_vote.user_vote_id) as vote_count'
+                    'COUNT(DISTINCT post_vote.voting_user_id) as vote_count'
                 )
             )
             ->joinLeft(
                 array('voting_user' => 'users'),
-                'voting_user.user_id = user_vote.voting_user_id',
+                'voting_user.user_id = post_vote.voting_user_id',
                 array(
-                    'GROUP_CONCAT(voting_user.name) as voting_users'
+                    'GROUP_CONCAT(DISTINCT voting_user.name) as voting_users'
                 )
             )
             ->group('users.user_id')
@@ -154,27 +159,27 @@ class Model_User extends Model_Record
         $query = $this->_localConfig->database()->select()
             ->from("users")
             ->joinLeft(
-                'user_vote',
-                'user_vote.elected_user_id = users.user_id',
+                'posts',
+                'posts.user_id = users.user_id AND posts.is_active = 1',
+                array()
+            )
+            ->joinLeft(
+                'post_vote',
+                'post_vote.post_id = posts.post_id',
                 array(
-                    'COUNT(user_vote.user_vote_id) as vote_count',
+                    'COUNT(DISTINCT post_vote.voting_user_id) as vote_count'
                 )
             )
             ->joinLeft(
                 array('voting_user' => 'users'),
-                'voting_user.user_id = user_vote.voting_user_id',
+                'voting_user.user_id = post_vote.voting_user_id',
                 array(
-                    'GROUP_CONCAT(voting_user.name) as voting_users'
+                    'GROUP_CONCAT(DISTINCT voting_user.name) as voting_users'
                 )
-            )
-            ->joinLeft(
-                array('posts' => $postsQuery),
-                'posts.user_id = users.user_id AND posts.is_active = 1',
-                array()
             )
             ->where('users.is_active = 1')
             ->group('users.user_id')
-            ->order(array('posts.post_id DESC', 'users.updated_at DESC'));
+            ->order('COUNT(DISTINCT post_vote.voting_user_id) DESC');
 
         return $query;
     }
@@ -203,6 +208,21 @@ class Model_User extends Model_Record
     public function getAboutYou() { return $this->getDetail('about_you'); }
     public function getLatitude() { return (float)$this->getDetail('latitude'); }
     public function getLongitude() { return (float)$this->getDetail('longitude'); }
+    public function getJobTitle() { return $this->getDetail('job_title'); }
+
+    /**
+     * @return null|\Carbon\Carbon
+     */
+    public function getNextAvailableDate()
+    {
+        try {
+            $date = \Carbon\Carbon::parse($this->getDetail('next_available'));
+        } catch (Exception $e) {
+            return null;
+        }
+
+        return $date;
+    }
 
     public function getNextAvailableFriendly()
     {
@@ -216,6 +236,16 @@ class Model_User extends Model_Record
        } catch (Exception $e) {
            return $this->getDetail('next_available');
        }
+    }
+
+    public function isAvailable()
+    {
+        $nextAvailableDate = $this->getNextAvailableDate();
+        if (! $nextAvailableDate) {
+            return false;
+        }
+
+        return $nextAvailableDate->lt(\Carbon\Carbon::now());
     }
 
     public function getDetail($key)

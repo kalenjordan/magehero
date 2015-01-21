@@ -1,120 +1,68 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
-    <div class="write-post">
-        <a href="/posts/new"><i class="fa fa-pencil-square-o"></i> What are you working on?</a>
-    </div>
-    <table class="listing">
-    <thead>
-        <tr>
-            <th class="tooltip" title="Sorted by last post date then by last user update (upvote or profile update)">Updated</th>
-            <th class="sortable">Rating</th>
-            <th>Pic</th>
-            <th class="sortable">Name</th>
-            <th class="sortable">Location</th>
-            <th>Latest Post</th>
-            <th><!-- Links --></th>
-        </tr>
-    </thead>
-    <tbody>
-    {% for developer in developers %}
-        <tr class="{{ developer.username == user.username ? "selected" : "" }}" data-user-id={{ developer.id() }}>
-            <td>
-                <span class="last-updated">{{ developer.lastUpdatedFriendly() }}</span>
-            </td>
-            <td>
-                <div class="upvote">
-                    <a href="javascript://"><i class="fa fa-caret-up"></i></a>
-                    {% if developer.voteCount() >= local_config.getRankRocketMinimumVotecount() %}
-                        <i class="fa fa-rocket tooltip" title="This developer has received {{ developer.voteCount() }} votes: {{ developer.votingUsernames() }}"></i>
-                    {% elseif developer.voteCount() >= local_config.getRankStarMinimumVotecount() %}
-                        <i class="fa fa-star tooltip" title="This developer has received {{ developer.voteCount() }} vote: {{ developer.votingUsernames() }}"></i>
-                    {% else %}
-                        <i class="fa fa-meh-o tooltip" title="This developer hasn't received any upvotes yet"></i>
-                    {% endif %}
-                    <span class="vote-count">{{ developer.voteCount() }}</span>
+    <!--
+    <h2>Magento Developers
+       <span class="filter"><a href="/?availability=available">show available developers</a></span>
+    </h2>
+    -->
+    <ul class="listing">
+        {% for developer in developers %}
+            <li class="listing-post">
+                <div class="post-upvote" data-post-id={{ post.id() }}>
+                    <span class="post-vote-count-wrapper tooltip" title="Upvoted by test,test2">
+                        <span class="post-vote-count">{{ developer.getVoteCount() }}</span>
+                    </span>
                 </div>
-            </td>
-            <td>
-                {% if developer.imageUrl() %}
-                    <div class="image-wrapper user-thumbnail">
-                        <img class="lazyload" data-src="{{ developer.imageUrl() }}" alt="MageHero, Magento Developer - {{ developer.name() }}">
+
+                <div class="post-info">
+                    <a href="/url">{{ developer.name() }}</a>
+                    {% if developer.getJobTitle() %}
+                        <span class="last-updated">{{ developer.getJobTitle() }}</span>
+                    {% endif %}
+                </div>
+
+                <div class="user-info">
+                    {% if developer.certificationBoardUrl() %}
+                        <a href="{{ developer.certificationBoardUrl() }}" target="_blank"><i class="fa fa-certificate tooltip" title="Magento Certification Advisory Board"></i></a>
+                    {% endif %}
+                    {% if developer.certifiedDeveloperUrl() %}
+                        <a href="{{ developer.certifiedDeveloperUrl() }}" target="_blank"><i class="fa fa-certificate tooltip" title="Magento Certified Developer"></i></a>
+                    {% endif %}
+                    {% if developer.certifiedDeveloperPlusUrl() %}
+                        <a href="{{ developer.certifiedDeveloperPlusUrl() }}" target="_blank"><i class="fa fa-plus tooltip" title="Magento Certified Developer Plus"></i></a>
+                    {% endif %}
+                    {% if developer.certifiedSolutionSpecialistUrl() %}
+                        <a href="{{ developer.certifiedSolutionSpecialistUrl() }}" target="_blank"><i class="fa fa-certificate tooltip" title="Magento Certified Solution Specialist"></i></a>
+                    {% endif %}
+                    {% if developer.certifiedFrontendDeveloperUrl() %}
+                        <a href="{{ developer.certifiedFrontendDeveloperUrl() }}" target="_blank"><i class="fa fa-certificate tooltip" title="Magento Certified Frontend Developer"></i></a>
+                    {% endif %}
+                    {% if developer.twitterUsername() %}
+                        <a href="https://twitter.com/{{ developer.twitterUsername() }}" target="_blank"><i class="fa fa-twitter tooltip" title="Twitter"></i></a>
+                    {% endif %}
+                    {% if developer.githubUsername() %}
+                        <a href="https://github.com/{{ developer.githubUsername() }}" target="_blank"><i class="fa fa-github tooltip" title="GitHub"></i></a>
+                    {% endif %}
+                    {% if developer.websiteUrl() %}
+                        <a href="{{ developer.websiteUrl() }}" target="_blank"><i class="fa fa-globe tooltip" title="Visit {{ developer.websiteUrl() }}"></i></a>
+                    {% endif %}
+                    {% if developer.stackoverflowUrl() %}
+                        <a href="{{ developer.stackoverflowUrl() }}" target="_blank"><i class="fa fa-stack-exchange tooltip" title="Stack Overflow"></i></a>
+                    {% endif %}
+                    {% if developer.linkedinUrl() %}
+                        <a href="{{ developer.linkedinUrl() }}" target="_blank"><i class="fa fa-linkedin tooltip" title="LinkedIn"></i></a>
+                    {% endif %}
+                    <div class="availability {{ developer.isAvailable() ? "available" : "not-available" }} tooltip" title=" {{ developer.isAvailable() ? "Available for hire" : "Not available for hire" }}">
+                        <i class="fa fa-circle"></i>
                     </div>
-                {% endif %}
-            </td>
-            <td>
-                {% if developer.githubUsername() and developer.fetchPostCount() %}
-                    <a href="{{ developer.getUrl() }}">{{ developer.name() }}</a>
-                {% else %}
-                    <span>{{ developer.name() }}</span>
-                {% endif %}
-            </td>
-            <td>
-                {{ developer.location() }}
-            </td>
-            <td>
-                {% if developer.fetchPostCount() %}
-                    <a href="{{ developer.getLastPost().getUrl() }}">{{ developer.getLastPost().getSubject() }}</a>
-                    <span class="disqus-comment-count" data-disqus-url="{{ local_config.getBaseUrl() }}/posts/{{ developer.getLastPost().getId() }}"></span>
-                {% else %}
-                    No posts yet
-                {% endif %}
-            </td>
-            <td>
-                {% if developer.certificationBoardUrl() %}
-                    <a href="{{ developer.certificationBoardUrl() }}" target="_blank"><i class="fa fa-certificate tooltip" title="Magento Certification Advisory Board"></i></a>
-                {% endif %}
-                {% if developer.certifiedDeveloperUrl() %}
-                    <a href="{{ developer.certifiedDeveloperUrl() }}" target="_blank"><i class="fa fa-certificate tooltip" title="Magento Certified Developer"></i></a>
-                {% endif %}
-                {% if developer.certifiedDeveloperPlusUrl() %}
-                    <a href="{{ developer.certifiedDeveloperPlusUrl() }}" target="_blank"><i class="fa fa-plus tooltip" title="Magento Certified Developer Plus"></i></a>
-                {% endif %}
-                {% if developer.certifiedSolutionSpecialistUrl() %}
-                    <a href="{{ developer.certifiedSolutionSpecialistUrl() }}" target="_blank"><i class="fa fa-certificate tooltip" title="Magento Certified Solution Specialist"></i></a>
-                {% endif %}
-                {% if developer.certifiedFrontendDeveloperUrl() %}
-                    <a href="{{ developer.certifiedFrontendDeveloperUrl() }}" target="_blank"><i class="fa fa-certificate tooltip" title="Magento Certified Frontend Developer"></i></a>
-                {% endif %}
-                {% if developer.twitterUsername() %}
-                    <a href="https://twitter.com/{{ developer.twitterUsername() }}" target="_blank"><i class="fa fa-twitter tooltip" title="Twitter"></i></a>
-                {% endif %}
-                {% if developer.githubUsername() %}
-                    <a href="https://github.com/{{ developer.githubUsername() }}" target="_blank"><i class="fa fa-github tooltip" title="GitHub"></i></a>
-                {% endif %}
-                {% if developer.websiteUrl() %}
-                    <a href="{{ developer.websiteUrl() }}" target="_blank"><i class="fa fa-globe tooltip" title="Visit {{ developer.websiteUrl() }}"></i></a>
-                {% endif %}
-                {% if developer.stackoverflowUrl() %}
-                    <a href="{{ developer.stackoverflowUrl() }}" target="_blank"><i class="fa fa-stack-exchange tooltip" title="Stack Overflow"></i></a>
-                {% endif %}
-                {% if developer.linkedinUrl() %}
-                    <a href="{{ developer.linkedinUrl() }}" target="_blank"><i class="fa fa-linkedin tooltip" title="LinkedIn"></i></a>
-                {% endif %}
-            </td>
-        </tr>
-    {% endfor %}
-    </tbody>
-</table>
-
-<div class="about">
-    <i class="fa fa-rocket"></i> {{ local_config.getRankRocketMinimumVotecount() }} Votes.
-    <i class="fa fa-star"></i> {{ local_config.getRankStarMinimumVotecount() }} Vote(s).
-    <i class="fa fa-meh-o"></i> {{ local_config.getRankMehMinimumVotecount() }} Votes.
-</div>
-
-{% if local_config.getDisqusShortname() %}
-<script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_shortname = '{{ local_config.getDisqusShortname() }}'; // required: replace example with your forum shortname
-
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function () {
-        var s = document.createElement('script'); s.async = true;
-        s.type = 'text/javascript';
-        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-    }());
-</script>
-{% endif %}
+                    {% if developer.imageUrl() %}
+                        <div class="image-wrapper user-thumbnail">
+                            <a href="{{ developer.getUrl() }}"><img class="lazyload" data-src="{{ developer.imageUrl() }}" ></a>
+                        </div>
+                    {% endif %}
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
 {% endblock %}

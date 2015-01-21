@@ -27,7 +27,9 @@
 </div>
 
 {% if not hideImage and post.getUser().imageUrl() %}
-    <div class="image-wrapper user-thumbnail">
-        <a href="{{ post.getUser().getUrl() }}"><img class="lazyload" data-src="{{ post.getUser().imageUrl() }}" ></a>
+    <div class="user-info">
+        <div class="image-wrapper user-thumbnail">
+            <a href="{{ post.getUser().getUrl() }}"><img class="lazyload" data-src="{{ post.getUser().imageUrl() }}" ></a>
+        </div>
     </div>
 {% endif %}
