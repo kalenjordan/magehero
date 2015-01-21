@@ -25,6 +25,8 @@ class Controller_PostList extends Controller_Abstract
 
         if (! isset($_GET['period']) || $_GET['period'] != 'all-time') {
             $select->where("posts.created_at > DATE_SUB(NOW(), INTERVAL $recentTimePeriod)");
+        } else {
+            $select->where("posts.created_at > DATE_SUB(NOW(), INTERVAL 1 MONTH)");
         }
 
         $postRows = $this->_getContainer()->LocalConfig()->database()->fetchAll($select);
