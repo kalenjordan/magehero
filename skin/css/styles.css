@@ -156,8 +156,8 @@ iframe{border:0}
 .availability{display:inline-block;text-align:center}
 .availability.available .fa{color:green}
 .availability.not-available .fa{color:#c5c5c5}
-.post-info{width:calc(100% - 16.5em)}
-.user-info{width:13em;text-align:right}
+.post-info{width:calc(100% - 19.5em)}
+.user-info{width:16em;text-align:right}
 .user-info .fa{padding-right:.25em;color:#c0bebe;font-size:1.1em}
 .fa{display:block;text-align:center}
 .post-upvote-wrapper{display:block}
