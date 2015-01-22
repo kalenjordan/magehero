@@ -5,7 +5,6 @@
     "name": "Bob Smith",
     "email": "bobsmith@example.com",
     "company": "Acme Widgets",
-    "job_title", "Awesome Guy at an Awesome Company",
     "next_available": "2015-01-01",
     "city": "Los Angeles",
     "country": "US",
