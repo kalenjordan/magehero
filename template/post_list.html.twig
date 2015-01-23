@@ -4,7 +4,7 @@
     <ul class="listing">
         {% for post in posts %}
             {% if post.getCreatedAtDate().format('Y-m-d') != lastPost.getCreatedAtDate().format('Y-m-d') %}
-                <h2>{{ post.getCreatedAtDate().diffForHumans() }}</h2>
+                <h2>{{ post.getCreatedAtDate().format('D, M j') }}</h2>
             {% endif %}
             <li class="listing-post">
                 {% include 'fragment/post.html.twig' with { 'hideTags': true } %}

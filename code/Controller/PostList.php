@@ -22,7 +22,7 @@ class Controller_PostList extends Controller_Abstract
 
         $select = $this->_getContainer()->Post()->selectAll()
             ->reset('order')
-            ->order(array("DATE_FORMAT('%Y-%m-%d', posts.created_at) DESC", "COUNT(DISTINCT post_vote_id) DESC"))
+            ->order(array("DATE_FORMAT(posts.created_at, '%Y-%m-%d') DESC", "COUNT(DISTINCT post_vote_id) DESC"))
             ->where('posts.is_active = 1');
 
 
