@@ -1,12 +1,15 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
-    <h2 title="All MageHero posts from the last 7 day rolling period">This Week <span class="filter"><a href="/?period=all-time">last 30 days</a></span></h2>
     <ul class="listing">
         {% for post in posts %}
+            {% if post.getCreatedAtDate().format('Y-m-d') != lastPost.getCreatedAtDate().format('Y-m-d') %}
+                <h2>{{ post.getCreatedAtDate().diffForHumans() }}</h2>
+            {% endif %}
             <li class="listing-post">
                 {% include 'fragment/post.html.twig' with { 'hideTags': true } %}
             </li>
+            {% set lastPost = post %}
         {% endfor %}
     </ul>
 {% endblock %}
