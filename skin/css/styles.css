@@ -149,18 +149,19 @@ iframe{border:0}
 .footer{text-align:center;padding:15px 0;font-size:12px}
 .listing{width:100%}
 .listing .disqus-comment-count{display:block;font-size:.8em}
-.listing .listing-post{margin:1.2em 0;padding:.5em 1em}
+.listing .listing-post{overflow:hidden;margin:1.2em 0;padding:.5em 1em}
 .post-info,.post-upvote,.user-info,.user-thumbnail{display:inline-block;vertical-align:middle}
 .user-thumbnail{max-width:40px}
-.post-upvote{margin:0 1em 0 0;text-align:center}
+.post-upvote{margin:0 1em 0 0;text-align:center;float:left}
+.post-upvote.without-upvote-button{padding-top:.5em}
+.post-info{float:left;padding-top:.5em}
+.user-info{float:right}
+.user-info .fa{vertical-align:middle;padding-right:.25em;color:#c0bebe;font-size:1.1em}
 .availability{display:inline-block;text-align:center}
 .availability.available .fa{color:green}
 .availability.not-available .fa{color:#c5c5c5}
-.post-info{width:calc(100% - 21.5em)}
-.user-info{width:18em;text-align:right}
-.user-info .fa{padding-right:.25em;color:#c0bebe;font-size:1.1em}
 .fa{display:block;text-align:center}
-.post-upvote-wrapper{display:block}
+.post-upvote-wrapper{display:block;margin-top:-9px;margin-bottom:-2px}
 .post-vote-count-wrapper{display:block;float:left;height:24px;position:relative;width:24px;font-weight:700}
 .posts-wrapper .share{text-align:center;margin-bottom:1em}
 .post .ranking{position:absolute;top:7px;left:7px}

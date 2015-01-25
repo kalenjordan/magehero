@@ -9,13 +9,13 @@
     <ul class="listing">
         {% for developer in developers %}
             <li class="listing-post">
-                <div class="post-upvote" data-post-id={{ post.id() }}>
+                <div class="post-upvote without-upvote-button" data-post-id={{ post.id() }}>
                     <span class="post-vote-count-wrapper tooltip" title="Upvoted by {{ developer.getVotingUsernames() }}">
                         <span class="post-vote-count">{{ developer.getVoteCount() }}</span>
                     </span>
                 </div>
 
-                <div class="post-info">
+                <div class="post-info without-upvote-button">
                     <a href="/{{ developer.getGithubUsername() }}">{{ developer.name() }}</a>
                     {% if developer.getJobTitle() %}
                         <span class="last-updated">{{ developer.getJobTitle() }}</span>
