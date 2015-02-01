@@ -5,6 +5,8 @@ class Controller_Feed extends Controller_Abstract
 
     public function get()
     {
+        header('Content-Type: text/xml');
+
         $posts = $this->_getPosts();
 
         $latestPost = current($posts);
