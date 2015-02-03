@@ -1,5 +1,9 @@
 <!DOCTYPE html>
+{% if session.github_username %}
+<html class="logged-in">
+{% else %}
 <html>
+{% endif %}
 <head>
     {% block head %}
         <link rel="stylesheet" type="text/css" href="/skin/css/styles.css?v=1" media="all" />
