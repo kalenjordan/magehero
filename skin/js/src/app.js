@@ -41,7 +41,9 @@ MageHero_App = {
     bindUpvote: function() {
         var self = this;
 
-        $('.upvote a').click(function() {
+        $('.logged-in .upvote a').click(function(e) {
+            e.preventDefault();
+
             var userId = $(this).closest('tr').attr('data-user-id');
             var upvoteCount = $(this).closest('.upvote').find('.vote-count')
 
@@ -49,7 +51,6 @@ MageHero_App = {
                 url: '/user/' + userId + '/upvote',
                 method: 'GET',
                 success: function(data) {
-                    console.log(data);
                     if (! data.success) {
                         alert(data.message);
                         return;
@@ -66,7 +67,9 @@ MageHero_App = {
     bindPostUpvote: function() {
         var self = this;
 
-        $('.post-upvote-link').click(function() {
+        $('.logged-in .post-upvote-link').click(function(e) {
+            e.preventDefault();
+
             var postId = $(this).closest('.post-upvote').attr('data-post-id');
             var upvoteCount = $(this).closest('.post-upvote').find('.post-vote-count');
 
@@ -74,7 +77,6 @@ MageHero_App = {
                 url: '/posts/' + postId + '/upvote',
                 method: 'GET',
                 success: function(data) {
-                    console.log(data);
                     if (! data.success) {
                         alert(data.message);
                         return;
