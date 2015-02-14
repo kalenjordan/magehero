@@ -2,34 +2,8 @@ $(document).ready(function() {
     MageHero_App.bindUpvote();
     MageHero_App.bindPostUpvote();
     MageHero_App.bindChosen();
-    $('table.listing').tablesorter({
-        headers: {
-            0: { sorter: false },
-            2: { sorter: false },
-            4: { sorter: false },
-            8: { sorter: false }
-        },
-        textExtraction: function(cell) {
-            var votes = $(cell).find('.vote-count');
-            if (votes.length) {
-                return votes.text();
-            }
-            return $(cell).text();
-        }
-    });
-
-    if ($('textarea.body').size()) {
-        var opts = {
-            textarea: 'body',
-            theme: {
-                base:       '../../../../epiceditor/themes/base/epiceditor.css',
-                preview:    '../../../../epiceditor/themes/preview/preview-dark.css',
-                editor:     '../../../../epiceditor/themes/editor/epic-dark.css'
-            }
-        };
-        var editor = new EpicEditor(opts).load();
-    }
-
+    MageHero_App.setupEpicEditor();
+    MageHero_App.bindProgressiveLoad();
     new LazyLoader('.lazyload', 'data-src');
 });
 
@@ -38,6 +12,9 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 MageHero_App = {
+    currentUserLimit: null,
+    usersPerPage: 20,
+
     bindUpvote: function() {
         var self = this;
 
@@ -93,5 +70,56 @@ MageHero_App = {
     bindChosen: function() {
         $('.fancy-select').chosen();
         $('.tooltip').tooltipster();
+    },
+
+    setupEpicEditor: function() {
+        if ($('textarea.body').size()) {
+            var opts = {
+                textarea: 'body',
+                theme: {
+                    base:       '../../../../epiceditor/themes/base/epiceditor.css',
+                    preview:    '../../../../epiceditor/themes/preview/preview-dark.css',
+                    editor:     '../../../../epiceditor/themes/editor/epic-dark.css'
+                }
+            };
+            var editor = new EpicEditor(opts).load();
+        }
+    },
+
+    bindProgressiveLoad: function() {
+        var self = this;
+
+        $('.load-more a').click(function() {
+            self.handleProgressiveLoad();
+        });
+    },
+
+    handleProgressiveLoad: function() {
+        var self = this;
+        this.currentUserLimit += this.usersPerPage;
+
+        $('.load-more a').text('Loading...');
+
+        $.ajax({
+            url: '/users-fragment/' + self.currentUserLimit,
+            method: 'GET',
+
+            success: function(data) {
+                if (! data.success) {
+                    alert("Uh-oh, there was a problem!");
+                    return;
+                }
+
+                if (data.html) {
+                    $('.listing').append(data.html);
+                }
+
+                if (data.count > self.usersPerPage) {
+                    $('.load-more a').text('Load More');
+                } else {
+                    $('.load-more a').hide();
+                }
+            }
+        });
     }
 };

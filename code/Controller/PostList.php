@@ -25,7 +25,6 @@ class Controller_PostList extends Controller_Abstract
             ->order(array("DATE_FORMAT(posts.created_at, '%Y-%m-%d') DESC", "COUNT(DISTINCT post_vote_id) DESC"))
             ->where('posts.is_active = 1');
 
-
         if (! isset($_GET['period']) || $_GET['period'] != 'all-time') {
             $select->where("posts.created_at > DATE_SUB(NOW(), INTERVAL $recentTimePeriod)");
         } else {

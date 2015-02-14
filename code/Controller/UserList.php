@@ -2,7 +2,7 @@
 
 class Controller_UserList extends Controller_Abstract
 {
-    public function get()
+    public function get($page = null)
     {
         $developers = $this->_getDevelopers();
 
@@ -13,10 +13,18 @@ class Controller_UserList extends Controller_Abstract
         ));
     }
 
+    protected function _getSelect()
+    {
+        $select = $this->_getContainer()->User()->selectAll()
+            ->limit(20);
+
+        return $select;
+    }
+
     protected function _getDevelopers()
     {
-        $query = $this->_getContainer()->User()->selectAll();
-        $userRows = $this->_getContainer()->LocalConfig()->database()->fetchAll($query);
+        $select = $this->_getSelect();
+        $userRows = $this->_getContainer()->LocalConfig()->database()->fetchAll($select);
 
         $userModels = array();
         foreach ($userRows as $userRow) {

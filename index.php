@@ -32,6 +32,7 @@ try {
         "/posts/:number/:alpha"             => "Controller_Post",
         "/profile"                          => "Controller_Profile",
         "/users"                            => "Controller_UserList",
+        "/users-fragment/:number"           => "Controller_UserListFragment",
         "/user/:number/upvote"              => "Controller_UserUpvote",
         "/:string/posts"                    => "Controller_UserPosts",
         "/(.*)"                             => "Controller_UserProfile",

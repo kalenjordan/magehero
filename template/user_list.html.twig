@@ -7,62 +7,9 @@
     </h2>
     -->
     <ul class="listing">
-        {% for developer in developers %}
-            <li class="listing-post">
-                <div class="post-upvote without-upvote-button" data-post-id={{ post.id() }}>
-                    <span class="post-vote-count-wrapper tooltip" title="Upvoted by {{ developer.getVotingUsernames() }}">
-                        <span class="post-vote-count">{{ developer.getVoteCount() }}</span>
-                    </span>
-                </div>
-
-                <div class="post-info without-upvote-button">
-                    <a href="/{{ developer.getGithubUsername() }}">{{ developer.name() }}</a>
-                    {% if developer.getJobTitle() %}
-                        <span class="last-updated">{{ developer.getJobTitle() }}</span>
-                    {% endif %}
-                </div>
-
-                <div class="user-info">
-                    {% if developer.certificationBoardUrl() %}
-                        <a href="{{ developer.certificationBoardUrl() }}" target="_blank"><i class="fa fa-certificate tooltip" title="Magento Certification Advisory Board"></i></a>
-                    {% endif %}
-                    {% if developer.certifiedDeveloperUrl() %}
-                        <a href="{{ developer.certifiedDeveloperUrl() }}" target="_blank"><i class="fa fa-certificate tooltip" title="Magento Certified Developer"></i></a>
-                    {% endif %}
-                    {% if developer.certifiedDeveloperPlusUrl() %}
-                        <a href="{{ developer.certifiedDeveloperPlusUrl() }}" target="_blank"><i class="fa fa-plus tooltip" title="Magento Certified Developer Plus"></i></a>
-                    {% endif %}
-                    {% if developer.certifiedSolutionSpecialistUrl() %}
-                        <a href="{{ developer.certifiedSolutionSpecialistUrl() }}" target="_blank"><i class="fa fa-certificate tooltip" title="Magento Certified Solution Specialist"></i></a>
-                    {% endif %}
-                    {% if developer.certifiedFrontendDeveloperUrl() %}
-                        <a href="{{ developer.certifiedFrontendDeveloperUrl() }}" target="_blank"><i class="fa fa-certificate tooltip" title="Magento Certified Frontend Developer"></i></a>
-                    {% endif %}
-                    {% if developer.twitterUsername() %}
-                        <a href="https://twitter.com/{{ developer.twitterUsername() }}" target="_blank"><i class="fa fa-twitter tooltip" title="Twitter"></i></a>
-                    {% endif %}
-                    {% if developer.githubUsername() %}
-                        <a href="https://github.com/{{ developer.githubUsername() }}" target="_blank"><i class="fa fa-github tooltip" title="GitHub"></i></a>
-                    {% endif %}
-                    {% if developer.websiteUrl() %}
-                        <a href="{{ developer.websiteUrl() }}" target="_blank"><i class="fa fa-globe tooltip" title="Visit {{ developer.websiteUrl() }}"></i></a>
-                    {% endif %}
-                    {% if developer.stackoverflowUrl() %}
-                        <a href="{{ developer.stackoverflowUrl() }}" target="_blank"><i class="fa fa-stack-exchange tooltip" title="Stack Overflow"></i></a>
-                    {% endif %}
-                    {% if developer.linkedinUrl() %}
-                        <a href="{{ developer.linkedinUrl() }}" target="_blank"><i class="fa fa-linkedin tooltip" title="LinkedIn"></i></a>
-                    {% endif %}
-                    <div class="availability {{ developer.isAvailable() ? "available" : "not-available" }} tooltip" title=" {{ developer.isAvailable() ? "Available for hire" : "Not available for hire" }}">
-                        <i class="fa fa-circle"></i>
-                    </div>
-                    {% if developer.imageUrl() %}
-                        <div class="image-wrapper user-thumbnail">
-                            <a href="{{ developer.getUrl() }}"><img class="lazyload" data-src="{{ developer.imageUrl() }}" ></a>
-                        </div>
-                    {% endif %}
-                </div>
-            </li>
-        {% endfor %}
+        {% include 'fragment/user_list.html.twig' %}
     </ul>
+    <div class="load-more">
+        <a href="javascript://">Load More</a>
+    </div>
 {% endblock %}

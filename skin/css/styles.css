@@ -216,3 +216,5 @@ textarea.profile{width:100%;height:400px;font-size:16px;line-height:22px;font-fa
 .profile-map{margin-top:.6em;width:100%;height:250px}
 .fa.fa-rocket{color:#e8690e}
 .fa.fa-star{color:#dfbf1e}
+.load-more{text-align:center}
+.load-more a{background-color:gray;color:#fff;padding:.25em .75em}

@@ -5,3 +5,12 @@
 .fa.fa-star {
     color: rgb(223, 191, 30);
 }
+
+.load-more {
+    text-align: center;
+    a {
+        background-color: gray;
+        color: white;
+        padding: 0.25em 0.75em;
+    }
+}
