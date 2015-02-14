@@ -112,9 +112,6 @@ MageHero_App = {
 
                 if (data.html) {
                     $('.listing').append(data.html);
-                }
-
-                if (data.count > self.usersPerPage) {
                     $('.load-more a').text('Load More');
                 } else {
                     $('.load-more a').hide();
