@@ -23,10 +23,16 @@
     {% endif %}
 </div>
 
-{% if not hideImage and post.getUser().imageUrl() %}
+{% if post.isNews() %}
     <div class="user-info">
-        <div class="image-wrapper user-thumbnail">
-            <a href="{{ post.getUser().getUrl() }}"><img class="lazyload" data-src="{{ post.getUser().imageUrl() }}" ></a>
-        </div>
+        <i class="fa fa-newspaper-o"></i>
     </div>
+{% else %}
+    {%  if post.getUser() and post.getUser().imageUrl() %}
+        <div class="user-info">
+            <div class="image-wrapper user-thumbnail">
+                <a href="{{ post.getUser().getUrl() }}"><img class="lazyload" data-src="{{ post.getUser().imageUrl() }}" ></a>
+            </div>
+        </div>
+    {% endif %}
 {% endif %}

@@ -29,10 +29,16 @@
                     </div>
                 </div>
 
-                {%  if post.getUser() and post.getUser().imageUrl() %}
-                    <div class="image-wrapper user-thumbnail">
-                        <a href="{{ post.getUser().getUrl() }}"><img src="{{ post.getUser().imageUrl() }}" ></a>
+                {% if post.isNews() %}
+                    <div class="user-info">
+                        <i class="fa fa-newspaper-o"></i>
                     </div>
+                {% else %}
+                    {%  if post.getUser() and post.getUser().imageUrl() %}
+                        <div class="image-wrapper user-thumbnail">
+                            <a href="{{ post.getUser().getUrl() }}"><img src="{{ post.getUser().imageUrl() }}" ></a>
+                        </div>
+                    {% endif %}
                 {% endif %}
 
                 <div class="post-body">

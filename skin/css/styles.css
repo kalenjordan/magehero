@@ -151,6 +151,7 @@ iframe{border:0}
 .listing .disqus-comment-count{display:block;font-size:.8em}
 .listing .listing-post{overflow:hidden;margin:1.2em 0;padding:.5em 1em}
 .post-info,.post-upvote,.user-info,.user-thumbnail{display:inline-block;vertical-align:middle}
+.user-info .fa.fa-newspaper-o{font-size:23px;padding-top:10px}
 .user-thumbnail{max-width:40px}
 .post-upvote{margin:0 1em 0 0;text-align:center;float:left}
 .post-upvote.without-upvote-button{padding-top:.5em}
@@ -185,6 +186,7 @@ iframe{border:0}
 .post .post-info{width:100%}
 .post .post-info .last-updated,.post .post-info h2{display:inline-block;margin-bottom:0}
 .post .user-thumbnail{max-width:80px}
+.post .user-info .fa.fa-newspaper-o{font-size:55px}
 .post .post-body{clear:both;margin-top:2em;margin-bottom:1em}
 .post .post-body a{font-weight:400}
 .post .post-body img{width:90%;padding:5%}

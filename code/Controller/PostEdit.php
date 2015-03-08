@@ -38,6 +38,7 @@ class Controller_PostEdit extends Controller_Account
         $body = isset($_POST['body']) ? $_POST['body'] : null;
         $tagIds = isset($_POST['tag_ids']) ? $_POST['tag_ids'] : null;
         $isActive = isset($_POST['is_active']) ? $_POST['is_active'] : null;
+        $isNews = isset($_POST['is_news']) ? $_POST['is_news'] : null;
 
         if ($imageUrl) {
             if (strpos($imageUrl, "javascript:") !== false || strpos($imageUrl, "data:") !== false) {
@@ -59,6 +60,7 @@ class Controller_PostEdit extends Controller_Account
             ->set('tag_ids', $tagIds)
             ->set('name', isset($profileData['name']) ? $profileData['name'] : null)
             ->set('is_active', (int)$isActive)
+            ->set('is_news', (int)$isNews)
             ->set('image_url', $imageUrl)
             ->save();
 

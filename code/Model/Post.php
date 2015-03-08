@@ -9,7 +9,7 @@ class Model_Post extends Model_Record
     protected function _getTableIdFieldname() { return 'post_id'; }
     protected function _getColumns()
     {
-        return array('user_id', 'is_active', 'image_url', 'subject', 'body');
+        return array('user_id', 'is_active', 'is_news', 'image_url', 'subject', 'body');
     }
 
     /**
@@ -42,6 +42,7 @@ class Model_Post extends Model_Record
     public function getUpdatedAt()   { return $this->get('updated_at'); }
     public function voteCount()      { return $this->get('vote_count'); }
     public function getUpvotersCsv() { return $this->get('upvoters_csv'); }
+    public function isNews()         { return $this->get('is_news'); }
 
     /**
      * @return \Carbon\Carbon
