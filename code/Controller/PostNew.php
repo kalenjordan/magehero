@@ -20,6 +20,7 @@ class Controller_PostNew extends Controller_Account
         $data = array(
             "subject"   => "New Post",
             "is_active" => false,
+            "is_news"   => false,
             "user_id"   => $this->_getCurrentUser()->getId(),
         );
 
