@@ -194,7 +194,7 @@ class Model_Post extends Model_Record
     }
 
     /**
-     * Search string within post title and body and author name.
+     * Search string within post title and body.
      *
      * Algorithm here is to count mentions of search terms in body and subject colums. Weighting subject by 5.
      * This method isn't known for being particularly performant on large databases but MVP and all that.

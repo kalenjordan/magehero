@@ -326,8 +326,49 @@ class Model_User extends Model_Record
         return $postModel;
     }
 
-    public function getUrl() {
+    public function getUrl()
+    {
         $url = implode("/", array($this->_localConfig->get('base_url'), $this->getGithubUsername(), 'posts'));
+
         return $url;
     }
+
+    /**
+     * Search users by name and username.
+     * 
+     * @param $term
+     *
+     * @return array
+     */
+    public function search($term)
+    {
+        $terms = explode(" ", $term);
+
+        $searchQuery = array();
+        foreach ($terms as $term) {
+            $term = $this->_localConfig->database()->quote("[[:<:]]" . $term . "[[:>:]]");
+            $searchQuery[] = "(users.name regexp $term) * 5 + (users.username regexp $term)";
+        }
+
+        $searchQuery = implode(" + ", $searchQuery);
+
+        $query = $this->selectAll();
+        $query->columns(new Zend_Db_Expr("($searchQuery) as hits"));
+        $query->having('hits > 0');
+
+        // We need to reset the ordering that was put on in selectAll()
+        $query->reset( Zend_Db_Select::ORDER );
+        $query->order("hits DESC");
+
+        $rows = $this->_localConfig->database()->fetchAll($query);
+
+        $models = array();
+        foreach ($rows as $row) {
+            $model = $this->_getContainer()->User()->setData($row);
+            $models[] = $model;
+        }
+
+        return $models;
+    }
+
 }
