@@ -276,6 +276,12 @@ class Model_Post extends Model_Record
         return $url;
     }
 
+    public function getEditUrl()
+    {
+        $url = implode("/", array($this->_localConfig->get('base_url'), "posts", $this->getId(), "edit"));
+        return $url;
+    }
+
     public function getTweetUrl()
     {
         $text = $this->getSubject() . " " . $this->getUrl();
