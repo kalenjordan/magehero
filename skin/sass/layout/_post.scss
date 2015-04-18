@@ -10,17 +10,13 @@
     font-size: 23px;
     padding-top: 10px;
 
-    .image-wrapper {
+    .image-wrapper.is-news {
         position: relative;
-
-        img {
-            width: 34px;
-        }
 
         .fa.fa-newspaper-o {
             position: absolute;
-            top: 25px;
-            left: 28px;
+            top: 31px;
+            left: 35px;
             font-size: 14px;
         }
     }

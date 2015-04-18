@@ -152,9 +152,8 @@ iframe{border:0}
 .listing .listing-post{overflow:hidden;margin:1.2em 0;padding:.5em 1em}
 .post-info,.post-upvote,.user-info,.user-thumbnail{display:inline-block;vertical-align:middle}
 .user-info{font-size:23px;padding-top:10px}
-.user-info .image-wrapper{position:relative}
-.user-info .image-wrapper img{width:34px}
-.user-info .image-wrapper .fa.fa-newspaper-o{position:absolute;top:25px;left:28px;font-size:14px}
+.user-info .image-wrapper.is-news{position:relative}
+.user-info .image-wrapper.is-news .fa.fa-newspaper-o{position:absolute;top:31px;left:35px;font-size:14px}
 .user-thumbnail{max-width:40px}
 .post-upvote{margin:0 1em 0 0;text-align:center;float:left}
 .post-upvote.without-upvote-button{padding-top:.5em}
