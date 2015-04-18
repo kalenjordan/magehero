@@ -328,7 +328,7 @@ class Model_User extends Model_Record
 
     public function getUrl()
     {
-        $url = implode("/", array($this->_localConfig->get('base_url'), $this->getGithubUsername(), 'posts'));
+        $url = implode("/", array($this->_localConfig->get('base_url'), $this->getGithubUsername()));
 
         return $url;
     }
