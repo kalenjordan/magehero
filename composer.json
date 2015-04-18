@@ -3,7 +3,7 @@
     "description" : "Magehero website",
     "require": {
         "torophp/torophp": "dev-master",
-        "twig/twig": "dev-master",
+        "twig/twig": "1.*@dev",
         "lusitanian/oauth": "~0.3",
         "nesbot/Carbon": "*",
         "mnapoli/php-di": "~4.0",
