@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block pre_header %}
+    <div class="pre-header">
+    </div>
+{% endblock %}
+
+{% block masthead %}
+    <div class="masthead">
+        <img class="lazyload" data-src="{{ user.imageUrl() }}" >
+        <h1>{{ user.getName }}</h1>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <ul class="listing">
+        {% for post in posts %}
+            <li class="listing-post">
+                {% include 'fragment/post.html.twig' with { 'hideImage': true } %}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
