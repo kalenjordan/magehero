@@ -5,11 +5,6 @@ class Controller_PostNew extends Controller_Account
     protected function _preDispatch()
     {
         parent::_preDispatch();
-
-        $minimumVoteCount = $this->_getContainer()->LocalConfig()->getPostingMinimumVotecount();
-        if ($this->_getCurrentUser()->getVoteCount() < $minimumVoteCount) {
-            die("You have to have $minimumVoteCount vote(s) in order to post");
-        }
     }
 
 
