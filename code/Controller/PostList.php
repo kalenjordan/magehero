@@ -4,33 +4,40 @@ class Controller_PostList extends Controller_Abstract
 {
     public function get()
     {
-        $posts = $this->_getPosts();
+        $selectThisWeek = $this->_getSelectByWeek(1);
+        $selectLastWeek = $this->_getSelectByWeek(2, 1);
+
+        $postsThisWeek = $this->_selectToModelArray($selectThisWeek);
+        $postsLastWeek = $this->_selectToModelArray($selectLastWeek);
 
         echo $this->_getTwig()->render('post_list.html.twig', array(
-            'session'       => $this->_getSession(),
-            'posts'         => $posts,
-            'local_config'  => $this->_getContainer()->LocalConfig(),
+            'session'           => $this->_getSession(),
+            'posts_this_week'   => $postsThisWeek,
+            'posts_last_week'   => $postsLastWeek,
+            'local_config'      => $this->_getContainer()->LocalConfig(),
         ));
     }
 
-    protected function _getPosts()
+    protected function _getSelectByWeek($fromWeek, $toWeek = null)
     {
-        $recentTimePeriod = $this->_getContainer()->LocalConfig()->getRecentTimePeriod();
-        if (! $recentTimePeriod) {
-            throw new Exception("Missing recent_time_period in config");
-        }
-
         $select = $this->_getContainer()->Post()->selectAll()
             ->reset('order')
             ->order(array("DATE_FORMAT(posts.created_at, '%Y-%m-%d') DESC", "COUNT(DISTINCT post_vote_id) DESC"))
-            ->where('posts.is_active = 1');
+            ->where('posts.is_active = 1')
+            ->where("posts.created_at > DATE_SUB(NOW(), INTERVAL $fromWeek WEEK)");
 
-        if (! isset($_GET['period']) || $_GET['period'] != 'all-time') {
-            $select->where("posts.created_at > DATE_SUB(NOW(), INTERVAL $recentTimePeriod)");
-        } else {
-            $select->where("posts.created_at > DATE_SUB(NOW(), INTERVAL 1 MONTH)");
+        if ($toWeek) {
+            $select->where("posts.created_at < DATE_SUB(NOW(), INTERVAL $toWeek WEEK)");
         }
 
+        return $select;
+    }
+
+    /**
+     * @param $select Zend_Db_Select
+     */
+    protected function _selectToModelArray($select)
+    {
         $postRows = $this->_getContainer()->LocalConfig()->database()->fetchAll($select);
         $postModels = array();
 
