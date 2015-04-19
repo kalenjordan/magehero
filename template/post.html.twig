@@ -81,7 +81,7 @@
 
                     var disqus_config = function() {
                         this.callbacks.onNewComment = [function(comment) {
-                            $.get("/posts/{{ post.getId() }}/notify-comment", { comment: comment.id, post: "123456" }, function(result) {
+                            $.post("/posts/{{ post.getId() }}/notify-comment", { comment: comment.id, post: "123456" }, function(result) {
                                 console.log(result);
                             });
                         }];
