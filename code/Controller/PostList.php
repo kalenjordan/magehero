@@ -22,7 +22,7 @@ class Controller_PostList extends Controller_Abstract
     {
         $select = $this->_getContainer()->Post()->selectAll()
             ->reset('order')
-            ->order(array("DATE_FORMAT(posts.created_at, '%Y-%m-%d') DESC", "COUNT(DISTINCT post_vote_id) DESC"))
+            ->order(new Zend_Db_Expr("COUNT(DISTINCT post_vote_id) + (IF(posts.created_at > DATE_SUB(NOW(), INTERVAL 1 DAY), 5, 0)) DESC"))
             ->where('posts.is_active = 1')
             ->where("posts.created_at > DATE_SUB(NOW(), INTERVAL $fromWeek WEEK)");
 
