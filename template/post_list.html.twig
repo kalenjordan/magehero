@@ -2,10 +2,15 @@
 
 {% block content %}
     <ul class="listing">
-        {% for post in posts %}
-            {% if post.getCreatedAtDate().format('Y-m-d') != lastPost.getCreatedAtDate().format('Y-m-d') %}
-                <h2>{{ post.getCreatedAtDate().format('D, M j') }}</h2>
-            {% endif %}
+        <h2>This Week</h2>
+        {% for post in posts_this_week %}
+            <li class="listing-post">
+                {% include 'fragment/post.html.twig' with { 'hideTags': true } %}
+            </li>
+            {% set lastPost = post %}
+        {% endfor %}
+        <h2>Last Week</h2>
+        {% for post in posts_last_week %}
             <li class="listing-post">
                 {% include 'fragment/post.html.twig' with { 'hideTags': true } %}
             </li>
