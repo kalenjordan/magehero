@@ -43,6 +43,7 @@ class Model_Post extends Model_Record
     public function voteCount()      { return $this->get('vote_count'); }
     public function getUpvotersCsv() { return $this->get('upvoters_csv'); }
     public function isNews()         { return $this->get('is_news'); }
+    public function isRecent()       { return $this->get('is_recent'); }
 
     /**
      * @return \Carbon\Carbon

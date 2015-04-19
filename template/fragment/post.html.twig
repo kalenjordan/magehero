@@ -11,8 +11,12 @@
     <a href="{{ post.getUrl() }}">{{ post.getSubject() }}</a>
     <span class="last-updated">{{ post.createdAtFriendly() }}</span>
 
-    {% if not hideTags %}
     <div class="tags">
+        {% if post.isRecent() %}
+        <span class="tag">
+            <i class="fa fa-bolt"></i> New
+        </span>
+        {% endif %}
         {% for tag in post.fetchTags() %}
             <span class="tag">
             <i class="fa fa-tag"></i>
@@ -20,7 +24,6 @@
         </span>
         {% endfor %}
     </div>
-    {% endif %}
 </div>
 
 {%  if post.getUser() and post.getUser().imageUrl() %}
