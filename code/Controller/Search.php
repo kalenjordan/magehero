@@ -13,6 +13,7 @@ class Controller_Search extends Controller_Abstract
             'posts'         => $posts,
             'users'         => $users,
             'local_config'  => $this->_getContainer()->LocalConfig(),
+            'search_query'  => $_GET['query'],
         ));
     }
 }
