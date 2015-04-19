@@ -1,0 +1,47 @@
+<label for="is_active" >Published?</label>
+<div class="input-wrapper">
+    <select id="is_active" name="is_active">
+        <option {{ post.getIsActive() ? "" : "selected" }} value=0>Draft</option>
+        <option {{ post.getIsActive() ? "selected " : "" }}value=1>Published</option>
+    </select>
+</div>
+
+<div class="input-wrapper">
+    <label for="is_news" >Post Type</label>
+    <select id="is_news" name="is_news">
+        <option {{ post.isNews() ? "" : "selected" }} value=0>What I'm working on</option>
+        <option {{ post.isNews() ? "selected " : "" }}value=1>News</option>
+    </select>
+    <div class="help">
+        <a href="http://magehero.com/posts/749/new-magehero-feature-news" target="_blank">What's the difference between <i>What I'm working on</i> and <i>News</i>?</a>
+    </div>
+</div>
+
+<div class="input-wrapper">
+    <label for="subject" >Subject</label>
+    <input id="subject" name="subject" class="input-field subject" value="{{ post.getSubject() }}" />
+</div>
+
+<div class="input-wrapper">
+    <label for="tag_ids" >Tags</label>
+    <select id="tag_ids" multiple name="tag_ids[]" class="fancy-select">
+        {% for tag in tags %}
+            <option {{ post.hasTagId(tag.getId()) ? "selected" : "" }} value="{{ tag.getId() }}">{{ tag.getTagText() }}</option>
+        {% endfor %}
+    </select>
+</div>
+
+<div class="input-wrapper">
+    <label for="image_url" >Image URL (Optional)</label>
+    <input id="image_url" name="image_url" class="input-field" value="{{ post.getImageUrl() }}" />
+</div>
+
+<div class="input-wrapper">
+    <label for="body" >Details (Optional)</label>
+    <textarea id="body" name="body" class="textarea body" style="display:none">{{ post.getBody() }}</textarea>
+    <div id="epiceditor"></div>
+</div>
+
+<div>
+    <input type="submit" value="Save">
+</div>

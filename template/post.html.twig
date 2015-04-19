@@ -19,7 +19,7 @@
                 <div class="post-info">
                     <h2>{{ post.getSubject() }}</h2>
                     <div class="tags">
-                        <span class="last-updated">Posted {{ post.createdAtFriendly() }} in</span>
+                        <span class="last-updated">Posted by {{ post.getUser().getName() }} {{ post.createdAtFriendly() }} in</span>
                         {% for tag in post.fetchTags() %}
                             <span class="tag">
                             <i class="fa fa-tag"></i>

@@ -23,48 +23,14 @@ class Controller_UserProfile extends Controller_Abstract
             die("Not found");
         }
 
-        $developers = $this->_getDevelopers($user);
+        $posts = $this->_getContainer()->Post()->fetchByUserId($user->getId());
 
-        echo $this->_getTwig()->render('user_list.html.twig', array(
+        echo $this->_getTwig()->render('user_profile.html.twig', array(
             'user'          => $user,
-            'developers'    => $developers,
+            'body_class'    => 'user-profile',
+            'posts'         => $posts,
             'session'       => $this->_getSession(),
             'local_config'  => $this->_getContainer()->LocalConfig(),
         ));
     }
-
-    /**
-     * @param $user Model_User
-     * @return array
-     */
-    protected function _getDevelopers($user)
-    {
-        $userModels = array($user);
-        $userRows = $this->_getContainer()->User()->fetchAll();
-
-        foreach ($userRows as $userRow) {
-            $developer = $this->_getContainer()->User()->setData($userRow);
-            if ($developer->getUsername() != $user->getUsername()) {
-                $userModels[] = $developer;
-            }
-        }
-
-        return $userModels;
-    }
-
-    /**
-     * @param $a Model_User
-     * @param $b Model_User
-     * @return bool
-     */
-    public function sortDevelopers($a, $b)
-    {
-        if ($a->getUsername() == 'kalenjordan') {
-            return true;
-        }
-        if ($b->getUsername() == 'kalenjordan') {
-            return true;
-        }
-    }
-
 }

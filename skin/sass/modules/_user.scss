@@ -40,3 +40,35 @@ textarea.profile {
     width: 100%;
     height: 250px;
 }
+
+.user-profile {
+    .pre-header {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 189px;
+        background-color: $orange;
+
+        .logo {
+            font-size: 37px;
+            padding: 16px;
+        }
+    }
+
+    .masthead {
+        margin-top: 87px;
+
+        img {
+            border-radius: 50%;
+            max-width: 200px;
+        }
+    }
+
+    .search {
+        display: none;
+    }
+
+    .account {
+        display: none;
+    }
+}

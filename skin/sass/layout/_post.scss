@@ -6,10 +6,23 @@
     vertical-align: middle;
 }
 
-.user-info .fa.fa-newspaper-o {
+.user-info {
     font-size: 23px;
     padding-top: 10px;
+
+    .image-wrapper.is-news {
+        position: relative;
+
+        .fa.fa-newspaper-o {
+            position: absolute;
+            top: 31px;
+            left: 35px;
+            font-size: 14px;
+        }
+    }
 }
+
+
 
 .user-thumbnail {
     max-width: 40px;

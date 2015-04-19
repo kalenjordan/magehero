@@ -34,11 +34,12 @@ class Controller_PostEdit extends Controller_Account
     public function post($postId)
     {
         $imageUrl = isset($_POST['image_url']) ? $_POST['image_url'] : null;
-        $subject = isset($_POST['subject']) ? $_POST['subject'] : null;
-        $body = isset($_POST['body']) ? $_POST['body'] : null;
-        $tagIds = isset($_POST['tag_ids']) ? $_POST['tag_ids'] : null;
+
+        $subject  = isset($_POST['subject'])   ? $_POST['subject']   : null;
+        $body     = isset($_POST['body'])      ? $_POST['body']      : null;
+        $tagIds   = isset($_POST['tag_ids'])   ? $_POST['tag_ids']   : null;
         $isActive = isset($_POST['is_active']) ? $_POST['is_active'] : null;
-        $isNews = isset($_POST['is_news']) ? $_POST['is_news'] : null;
+        $isNews   = isset($_POST['is_news'])   ? $_POST['is_news']   : null;
 
         if ($imageUrl) {
             if (strpos($imageUrl, "javascript:") !== false || strpos($imageUrl, "data:") !== false) {
@@ -63,6 +64,10 @@ class Controller_PostEdit extends Controller_Account
             ->set('is_news', (int)$isNews)
             ->set('image_url', $imageUrl)
             ->save();
+
+        if (!$isActive) {
+            $this->_redirect($post->getEditUrl());
+        }
 
         $this->_redirect($post->getUrl());
     }

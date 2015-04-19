@@ -16,6 +16,7 @@ class Controller_UserList extends Controller_Abstract
     protected function _getSelect()
     {
         $select = $this->_getContainer()->User()->selectAll()
+            ->where("users.username != 'kalenjordan'")
             ->limit(20);
 
         return $select;

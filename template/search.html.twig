@@ -4,6 +4,15 @@
 
     <h2>Search results for {{ term }}</h2>
 
+    {% if users %}
+    <h3>Heroes</h3>
+    <ul class="listing">
+        {% include 'fragment/user_list.html.twig' with {'developers': users, 'session' : session, 'local_config' : local_config } %}
+    </ul>
+    {% endif %}
+
+    {% if posts %}
+    <h3>Posts</h3>
     <ul class="listing">
         {% for post in posts %}
             <li class="listing-post">
@@ -11,5 +20,10 @@
             </li>
         {% endfor %}
     </ul>
+    {% endif %}
+
+    {% if not users and not posts %}
+        <p>Sorry, no results.</p>
+    {% endif %}
 
 {% endblock %}
