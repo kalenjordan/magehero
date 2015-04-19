@@ -6,3 +6,5 @@
 node_modules
 bower_components
 sitemap.xml
+
+tests/_output/*
