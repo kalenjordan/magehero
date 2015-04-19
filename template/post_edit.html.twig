@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
-<form action="/posts/{{ post.getId() }}/edit" method="POST" class="post-edit">
+<form action="/posts/{{ post.getId() }}/edit" method="POST" class="post-edit" id="post-edit">
     <label for="is_active" >Published?</label>
     <div class="input-wrapper">
         <select id="is_active" name="is_active">

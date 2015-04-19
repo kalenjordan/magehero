@@ -222,6 +222,23 @@ It would be great if you could avoid tweeting me about it, because
 I'm getting a little bit overwhelmed by the tweets and it's just
 not a very productive way to report the bug.  
 
+## Developer Notes
+
+### Testing
+
+For testing we are using [codeception](http://codeception.com/) which provides access to create acceptance, 
+functional and unit tests.
+
+To run the tests you will need to [download](http://selenium-release.storage.googleapis.com/index.html) and run 
+the selenium web driver, e.g. 
+
+    java -jar ./selenium-server-standalone-2.45.0.jar
+    
+Then build and run the test suite
+
+vendor/bin/codecept build
+vendor/bin/codecept run
+
 ### Credits
 
 - Thanks to <a href="https://twitter.com/daniel_sloof">Daniel Sloof</a> for the domain name - magehero.com!

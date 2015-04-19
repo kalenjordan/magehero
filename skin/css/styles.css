@@ -1,4 +1,4 @@
-/*! normalize.css v3.0.2 | MIT License | git.io/normalize */
+/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 html{-ms-text-size-adjust:100%}
 body{margin:0}
 article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary{display:block}
@@ -18,7 +18,7 @@ sub{bottom:-.25em}
 img{border:0}
 svg:not(:root){overflow:hidden}
 figure{margin:1em 40px}
-hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}
+hr{box-sizing:content-box;height:0}
 pre{overflow:auto}
 code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}
 button,input,optgroup,select,textarea{color:inherit;font:inherit;margin:0}
@@ -30,7 +30,7 @@ button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
 input{line-height:normal}
 input[type=checkbox],input[type=radio]{box-sizing:border-box;padding:0}
 input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button{height:auto}
-input[type=search]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}
+input[type=search]{-webkit-appearance:textfield;box-sizing:content-box}
 input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration{-webkit-appearance:none}
 legend{border:0;padding:0}
 textarea{overflow:auto}
@@ -127,7 +127,7 @@ a{color:#666;text-decoration:none}
 a:focus,a:hover{text-decoration:underline}
 legend{font-size:18px;font-size:1.125rem}
 fieldset{border:0;margin:0;padding:0}
-input[type=date],input[type=datetime-local],input[type=datetime],input[type=email],input[type=month],input[type=number],input[type=password],input[type=search],input[type=tel],input[type=text],input[type=time],input[type=url],input[type=week],textarea{padding:.5em}
+input[type=date],input[type=datetime],input[type=datetime-local],input[type=month],input[type=week],input[type=email],input[type=tel],input[type=time],input[type=url],input[type=number],input[type=search],input[type=text],input[type=password],textarea{padding:.5em}
 .button,button,input[type=button],input[type=submit]{background:#ef672f;border:0;border-radius:0;color:#FFF;display:inline-block;margin:1em 0;padding:.5em 1em}
 .button:hover,button:hover,input[type=button]:hover,input[type=submit]:hover{background:#aaa;text-decoration:none}
 select{width:100%}
@@ -176,10 +176,10 @@ iframe{border:0}
 .masthead i{width:75px}}
 .search{font-size:.8em}
 .search .search-form{display:none}
+.search button{padding:.33em 1em;margin-top:.92em}
 .account{font-size:.9em}
 .account .user-thumbnail{max-width:30px}
-@media only screen and (min-width:450px){.search .search-form{display:inline-block}
-.search .fa-search{display:none}}
+@media only screen and (min-width:450px){.search .search-form{display:inline-block}}
 .hellobar{background-color:#ef672f;color:#fff;text-align:center}
 .hellobar .hellobar-inner{font-weight:400;padding:.5em}
 .hellobar .hellobar-inner a{color:#fff}

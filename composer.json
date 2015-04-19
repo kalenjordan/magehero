@@ -12,7 +12,8 @@
         "erusev/parsedown": "dev-master",
         "ezyang/htmlpurifier": "dev-master",
         "thepixeldeveloper/sitemap": "dev-master",
-        "symfony/console": "~2.6"
+        "symfony/console": "~2.6",
+        "codeception/codeception": "*"
     },
     "autoload": {"psr-0": {"": "code"}}
 }

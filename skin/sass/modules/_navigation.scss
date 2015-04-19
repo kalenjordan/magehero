@@ -4,6 +4,11 @@
     .search-form {
         display: none;
     }
+
+    button {
+        padding: .33em 1em;
+        margin-top: 0.92em;
+    }
 }
 
 .account {
@@ -20,10 +25,6 @@
     .search {
         .search-form {
             display: inline-block;
-        }
-
-        .fa-search {
-            display: none;
         }
     }
 }
