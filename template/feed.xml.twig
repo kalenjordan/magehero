@@ -24,7 +24,7 @@
           <link>{{ post.getUrl() }}</link>
           <pubDate>{{ post.getCreatedAt()|date("D, d M Y H:i:s O") }}</pubDate>
           <dc:creator>{{ post.get('name') }}</dc:creator>
-          <guid>{{ post.getUrl() }}</guid>
+          <guid>{{ post.getSluglessUrl() }}</guid>
           <description>{{ post.getBodyAsHtml() }}</description>
         </item>
         {% endfor %}
