@@ -18,8 +18,9 @@
     "rank_star_minimum_votecount": 1,
     "recent_time_period": "30 DAY",
     "number_of_hours_for_new": 24,
-    "twitter_consumer_api_key" : "",
-    "twitter_consumer_api_secret" : "",
-    "twitter_oauth_access_token" : "",
-    "twitter_oauth_access_token_secret" : ""
+    "twitter_consumer_api_key": "",
+    "twitter_consumer_api_secret": "",
+    "twitter_oauth_access_token": "",
+    "twitter_oauth_access_token_secret": "",
+    "debug": false
 }
