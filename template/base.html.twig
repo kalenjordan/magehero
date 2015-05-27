@@ -54,7 +54,8 @@
                     </a>
                 </div>
             {% endif %}
-            <a href="/profile" class="tooltip" title="Edit your profile">{{ session.github_username }}</a>
+            <a href="/{{ session.github_username }}" class="tooltip" title="View your profile">{{ session.github_username }}</a>
+            <a href="/profile" class="tooltip" title="Edit your profile">(Edit)</a>
             <a href="/posts/new" class="tooltip" title="Write a post">Post</a>
             <a href="/logout" class="tooltip" title="Peace out">Log Out</a>
         {% else %}
