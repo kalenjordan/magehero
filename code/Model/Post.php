@@ -276,6 +276,11 @@ class Model_Post extends Model_Record
         $url = implode("/", array($this->_localConfig->get('base_url'), "posts", $this->getId(), $this->getSlug()));
         return $url;
     }
+    
+    public function getSluglessUrl()
+    {
+        return implode("/", array($this->_localConfig->get('base_url'), "posts", $this->getId()));
+    }
 
     public function getEditUrl()
     {
