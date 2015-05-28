@@ -10,6 +10,41 @@
     <div class="masthead">
         <img class="lazyload" data-src="{{ user.imageUrl() }}" >
         <h1>{{ user.getName }}</h1>
+        <div>
+            {% if user.certificationBoardUrl() %}
+                <a href="{{ developer.certificationBoardUrl() }}" target="_blank"><i class="fa fa-certificate tooltip" title="Magento Certification Advisory Board"></i></a>
+            {% endif %}
+            {% if user.certifiedDeveloperUrl() %}
+                <a href="{{ developer.certifiedDeveloperUrl() }}" target="_blank"><i class="fa fa-certificate tooltip" title="Magento Certified Developer"></i></a>
+            {% endif %}
+            {% if user.certifiedDeveloperPlusUrl() %}
+                <a href="{{ developer.certifiedDeveloperPlusUrl() }}" target="_blank"><i class="fa fa-plus tooltip" title="Magento Certified Developer Plus"></i></a>
+            {% endif %}
+            {% if user.certifiedSolutionSpecialistUrl() %}
+                <a href="{{ developer.certifiedSolutionSpecialistUrl() }}" target="_blank"><i class="fa fa-certificate tooltip" title="Magento Certified Solution Specialist"></i></a>
+            {% endif %}
+            {% if user.certifiedFrontendDeveloperUrl() %}
+                <a href="{{ developer.certifiedFrontendDeveloperUrl() }}" target="_blank"><i class="fa fa-certificate tooltip" title="Magento Certified Frontend Developer"></i></a>
+            {% endif %}
+            {% if user.twitterUsername() %}
+                <a href="https://twitter.com/{{ developer.twitterUsername() }}" target="_blank"><i class="fa fa-twitter tooltip" title="Twitter"></i></a>
+            {% endif %}
+            {% if user.githubUsername() %}
+                <a href="https://github.com/{{ developer.githubUsername() }}" target="_blank"><i class="fa fa-github tooltip" title="GitHub"></i></a>
+            {% endif %}
+            {% if user.websiteUrl() %}
+                <a href="{{ developer.websiteUrl() }}" target="_blank"><i class="fa fa-globe tooltip" title="Visit {{ user.websiteUrl() }}"></i></a>
+            {% endif %}
+            {% if user.stackoverflowUrl() %}
+                <a href="{{ developer.stackoverflowUrl() }}" target="_blank"><i class="fa fa-stack-exchange tooltip" title="Stack Overflow"></i></a>
+            {% endif %}
+            {% if user.linkedinUrl() %}
+                <a href="{{ developer.linkedinUrl() }}" target="_blank"><i class="fa fa-linkedin tooltip" title="LinkedIn"></i></a>
+            {% endif %}
+            <div class="availability {{ user.isAvailable() ? "available" : "not-available" }} tooltip" title=" {{ user.isAvailable() ? "Available for hire" : "Not available for hire" }}">
+                <i class="fa fa-circle"></i>
+            </div>
+        </div>
     </div>
 {% endblock %}
 
