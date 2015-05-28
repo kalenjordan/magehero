@@ -9,7 +9,7 @@
             </li>
             {% set lastPost = post %}
         {% endfor %}
-        <h2>Last Week</h2>
+        <h2>Last Month</h2>
         {% for post in posts_last_week %}
             <li class="listing-post">
                 {% include 'fragment/post.html.twig' with { 'hideTags': true } %}

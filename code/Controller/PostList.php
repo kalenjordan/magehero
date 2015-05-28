@@ -5,7 +5,7 @@ class Controller_PostList extends Controller_Abstract
     public function get()
     {
         $selectThisWeek = $this->_getSelectByWeek(1);
-        $selectLastWeek = $this->_getSelectByWeek(2, 1);
+        $selectLastWeek = $this->_getSelectByWeek(4, 1);  // This grabbing last month instead of last week
 
         $postsThisWeek = $this->_selectToModelArray($selectThisWeek);
         $postsLastWeek = $this->_selectToModelArray($selectLastWeek);
@@ -25,7 +25,7 @@ class Controller_PostList extends Controller_Abstract
             ->columns(array(
                 'is_recent' => new Zend_Db_Expr("IF(posts.created_at > DATE_SUB(NOW(), INTERVAL 1 DAY), 1, 0)")
             ))
-            ->order(new Zend_Db_Expr("COUNT(DISTINCT post_vote_id) + (IF(posts.created_at > DATE_SUB(NOW(), INTERVAL 1 DAY), 5, 0)) DESC"))
+            ->order(new Zend_Db_Expr("COUNT(DISTINCT post_vote_id) + (IF(posts.created_at > DATE_SUB(NOW(), INTERVAL 1 DAY), 99, 0)) DESC"))
             ->where('posts.is_active = 1')
             ->where("posts.created_at > DATE_SUB(NOW(), INTERVAL $fromWeek WEEK)");
 
