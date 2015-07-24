@@ -164,7 +164,8 @@ class Model_Post extends Model_Record
                 'users',
                 "users.user_id = $table.user_id",
                 array('name')
-            );
+            )
+            ->limit(20);
         $rows = $this->_localConfig->database()->fetchAll($query);
 
         $models = array();
